@@ -16,47 +16,26 @@
 
   <!-- Conexión con Firebase -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
-    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+const loginBtn = document.getElementById("loginBtn");
+const mensaje = document.getElementById("mensaje");
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyDm03_ZcCMg5saA1bMggPjEI8Zf57P9Lks",
-      authDomain: "luna-blanca-1026d.firebaseapp.com",
-      projectId: "luna-blanca-1026d",
-      storageBucket: "luna-blanca-1026d.firebasestorage.app",
-      messagingSenderId: "766085972698",
-      appId: "1:766085972698:web:b664954f998365ee369be3",
-      measurementId: "G-HYSPQGF8NF"
-    };
+loginBtn.addEventListener("click", () => {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
 
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth(app);
+  if (!email || !password) {
+    mensaje.textContent = "Por favor ingresa correo y contraseña";
+    return;
+  }
 
-    const loginBtn = document.getElementById("loginBtn");
-    const mensaje = document.getElementById("mensaje");
-
-    loginBtn.addEventListener("click", () => {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-
-      // Intentar iniciar sesión
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          mensaje.textContent = "¡Bienvenido de nuevo!";
-        })
-        .catch((error) => {
-          // Si no existe el usuario, crearlo
-          createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-              mensaje.textContent = "Usuario creado y logueado con éxito";
-            })
-            .catch((error) => {
-              mensaje.textContent = "Error: " + error.message;
-            });
-        });
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      mensaje.textContent = "¡Bienvenido de nuevo, " + userCredential.user.email + "!";
+    })
+    .catch((error) => {
+      mensaje.textContent = "Error al iniciar sesión: " + error.message;
     });
+});
   </script>
 </body>
 </html>
