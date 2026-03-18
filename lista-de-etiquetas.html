@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Etiquetas - Catálogo Danmei</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+
+
+<style>
+/* ⭐ PAGINA */
+
+body{
+  font-family:'Molengo', Arial, sans-serif;
+  margin:0;
+  padding:20px;
+  color:black;
+  background-color:#ffffff;
+}
+
+/* fondo degradado igual a la página principal */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+
+  background: linear-gradient(
+    to bottom,
+    #dff4ff 0%,
+    #eaf8ff 6%,
+    #ffffff 12%,
+    #ffffff 100%
+  );
+}
+
+
+/* ⭐ TITULO */
+
+h1{
+  text-align:center;
+  font-size:70px;
+  color:#ff8b8b;
+  font-family:'Pacifico', cursive;
+  font-weight:400;
+  margin-bottom:20px;
+  margin-top:0;
+}
+
+
+/* TITULOS DE SECCION */
+
+h2{
+  text-align:center;
+  margin-top:30px;
+  margin-bottom:10px;
+  color:#ff8b8b;
+  font-size:26px;
+  font-weight:600;
+}
+
+
+/* CONTENEDOR GENERAL */
+
+#lista-etiquetas{
+  max-width:900px;
+  margin:auto;
+}
+
+
+/* GRUPO DE TAGS */
+
+.grupo-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+
+/* ETIQUETA */
+
+.tag{
+  text-decoration:none;
+  color:black;
+  background:#ffe4d2;
+  border-radius:12px;
+  padding:8px 14px;
+  font-family:'Molengo', serif;
+  font-size:18px;
+  transition:0.2s;
+}
+
+.tag:hover{
+  background:#ffd2b8;
+}
+
+
+/* NUMERO */
+
+.cantidad{
+  color:#666;
+  margin-left:4px;
+}
+
+
+/* ===== CELULAR ===== */
+
+@media (max-width:500px){
+
+  h1{
+    font-size:42px;
+  }
+
+  h2{
+    font-size:22px;
+  }
+
+  .grupo-tags{
+    gap:8px;
+  }
+
+  .tag{
+    font-size:14px;
+    padding:7px 12px;
+  }
+
+}
+
+.tag-error{
+  background:#ffd6d6;
+  color:#b00000;
+  border:2px solid #ff9a9a;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Lista de etiquetas</h1>
+
+<div id="lista-etiquetas"></div>
+
+
+<!-- contenedor oculto donde se cargan las tarjetas -->
+<div id="contenedor-tarjetas" style="display:none"></div>
+
+
+<!-- aquí cargas tu script donde están las novelas -->
+<script src="tarjetas.js"></script>
+<script src="tags.js"></script>
+
+<script>
+function obtenerNombreTag(valor){
+
+  for (let grupo in tags){
+    if(tags[grupo][valor]){
+      return tags[grupo][valor];
+    }
+  }
+
+  return valor;
+
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  const conteo = {};
+  const tagsInvalidos = {};
+
+  // contar todas las etiquetas
+  novelas.forEach(novela => {
+
+    const lista = novela.tags.toLowerCase().split(" ");
+
+    lista.forEach(tag => {
+
+      if(!conteo[tag]){
+        conteo[tag] = 0;
+      }
+
+      conteo[tag]++;
+
+      // comprobar si existe en tags.js
+      let existe = false;
+
+      for(let grupo in tags){
+        if(tags[grupo][tag]){
+          existe = true;
+          break;
+        }
+      }
+
+      // si no existe, guardarlo como inválido
+      if(!existe){
+        tagsInvalidos[tag] = true;
+        console.warn("Etiqueta no definida:", tag, "en novela:", novela.titulo);
+      }
+
+    });
+
+  });
+
+
+  let html = "";
+
+  // recorrer los grupos de tags
+  for(let grupo in tags){
+
+    html += `<h2>${grupo.charAt(0).toUpperCase() + grupo.slice(1)}</h2>`;
+    html += `<div class="grupo-tags">`;
+
+    for(let tag in tags[grupo]){
+
+      if(conteo[tag]){
+
+        html += `
+        <a class="tag" href="luna-blanca.html?${grupo}=${tag}">
+          ${tags[grupo][tag]}
+          <span class="cantidad">(${conteo[tag]})</span>
+        </a>
+        `;
+
+      }
+
+    }
+
+    html += `</div>`;
+
+  }
+
+  // ⭐ mostrar etiquetas inválidas
+  if(Object.keys(tagsInvalidos).length > 0){
+
+    html += `<h2>Etiquetas incorrectas</h2>`;
+    html += `<div class="grupo-tags">`;
+
+    for(let tag in tagsInvalidos){
+
+      html += `
+      <span class="tag tag-error">
+        ⚠ ${tag}
+        <span class="cantidad">(${conteo[tag]})</span>
+      </span>
+      `;
+
+    }
+
+    html += `</div>`;
+
+  }
+
+  document.getElementById("lista-etiquetas").innerHTML = html;
+
+});
+</script>
+
+</body>
+</html>

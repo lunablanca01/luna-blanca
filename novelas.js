@@ -1,0 +1,218 @@
+/* ================================
+   🏷️ 1. APLICAR ESTADOS A TARJETAS
+================================ */
+function aplicarEstados(contenedor){
+
+  const cards = contenedor.querySelectorAll(".card");
+
+  cards.forEach(card => {
+
+    // evitar duplicar estados si ya existen
+    if(card.querySelector(".estado")) return;
+
+    const tags = (card.dataset.tags || "").toLowerCase();
+    let estadoTexto = "";
+    let estadoClase = "";
+
+    if(tags.includes("finalizado")){
+      estadoTexto = "Finalizado";
+      estadoClase = "estado-finalizado";
+    }
+
+    if(tags.includes("en-proceso")){
+      estadoTexto = "En proceso";
+      estadoClase = "estado-proceso";
+    }
+
+    if(tags.includes("mtl")){
+      estadoTexto = "MTL";
+      estadoClase = "estado-mtl";
+    }
+
+    if(tags.includes("pendiente")){
+      estadoTexto = "Pendiente";
+      estadoClase = "estado-pendiente";
+    }
+
+    if(estadoTexto){
+      const etiqueta = `<div class="estado ${estadoClase}">${estadoTexto}</div>`;
+      card.insertAdjacentHTML("afterbegin", etiqueta);
+    }
+
+  });
+
+}
+
+
+/* ================================
+   🧼 2. LIMPIAR TEXTO
+================================ */
+function limpiarTexto(texto){
+  return texto.toLowerCase().replace(/[\s_]+/g," ").trim();
+}
+
+
+/* ================================
+   👤 3. MOSTRAR MÁS DEL MISMO AUTOR
+================================ */
+function mostrarPorAutor(autorBuscado, bloqueId){
+
+  const bloque = document.getElementById(bloqueId);
+  if(!bloque) return;
+
+  const titulo = bloque.querySelector("h2");
+  const contenedor = bloque.querySelector(".grid");
+
+  if(!contenedor || !titulo) return;
+
+  const tituloActualElem = document.querySelector("h1");
+  const tituloActual = tituloActualElem ? tituloActualElem.innerText.trim() : "";
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(tarjetasHTML, "text/html");
+  const cards = Array.from(doc.querySelectorAll(".card"));
+
+  const tarjetasDelAutor = cards.filter(card => {
+    const autor = card.dataset.autor?.toLowerCase();
+    const h3 = card.querySelector("h3");
+    const tituloCard = h3 ? h3.innerText.trim() : "";
+    return autor === autorBuscado.toLowerCase() && tituloCard !== tituloActual;
+  });
+
+  if(tarjetasDelAutor.length > 0){
+
+    titulo.style.display = "block";
+    contenedor.innerHTML = "";
+
+    tarjetasDelAutor.forEach(card => {
+      const clon = card.cloneNode(true);
+      contenedor.appendChild(clon);
+    });
+
+    // ⭐ APLICAR ESTADOS AQUÍ
+    aplicarEstados(contenedor);
+
+  } else {
+    bloque.style.display = "none";
+  }
+
+}
+
+
+/* ================================
+   🏷️ 4. OBTENER NOMBRE DE TAG
+================================ */
+function obtenerNombreTag(valor){
+  for (let grupo in tags){
+    if(tags[grupo][valor]){
+      return tags[grupo][valor];
+    }
+  }
+  return valor;
+}
+
+
+/* ================================
+   📋 5. MOSTRAR ETIQUETAS DE LA NOVELA
+================================ */
+document.addEventListener("DOMContentLoaded", function () {
+
+  const tituloActual = document.querySelector("h1")?.textContent.trim();
+  if (!tituloActual) return;
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(tarjetasHTML, "text/html");
+  const cards = doc.querySelectorAll(".card");
+
+  let tagsEncontrados = null;
+
+  cards.forEach(card => {
+    const nombre = card.querySelector("h3")?.textContent.trim();
+    if (nombre === tituloActual) {
+      tagsEncontrados = card.dataset.tags;
+    }
+  });
+
+  if (!tagsEncontrados) return;
+
+  const tagsArray = tagsEncontrados.toLowerCase().split(" ");
+
+  const tipo = tagsArray[0] || "";
+  const estado = tagsArray[1] || "";
+  const ambientado = tagsArray[2] || "";
+  const categorias = tagsArray.slice(3);
+
+  const contenedor = document.querySelector(".etiquetas");
+  if (!contenedor) return;
+
+  contenedor.innerHTML = `
+    <span>Tipo:
+      <a href="../luna-blanca.html?tipo=${tipo}">
+        ${obtenerNombreTag(tipo)}
+      </a>
+    </span>
+
+    <span>Estado:
+      <a href="../luna-blanca.html?estado=${estado}">
+        ${obtenerNombreTag(estado)}
+      </a>
+    </span>
+
+    <span>Ambientado:
+      <a href="../luna-blanca.html?ambientado=${ambientado}">
+        ${obtenerNombreTag(ambientado)}
+      </a>
+    </span>
+
+    <br>
+
+    <div class="lista-etiquetas">
+      Etiqueta:
+      ${categorias.map(cat =>
+        `<a href="../luna-blanca.html?categoria=${cat}">
+          ${obtenerNombreTag(cat)}
+        </a>`
+      ).join("")}
+    </div>
+  `;
+});
+
+
+/* ================================
+   👤 6. CARGAR AUTOR
+================================ */
+function cargarAutor(){
+
+  const titulo = document.querySelector("h1").textContent.trim();
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(tarjetasHTML, "text/html");
+  const cards = doc.querySelectorAll(".card");
+
+  cards.forEach(card => {
+
+    const nombreCard = card.querySelector("h3").textContent.trim();
+
+    if(nombreCard === titulo){
+
+      const autor = card.dataset.autor;
+
+      const autorNombre = autor
+        .split("-")
+        .map(p => p.charAt(0).toUpperCase() + p.slice(1))
+        .join(" ");
+
+      document.querySelector(".autor").innerHTML =
+        `Autor: <a href="../luna-blanca.html?autor=${autor}">${autorNombre}</a>`;
+
+      // ⭐ cargar también relacionados
+      mostrarPorAutor(autor, "bloque-autor");
+
+    }
+
+  });
+
+}
+
+// ejecutar
+cargarAutor();
