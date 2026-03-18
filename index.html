@@ -1,140 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-<meta charset="UTF-8">
-<title>Luna Blanca</title>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Molengo&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-
-/* Para que todos los elementos calculen ancho correctamente */
-* {
-  box-sizing: border-box;
-}
-
-/* Fondo y centrado */
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Molengo', sans-serif;
-  background: linear-gradient(to bottom, #bfe7ff 0%, #ffffff 25%);
-}
-
-/* Caja principal */
-.caja {
-  background: white;
-  padding: 40px;
-  border-radius: 14px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  width: 90%;       /* ocupa casi todo el ancho en móvil */
-  max-width: 400px; /* no crece demasiado en escritorio */
-}
-
-/* Título */
-h1 {
-  font-family: 'Pacifico', cursive;
-  color: #ff8b8b;
-  font-weight: 400;
-  margin-bottom: 20px;
-  font-size: 50px; /* más grande en móviles */
-}
-
-/* Inputs y botón */
-input, button {
-  width: 100%;
-  padding: 15px;       /* más grande para tocar fácil en móvil */
-  border-radius: 8px;
-  font-size: 18px;     /* más legible */
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
-}
-
-/* Input específico */
-input {
-  background: #f3fbff;
-}
-
-/* Botón */
-button {
-  border: none;
-  background: #ff8b8b;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.85;
-}
-
-/* Mensaje de error */
-#error {
-  color: #ff6b6b;
-  font-size: 16px;
-  margin-top: 8px;
-  display: none;
-}
-
-/* Estilos solo para móviles (pantallas hasta 480px) */
-@media (max-width: 480px) {
-  .caja {
-    width: 90%;      /* casi todo el ancho del celular */
-    padding: 50px;   /* más espacio dentro */
-  }
-
-  h1 {
-    font-size: 40px; /* título más grande en móviles */
-  }
-
-  input, button {
-    padding: 20px;   /* campos y botón más grandes para tocar fácil */
-    font-size: 15px; /* texto más legible */
-  }
-}
-
-
-
-</style>
+  <meta charset="UTF-8">
+  <title>Página de Inicio - Prueba Firebase</title>
 </head>
-
 <body>
+  <h1>Bienvenida a tu página de prueba</h1>
 
-<div class="caja">
-  <h1>Luna Blanca</h1>
-  <input type="password" id="clave" placeholder="Contraseña">
-  <button onclick="verificar()">Entrar</button>
-  <div id="error">Contraseña incorrecta</div>
-</div>
+  <p>Ingresa tu email y contraseña:</p>
+  <input type="lunablanca.proyecto@gmail.com" id="lunablanca.proyecto@gmail.com" placeholder="lunablanca.proyecto@gmail.com"><br><br>
+  <input type="123" id="123" placeholder="123"><br><br>
+  <button id="loginBtn">Iniciar sesión</button>
 
-<script>
-function verificar(){
-  const passwordCorrecta = "Overlord01*"; // ← CAMBIA ESTO
-  const clave = document.getElementById("clave").value;
+  <p id="mensaje"></p>
 
-  if(clave === passwordCorrecta){
-    window.location.href = "luna-blanca.html";
-  }else{
-    document.getElementById("error").style.display = "block";
-  }
-}
-
-// Enter también funciona
-document.getElementById("clave").addEventListener("keydown", function(e){
-  if(e.key === "Enter"){
-    verificar();
-  }
-});
-</script>
-
-</body>
-
-  <script type="module">
+  <!-- Conexión con Firebase -->"module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
@@ -156,5 +36,29 @@ document.getElementById("clave").addEventListener("keydown", function(e){
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-</script>
+    const loginBtn = document.getElementById("loginBtn");
+    const mensaje = document.getElementById("mensaje");
+
+    loginBtn.addEventListener("click", () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Intentar iniciar sesión
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          mensaje.textContent = "¡Bienvenido de nuevo!";
+        })
+        .catch((error) => {
+          // Si no existe el usuario, crearlo
+          createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              mensaje.textContent = "Usuario creado y logueado con éxito";
+            })
+            .catch((error) => {
+              mensaje.textContent = "Error: " + error.message;
+            });
+        });
+    });
+  </script>
+</body>
 </html>
