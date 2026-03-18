@@ -39,6 +39,15 @@
       if (error) mensaje.textContent = 'Error: ' + error.message;
       else mensaje.textContent = '¡Bienvenido ' + data.user.email + '!';
     });
+
+    document.getElementById('registerBtn').addEventListener('click', async () => {
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const { user, error } = await supabase.auth.signUp({ email, password });
+  console.log(user, error); // <-- esto muestra lo que realmente pasa
+  if (error) mensaje.textContent = 'Error: ' + error.message;
+  else mensaje.textContent = 'Usuario creado: ' + user.email;
+});
   </script>
 </body>
 </html>
