@@ -6,9 +6,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
 </head>
 <body>
-  <h1>Registro y Login - Prueba Supabase</h1>
+  <h1>Registro y Login - Supabase</h1>
 
-  <input type="email" id="email" placeholder="Correo electrónico">
+  <input type="email" id="email" placeholder="Correo">
   <input type="password" id="password" placeholder="Contraseña">
   <button id="registerBtn">Registrarse</button>
   <button id="loginBtn">Iniciar sesión</button>
@@ -16,7 +16,6 @@
   <p id="mensaje"></p>
 
   <script>
-    // Conexión a Supabase
     const supabaseUrl = 'https://qaophiaogsvhkgmbfcuf.supabase.co';
     const supabaseKey = 'sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN';
     const supabase = supabase.createClient(supabaseUrl, supabaseKey);
@@ -28,11 +27,8 @@
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
       const { user, error } = await supabase.auth.signUp({ email, password });
-      if (error) {
-        mensaje.textContent = 'Error: ' + error.message;
-      } else {
-        mensaje.textContent = 'Usuario creado: ' + user.email;
-      }
+      if (error) mensaje.textContent = 'Error: ' + error.message;
+      else mensaje.textContent = 'Usuario creado: ' + user.email;
     });
 
     // Login
@@ -40,12 +36,8 @@
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) {
-        mensaje.textContent = 'Error: ' + error.message;
-      } else {
-        mensaje.textContent = '¡Bienvenido ' + data.user.email + '!';
-        window.currentUser = data.user;
-      }
+      if (error) mensaje.textContent = 'Error: ' + error.message;
+      else mensaje.textContent = '¡Bienvenido ' + data.user.email + '!';
     });
   </script>
 </body>
