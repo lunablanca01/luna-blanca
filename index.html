@@ -2,40 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Prueba Supabase</title>
+  <title>Prueba Registro Supabase</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
 </head>
 <body>
-  <h1>Prueba Supabase - Registro y Login</h1>
+  <h1>Registro y Login - Prueba Supabase</h1>
 
-  <h2>Usuario</h2>
   <input type="email" id="email" placeholder="Correo electrónico">
   <input type="password" id="password" placeholder="Contraseña">
   <button id="registerBtn">Registrarse</button>
   <button id="loginBtn">Iniciar sesión</button>
+
   <p id="mensaje"></p>
 
-  <h2>Novelas</h2>
-  <div id="novelas">
-    <div data-id="novela1">
-      <span>Novela 1</span>
-      <button class="me-gusta">❤️ Me gusta</button>
-      <button class="leido">✔ Leído</button>
-    </div>
-    <div data-id="novela2">
-      <span>Novela 2</span>
-      <button class="me-gusta">❤️ Me gusta</button>
-      <button class="leido">✔ Leído</button>
-    </div>
-    <div data-id="novela3">
-      <span>Novela 3</span>
-      <button class="me-gusta">❤️ Me gusta</button>
-      <button class="leido">✔ Leído</button>
-    </div>
-  </div>
-
   <script>
-    // Tus credenciales de Supabase
+    // Conexión a Supabase
     const supabaseUrl = 'https://qaophiaogsvhkgmbfcuf.supabase.co';
     const supabaseKey = 'sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN';
     const supabase = supabase.createClient(supabaseUrl, supabaseKey);
@@ -47,8 +28,11 @@
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
       const { user, error } = await supabase.auth.signUp({ email, password });
-      if (error) mensaje.textContent = 'Error: ' + error.message;
-      else mensaje.textContent = 'Usuario creado: ' + user.email;
+      if (error) {
+        mensaje.textContent = 'Error: ' + error.message;
+      } else {
+        mensaje.textContent = 'Usuario creado: ' + user.email;
+      }
     });
 
     // Login
@@ -56,36 +40,12 @@
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) mensaje.textContent = 'Error: ' + error.message;
-      else {
+      if (error) {
+        mensaje.textContent = 'Error: ' + error.message;
+      } else {
         mensaje.textContent = '¡Bienvenido ' + data.user.email + '!';
-        window.currentUser = data.user; // guardamos el usuario logueado
+        window.currentUser = data.user;
       }
-    });
-
-    // Botones de novelas
-    document.querySelectorAll('#novelas div').forEach(div => {
-      const novelaId = div.dataset.id;
-
-      div.querySelector('.me-gusta').addEventListener('click', async () => {
-        if(!window.currentUser) return alert('Primero inicia sesión');
-        await supabase.from('novelas_status').upsert({
-          user_id: window.currentUser.id,
-          novela_id: novelaId,
-          me_gusta: true
-        });
-        alert('¡Me gusta registrado!');
-      });
-
-      div.querySelector('.leido').addEventListener('click', async () => {
-        if(!window.currentUser) return alert('Primero inicia sesión');
-        await supabase.from('novelas_status').upsert({
-          user_id: window.currentUser.id,
-          novela_id: novelaId,
-          leido: true
-        });
-        alert('¡Leído registrado!');
-      });
     });
   </script>
 </body>
