@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna Blanca</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/luna-blanca.css">
+
+</head>
+
+<body>
+
+<div class="contenido">
+
+<h1><a href="luna-blanca.html">Luna Blanca</a></h1>
+
+<div class="controles">
+
+  <!-- BUSCADOR + BOTONES -->
+  <div class="barra-busqueda">
+    <input type="text" id="buscador" placeholder="Buscar danmei...">
+    <button class="btn-suave" onclick="buscarTexto()">Buscar</button>
+  </div>
+
+  <!-- 5 FILTROS -->
+<button class="btn-suave btn-filtros-movil" onclick="togglePanelFiltros()">
+Filtros ▼
+</button>
+
+<div class="panel-filtros">
+<div class="fila-filtros">
+    <!-- Tipo -->
+    <div class="dropdown">
+      <button class="dropdownBtn" onclick="toggleDropdown('tipo',this)">Tipo ▼</button>
+      <div class="dropdownContenido" id="dropdown-tipo"></div>
+    </div>
+
+    <!-- Estado -->
+    <div class="dropdown">
+      <button class="dropdownBtn" onclick="toggleDropdown('estado',this)">Estado ▼</button>
+      <div class="dropdownContenido" id="dropdown-estado"></div>
+    </div>
+
+    <!-- Ambientado -->
+    <div class="dropdown">
+      <button class="dropdownBtn" onclick="toggleDropdown('ambientado',this)">Ambientado ▼</button>
+      <div class="dropdownContenido" id="dropdown-ambientado"></div>
+    </div>
+
+    <!-- Inicial -->
+    <div class="dropdown">
+      <button class="dropdownBtn" onclick="toggleDropdown('inicial',this)">Inicial ▼</button>
+      <div class="dropdownContenido" id="dropdown-inicial">
+        <label><input type="checkbox" value="a"> A</label>
+        <label><input type="checkbox" value="b"> B</label>
+        <label><input type="checkbox" value="c"> C</label>
+        <label><input type="checkbox" value="d"> D</label>
+        <label><input type="checkbox" value="e"> E</label>
+        <label><input type="checkbox" value="f"> F</label>
+        <label><input type="checkbox" value="g"> G</label>
+        <label><input type="checkbox" value="h"> H</label>
+        <label><input type="checkbox" value="i"> I</label>
+        <label><input type="checkbox" value="j"> J</label>
+        <label><input type="checkbox" value="k"> K</label>
+        <label><input type="checkbox" value="l"> L</label>
+        <label><input type="checkbox" value="m"> M</label>
+        <label><input type="checkbox" value="n"> N</label>
+        <label><input type="checkbox" value="o"> O</label>
+        <label><input type="checkbox" value="p"> P</label>
+        <label><input type="checkbox" value="q"> Q</label>
+        <label><input type="checkbox" value="r"> R</label>
+        <label><input type="checkbox" value="s"> S</label>
+        <label><input type="checkbox" value="t"> T</label>
+        <label><input type="checkbox" value="u"> U</label>
+        <label><input type="checkbox" value="v"> V</label>
+        <label><input type="checkbox" value="w"> W</label>
+        <label><input type="checkbox" value="x"> X</label>
+        <label><input type="checkbox" value="y"> Y</label>
+        <label><input type="checkbox" value="z"> Z</label>
+      </div>
+    </div>
+
+    <!-- Categoria -->
+    <div class="dropdown">
+      <button class="dropdownBtn" onclick="toggleDropdown('categoria',this)">Categoria ▼</button>
+      <div class="dropdownContenido" id="dropdown-categoria"></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="botones-filtros">
+  <button class="btn-aplicar" onclick="aplicarFiltros()">Aplicar filtros</button>
+  <button class="btn-limpiar" onclick="limpiarFiltros()">Limpiar</button>
+</div>
+</div>
+
+<div id="filtros-activos"></div>
+
+
+<!-- GRID DE TARJETAS -->
+<div class="grid" id="contenedor-tarjetas"></div>
+
+</div>
+</div>
+
+<div class="bottom-banner">
+  <a href="pages/lista-de-etiquetas.html">Lista de etiquetas</a>
+  <a href="pages/autores.html">Lista de autores</a>
+  <a href="#" id="descargar">Descargar lista</a>
+</div>
+
+
+<script>
+  window.baseRuta = "";
+</script>
+<script src="js/tags.js"></script>
+<script src="js/tarjetas.js"></script>
+<script src="js/main.js"></script>
+
+<a href="#" id="scrollTop" title="Volver arriba">🌸</a>
+  
+</body>
+</html>

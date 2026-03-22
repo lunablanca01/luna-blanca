@@ -1,0 +1,125 @@
+/* ⭐ PAGINA */
+
+body{
+  font-family:'Molengo', Arial, sans-serif;
+  margin:0;
+  padding:20px;
+  color:black;
+  background-color:#ffffff;
+}
+
+/* fondo degradado igual a la página principal */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+
+  background: linear-gradient(
+    to bottom,
+    #dff4ff 0%,
+    #eaf8ff 6%,
+    #ffffff 12%,
+    #ffffff 100%
+  );
+}
+
+
+/* ⭐ TITULO */
+
+h1{
+  text-align:center;
+  font-size:70px;
+  color:#ff8b8b;
+  font-family:'Pacifico', cursive;
+  font-weight:400;
+  margin-bottom:20px;
+  margin-top:0;
+}
+
+
+/* TITULOS DE SECCION */
+
+h2{
+  text-align:center;
+  margin-top:30px;
+  margin-bottom:10px;
+  color:#ff8b8b;
+  font-size:26px;
+  font-weight:600;
+}
+
+
+/* CONTENEDOR GENERAL */
+
+#lista-etiquetas{
+  max-width:900px;
+  margin:auto;
+}
+
+
+/* GRUPO DE TAGS */
+
+.grupo-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+
+/* ETIQUETA */
+
+.tag{
+  text-decoration:none;
+  color:black;
+  background:#ffe4d2;
+  border-radius:12px;
+  padding:8px 14px;
+  font-family:'Molengo', serif;
+  font-size:18px;
+  transition:0.2s;
+}
+
+.tag:hover{
+  background:#ffd2b8;
+}
+
+
+/* NUMERO */
+
+.cantidad{
+  color:#666;
+  margin-left:4px;
+}
+
+
+/* ===== CELULAR ===== */
+
+@media (max-width:500px){
+
+  h1{
+    font-size:42px;
+  }
+
+  h2{
+    font-size:22px;
+  }
+
+  .grupo-tags{
+    gap:8px;
+  }
+
+  .tag{
+    font-size:14px;
+    padding:7px 12px;
+  }
+
+}
+
+.tag-error{
+  background:#ffd6d6;
+  color:#b00000;
+  border:2px solid #ff9a9a;
+}

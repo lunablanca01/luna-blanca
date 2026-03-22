@@ -1,0 +1,28 @@
+/* ⭐ PAGINA */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Molengo', Arial, sans-serif;
+  margin:0;
+  color:white;
+  background-color:#ffffff; /* base sólida */
+}
+
+/* ⭐ fondo degradado separado */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+
+  background: linear-gradient(
+    to bottom,
+    #dff4ff 0%,
+    #eaf8ff 6%,
+    #ffffff 12%,
+    #ffffff 100%
+  );
+}
