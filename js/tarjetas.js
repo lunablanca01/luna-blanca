@@ -367,9 +367,9 @@ link: "https://www.novelupdates.com/series/its-actually-not-easy-wanting-to-be-a
 titulo: 'El villano cargó mi sistema',
 slug: "El_villano_cargó_mi_sistema",
 imagen: "El_villano_cargó_mi_sistema.jpg",
-tags: "danmei pendiente multiples-mundos amnesia comedia sistema transmigracion venganza yandere",
+tags: "danmei finalizado multiples-mundos amnesia comedia sistema transmigracion venganza yandere",
 autor: "you-hu-qiansui",
-link: "https://www.novelupdates.com/series/the-villain-loaded-my-system/"
+link: "https://drive.google.com/drive/u/4/folders/1qs-c5MPxZkbmWf1I7wAh72_N-_amVVqb"
 },
 
 {
