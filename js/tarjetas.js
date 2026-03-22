@@ -304,9 +304,9 @@ link: "https://www.novelupdates.com/series/the-strategy-of-washing-clean-a-slag-
 titulo: 'La carne de cañón es el rey [Transmigración rápida]',
 slug: "La_carne_de_cañón_es_el_rey_[Transmigración_rápida]",
 imagen: "La_carne_de_cañón_es_el_rey_[Transmigración_rápida].jpg",
-tags: "danmei pendiente multiples-mundos protagonista-gong protagonista-op sistema transmigracion venganza",
+tags: "danmei en-proceso multiples-mundos protagonista-gong protagonista-op sistema transmigracion venganza",
 autor: "jia-zi-hai",
-link: "https://www.novelupdates.com/series/cannon-fodder-is-king-quick-transmigration/"
+link: "https://drive.google.com/drive/u/4/folders/1aOjpnqUUGYQ0rRGcDEtBJa8iqq55s1k6"
 },
 
 {
