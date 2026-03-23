@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Luna Blanca</title>
+<title>Luna Blanca2</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Molengo&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,6 +121,13 @@ const { data: { user } } = await supabase.auth.getUser();
 if (user) {
   window.location.href = "luna-blanca.html";
 }
+
+  <script>
+if (window.location.hash.includes("access_token")) {
+  // si viene del correo
+  window.location.href = "luna-blanca/luna-blanca.html";
+}
+</script>
 </script>
 
 </body>
