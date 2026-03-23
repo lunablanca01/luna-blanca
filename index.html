@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Prueba Supabase</title>
+  <title>Prueba</title>
 </head>
 
 <body>
@@ -12,22 +12,23 @@
 <input type="email" id="email" placeholder="Correo">
 <input type="password" id="password" placeholder="Contraseña">
 
-<button onclick="registrar()">Registrarse</button>
-<button onclick="login()">Login</button>
+<button onclick="window.registrar()">Registrarse</button>
+<button onclick="window.login()">Login</button>
 
 <p id="mensaje"></p>
 
-<!-- SOLO UNA VEZ -->
+<!-- SOLO ESTE SCRIPT -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const supabaseUrl = "https://qaophiaogsvhkgmbfcuf.supabase.co";
-const supabaseKey = "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN";
+// 🔥 SOLO UNA VEZ
+const supabase = window.supabase.createClient(
+  "https://qaophiaogsvhkgmbfcuf.supabase.co",
+  "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
+);
 
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-// 👇 HACERLAS GLOBALES
-window.registrar = async function () {
+// 👇 FORZAMOS GLOBAL
+window.registrar = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -42,7 +43,7 @@ window.registrar = async function () {
     error ? error.message : "Usuario creado 🎉";
 };
 
-window.login = async function () {
+window.login = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
