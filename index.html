@@ -1,74 +1,127 @@
-html
-!DOCTYPE html
-html lang=es
-head
-  meta charset=UTF-8
-  titleTest Supabasetitle
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Luna Blanca</title>
 
-  !-- Evitar cache --
-  meta http-equiv=Cache-Control content=no-cache, no-store, must-revalidate
-  meta http-equiv=Pragma content=no-cache
-  meta http-equiv=Expires content=0
-head
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Molengo&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body
+<style>
+* { box-sizing: border-box; }
 
-h2Prueba Supabaseh2
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Molengo', sans-serif;
+  background: linear-gradient(to bottom, #bfe7ff 0%, #ffffff 25%);
+}
 
-input type=email id=email placeholder=Correo
-input type=password id=password placeholder=Contraseña
+.caja {
+  background: white;
+  padding: 40px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  width: 90%;
+  max-width: 400px;
+}
 
-brbr
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #ff8b8b;
+  font-weight: 400;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
 
-button onclick=window.registrar()Registrarsebutton
-button onclick=window.login()Loginbutton
+input, button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
 
-p id=mensajep
+input { background: #f3fbff; border: 1px solid #ddd; }
 
+button {
+  border: none;
+  background: #ff8b8b;
+  color: white;
+  cursor: pointer;
+}
 
-<div><a href="test.html">test</a></div>
-!-- ✅ SOLO ESTE SCRIPT --
-script src=httpscdn.jsdelivr.netnpm@supabasesupabase-js@2script
+#mensaje {
+  margin-top: 10px;
+  font-size: 14px;
+}
+</style>
+</head>
 
-script
- 🔥 CREAR CONEXIÓN (SOLO UNA VEZ)
-const supabase = window.supabase.createClient(
-  httpsqaophiaogsvhkgmbfcuf.supabase.co,
-  sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN
+<body>
+
+<div class="caja">
+  <h1>Luna Blanca</h1>
+
+  <input type="email" id="email" placeholder="Correo">
+  <input type="password" id="password" placeholder="Contraseña">
+
+  <button onclick="registrar()">Registrarse</button>
+  <button onclick="login()">Entrar</button>
+
+  <p id="mensaje"></p>
+</div>
+
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+const supabase = createClient(
+  "https://qaophiaogsvhkgmbfcuf.supabase.co",
+  "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
 );
 
- REGISTRAR
-window.registrar = async () = {
-  const email = document.getElementById(email).value;
-  const password = document.getElementById(password).value;
+// REGISTRO (envía correo)
+window.registrar = async () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-  const { data, error } = await supabase.auth.signUp({
+  const { error } = await supabase.auth.signUp({
     email,
     password
   });
 
-  console.log(REGISTRO, data, error);
-
-  document.getElementById(mensaje).innerText =
-    error  error.message  Usuario creado 🎉;
+  document.getElementById("mensaje").innerText =
+    error ? error.message : "Revisa tu correo para confirmar 📩";
 };
 
- LOGIN
-window.login = async () = {
-  const email = document.getElementById(email).value;
-  const password = document.getElementById(password).value;
+// LOGIN
+window.login = async () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password
   });
 
-  console.log(LOGIN, data, error);
-
-  document.getElementById(mensaje).innerText =
-    error  error.message  Login correcto 🔓;
+  if (error) {
+    document.getElementById("mensaje").innerText = error.message;
+  } else {
+    window.location.href = "luna-blanca.html";
+  }
 };
-script
 
-body
-html
+// VERIFICAR SI YA ESTÁ LOGUEADO
+const { data: { user } } = await supabase.auth.getUser();
+
+if (user) {
+  window.location.href = "luna-blanca.html";
+}
+</script>
+
+</body>
+</html>
