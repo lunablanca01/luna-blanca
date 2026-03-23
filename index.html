@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -46,7 +47,10 @@ input, button {
   margin-bottom: 10px;
 }
 
-input { background: #f3fbff; border: 1px solid #ddd; }
+input {
+  background: #f3fbff;
+  border: 1px solid #ddd;
+}
 
 button {
   border: none;
@@ -65,7 +69,7 @@ button {
 <body>
 
 <div class="caja">
-  <h1>Luna Blanca2</h1>
+  <h1>Luna Blanca</h1>
 
   <input type="email" id="email" placeholder="Correo">
   <input type="password" id="password" placeholder="Contraseña">
@@ -84,7 +88,12 @@ const supabase = createClient(
   "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
 );
 
-// REGISTRO (envía correo)
+// 🔥 DETECTAR SI VIENE DEL CORREO
+if (window.location.hash.includes("access_token")) {
+  window.location.href = "luna-blanca/luna-blanca.html";
+}
+
+// REGISTRO
 window.registrar = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -103,7 +112,7 @@ window.login = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { data, error } = await supabase.auth.signInWithPassword({
+  const { error } = await supabase.auth.signInWithPassword({
     email,
     password
   });
@@ -115,20 +124,14 @@ window.login = async () => {
   }
 };
 
-// VERIFICAR SI YA ESTÁ LOGUEADO
+// SI YA ESTÁ LOGUEADO, ENTRA DIRECTO
 const { data: { user } } = await supabase.auth.getUser();
 
 if (user) {
   window.location.href = "luna-blanca.html";
 }
-
-  <script>
-if (window.location.hash.includes("access_token")) {
-  // si viene del correo
-  window.location.href = "luna-blanca/luna-blanca.html";
-}
-</script>
 </script>
 
 </body>
 </html>
+```
