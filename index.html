@@ -3,50 +3,57 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Login Supabase</title>
+  <title>Prueba Supabase</title>
+
   <style>
     body {
       font-family: Arial;
-      background: #111;
+      background: #0f172a;
       color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
+
     .box {
-      background: #1e1e1e;
-      padding: 30px;
-      border-radius: 10px;
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 12px;
       width: 300px;
       text-align: center;
     }
+
     input {
       width: 100%;
       padding: 10px;
       margin: 8px 0;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
     }
+
     button {
       width: 100%;
       padding: 10px;
-      margin-top: 10px;
+      margin-top: 8px;
       border: none;
-      border-radius: 5px;
-      background: #4CAF50;
+      border-radius: 6px;
+      background: #22c55e;
       color: white;
       cursor: pointer;
     }
+
     button:hover {
-      background: #45a049;
+      background: #16a34a;
     }
+
     #mensaje {
       margin-top: 10px;
       font-size: 14px;
     }
   </style>
 </head>
+
 <body>
 
 <div class="box">
@@ -62,8 +69,10 @@
   <p id="mensaje"></p>
 </div>
 
+<!-- 🔥 1. CARGAR SUPABASE (SIEMPRE PRIMERO) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<!-- 🔥 2. TU SCRIPT -->
 <script>
 const supabaseUrl = "https://qaophiaogsvhkgmbfcuf.supabase.co";
 const supabaseKey = "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN";
@@ -76,14 +85,13 @@ async function registrar() {
   const password = document.getElementById("password").value;
 
   const { data, error } = await supabase.auth.signUp({
-    email: email,
-    password: password
+    email,
+    password
   });
 
-  console.log("DATA:", data);
-  console.log("ERROR:", error);
+  console.log("REGISTRO:", data, error);
 
-  mostrarMensaje(error ? error.message : "Registrado correctamente 🎉");
+  mostrar(error ? error.message : "Usuario creado 🎉");
 }
 
 // LOGIN
@@ -91,31 +99,35 @@ async function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { error } = await supabase.auth.signInWithPassword({
-    email: email,
-    password: password
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password
   });
 
-  mostrarMensaje(error ? error.message : "Sesión iniciada 🔓");
+  console.log("LOGIN:", data, error);
+
+  mostrar(error ? error.message : "Sesión iniciada 🔓");
 }
 
 // LOGOUT
 async function logout() {
   await supabase.auth.signOut();
-  mostrarMensaje("Sesión cerrada 🚪");
+  mostrar("Sesión cerrada 🚪");
 }
 
 // MOSTRAR MENSAJE
-function mostrarMensaje(msg) {
+function mostrar(msg) {
   document.getElementById("mensaje").innerText = msg;
 }
 
-// VERIFICAR SESIÓN AL CARGAR
+// VERIFICAR SESIÓN
 async function verificar() {
   const { data: { user } } = await supabase.auth.getUser();
 
+  console.log("USUARIO:", user);
+
   if (user) {
-    mostrarMensaje("Ya estás logueado: " + user.email);
+    mostrar("Logueado como: " + user.email);
   }
 }
 
