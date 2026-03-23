@@ -1,86 +1,33 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Prueba Supabase</title>
-
-  <style>
-    body {
-      font-family: Arial;
-      background: #0f172a;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .box {
-      background: #1e293b;
-      padding: 25px;
-      border-radius: 12px;
-      width: 300px;
-      text-align: center;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 6px;
-    }
-
-    button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 8px;
-      border: none;
-      border-radius: 6px;
-      background: #22c55e;
-      color: white;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #16a34a;
-    }
-
-    #mensaje {
-      margin-top: 10px;
-      font-size: 14px;
-    }
-  </style>
 </head>
 
 <body>
 
-<div class="box">
-  <h2>Login / Registro</h2>
+<h2>Login</h2>
 
-  <input type="email" id="email" placeholder="Correo">
-  <input type="password" id="password" placeholder="Contraseña">
+<input type="email" id="email" placeholder="Correo">
+<input type="password" id="password" placeholder="Contraseña">
 
-  <button onclick="registrar()">Registrarse</button>
-  <button onclick="login()">Iniciar sesión</button>
-  <button onclick="logout()">Cerrar sesión</button>
+<button onclick="registrar()">Registrarse</button>
+<button onclick="login()">Login</button>
 
-  <p id="mensaje"></p>
-</div>
+<p id="mensaje"></p>
 
-<!-- 🔥 1. CARGAR SUPABASE (SIEMPRE PRIMERO) -->
+<!-- SOLO UNA VEZ -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<!-- 🔥 2. TU SCRIPT -->
 <script>
 const supabaseUrl = "https://qaophiaogsvhkgmbfcuf.supabase.co";
 const supabaseKey = "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN";
 
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-// REGISTRAR
-async function registrar() {
+// 👇 HACERLAS GLOBALES
+window.registrar = async function () {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -91,11 +38,11 @@ async function registrar() {
 
   console.log("REGISTRO:", data, error);
 
-  mostrar(error ? error.message : "Usuario creado 🎉");
-}
+  document.getElementById("mensaje").innerText =
+    error ? error.message : "Usuario creado 🎉";
+};
 
-// LOGIN
-async function login() {
+window.login = async function () {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -106,34 +53,10 @@ async function login() {
 
   console.log("LOGIN:", data, error);
 
-  mostrar(error ? error.message : "Sesión iniciada 🔓");
-}
-
-// LOGOUT
-async function logout() {
-  await supabase.auth.signOut();
-  mostrar("Sesión cerrada 🚪");
-}
-
-// MOSTRAR MENSAJE
-function mostrar(msg) {
-  document.getElementById("mensaje").innerText = msg;
-}
-
-// VERIFICAR SESIÓN
-async function verificar() {
-  const { data: { user } } = await supabase.auth.getUser();
-
-  console.log("USUARIO:", user);
-
-  if (user) {
-    mostrar("Logueado como: " + user.email);
-  }
-}
-
-verificar();
+  document.getElementById("mensaje").innerText =
+    error ? error.message : "Login correcto 🔓";
+};
 </script>
 
 </body>
 </html>
-```
