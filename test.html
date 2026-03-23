@@ -3,11 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Test Supabase</title>
-
-  <!-- Evitar cache -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
 </head>
 
 <body>
@@ -19,22 +14,20 @@
 
 <br><br>
 
-<button onclick="window.registrar()">Registrarse</button>
-<button onclick="window.login()">Login</button>
+<button onclick="registrar()">Registrarse</button>
+<button onclick="login()">Login</button>
 
 <p id="mensaje"></p>
 
-<!-- ✅ SOLO ESTE SCRIPT -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
-<script>
-// 🔥 CREAR CONEXIÓN (SOLO UNA VEZ)
-const supabase = window.supabase.createClient(
+const supabase = createClient(
   "https://qaophiaogsvhkgmbfcuf.supabase.co",
   "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
 );
 
-// REGISTRAR
+// 👇 HACERLAS GLOBALES
 window.registrar = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -50,7 +43,6 @@ window.registrar = async () => {
     error ? error.message : "Usuario creado 🎉";
 };
 
-// LOGIN
 window.login = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
