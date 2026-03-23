@@ -8,13 +8,16 @@ const supabase = createClient(
   "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
 );
 
-// 🔒 PROTEGER PÁGINA
+// 🔒 PROTEGER PÁGINA (VERSIÓN FINAL)
 export async function protegerPagina() {
   const { data } = await supabase.auth.getSession();
 
   if (!data.session) {
-    // ❌ NO está logueado → lo mandamos al login
+    // ❌ No logueado → fuera
     window.location.href = "/luna-blanca/index.html";
+  } else {
+    // ✅ Logueado → mostrar página
+    document.body.style.display = "block";
   }
 }
 
