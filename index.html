@@ -1,63 +1,72 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Prueba</title>
-</head>
+html
+!DOCTYPE html
+html lang=es
+head
+  meta charset=UTF-8
+  titleTest Supabasetitle
 
-<body>
+  !-- Evitar cache --
+  meta http-equiv=Cache-Control content=no-cache, no-store, must-revalidate
+  meta http-equiv=Pragma content=no-cache
+  meta http-equiv=Expires content=0
+head
 
-<h2>Login</h2>
+body
 
-<input type="email" id="email" placeholder="Correo">
-<input type="password" id="password" placeholder="Contraseña">
+h2Prueba Supabaseh2
 
-<button onclick="window.registrar()">Registrarse</button>
-<button onclick="window.login()">Login</button>
+input type=email id=email placeholder=Correo
+input type=password id=password placeholder=Contraseña
 
-<p id="mensaje"></p>
+brbr
 
-<!-- SOLO ESTE SCRIPT -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+button onclick=window.registrar()Registrarsebutton
+button onclick=window.login()Loginbutton
 
-<script>
-// 🔥 SOLO UNA VEZ
+p id=mensajep
+
+!-- ✅ SOLO ESTE SCRIPT --
+script src=httpscdn.jsdelivr.netnpm@supabasesupabase-js@2script
+
+script
+ 🔥 CREAR CONEXIÓN (SOLO UNA VEZ)
 const supabase = window.supabase.createClient(
-  "https://qaophiaogsvhkgmbfcuf.supabase.co",
-  "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
+  httpsqaophiaogsvhkgmbfcuf.supabase.co,
+  sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN
 );
 
-// 👇 FORZAMOS GLOBAL
-window.registrar = async () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+ REGISTRAR
+window.registrar = async () = {
+  const email = document.getElementById(email).value;
+  const password = document.getElementById(password).value;
 
   const { data, error } = await supabase.auth.signUp({
     email,
     password
   });
 
-  console.log("REGISTRO:", data, error);
+  console.log(REGISTRO, data, error);
 
-  document.getElementById("mensaje").innerText =
-    error ? error.message : "Usuario creado 🎉";
+  document.getElementById(mensaje).innerText =
+    error  error.message  Usuario creado 🎉;
 };
 
-window.login = async () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+ LOGIN
+window.login = async () = {
+  const email = document.getElementById(email).value;
+  const password = document.getElementById(password).value;
 
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password
   });
 
-  console.log("LOGIN:", data, error);
+  console.log(LOGIN, data, error);
 
-  document.getElementById("mensaje").innerText =
-    error ? error.message : "Login correcto 🔓";
+  document.getElementById(mensaje).innerText =
+    error  error.message  Login correcto 🔓;
 };
-</script>
+script
 
-</body>
-</html>
+body
+html
