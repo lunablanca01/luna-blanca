@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Confirmando...</title>
+</head>
+
+<body>
+<p>Confirmando cuenta...</p>
+
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+const supabase = createClient(
+  "https://qaophiaogsvhkgmbfcuf.supabase.co",
+  "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
+);
+
+// 🔥 PROCESA EL TOKEN DEL CORREO
+await supabase.auth.getSession();
+
+// 🔥 REDIRIGE DESPUÉS DE CONFIRMAR
+window.location.href = "luna-blanca/luna-blanca.html";
+</script>
+
+</body>
+</html>
