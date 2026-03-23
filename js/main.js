@@ -1,29 +1,4 @@
 /* ================================
-   🧱 1. PROTEGER PAGINA
-================================ */
-import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
-const supabase = createClient(
-  "https://qaophiaogsvhkgmbfcuf.supabase.co",
-  "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
-);
-
-// 🔒 PROTEGER PÁGINA (VERSIÓN FINAL)
-export async function protegerPagina() {
-  const { data } = await supabase.auth.getSession();
-
-  if (!data.session) {
-    // ❌ No logueado → fuera
-    window.location.href = "/luna-blanca/index.html";
-  } else {
-    // ✅ Logueado → mostrar página
-    document.body.style.display = "block";
-  }
-}
-
-
-
-/* ================================
    🧱 1. CARGAR TARJETAS
 ================================ */
 document.getElementById("contenedor-tarjetas").innerHTML = tarjetasHTML;
