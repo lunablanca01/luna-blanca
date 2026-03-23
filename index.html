@@ -1,3 +1,4 @@
+```html id="fixed-auth"
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,34 +34,24 @@ body {
 h1 {
   font-family: 'Pacifico', cursive;
   color: #ff8b8b;
-  font-weight: 400;
   margin-bottom: 20px;
-  font-size: 40px;
 }
 
 input, button {
   width: 100%;
   padding: 15px;
   border-radius: 8px;
-  font-size: 16px;
   margin-bottom: 10px;
 }
 
-input {
-  background: #f3fbff;
-  border: 1px solid #ddd;
-}
-
 button {
-  border: none;
   background: #ff8b8b;
   color: white;
-  cursor: pointer;
+  border: none;
 }
 
 #mensaje {
   margin-top: 10px;
-  font-size: 14px;
 }
 </style>
 </head>
@@ -87,8 +78,13 @@ const supabase = createClient(
   "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
 );
 
-// 🔥 DETECTAR SI VIENE DEL CORREO
-if (window.location.hash.includes("access_token")) {
+// 🔥 CLAVE: esto procesa el token del correo correctamente
+await supabase.auth.getSession();
+
+// después de procesar, revisamos si hay usuario
+const { data: { user } } = await supabase.auth.getUser();
+
+if (user) {
   window.location.href = "luna-blanca/luna-blanca.html";
 }
 
@@ -119,17 +115,11 @@ window.login = async () => {
   if (error) {
     document.getElementById("mensaje").innerText = error.message;
   } else {
-    window.location.href = "luna-blanca.html";
+    window.location.href = "luna-blanca/luna-blanca.html";
   }
 };
-
-// SI YA ESTÁ LOGUEADO, ENTRA DIRECTO
-const { data: { user } } = await supabase.auth.getUser();
-
-if (user) {
-  window.location.href = "luna-blanca.html";
-}
 </script>
 
 </body>
 </html>
+```
