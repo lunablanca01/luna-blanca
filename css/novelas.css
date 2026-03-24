@@ -132,7 +132,69 @@ h1{
   text-decoration: none;
 }
 
-.grid{
+/* Panel pegado a la izquierda de la página */
+.mi-lectura-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* pega a la izquierda */
+  padding-left: 0;          /* sin padding que lo desplace */
+  max-width: 700px;         /* opcional: ancho del panel */
+  text-align: left;
+  max-width:700px;
+  margin:40px auto;
+  font-size: 18px;
+}
+
+.mi-lectura {
+  margin:5px 0;
+}
+
+#estado-lectura {
+  padding: 6px 30px 6px 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  cursor: pointer;
+
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+#estado-lectura:hover {
+  border-color: #2198a6;
+}
+
+#estado-lectura:focus {
+  outline: none;
+  border-color: #2198a6;
+  box-shadow: 0 0 4px rgba(33,152,166,0.4);
+}
+
+.progreso-lectura {
+  margin:5px 0;
+}
+
+#progreso-capitulo {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  width: 90px;
+  background-color: #f9f9f9;
+  transition: all 0.2s ease;
+}
+
+#progreso-capitulo:hover {
+  border-color: #2198a6;
+}
+
+#progreso-capitulo:focus {
+  outline: none;
+  border-color: #2198a6;
+  box-shadow: 0 0 4px rgba(33,152,166,0.4);
+}
+
+.grid {
   display:grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 12px;
