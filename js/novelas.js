@@ -124,6 +124,22 @@ function obtenerNombreTag(valor){
   return valor;
 }
 
+/* ================================
+   🧰 3. FUNCIONES - POP UP GUARDADO
+================================ */
+
+function mostrarToast(mensaje = "Guardado") {
+  const toast = document.getElementById("toast");
+  if (!toast) return;
+
+  toast.textContent = "✅ " + mensaje;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
+}
+
 
 /* ================================
    🚀 4. INICIO DE LA PÁGINA
@@ -282,7 +298,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       );
 
       if (!error) {
-        alert("✅ Guardado correctamente");
+        mostrarToast("Guardado");
       } else {
         console.error(error);
         alert("❌ Error al guardar");
