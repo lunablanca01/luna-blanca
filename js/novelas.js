@@ -255,6 +255,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   /* ================================
      💾 4.4 SUPABASE (LECTURA)
   ================================= */
+if (location.protocol === "file:") {
+  console.log("Modo local: Supabase desactivado");
+}
+   
+if (location.protocol !== "file:") {
 
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
@@ -284,11 +289,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const valor = parseInt(inputProgreso.value);
 
-      console.log("Guardando:", {
-         estado: selectEstado.value,
-         progreso: inputProgreso.value
-      });
-
       if (isNaN(valor)) {
         alert("Ingresa un número válido");
         return;
@@ -307,10 +307,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (!error) {
         mostrarToast("Guardado", "ok");
       } else {
-        console.error(error);
         mostrarToast("Error al guardar", "error");
       }
     });
   }
+
+}
 
 });
