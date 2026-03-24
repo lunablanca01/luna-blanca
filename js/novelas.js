@@ -261,6 +261,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const valor = parseInt(inputProgreso.value);
 
+      console.log("Guardando:", {
+         estado: selectEstado.value,
+         progreso: inputProgreso.value
+      });
+
       if (isNaN(valor)) {
         alert("Ingresa un número válido");
         return;
