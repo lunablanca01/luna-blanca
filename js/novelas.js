@@ -1,10 +1,4 @@
 /* ================================
-   🔌 0. CONEXIÓN SUPABASE
-================================ */
-import { supabase } from "./auth.js";
-
-
-/* ================================
    🧰 1. FUNCIONES - TARJETAS
    (NO TOCAR si no modificas tarjetas)
 ================================ */
@@ -252,14 +246,27 @@ document.addEventListener("DOMContentLoaded", async () => {
   cargarAutor();
 
 
-  /* ================================
-     💾 4.4 SUPABASE (LECTURA)
-  ================================= */
+/* ================================
+   💾 4.4 SUPABASE (LECTURA)
+================================ */
+
 if (location.protocol === "file:") {
   console.log("Modo local: Supabase desactivado");
-}
-   
-if (location.protocol !== "file:") {
+
+  const btnGuardar = document.getElementById("guardar-lectura");
+
+  if (btnGuardar) {
+    btnGuardar.addEventListener("click", () => {
+      mostrarToast("Modo local (no se guarda)", "ok");
+    });
+  }
+
+} else {
+
+  if (typeof supabase === "undefined") {
+    console.error("Supabase no está cargado");
+    return;
+  }
 
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
