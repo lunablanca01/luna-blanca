@@ -198,3 +198,53 @@ function cargarAutor(){
 
 // ejecutar
 cargarAutor();
+
+
+/* ================================
+   💾 7. GUARDAR Y CARGAR LECTURA
+================================ */
+document.addEventListener("DOMContentLoaded", async () => {
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return;
+
+  const selectEstado = document.getElementById("estado-lectura");
+  const inputProgreso = document.getElementById("progreso-capitulo");
+  const titulo = document.querySelector("h1")?.textContent.trim();
+
+  if (!selectEstado || !inputProgreso || !titulo) return;
+
+  // 🔹 CARGAR datos guardados
+  const { data } = await supabase
+    .from("lecturas")
+    .select("*")
+    .eq("usuario_id", user.id)
+    .eq("novela", titulo)
+    .maybeSingle();
+
+  if (data) {
+    selectEstado.value = data.estado;
+    inputProgreso.value = data.progreso;
+  }
+
+  // 🔹 GUARDAR estado
+  selectEstado.addEventListener("change", async () => {
+    await supabase.from("lecturas").upsert({
+      usuario_id: user.id,
+      novela: titulo,
+      estado: selectEstado.value,
+      progreso: parseInt(inputProgreso.value)
+    });
+  });
+
+  // 🔹 GUARDAR progreso
+  inputProgreso.addEventListener("change", async () => {
+    await supabase.from("lecturas").upsert({
+      usuario_id: user.id,
+      novela: titulo,
+      estado: selectEstado.value,
+      progreso: parseInt(inputProgreso.value)
+    });
+  });
+
+});
