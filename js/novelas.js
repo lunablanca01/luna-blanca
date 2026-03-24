@@ -127,13 +127,17 @@ function obtenerNombreTag(valor){
 /* ================================
    🧰 3. FUNCIONES - POP UP GUARDADO
 ================================ */
-
-function mostrarToast(mensaje = "Guardado") {
+function mostrarToast(mensaje, tipo = "ok") {
   const toast = document.getElementById("toast");
   if (!toast) return;
 
-  toast.textContent = "✅ " + mensaje;
-  toast.classList.add("show");
+  toast.textContent = mensaje;
+
+  // 👇 limpia clases anteriores
+  toast.className = "toast";
+
+  // 👇 agrega tipo + mostrar
+  toast.classList.add("show", tipo);
 
   setTimeout(() => {
     toast.classList.remove("show");
