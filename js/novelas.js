@@ -131,12 +131,15 @@ function mostrarToast(mensaje, tipo = "ok") {
   const toast = document.getElementById("toast");
   if (!toast) return;
 
-  toast.textContent = mensaje;
+  // 👇 ICONOS según tipo
+  const icono = tipo === "ok" ? "✅" : "❌";
 
-  // 👇 limpia clases anteriores
+  toast.textContent = icono + " " + mensaje;
+
+  // 👇 reset de clases
   toast.className = "toast";
 
-  // 👇 agrega tipo + mostrar
+  // 👇 agrega tipo + animación
   toast.classList.add("show", tipo);
 
   setTimeout(() => {
