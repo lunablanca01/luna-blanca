@@ -298,10 +298,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       );
 
       if (!error) {
-        mostrarToast("Guardado");
+        mostrarToast("Guardado", "ok");
       } else {
         console.error(error);
-        alert("❌ Error al guardar");
+        mostrarToast("Error al guardar", "error");
       }
     });
   }
