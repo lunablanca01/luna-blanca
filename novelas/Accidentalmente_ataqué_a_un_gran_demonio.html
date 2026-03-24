@@ -45,6 +45,23 @@
   <p>Han Zhiyuan: Haré lo mejor que pueda. </p>
 </div>
 
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="no-leido">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1" value="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+</div>
 
 <div id="epub-container"></div>
 
