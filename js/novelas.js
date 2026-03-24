@@ -1,3 +1,5 @@
+import { supabase } from "./auth.js";
+
 /* ================================
    🏷️ 1. APLICAR ESTADOS A TARJETAS
 ================================ */
