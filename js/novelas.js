@@ -249,3 +249,28 @@ function cargarAutor(){
 // ejecutar
 cargarAutor();
 
+
+/* ================================
+   👤 7. OBTENER CAPÍTULOS
+================================ */
+// 🔹 OBTENER CAPÍTULOS DESDE EL HTML (incluyendo extras)
+const capElem = document.querySelector(".capitulos");
+
+if(capElem){
+  const texto = capElem.textContent;
+
+  // Extrae TODOS los números (ej: "122 + 4 extras" → [122, 4])
+  const numeros = texto.match(/\d+/g);
+
+  if(numeros){
+    // Suma todos los números
+    const totalCap = numeros.reduce((acc, num) => acc + parseInt(num), 0);
+
+    // Mostrar en el HTML
+    document.getElementById("total-capitulos").textContent = totalCap;
+
+    // Limitar el input
+    const inputProgreso = document.getElementById("progreso-capitulo");
+    inputProgreso.max = totalCap;
+  }
+}
