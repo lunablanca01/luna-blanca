@@ -283,7 +283,8 @@ h1{
 .toast {
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
 
   background: #2ecc71;
   color: white;
@@ -299,6 +300,7 @@ h1{
 
 .toast.show {
   opacity: 1;
+  transform: translateX(-50%) scale(1);
 }
 
 .toast.ok {
