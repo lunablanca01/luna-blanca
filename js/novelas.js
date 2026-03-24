@@ -2,7 +2,7 @@
    🧰 NOVELAS.JS - Local y Supabase
 ================================ */
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", function() {
 
   // -------------------------------
   // 🔢 1. CAPÍTULOS
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if(capElem){
     const numeros = capElem.textContent.match(/\d+/g);
     if(numeros){
-      totalCap = numeros.reduce((acc, num) => acc + parseInt(num), 0);
+      totalCap = numeros.reduce(function(acc, num){ return acc + parseInt(num); }, 0);
       const totalCapElem = document.getElementById("total-capitulos");
       if(totalCapElem) totalCapElem.textContent = totalCap;
 
@@ -33,12 +33,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const cards = doc.querySelectorAll(".card");
 
     let tarjetaCoincidente = null;
-    cards.forEach(card => {
+    cards.forEach(function(card){
       const nombreCard = card.querySelector("h3")?.textContent.trim();
-      if (nombreCard === tituloActual) tarjetaCoincidente = card;
+      if(nombreCard === tituloActual) tarjetaCoincidente = card;
     });
 
-    if (tarjetaCoincidente) {
+    if(tarjetaCoincidente){
       const tagsEncontrados = tarjetaCoincidente.dataset.tags;
       if(tagsEncontrados){
         const tagsArray = tagsEncontrados.toLowerCase().split(" ");
@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             <br>
             <div class="lista-etiquetas">
               Etiqueta:
-              ${categorias.map(cat =>
-                `<a href="../luna-blanca.html?categoria=${cat}">${obtenerNombreTag(cat)}</a>`
-              ).join("")}
+              ${categorias.map(function(cat){
+                return `<a href="../luna-blanca.html?categoria=${cat}">${obtenerNombreTag(cat)}</a>`;
+              }).join("")}
             </div>
           `;
         }
@@ -84,66 +84,72 @@ document.addEventListener("DOMContentLoaded", async () => {
   // -------------------------------
   // 💾 4. SUPABASE / LECTURA
   // -------------------------------
-  const esLocal = location.protocol === "file:";
-  const supabaseDisponible = !esLocal && window.supabase;
+  (function(){
+    const esLocal = location.protocol === "file:";
+    const supabaseDisponible = !esLocal && window.supabase;
 
-  const selectEstado = document.getElementById("estado-lectura");
-  const inputProgreso = document.getElementById("progreso-capitulo");
-  const btnGuardar = document.getElementById("guardar-lectura");
+    const selectEstado = document.getElementById("estado-lectura");
+    const inputProgreso = document.getElementById("progreso-capitulo");
+    const btnGuardar = document.getElementById("guardar-lectura");
 
-  if(!selectEstado || !inputProgreso || !btnGuardar) return;
+    if(!selectEstado || !inputProgreso || !btnGuardar) return;
 
-  if(!supabaseDisponible){
-    // Modo local
-    console.log("Modo local: Supabase desactivado");
-    btnGuardar.addEventListener("click", () => {
-      mostrarToast("Modo local (no se guarda)", "ok");
-    });
-    return;
-  }
-
-  // -------------------------------
-  // 🔹 Supabase activo
-  // -------------------------------
-  const { data: { user } } = await supabase.auth.getUser();
-  if(!user) return;
-
-  // Cargar estado/progreso
-  const { data } = await supabase
-    .from("lecturas")
-    .select("*")
-    .eq("usuario_id", user.id)
-    .eq("novela", tituloActual)
-    .maybeSingle();
-
-  if(data){
-    selectEstado.value = data.estado;
-    inputProgreso.value = data.progreso;
-  }
-
-  // Guardar
-  btnGuardar.addEventListener("click", async () => {
-    const valor = parseInt(inputProgreso.value);
-    if(isNaN(valor)){
-      alert("Ingresa un número válido");
+    if(!supabaseDisponible){
+      // Modo local
+      console.log("Modo local: Supabase desactivado");
+      btnGuardar.addEventListener("click", function(){
+        mostrarToast("Modo local (no se guarda)", "ok");
+      });
       return;
     }
 
-    const { error } = await supabase.from("lecturas").upsert(
-      {
-        usuario_id: user.id,
-        novela: tituloActual,
-        estado: selectEstado.value,
-        progreso: valor
-      },
-      { onConflict: ["usuario_id", "novela"] }
-    );
+    // -------------------------------
+    // 🔹 Supabase activo
+    // -------------------------------
+    async function cargarSupabase() {
+      const { data: { user } } = await supabase.auth.getUser();
+      if(!user) return;
 
-    if(!error){
-      mostrarToast("Guardado", "ok");
-    } else {
-      mostrarToast("Error al guardar", "error");
+      // Cargar estado/progreso
+      const { data } = await supabase
+        .from("lecturas")
+        .select("*")
+        .eq("usuario_id", user.id)
+        .eq("novela", tituloActual)
+        .maybeSingle();
+
+      if(data){
+        selectEstado.value = data.estado;
+        inputProgreso.value = data.progreso;
+      }
+
+      // Guardar
+      btnGuardar.addEventListener("click", async function(){
+        const valor = parseInt(inputProgreso.value);
+        if(isNaN(valor)){
+          alert("Ingresa un número válido");
+          return;
+        }
+
+        const { error } = await supabase.from("lecturas").upsert(
+          {
+            usuario_id: user.id,
+            novela: tituloActual,
+            estado: selectEstado.value,
+            progreso: valor
+          },
+          { onConflict: ["usuario_id", "novela"] }
+        );
+
+        if(!error){
+          mostrarToast("Guardado", "ok");
+        } else {
+          mostrarToast("Error al guardar", "error");
+        }
+      });
     }
-  });
 
+    cargarSupabase();
+
+  })(); // fin de supabase
 });
