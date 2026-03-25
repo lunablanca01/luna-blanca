@@ -1,48 +1,43 @@
 // estado.js
-import { supabase } from "./supabase.js"; // solo remoto
-
-(async function(){
-  console.log("estado.js cargado ✅");
-
+export async function mostrarEstadoLectura() {
   if(location.protocol === "file:") return;
 
+  const { supabase } = await import("./supabase.js");
   const { data:{user} } = await supabase.auth.getUser();
   if(!user) return;
 
   const tituloActual = document.querySelector("h1")?.textContent.trim();
   if(!tituloActual) return;
 
-  const selectEstado = document.getElementById("estado-lectura");
-  const inputProgreso = document.getElementById("progreso-capitulo");
-  const btnGuardar = document.getElementById("guardar-lectura");
-  if(!selectEstado || !inputProgreso) return;
+  const contenedor = document.getElementById("contenedor-tarjetas");
+  if(!contenedor) return;
 
-  // Traer estado y progreso
-  const { data } = await supabase.from("lecturas")
-    .select("*")
-    .eq("usuario_id", user.id)
-    .eq("novela", tituloActual)
-    .maybeSingle();
+  const cards = contenedor.querySelectorAll(".card");
+  for(const card of cards){
+    const tituloCard = card.querySelector("h3")?.textContent.trim();
+    if(tituloCard === tituloActual){
+      const { data } = await supabase.from("lecturas")
+        .select("*")
+        .eq("usuario_id", user.id)
+        .eq("novela", tituloActual)
+        .maybeSingle();
 
-  if(data){
-    selectEstado.value = data.estado;
-    inputProgreso.value = data.progreso;
+      const estadoLectura = data?.estado || "Por leer";
+
+      // Creamos un div dentro de la tarjeta
+      const divEstado = document.createElement("div");
+      divEstado.className = "estado-lectura";
+
+      // Emoji opcional para más visual
+      let emoji = "";
+      if(estadoLectura === "por leer") emoji = "📖";
+      if(estadoLectura === "leyendo") emoji = "🔖";
+      if(estadoLectura === "leído") emoji = "✅";
+
+      divEstado.textContent = `${emoji} ${estadoLectura}`;
+
+      // Insertar **al inicio de la tarjeta**, antes de la imagen
+      card.insertAdjacentElement("afterbegin", divEstado);
+    }
   }
-
-  // Guardar cambios
-  if(btnGuardar){
-    btnGuardar.addEventListener("click", async ()=>{
-      const valor = parseInt(inputProgreso.value);
-      if(isNaN(valor)){ alert("Ingresa un número válido"); return; }
-
-      const { error } = await supabase.from("lecturas").upsert(
-        { usuario_id: user.id, novela: tituloActual, estado: selectEstado.value, progreso: valor },
-        { onConflict: ["usuario_id","novela"] }
-      );
-
-      if(!error) console.log("Guardado ✅");
-      else console.log("Error ❌");
-    });
-  }
-
-})();
+}
