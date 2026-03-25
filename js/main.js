@@ -1,5 +1,3 @@
-console.log("main.js actualizado ✅");
-
 /* ================================
    🧱 1. CARGAR TARJETAS
 ================================ */
@@ -362,38 +360,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
-
-/* ================================
-   ⬆️ 17. TRAER ESTADO DE NOVELAS
-================================ */
-function aplicarEstados(contenedor){
-  const cards = contenedor.querySelectorAll(".card");
-  cards.forEach(card => {
-    if(card.querySelector(".estado")) return;
-
-    const tags = (card.dataset.tags || "").toLowerCase();
-    let estadoTexto = "";
-    let estadoClase = "";
-
-    if(tags.includes("finalizado")) { estadoTexto="Finalizado"; estadoClase="estado-finalizado"; }
-    if(tags.includes("en-proceso")) { estadoTexto="En proceso"; estadoClase="estado-proceso"; }
-    if(tags.includes("mtl")) { estadoTexto="MTL"; estadoClase="estado-mtl"; }
-    if(tags.includes("pendiente")) { estadoTexto="Pendiente"; estadoClase="estado-pendiente"; }
-
-    if(estadoTexto){
-      const etiqueta = `<div class="estado ${estadoClase}">${estadoTexto}</div>`;
-      card.insertAdjacentHTML("afterbegin", etiqueta);
-    }
-  });
-}
-
-document.getElementById("contenedor-tarjetas").innerHTML = tarjetasHTML;
-
-// aplicar etiquetas de estado locales (finalizado, en-proceso, etc.)
-aplicarEstados(document.getElementById("contenedor-tarjetas"));
-
-// llamar la función de estado desde estado.js
-if(location.protocol !== "file:"){
-  ponerIconosEstado(); // esta función está en estado.js
-}
