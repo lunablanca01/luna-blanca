@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
 
+  // Traemos todas las lecturas del usuario de una vez
   const { data: lecturas, error } = await supabase
     .from("lecturas")
     .select("novela, estado")
@@ -22,24 +23,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  // Creamos un mapa de novela -> estado
   const mapaLecturas = {};
   lecturas?.forEach(l => {
     mapaLecturas[l.novela] = l.estado;
   });
 
-  const emojiMap = { "por leer": "❌", "leyendo": "⏳", "leido": "✅" };
+  const emojiMap = {
+    "por leer": "❌",
+    "leyendo": "⏳",
+    "leido": "✅"
+  };
 
+  // Recorremos cada tarjeta
   cards.forEach(card => {
     const tituloCard = card.querySelector("h3")?.textContent.trim();
     if (!tituloCard) return;
 
-    const estadoLectura = (mapaLecturas[tituloCard] || "por leer").toLowerCase();
-    const emoji = emojiMap[estadoLectura] || "📖";
+    const estadoLectura = mapaLecturas[tituloCard]?.toLowerCase(); // normalizamos
+    const emoji = emojiMap[estadoLectura]; // si no hay estado, será undefined
 
-    const divEstado = document.createElement("div");
-    divEstado.className = "estado-lectura";
-    divEstado.textContent = emoji; // solo emoji
-
-    card.insertAdjacentElement("afterbegin", divEstado);
+    if (emoji) {
+      const divEstado = document.createElement("div");
+      divEstado.className = "estado-lectura";
+      divEstado.textContent = emoji;
+      card.insertAdjacentElement("afterbegin", divEstado);
+    }
+    // Si no hay estado guardado, no se muestra nada
   });
 });
