@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O pretende ser B para el almirante violento</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>O pretende ser B para el almirante violento</h1>
+
+<img class="portada" src="../imagenes/O_pretende_ser_B_para_el_almirante_violento.jpg">
+
+<div class="subtitulo">O Pretends to be B For The Violent Admiral</div>
+<div>O装B给暴躁上将当男秘</div>
+<div class="autor"></div>
+<div class="capitulos"><b>Capítulos:</b> 95 + 5 extras</div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>—¡Noticia de última hora! ¡El almirante Lucas del Imperio ha enviado a sus hombres, supuestamente para encontrar a su cita del hotel de anoche! </p>
+  <p>El reportero, con entusiasmo, preguntó: ¿Qué haría usted una vez que los encuentre? </p>
+  <p>Los ojos de Lucas brillaron con frialdad: Mátenlos. </p>
+  <p>La multitud: ??? </p>
+  <p>¿Por qué parece diferente a todos los demás...? </p>
+  <p>– </p>
+  <p>La perspectiva de Gong → </p>
+  <p>No hay nada que el irascible almirante Lucas desprecie más que a los omegas quejicas y molestos de su vida. </p>
+  <p>¿Una pareja estable? Jamás sucederá en esta vida. </p>
+  <p>Sin embargo, si se ve obligado a dar más detalles… Prefiere con mucho a la secretaria beta amable y honesta, experta tanto en combate como en el ámbito académico, que pueda prepararle café y combinarle la ropa. </p>
+  <p>– </p>
+  <p>La perspectiva de Shou → </p>
+  <p>Luo Ran es el secretario de Lucas, y el trabajo que realiza es el más inhumano de todo el imperio. </p>
+  <p>Tiene que estar a merced del superior más quisquilloso que se sienta por encima de él, y por debajo de él, tiene que lidiar con todo el imperio que no se atreve a interactuar con el almirante, los subordinados del almirante, los compañeros de trabajo, los admiradores, etc. </p>
+  <p>No solo eso, sino que también tiene que ocultar cuidadosamente el hecho de que es un omega, así como su identidad como la "aventura de una noche" del almirante... enfrentándose constantemente a la amenaza inminente de ser asesinado en cualquier momento. </p>
+  <p>Hasta que un día, accidentalmente entró en celo frente a Lucas, y la dulce y encantadora feromona coincidió exactamente con la feromona de la persona de aquella noche. </p>
+  <p>Se acabó, ahora mismo lo van a matar. </p>
+  <p>"Qué valiente eres". Lucas sujetó la nuca de Luo Ran, con el otro brazo rodeándole la cintura mientras sonreía, “Ahora… te voy a matar.” </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="no-leido">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>

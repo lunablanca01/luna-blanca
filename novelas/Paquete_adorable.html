@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paquete adorable</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>Paquete adorable</h1>
+
+<img class="portada" src="../imagenes/Paquete_adorable.jpg">
+
+<div class="subtitulo">Lovable Package</div>
+<div>娇气包[快穿]</div>
+<div class="autor"></div>
+<div class="capitulos"><b>Capítulos:</b> 123</div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Su Tang es un paquete delicado, incapaz de cualquier cosa, sólo capaz de actuar como un niño mimado. </p>
+  <p>Sin embargo, transmigró para convertirse en un gran villano, teniendo que insultar al protagonista masculino hegemónico, oprimir a la protagonista femenina y, finalmente, sufrir una muerte fea. </p>
+  <p>Como villano ideal, Su Tang tembló y decidió… ¡actuar como un niño mimado! </p>
+  <p>Uno, actúa mal y el protagonista masculino inmediatamente se ablandará. Actúe como mimado una vez más y simplemente escuchará todo lo que diga. </p>
+  <p>Su Tang: Preguntas frecuentes </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="no-leido">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>

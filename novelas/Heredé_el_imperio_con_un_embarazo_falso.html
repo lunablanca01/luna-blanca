@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heredé el imperio con un embarazo falso</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>Heredé el imperio con un embarazo falso</h1>
+
+<img class="portada" src="../imagenes/Heredé_el_imperio_con_un_embarazo_falso.jpg">
+
+<div class="subtitulo">I Inherited Empire with Fake Pregnancy</div>
+<div>假孕后我继承了帝国</div>
+<div class="autor"></div>
+<div class="capitulos"><b>Capítulos:</b> 115 + 10 extras</div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Jin WoWo sufrió su tribulación celestial y fue alcanzado por un rayo en otro mundo. Antes de que pudiera sentirse cómodo en este nuevo mundo, la Oficina de Educación Legal Interestelar le notificó que... </p>
+  <p>——¡Está embarazada! </p>
+  <p>Y estaba embarazada del hijo del difunto mariscal, con cientos de miles de millones de herencia y una estrella de energía entera esperando que él la heredara. </p>
+  <p>Pero… ¡todavía era un hombre! No, un caracol macho. </p>
+  <p>Lo que puso en su estómago… No, en realidad, estaba dentro de su caparazón. Fue… </p>
+  <p>El mariscal del Imperio Raymond “murió” como mártir, pero cuando despertó nuevamente, se encontró empapado en un montón de líquido tibio, con todo su cuerpo aún intacto. </p>
+  <p>De repente, escuchó una voz clara proveniente del exterior: "¡Sí, este es el hijo del mariscal Raymond y mío!" </p>
+  <p>Raimundo: ??? </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="no-leido">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>
