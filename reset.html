@@ -158,11 +158,14 @@ window.volverLogin = () => {
 
 window.togglePassword = () => {
   const input = document.getElementById("newPassword");
+  const icon = document.querySelector(".toggle");
 
   if (input.type === "password") {
     input.type = "text";
+    icon.textContent = "🙈";
   } else {
     input.type = "password";
+    icon.textContent = "👁️";
   }
 };
 </script>
