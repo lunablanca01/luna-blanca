@@ -330,6 +330,18 @@ h1 a{
 }
 
 
+/* Icono de estado lectura */
+.estado-lectura {
+  position: absolute; /* sobre la tarjeta */
+  top: 8px;           /* distancia desde arriba */
+  right: 8px;         /* distancia desde la derecha */
+  font-size: 18px;    /* tamaño del emoji */
+  background: none;   /* sin fondo */
+  color: black;       /* color si quieres */
+  z-index: 10;        /* sobre la imagen */
+  pointer-events: none; /* para que no interfiera con clicks */
+}
+
 /* BOTÓN VOLVER ARRIBA */
 #scrollTop {
   position: fixed;
