@@ -5,12 +5,14 @@ const supabase = createClient(
   "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
 );
 
-// REGISTRO (ahora usa confirmado.html)
+// =======================
+// REGISTRO
+// =======================
 window.registrar = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { error } = await supabase.auth.signUp({
+  const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
@@ -18,23 +20,67 @@ window.registrar = async () => {
     }
   });
 
+  if (error) {
+    document.getElementById("mensaje").innerText = error.message;
+    return;
+  }
+
+  // 🔥 Crear perfil en tu tabla
+  const user = data.user;
+
+  if (user) {
+    const { error: perfilError } = await supabase
+      .from("perfiles")
+      .insert({
+        id: user.id,
+        email: email,
+        aprobado: false
+      });
+
+    if (perfilError) {
+      console.error("Error creando perfil:", perfilError.message);
+    }
+  }
+
   document.getElementById("mensaje").innerText =
-    error ? error.message : "Revisa tu correo para confirmar 📩";
+    "Revisa tu correo para confirmar 📩";
 };
 
+// =======================
 // LOGIN
+// =======================
 window.login = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password
   });
 
   if (error) {
     document.getElementById("mensaje").innerText = error.message;
-  } else {
-    window.location.href = "https://lunablanca01.github.io/luna-blanca/luna-blanca.html";
+    return;
   }
+
+  const user = data.user;
+
+  // 🔥 Verificar aprobación
+  const { data: perfil, error: perfilError } = await supabase
+    .from("perfiles")
+    .select("aprobado")
+    .eq("id", user.id)
+    .single();
+
+  if (perfilError || !perfil?.aprobado) {
+    await supabase.auth.signOut();
+
+    document.getElementById("mensaje").innerText =
+      "Tu cuenta aún no ha sido aprobada ⏳";
+    return;
+  }
+
+  // ✅ Usuario aprobado entra
+  window.location.href =
+    "https://lunablanca01.github.io/luna-blanca/luna-blanca.html";
 };
