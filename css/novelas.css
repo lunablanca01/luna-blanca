@@ -373,16 +373,16 @@ h1{
   }
 
   #bloque-autor .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    max-width: 100%; /* ocupa todo el contenedor */
-    margin: 0 auto;
+    display: grid;                       /* igual que .grid normal */
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    justify-content: unset;               /* quita centrado */
+    margin: 0;                            /* sin centrar */
   }
 
   #bloque-autor .grid .card {
-    flex: unset;     /* quita el flex de escritorio */
-    max-width: 100%; /* ancho completo de la celda de grid */
+    width: 100%;                          /* ocupa el ancho de la celda */
+    max-width: unset;                      /* quita límite máximo */
   }
 
   /* tarjetas más compactas */
