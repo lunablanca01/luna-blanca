@@ -360,3 +360,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+/* ================================
+   ⬆️ 17. TRAER ESTADO DE NOVELAS
+================================ */
+document.getElementById("contenedor-tarjetas").innerHTML = tarjetasHTML;
+
+// aplicar etiquetas de estado locales (finalizado, en-proceso, etc.)
+aplicarEstados(document.getElementById("contenedor-tarjetas"));
+
+// llamar la función de estado desde estado.js
+if(location.protocol !== "file:"){
+  ponerIconosEstado(); // esta función está en estado.js
+}
