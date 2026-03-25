@@ -51,6 +51,28 @@ input {
   border: 1px solid #ddd;
 }
 
+.input-group {
+  position: relative;
+}
+
+.input-group input {
+  padding-right: 40px;
+}
+
+.toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.toggle:hover {
+  opacity: 1;
+}
+  
 button {
   width: 100%;
   padding: 14px;
@@ -81,7 +103,10 @@ button {
   <h1>Luna Blanca</h1>
   <div class="subtitulo">Ingresa tu nueva contraseña</div>
 
-  <input type="password" id="newPassword" placeholder="Nueva contraseña">
+  <div class="input-group">
+    <input type="password" id="newPassword" placeholder="Nueva contraseña">
+    <span class="toggle" onclick="togglePassword()">👁️</span>
+  </div>
 
   <button onclick="cambiarPassword()">
     Guardar contraseña
@@ -129,6 +154,16 @@ window.cambiarPassword = async () => {
 
 window.volverLogin = () => {
   window.location.href = "index.html";
+};
+
+window.togglePassword = () => {
+  const input = document.getElementById("newPassword");
+
+  if (input.type === "password") {
+    input.type = "text";
+  } else {
+    input.type = "password";
+  }
 };
 </script>
 
