@@ -1,19 +1,19 @@
 /* ================================
-   🧰 NOVELAS.JS - Local y Supabase
+   🧰 NOVELAS.JS - Local + GitHub
 ================================ */
 
 document.addEventListener("DOMContentLoaded", function() {
 
-  // -------------------------------
-  // 🔢 1. CAPÍTULOS
-  // -------------------------------
+  /* ================================
+     🔢 1. CAPÍTULOS
+  ================================= */
   const capElem = document.querySelector(".capitulos");
   let totalCap = 0;
 
   if(capElem){
     const numeros = capElem.textContent.match(/\d+/g);
     if(numeros){
-      totalCap = numeros.reduce(function(acc, num){ return acc + parseInt(num); }, 0);
+      totalCap = numeros.reduce((acc, num) => acc + parseInt(num), 0);
       const totalCapElem = document.getElementById("total-capitulos");
       if(totalCapElem) totalCapElem.textContent = totalCap;
 
@@ -22,18 +22,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // -------------------------------
-  // 🏷️ 2. ETIQUETAS / EPUB
-  // -------------------------------
+  /* ================================
+     🏷️ 2. ETIQUETAS / EPUB
+  ================================= */
   const tituloActual = document.querySelector("h1")?.textContent.trim();
 
-  if (tituloActual && typeof tarjetasHTML !== "undefined") {
+  if(tituloActual && typeof tarjetasHTML !== "undefined"){
     const parser = new DOMParser();
     const doc = parser.parseFromString(tarjetasHTML, "text/html");
     const cards = doc.querySelectorAll(".card");
 
     let tarjetaCoincidente = null;
-    cards.forEach(function(card){
+    cards.forEach(card => {
       const nombreCard = card.querySelector("h3")?.textContent.trim();
       if(nombreCard === tituloActual) tarjetaCoincidente = card;
     });
@@ -56,9 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <br>
             <div class="lista-etiquetas">
               Etiqueta:
-              ${categorias.map(function(cat){
-                return `<a href="../luna-blanca.html?categoria=${cat}">${obtenerNombreTag(cat)}</a>`;
-              }).join("")}
+              ${categorias.map(cat => `<a href="../luna-blanca.html?categoria=${cat}">${obtenerNombreTag(cat)}</a>`).join("")}
             </div>
           `;
         }
@@ -67,89 +65,75 @@ document.addEventListener("DOMContentLoaded", function() {
       const linkEpub = tarjetaCoincidente.querySelector(".links-tarjeta a")?.href;
       const contenedorEpub = document.getElementById("epub-container");
       if(linkEpub && contenedorEpub){
-        contenedorEpub.innerHTML = `
-          <div class="epub">
-            Leer en: <a href="${linkEpub}" target="_blank">ePub</a>
-          </div>
-        `;
+        contenedorEpub.innerHTML = `<div class="epub">Leer en: <a href="${linkEpub}" target="_blank">ePub</a></div>`;
       }
     }
   }
 
-  // -------------------------------
-  // 👤 3. AUTOR
-  // -------------------------------
+  /* ================================
+     👤 3. AUTOR
+  ================================= */
   if(typeof cargarAutor === "function") cargarAutor();
 
+  /* ================================
+     💾 4. SUPABASE / LECTURA
+  ================================= */
+  const esLocal = location.protocol === "file:";
+  const supabaseDisponible = !esLocal && window.supabase;
+
+  const selectEstado = document.getElementById("estado-lectura");
+  const inputProgreso = document.getElementById("progreso-capitulo");
+  const btnGuardar = document.getElementById("guardar-lectura");
+
+  if(!selectEstado || !inputProgreso || !btnGuardar) return;
+
+  if(!supabaseDisponible){
+    // Modo local
+    console.log("Modo local: Supabase desactivado");
+    btnGuardar.addEventListener("click", function() {
+      mostrarToast("Modo local (no se guarda)", "ok");
+    });
+    return;
+  }
+
   // -------------------------------
-  // 💾 4. SUPABASE / LECTURA
+  // 🔹 Supabase activo
   // -------------------------------
-  (function(){
-    const esLocal = location.protocol === "file:";
-    const supabaseDisponible = !esLocal && window.supabase;
+  async function initSupabase() {
+    const { data: { user } } = await supabase.auth.getUser();
+    if(!user) return;
 
-    const selectEstado = document.getElementById("estado-lectura");
-    const inputProgreso = document.getElementById("progreso-capitulo");
-    const btnGuardar = document.getElementById("guardar-lectura");
+    // Cargar lectura
+    const { data } = await supabase
+      .from("lecturas")
+      .select("*")
+      .eq("usuario_id", user.id)
+      .eq("novela", tituloActual)
+      .maybeSingle();
 
-    if(!selectEstado || !inputProgreso || !btnGuardar) return;
-
-    if(!supabaseDisponible){
-      // Modo local
-      console.log("Modo local: Supabase desactivado");
-      btnGuardar.addEventListener("click", function(){
-        mostrarToast("Modo local (no se guarda)", "ok");
-      });
-      return;
+    if(data){
+      selectEstado.value = data.estado;
+      inputProgreso.value = data.progreso;
     }
 
-    // -------------------------------
-    // 🔹 Supabase activo
-    // -------------------------------
-    async function cargarSupabase() {
-      const { data: { user } } = await supabase.auth.getUser();
-      if(!user) return;
-
-      // Cargar estado/progreso
-      const { data } = await supabase
-        .from("lecturas")
-        .select("*")
-        .eq("usuario_id", user.id)
-        .eq("novela", tituloActual)
-        .maybeSingle();
-
-      if(data){
-        selectEstado.value = data.estado;
-        inputProgreso.value = data.progreso;
+    // Guardar lectura
+    btnGuardar.addEventListener("click", async function(){
+      const valor = parseInt(inputProgreso.value);
+      if(isNaN(valor)){
+        alert("Ingresa un número válido");
+        return;
       }
 
-      // Guardar
-      btnGuardar.addEventListener("click", async function(){
-        const valor = parseInt(inputProgreso.value);
-        if(isNaN(valor)){
-          alert("Ingresa un número válido");
-          return;
-        }
+      const { error } = await supabase.from("lecturas").upsert(
+        { usuario_id: user.id, novela: tituloActual, estado: selectEstado.value, progreso: valor },
+        { onConflict: ["usuario_id", "novela"] }
+      );
 
-        const { error } = await supabase.from("lecturas").upsert(
-          {
-            usuario_id: user.id,
-            novela: tituloActual,
-            estado: selectEstado.value,
-            progreso: valor
-          },
-          { onConflict: ["usuario_id", "novela"] }
-        );
+      if(!error) mostrarToast("Guardado", "ok");
+      else mostrarToast("Error al guardar", "error");
+    });
+  }
 
-        if(!error){
-          mostrarToast("Guardado", "ok");
-        } else {
-          mostrarToast("Error al guardar", "error");
-        }
-      });
-    }
+  initSupabase();
 
-    cargarSupabase();
-
-  })(); // fin de supabase
 });
