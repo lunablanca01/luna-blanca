@@ -95,6 +95,18 @@ h2{
 }
 
 
+.estado-icono {
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  font-weight: bold;
+}
+
+
 /* ===== CELULAR ===== */
 
 @media (max-width:500px){
