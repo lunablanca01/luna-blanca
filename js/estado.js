@@ -1,15 +1,18 @@
 // estado.js
-async function ponerIconosEstado() {
+import { supabase } from "./supabase.js"; // si usas supabase
+
+export async function ponerIconosEstado() {
   console.log("ponerIconosEstado ejecutada ✅");
 
   const contenedor = document.getElementById("contenedor-tarjetas");
-  if(!contenedor) return;
+  if (!contenedor) return;
 
   const cards = contenedor.querySelectorAll(".card");
 
   // etiquetas locales
   cards.forEach(card => {
-    if(card.querySelector(".estado")) return;
+    if (card.querySelector(".estado")) return;
+
     const tags = (card.dataset.tags || "").toLowerCase();
     let estadoTexto = "";
     let estadoClase = "";
@@ -25,9 +28,5 @@ async function ponerIconosEstado() {
     }
   });
 
-  // código de Supabase (opcional)
-  ...
+  // Aquí puedes agregar tu código de Supabase si quieres cargar estado y progreso
 }
-
-// se ejecuta automáticamente al cargar el módulo
-ponerIconosEstado();
