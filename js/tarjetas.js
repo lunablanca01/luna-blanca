@@ -1025,7 +1025,7 @@ titulo: 'Heredé el imperio con un embarazo falso',
 slug: "Heredé_el_imperio_con_un_embarazo_falso",
 imagen: "Heredé_el_imperio_con_un_embarazo_falso.jpg",
 tags: "danmei pendiente futurista bestias cultivo malentendidos mpreg transportado-a-otro-mundo",
-autor: "Lian Yi",
+autor: "lian-yi",
 link: "https://www.novelupdates.com/series/i-inherited-empire-with-fake-pregnancy/"
 },
 
