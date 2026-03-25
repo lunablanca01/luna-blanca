@@ -106,6 +106,10 @@ h2{
   font-weight: bold;
 }
 
+.estado-icono[data-estado="leido"] { color: green; }
+.estado-icono[data-estado="leyendo"] { color: orange; }
+.estado-icono[data-estado="por-leer"] { color: red; }
+
 
 /* ===== CELULAR ===== */
 
