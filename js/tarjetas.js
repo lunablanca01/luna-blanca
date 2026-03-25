@@ -1543,9 +1543,9 @@ link: "https://www.novelupdates.com/series/little-ger-slow-life-in-another-world
 },
 
 {
-titulo: 'Novia falsificada',
-slug: "Novia_falsificada",
-imagen: "Novia_falsificada.jpg",
+titulo: 'Novia falsa',
+slug: "Novia_falsa",
+imagen: "Novia_falsa.jpg",
 tags: "danmei pendiente china-antigua gender-bender smut",
 autor: "zi-yue",
 link: "https://www.novelupdates.com/series/counterfeit-bride/"
