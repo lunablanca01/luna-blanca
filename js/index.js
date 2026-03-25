@@ -89,3 +89,32 @@ window.login = async () => {
   window.location.href =
     "https://lunablanca01.github.io/luna-blanca/luna-blanca.html";
 };
+
+
+// =======================
+// RECUPERAR CONTRASEÑA
+// =======================
+window.recuperarPassword = async () => {
+  const email = document.getElementById("emailRecuperar").value;
+
+  document.getElementById("mensaje").innerText = "";
+
+  if (!email) {
+    document.getElementById("mensaje").innerText =
+      "Ingresa tu correo 💭";
+    return;
+  }
+
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: "https://lunablanca01.github.io/luna-blanca/reset.html"
+  });
+
+  if (error) {
+    document.getElementById("mensaje").innerText =
+      "No pudimos enviar el correo 😢";
+    return;
+  }
+
+  document.getElementById("mensaje").innerText =
+    "Te enviamos un enlace a tu correo 💌";
+};
