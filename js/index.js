@@ -12,35 +12,35 @@ window.registrar = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  const { data, error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      emailRedirectTo: "https://lunablanca01.github.io/luna-blanca/confirmado.html"
-    }
-  });
-
-  if (error) {
-    document.getElementById("mensaje").innerText = error.message;
-    return;
+const { data, error } = await supabase.auth.signUp({
+  email,
+  password,
+  options: {
+    emailRedirectTo: "https://lunablanca01.github.io/luna-blanca/confirmado.html"
   }
+});
 
-  // 🔥 Crear perfil en tu tabla
-  const user = data.user;
+if (error) {
+  document.getElementById("mensaje").innerText = error.message;
+  return;
+}
 
-  if (user) {
-    const { error: perfilError } = await supabase
-      .from("perfiles")
-      .insert({
-        id: user.id,
-        email: email,
-        aprobado: false
-      });
+// 🔥 SOLUCIÓN AQUÍ
+const user = data.user ?? data.session?.user;
 
-    if (perfilError) {
-      console.error("Error creando perfil:", perfilError.message);
-    }
+if (user) {
+  const { error: perfilError } = await supabase
+    .from("perfiles")
+    .insert({
+      id: user.id,
+      email: email,
+      aprobado: false
+    });
+
+  if (perfilError) {
+    console.error("Error creando perfil:", perfilError.message);
   }
+}
 
   document.getElementById("mensaje").innerText =
     "Revisa tu correo para confirmar 📩";
