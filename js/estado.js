@@ -1,4 +1,4 @@
-// estado.js optimizado
+// estado.js optimizado para muchos libros
 import { supabase } from "./supabase.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -8,44 +8,45 @@ document.addEventListener("DOMContentLoaded", async () => {
   const cards = contenedor.querySelectorAll(".card");
   if (cards.length === 0) return; // aún no hay tarjetas
 
-  // No correr en local file://
+  // Evitar correr en local file://
   if (location.protocol === "file:") return;
 
+  // Obtener usuario actual
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
 
-  // Obtener títulos de todas las tarjetas
-  const titulos = Array.from(cards)
-    .map(card => card.querySelector("h3")?.textContent.trim())
-    .filter(Boolean);
-
-  if (titulos.length === 0) return;
-
-  // Traer todos los estados de lectura de una sola vez
-  const { data: lecturas } = await supabase
+  // 1️⃣ Traer todos los estados de lectura del usuario en una sola consulta
+  const { data: lecturas, error } = await supabase
     .from("lecturas")
     .select("novela, estado")
-    .eq("usuario_id", user.id)
-    .in("novela", titulos);
+    .eq("usuario_id", user.id);
 
-  // Crear un mapa para acceso rápido
+  if (error) {
+    console.error("Error al traer lecturas:", error);
+    return;
+  }
+
+  // 2️⃣ Crear un mapa rápido { novela: estado }
   const mapaLecturas = {};
   lecturas?.forEach(l => {
     mapaLecturas[l.novela] = l.estado;
   });
 
-  // Emoji según estado
+  // 3️⃣ Emoji según estado
   const emojiMap = { "por leer": "📖", "leyendo": "🔖", "leído": "✅" };
 
-  // Aplicar estado a cada tarjeta
+  // 4️⃣ Aplicar estado a cada tarjeta
   cards.forEach(card => {
     const tituloCard = card.querySelector("h3")?.textContent.trim();
+    if (!tituloCard) return;
+
     const estadoLectura = mapaLecturas[tituloCard] || "por leer";
 
     const divEstado = document.createElement("div");
     divEstado.className = "estado-lectura";
-    divEstado.textContent = emojiMap[estadoLectura] || "📖";
+    divEstado.textContent = emojiMap[estadoLectura] || "📖"; // solo emoji
 
+    // Insertar al inicio de la tarjeta
     card.insertAdjacentElement("afterbegin", divEstado);
   });
 });
