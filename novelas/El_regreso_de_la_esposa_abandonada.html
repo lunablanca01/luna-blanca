@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El regreso de la esposa abandonada</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>El regreso de la esposa abandonada</h1>
+
+<img class="portada" src="../imagenes/El_regreso_de_la_esposa_abandonada.jpg">
+
+<div class="subtitulo">Comeback of the Abandoned Wife</div>
+<div>废妻重生</div>
+<div class="autor"></div>
+<div class="capitulos"><b>Capítulos:</b> 386</div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Después de la muerte de Wu Ruo, renace en esos días oscuros en los que era el más inútil y el más gordo que más odiaba. </p>
+  <p>Y en su nueva vida, no sólo ha estado casado con un hombre, sino que también es un desperdicio inútil que no puede cultivarse. Necesita el apoyo de los demás cuando se levanta, y jadearía al dar unos cuantos pasos más, e incluso se quedaría atrapado en la puerta cuando intenta salir por ella. Se puede decir que ha llegado a un nuevo nivel de desperdicio y, mientras tanto, ha alcanzado un nuevo nivel de grasa. </p>
+  <p>Pero… </p>
+  <p>Aunque ya ha estado así de gordo, ¿todavía quiere que le sirva en la cama? </p>
+  <p>¡Maldita sea! </p>
+  <p>¡Bien! ¡Mira como te aplasto en la cama! </p>
+  <p>En esta vida, cuando Wu Ruo decide vengarse, ha borrado todo su pasado que es incluso difícil de contar... </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="no-leido">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>

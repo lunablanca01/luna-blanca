@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desterrado a otro mundo</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>Desterrado a otro mundo</h1>
+
+<img class="portada" src="../imagenes/Desterrado_a_otro_mundo.jpg">
+
+<div class="subtitulo">Banished to Another World</div>
+<div>异世流放</div>
+<div class="autor"></div>
+<div class="capitulos"><b>Capítulos:</b> 649 + 10 extras</div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>¡Un médico milagroso fue exiliado a un mundo salvaje alternativo y obligado a cambiar sus asquerosas costumbres! </p>
+  <p>El alma de Yan Mo fue transferida a otro mundo después de haber ofendido completamente a Dios. Rápidamente comprendió lo cruel que era el mundo en el que se encontraba. </p>
+  <p>La razón por la que un hombre primitivo lo golpeó hasta dejarlo inconsciente y lo trajo de regreso a su casa fue por las reservas de alimentos de invierno de ese hombre. La tribu en la que estaba era una tribu primitiva súper espartana, y la gente aquí solo respetaba dos cosas: ¡poder de combate y capacidad de lucha! El primero era el poder de lucha en las batallas, el segundo era... </p>
+  <p>…… </p>
+  <p>¿Examinar la enfermedad? ¿Medicina china? ¿Beber esas cosas amargas y arenosas? ¿Qué diablos es eso? ¿Estás intentando asesinar al guerrero de nuestra tribu? ¡Morir! </p>
+  <p>¿Plantar trigo? ¿Criar cerdos y gallinas? ¡Somos guerreros, no salvadores! ¡Morir! </p>
+  <p>¿Enseñar a las mujeres a confeccionar ropa y cocinar? ¿Hacerles jabón y perfume? ¡Joder, en realidad está seduciendo a nuestras mujeres! ¡Morir! </p>
+  <p>¿Eres un mensajero de Dios? ¿Aquí para llevarnos a una vida mejor? Muy bien. Te daremos un día, conquistarás a todos nuestros enemigos, los convertiremos en esclavos y los traeremos de regreso. ¡Si no puedes, estás muerto! </p>
+  <p>Yan Mo: "..." </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="no-leido">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>
