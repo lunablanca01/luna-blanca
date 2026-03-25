@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Restablecer contraseña - Luna Blanca</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Molengo&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Molengo', sans-serif;
+  background: linear-gradient(to bottom, #bfe7ff 0%, #ffffff 25%);
+}
+
+.caja {
+  background: white;
+  padding: 40px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  width: 90%;
+  max-width: 400px;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #ff8b8b;
+  margin-bottom: 15px;
+}
+
+.subtitulo {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #f3fbff;
+  border: 1px solid #ddd;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  background: #ff8b8b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.link {
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+#mensaje {
+  margin-top: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="caja">
+  <h1>Luna Blanca</h1>
+  <div class="subtitulo">Ingresa tu nueva contraseña</div>
+
+  <input type="password" id="newPassword" placeholder="Nueva contraseña">
+
+  <button onclick="cambiarPassword()">
+    Guardar contraseña
+  </button>
+
+  <div class="link" onclick="volverLogin()">
+    ← Volver al inicio
+  </div>
+
+  <p id="mensaje"></p>
+</div>
+
+<script type="module">
+import { supabase } from "./js/supabase.js";
+
+window.cambiarPassword = async () => {
+  const password = document.getElementById("newPassword").value;
+
+  document.getElementById("mensaje").innerText = "";
+
+  if (!password) {
+    document.getElementById("mensaje").innerText =
+      "Ingresa una contraseña 💭";
+    return;
+  }
+
+  const { error } = await supabase.auth.updateUser({
+    password: password
+  });
+
+  if (error) {
+    document.getElementById("mensaje").innerText =
+      "Error al cambiar la contraseña 😢";
+    return;
+  }
+
+  document.getElementById("mensaje").innerText =
+    "Contraseña actualizada 🎉";
+
+  // Opcional: redirigir después de unos segundos
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 2000);
+};
+
+window.volverLogin = () => {
+  window.location.href = "index.html";
+};
+</script>
+
+</body>
+</html>
