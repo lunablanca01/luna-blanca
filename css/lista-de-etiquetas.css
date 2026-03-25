@@ -95,21 +95,35 @@ h2{
 }
 
 
-.estado-icono {
-  background: rgba(255,255,255,0.8);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+/* ==============================
+   ESTADO DE LECTURA EN TARJETAS
+============================== */
+.estado-lectura {
   font-weight: bold;
+  font-size: 0.9rem;
+  padding: 4px 6px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  display: inline-block;
+  background-color: #f0f0f0; /* gris claro */
+  color: #333;
 }
 
-.estado-icono[data-estado="leido"] { color: green; }
-.estado-icono[data-estado="leyendo"] { color: orange; }
-.estado-icono[data-estado="por-leer"] { color: red; }
+/* Diferenciar por estado */
+.estado-lectura.por-leer {
+  background-color: #ffd700; /* dorado */
+  color: #000;
+}
 
+.estado-lectura.leyendo {
+  background-color: #87cefa; /* celeste */
+  color: #000;
+}
+
+.estado-lectura.leido {
+  background-color: #90ee90; /* verde claro */
+  color: #000;
+}
 
 /* ===== CELULAR ===== */
 
