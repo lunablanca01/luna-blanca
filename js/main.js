@@ -1,3 +1,5 @@
+console.log("main.js actualizado ✅");
+
 /* ================================
    🧱 1. CARGAR TARJETAS
 ================================ */
