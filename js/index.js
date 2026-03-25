@@ -12,23 +12,32 @@ window.registrar = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-const { data, error } = await supabase.auth.signUp({
-  email,
-  password,
-  options: {
-    emailRedirectTo: "https://lunablanca01.github.io/luna-blanca/confirmado.html"
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password
+  });
+
+  console.log("SIGNUP DATA:", data);
+  console.log("SIGNUP ERROR:", error);
+
+  if (error) {
+    document.getElementById("mensaje").innerText = error.message;
+    return;
   }
-});
 
-if (error) {
-  document.getElementById("mensaje").innerText = error.message;
-  return;
-}
+  // 🔥 IMPORTANTE: obtener usuario correctamente
+  const user = data.user ?? data.session?.user;
 
-// 🔥 SOLUCIÓN AQUÍ
-const user = data.user ?? data.session?.user;
+  console.log("USER:", user);
 
-if (user) {
+  if (!user) {
+    console.error("No se pudo obtener el usuario");
+    document.getElementById("mensaje").innerText =
+      "Error al crear usuario, intenta nuevamente";
+    return;
+  }
+
+  // 🔥 Crear perfil
   const { error: perfilError } = await supabase
     .from("perfiles")
     .insert({
@@ -37,13 +46,16 @@ if (user) {
       aprobado: false
     });
 
+  console.log("INSERT ERROR:", perfilError);
+
   if (perfilError) {
-    console.error("Error creando perfil:", perfilError.message);
+    document.getElementById("mensaje").innerText =
+      "Usuario creado, pero error al guardar perfil";
+    return;
   }
-}
 
   document.getElementById("mensaje").innerText =
-    "Revisa tu correo para confirma 📩";
+    "Usuario registrado correctamente 🎉";
 };
 
 // =======================
@@ -71,6 +83,9 @@ window.login = async () => {
     .select("aprobado")
     .eq("id", user.id)
     .single();
+
+  console.log("PERFIL:", perfil);
+  console.log("PERFIL ERROR:", perfilError);
 
   if (perfilError || !perfil?.aprobado) {
     await supabase.auth.signOut();
