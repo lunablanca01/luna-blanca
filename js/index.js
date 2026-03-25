@@ -43,7 +43,7 @@ if (user) {
 }
 
   document.getElementById("mensaje").innerText =
-    "Revisa tu correo para confirmar 📩";
+    "Revisa tu correo para confirma 📩";
 };
 
 // =======================
