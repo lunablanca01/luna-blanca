@@ -1,7 +1,6 @@
 body{
   font-family: 'Molengo', Arial, sans-serif;
   margin:0px;
-  padding:0px 40px;
   color:black;
   text-align:center;
   font-size: 18px
@@ -10,6 +9,7 @@ body{
 .contenedor{
   max-width: 1100px;
   margin: 0 auto;
+  padding:0px 40px;
 }
 
 .epub{
