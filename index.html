@@ -56,6 +56,29 @@ button {
   margin-top: 10px;
 }
 
+/* 👁️ INPUT CON OJO */
+.input-group {
+  position: relative;
+}
+
+.input-group input {
+  padding-right: 40px;
+}
+
+.toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.toggle:hover {
+  opacity: 1;
+}
+
 .link {
   font-size: 13px;
   color: #666;
@@ -89,7 +112,11 @@ button {
   <!-- LOGIN -->
   <div id="loginForm">
     <input type="email" id="email" placeholder="Correo electrónico">
-    <input type="password" id="password" placeholder="Contraseña">
+
+    <div class="input-group">
+      <input type="password" id="password" placeholder="Contraseña">
+      <span class="toggle" onclick="togglePassword('password', this)">👁️</span>
+    </div>
 
     <div class="link-olvidaste">¿Olvidaste tu contraseña?</div>
 
@@ -105,7 +132,11 @@ button {
   <div id="registroForm" style="display:none;">
     <input type="email" id="emailRegistro" placeholder="Correo electrónico">
     <input type="text" id="nombreRegistro" placeholder="Nombre">
-    <input type="password" id="passwordRegistro" placeholder="Contraseña">
+
+    <div class="input-group">
+      <input type="password" id="passwordRegistro" placeholder="Contraseña">
+      <span class="toggle" onclick="togglePassword('passwordRegistro', this)">👁️</span>
+    </div>
 
     <button onclick="registrar()">Registrarse</button>
 
@@ -127,6 +158,19 @@ function mostrarRegistro() {
 function mostrarLogin() {
   document.getElementById("loginForm").style.display = "block";
   document.getElementById("registroForm").style.display = "none";
+}
+
+/* 👁️ MOSTRAR / OCULTAR CONTRASEÑA */
+function togglePassword(id, icon) {
+  const input = document.getElementById(id);
+
+  if (input.type === "password") {
+    input.type = "text";
+    icon.textContent = "🙈";
+  } else {
+    input.type = "password";
+    icon.textContent = "👁️";
+  }
 }
 </script>
 
