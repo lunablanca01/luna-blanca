@@ -2420,6 +2420,7 @@ link: "https://drive.google.com/drive/u/4/folders/1GeDB5EscYq3TrAAOHf02TX3bBnW3M
 
 const tarjetasHTML = novelas.map(novela => `
 <div class="card"
+  data-novela="${novela.slug}"
   data-tags="${novela.tags}"
   data-autor="${novela.autor}">
 
