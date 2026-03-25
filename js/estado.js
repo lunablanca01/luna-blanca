@@ -1,42 +1,69 @@
-async function ponerIconosEstado(){
-  const { supabase } = await import("./supabase.js");
+// estado.js
+import { supabase } from "./supabase.js"; // si usas supabase
 
-  // obtener usuario logueado
-  const { data: { user } } = await supabase.auth.getUser();
-  if(!user) return;
+export async function ponerIconosEstado(){
+  console.log("ponerIconosEstado ejecutada ✅");
 
-  // traer todos los estados de lectura del usuario
-  const { data: lecturas, error } = await supabase.from("lecturas")
-    .select("*")
-    .eq("usuario_id", user.id);
+  const contenedor = document.getElementById("contenedor-tarjetas");
+  if(!contenedor) return;
 
-  if(error){ console.error(error); return; }
+  const cards = contenedor.querySelectorAll(".card");
 
-  // recorrer todas las tarjetas
-  document.querySelectorAll(".card").forEach(card => {
-    const novelaId = card.dataset.novela;
-    if(!novelaId) return;
+  // etiquetas locales
+  cards.forEach(card => {
+    if(card.querySelector(".estado")) return;
+    const tags = (card.dataset.tags || "").toLowerCase();
+    let estadoTexto = "";
+    let estadoClase = "";
 
-    const lectura = lecturas.find(l => l.novela === novelaId);
-    if(!lectura) return;
+    if(tags.includes("finalizado")) { estadoTexto="Finalizado"; estadoClase="estado-finalizado"; }
+    if(tags.includes("en-proceso")) { estadoTexto="En proceso"; estadoClase="estado-proceso"; }
+    if(tags.includes("mtl")) { estadoTexto="MTL"; estadoClase="estado-mtl"; }
+    if(tags.includes("pendiente")) { estadoTexto="Pendiente"; estadoClase="estado-pendiente"; }
 
-    let icono = "";
-    if(lectura.estado === "leido") icono = "✔️";
-    else if(lectura.estado === "leyendo") icono = "⏳";
-    else if(lectura.estado === "por-leer") icono = "❌";
-
-    if(icono){
-      const badge = document.createElement("div");
-      badge.className = "estado-icono";
-      badge.textContent = icono;
-
-      card.style.position = "relative"; // para que el icono quede en la esquina
-      badge.style.position = "absolute";
-      badge.style.top = "5px";
-      badge.style.right = "5px";
-      badge.style.fontSize = "20px";
-
-      card.appendChild(badge);
+    if(estadoTexto){
+      const etiqueta = `<div class="estado ${estadoClase}">${estadoTexto}</div>`;
+      card.insertAdjacentHTML("afterbegin", etiqueta);
     }
   });
+
+  // aquí va tu código de supabase para cargar el estado y progreso
+  if(location.protocol !== "file:"){
+    const { data:{user} } = await supabase.auth.getUser();
+    if(!user) return;
+
+    const tituloActual = document.querySelector("h1")?.textContent.trim();
+    if(!tituloActual) return;
+
+    const selectEstado = document.getElementById("estado-lectura");
+    const inputProgreso = document.getElementById("progreso-capitulo");
+    const btnGuardar = document.getElementById("guardar-lectura");
+    if(!selectEstado || !inputProgreso) return;
+
+    const { data } = await supabase.from("lecturas")
+      .select("*")
+      .eq("usuario_id", user.id)
+      .eq("novela", tituloActual)
+      .maybeSingle();
+
+    if(data){
+      selectEstado.value = data.estado;
+      inputProgreso.value = data.progreso;
+    }
+
+    if(btnGuardar){
+      btnGuardar.addEventListener("click", async ()=>{
+        const valor = parseInt(inputProgreso.value);
+        if(isNaN(valor)){ alert("Ingresa un número válido"); return; }
+
+        const { error } = await supabase.from("lecturas").upsert(
+          { usuario_id: user.id, novela: tituloActual, estado: selectEstado.value, progreso: valor },
+          { onConflict: ["usuario_id","novela"] }
+        );
+
+        if(!error) console.log("Guardado ✅");
+        else console.log("Error al guardar ❌");
+      });
+    }
+  }
 }
