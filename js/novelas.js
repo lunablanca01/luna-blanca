@@ -161,70 +161,45 @@ document.addEventListener("DOMContentLoaded", async () => {
   /* ================================
      💾 SUPABASE (solo remoto)
   ================================= */
-  document.addEventListener("DOMContentLoaded", async () => {
-  const tituloActual = document.querySelector("h1")?.textContent.trim();
+  if(location.protocol !== "file:"){
+    const { supabase } = await import("./supabase.js");
 
-  // Variables del panel de lectura
-  const selectEstado = document.getElementById("estado-lectura");
-  const inputProgreso = document.getElementById("progreso-capitulo");
-  const btnGuardar = document.getElementById("guardar-lectura");
+    const { data:{user} } = await supabase.auth.getUser();
+    if(!user) return;
 
-  // Si estamos en remoto (http/https), importamos Supabase dinámicamente
-  let supabase = null;
-  if (location.protocol !== "file:") {
-    try {
-      const supabaseModule = await import("./supabase.js");
-      supabase = supabaseModule.supabase; // obtenemos el objeto supabase
-    } catch (e) {
-      console.error("Error cargando Supabase:", e);
-    }
-  }
+    const selectEstado = document.getElementById("estado-lectura");
+    const inputProgreso = document.getElementById("progreso-capitulo");
+    const btnGuardar = document.getElementById("guardar-lectura");
+    if(!selectEstado || !inputProgreso || !tituloActual) return;
 
-  // 🔹 Si supabase existe, hacemos la carga de lectura
-  if (supabase && selectEstado && inputProgreso && tituloActual) {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return;
-
-    // Cargar estado/progreso del usuario
-    const { data } = await supabase
-      .from("lecturas")
+    // Cargar estado
+    const { data } = await supabase.from("lecturas")
       .select("*")
       .eq("usuario_id", user.id)
       .eq("novela", tituloActual)
       .maybeSingle();
 
-    if (data) {
+    if(data){
       selectEstado.value = data.estado;
       inputProgreso.value = data.progreso;
     }
 
-    // Guardar cambios
-    if (btnGuardar) {
-      btnGuardar.addEventListener("click", async () => {
+    // Guardar estado
+    if(btnGuardar){
+      btnGuardar.addEventListener("click", async ()=>{
         const valor = parseInt(inputProgreso.value);
-        if (isNaN(valor)) {
-          alert("Ingresa un número válido");
-          return;
-        }
+        if(isNaN(valor)){ alert("Ingresa un número válido"); return; }
 
         const { error } = await supabase.from("lecturas").upsert(
-          {
-            usuario_id: user.id,
-            novela: tituloActual,
-            estado: selectEstado.value,
-            progreso: valor
-          },
-          { onConflict: ["usuario_id", "novela"] }
+          { usuario_id: user.id, novela: tituloActual, estado: selectEstado.value, progreso: valor },
+          { onConflict: ["usuario_id","novela"] }
         );
 
-        if (!error) {
-          mostrarToast("Guardado", "ok");
-        } else {
-          mostrarToast("Error al guardar", "error");
-        }
+        if(!error) mostrarToast("Guardado","ok");
+        else mostrarToast("Error al guardar","error");
       });
     }
   } else {
-    console.log("Modo local o no hay Supabase, se omite la carga de lectura");
+    console.log("Modo local: Supabase desactivado");
   }
 });
