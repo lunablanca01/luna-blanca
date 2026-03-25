@@ -158,9 +158,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Autor
   cargarAutor();
 
-  /* ================================
-     💾 SUPABASE (solo remoto)
-  ================================= */
+  // 💾 Supabase: solo remoto, auth dinámico
   if(location.protocol !== "file:"){
     const { supabase } = await import("./supabase.js");
 
