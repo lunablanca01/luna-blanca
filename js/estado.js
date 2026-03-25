@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     mapaLecturas[l.novela] = l.estado;
   });
 
-  const emojiMap = { "por leer": "📖", "leyendo": "🔖", "leído": "✅" };
+  const emojiMap = { "por leer": "📖", "leyendo": "🔖", "leido": "✅" };
 
   cards.forEach(card => {
     const tituloCard = card.querySelector("h3")?.textContent.trim();
