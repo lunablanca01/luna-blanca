@@ -140,3 +140,25 @@ function cargarAutor(){
 
 // Ejecutar autor
 cargarAutor();
+
+  /* ================================
+     🔢 6 CAPÍTULOS
+  ================================= */
+
+  const capElem = document.querySelector(".capitulos");
+  let totalCap = 0;
+
+  if(capElem){
+    const numeros = capElem.textContent.match(/\d+/g);
+
+    if(numeros){
+      totalCap = numeros.reduce((acc, num) => acc + parseInt(num), 0);
+
+      document.getElementById("total-capitulos").textContent = totalCap;
+
+      const inputProgreso = document.getElementById("progreso-capitulo");
+      if(inputProgreso){
+        inputProgreso.max = totalCap;
+      }
+    }
+  }
