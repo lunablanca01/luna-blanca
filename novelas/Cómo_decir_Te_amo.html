@@ -39,6 +39,25 @@
   <p>Esta es la historia del ascenso de Xiao Jiashu, un apasionado de la actuación, que silencia a sus detractores y asombra al mundo con su magnificencia. </p>
 </div>
 
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="no-leido">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
 
 <div id="epub-container"></div>
 
@@ -55,10 +74,13 @@
 <script>
   window.baseRuta = "../";
 </script>
+<script type="module" src="../js/auth.js"></script>
 <script src="../js/tarjetas.js"></script>
 <script src="../js/tags.js"></script>
 <script src="../js/novelas.js"></script>
 
 </div>
+
+<div id="toast" class="toast">Guardado</div>
 </body>
 </html>
