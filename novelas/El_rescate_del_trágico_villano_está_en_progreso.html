@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El rescate del trágico villano está en progreso</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>El rescate del trágico villano está en progreso</h1>
+
+<img class="portada" src="../imagenes/El_rescate_del_trágico_villano_está_en_progreso.jpg">
+
+<div class="subtitulo">The Rescue Of The Tragic Villain Is In Progress</div>
+<div>拯救悲情反派进行时！</div>
+<div class="autor"></div>
+<div class="capitulos"><b>Capítulos:</b> 287</div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>En la novela, además de un protagonista que ocupa toda la fortuna celestial, lo esencial eran los poderosos villanos trágicos. Eran increíbles o poderosos, pero debido a la loca obsesión con el protagonista, se volvieron paranoicos y locos, y finalmente se convirtieron en el villano que todos odiaban. </p>
+  <p>Los autores abusaron de sus cuerpos y de sus corazones. No había lugar donde echar raíces ni lugar donde ser enterrado. Al final, se amargaron en la vida. No vieron la luz del día, no fueron amados y no conocieron ninguna dulzura. El mundo los odiaba, los rechazaba y no les mostraba ninguna bondad. </p>
+  <p>Los lectores lloraron mucho y rogaron al autor que les diera un buen final y no abusara de ellos. Pero los autores sin escrúpulos dijeron: villanos, por supuesto, cuanto más miserables mejor, cuanto más amargos mejor, cuanto más despiadados, mejor. Es mejor romperse un brazo y una pierna. </p>
+  <p>#Cuanto más lloran los lectores, más feliz soy# </p>
+  <p>Sin embargo, tal vez porque el resentimiento de los lectores era demasiado grande, un día estos autores sin escrúpulos se encontraron de repente atados a un sistema. </p>
+  <p>Sistema: guárdelos. </p>
+  <p>Autores: ¿Quién? </p>
+  <p>Sistema: Tus villanos. </p>
+  <p>Autores: ¡¿Qué?! </p>
+  <p>System sacó cosas de su bolsillo: Vamos, este villano desfigurado es tuyo, este villano con una pierna rota es tuyo y este villano loco está siendo criticado… </p>
+  <p>Los autores se arrodillaron y escupieron su sangre vieja: ¡Por favor, déjenme ir! </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="no-leido">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>

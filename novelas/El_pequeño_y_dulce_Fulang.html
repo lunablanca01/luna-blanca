@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El pequeño y dulce Fulang</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>El pequeño y dulce Fulang</h1>
+
+<img class="portada" src="../imagenes/El_pequeño_y_dulce_Fulang.jpg">
+
+<div class="subtitulo">The Sweet Little Fulang</div>
+<div>乖乖小夫郎</div>
+<div class="autor"></div>
+<div class="capitulos"><b>Capítulos:</b> 230</div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Lu Gu se casó en nombre de su hermano y se casó con el feroz cazador de la aldea de Qingxi. No importa cuán agraviado estuviera, bajo la coerción de las palizas, todavía lo pusieron en la silla de manos. </p>
+  <p>¿Cómo pudo la familia Shen renunciar a casarse con algo tan ridículo? Después de una pelea tumultuosa, Lu Gu fue devuelto a la familia Shen. Estaba dispuesto a temblar y buscar la vida. </p>
+  <p>Quién iba a saber que los días posteriores al matrimonio serían mucho menos difíciles de lo que imaginaba, e incluso podría llenar su estómago sin tener que ser golpeado. Shen Xuanqing también le compró gallinas y patitos, y construyó una cerca en el patio trasero para criar gallinas y patos para él. Lu Gu se puso en cuclillas en el patio trasero y tocó las gallinas y los patos. Después del pánico, se llenó de alegría. Shen Xuanqing dijo que estos eran todos suyos. </p>
+  <p>Por primera vez, Shen Xuanqing, que estaba a punto de salir, fue detenido tímidamente por Lu Gu, sosteniendo la esquina de su ropa. Vio a su pequeño fulang mostrando una breve y tímida sonrisa, entregándole una pequeña bolsa de finas tortas de harina, diciendo que era la comida para él que se iba a las montañas. </p>
+  <p>Shen Xuanqing mordisqueaba los pasteles inexpresivamente en las montañas, pero en su corazón pensaba que el pequeño fulang era bueno y diligente. Tenía buen aspecto cuando sonreía, pero estaba demasiado delgado. </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="no-leido">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>
