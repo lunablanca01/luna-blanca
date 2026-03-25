@@ -2050,8 +2050,8 @@ link: "https://drive.google.com/drive/u/4/folders/197sDfbOt_HRJ7jsnqwhRDh9XlTnxG
 titulo: 'No soy humano',
 slug: "No_soy_humano",
 imagen: "No_soy_humano.jpg",
-tags: "danmei finalizado futurista comedia no-humano protagonista-op reencarnacion slice-of-life",
-autor: "zerg jiuyi",
+tags: "danmei finalizado futurista comedia no-humano protagonista-op reencarnacion slice-of-life zerg",
+autor: "jiuyi",
 link: "https://drive.google.com/drive/u/4/folders/1PBu_SoysVWM0j_TdNQ4RbwUWugjuJKBJ"
 },
 
