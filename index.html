@@ -33,30 +33,43 @@ body {
 h1 {
   font-family: 'Pacifico', cursive;
   color: #ff8b8b;
-  margin-bottom: 20px;
-}
-
-input, button {
-  width: 100%;
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
 input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
   background: #f3fbff;
   border: 1px solid #ddd;
 }
 
 button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
   background: #ff8b8b;
   color: white;
   border: none;
   cursor: pointer;
+  margin-top: 10px;
+}
+
+.link {
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.link span {
+  color: #ff8b8b;
+  cursor: pointer;
 }
 
 #mensaje {
-  margin-top: 10px;
+  margin-top: 12px;
 }
 </style>
 </head>
@@ -66,14 +79,49 @@ button {
 <div class="caja">
   <h1>Luna Blanca</h1>
 
-  <input type="email" id="email" placeholder="Correo">
-  <input type="password" id="password" placeholder="Contraseña">
+  <!-- LOGIN -->
+  <div id="loginForm">
+    <input type="email" id="email" placeholder="Correo electrónico">
+    <input type="password" id="password" placeholder="Contraseña">
 
-  <button onclick="registrar()">Registrarse</button>
-  <button onclick="login()">Entrar</button>
+    <div class="link">¿Olvidaste tu contraseña?</div>
+
+    <button onclick="login()">Iniciar sesión</button>
+
+    <div class="link">
+      ¿Todavía no tienes una cuenta? 
+      <span onclick="mostrarRegistro()">Regístrate ahora</span>
+    </div>
+  </div>
+
+  <!-- REGISTRO -->
+  <div id="registroForm" style="display:none;">
+    <input type="email" id="emailRegistro" placeholder="Correo electrónico">
+    <input type="text" id="nombreRegistro" placeholder="Nombre">
+    <input type="password" id="passwordRegistro" placeholder="Contraseña">
+
+    <button onclick="registrar()">Registrarse</button>
+
+    <div class="link">
+      ¿Ya tienes cuenta? 
+      <span onclick="mostrarLogin()">Inicia sesión</span>
+    </div>
+  </div>
 
   <p id="mensaje"></p>
 </div>
+
+<script>
+function mostrarRegistro() {
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("registroForm").style.display = "block";
+}
+
+function mostrarLogin() {
+  document.getElementById("loginForm").style.display = "block";
+  document.getElementById("registroForm").style.display = "none";
+}
+</script>
 
 <script type="module" src="js/index.js"></script>
 
