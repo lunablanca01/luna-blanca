@@ -220,6 +220,18 @@ h1{
   gap: 12px;
 }
 
+#bloque-autor .grid {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  flex-wrap: wrap;         /* permite varias filas si hay muchas tarjetas */
+  gap: 12px;
+}
+
+#bloque-autor .grid .card {
+  width: 160px;      /* ancho fijo más natural */
+  max-width: 200px;  /* no se haga gigante */
+}
+
 .card{
   background:#ffffff;
   border-radius:12px;
