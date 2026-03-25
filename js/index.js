@@ -16,9 +16,10 @@ window.registrar = async () => {
   });
 
   if (error) {
-    document.getElementById("mensaje").innerText = error.message;
-    return;
-  }
+  document.getElementById("mensaje").innerText =
+    "Ups… revisa tu correo o contraseña 💭";
+  return;
+}
 
   const user = data.user ?? data.session?.user;
 
@@ -80,7 +81,7 @@ window.login = async () => {
     await supabase.auth.signOut();
 
     document.getElementById("mensaje").innerText =
-      "Tu cuenta aún no ha sido aprobada ⏳";
+      "Tu cuenta aún no ha sido aprobada por Luna Blanca 🌙✨";
     return;
   }
 
