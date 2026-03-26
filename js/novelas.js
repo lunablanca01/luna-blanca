@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== Título en inglés =====
   const subtituloElem = document.querySelector(".subtitulo");
-  if(subtituloElem) subtituloElem.textContent = cardActual.dataset.titulo_en || "";
+  if(subtituloElem) subtituloElem.textContent = cardActual.dataset.ingles || "";
 
   // ===== Capítulos =====
   const capElem = document.querySelector(".capitulos");
