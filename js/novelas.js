@@ -144,9 +144,6 @@ cargarAutor();
   /* ================================
      🔢 6 GENERAR IMAGEN, TITULO INGLES, CAPITULOS
   ================================= */
-/* ================================
-   🔢 6. CARGAR PORTADA, TÍTULO INGLES Y CAPÍTULOS
-================================ */
 document.addEventListener("DOMContentLoaded", () => {
   const tituloActual = document.querySelector("h1")?.textContent.trim();
   if (!tituloActual) return;
