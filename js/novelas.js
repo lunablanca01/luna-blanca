@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Actualizar título en inglés
   const subtituloElem = document.querySelector(".subtitulo");
-  if (subtituloElem) subtituloElem.textContent = novela.titulo_en || "";
+  if (subtituloElem) subtituloElem.textContent = novela.ingles || "";
 
   // Actualizar capítulos
   const capElem = document.querySelector(".capitulos");
