@@ -32,6 +32,11 @@ window.registrar = async () => {
       return;
     }
 
+    // 🔹 Activar sesión del usuario inmediatamente
+    if (data.session?.access_token) {
+      await supabase.auth.setSession(data.session.access_token);
+    }
+
     // Guardar perfil
     const { error: perfilError } = await supabase
       .from("perfiles")
@@ -86,32 +91,26 @@ window.login = async () => {
     console.log("USER:", user);
 
     // Verificar aprobación
-const { data: perfil, error: perfilError } = await supabase
-  .from("perfiles")
-  .select("aprobado")
-  .eq("id", user.id)
-  .single();
+    const { data: perfil, error: perfilError } = await supabase
+      .from("perfiles")
+      .select("aprobado")
+      .eq("id", user.id)
+      .single();
 
-    console.log("PERFIL:", perfil);
-console.log("ERROR PERFIL:", perfilError);
+    console.log("PERFIL:", perfil, "ERROR PERFIL:", perfilError);
 
-console.log("PERFIL:", perfil, perfilError);
+    if (perfilError) {
+      console.error(perfilError);
+      mensaje.innerText = "Error al verificar usuario 😢";
+      return;
+    }
 
-// ❌ error real
-if (perfilError) {
-  console.error(perfilError);
-  mensaje.innerText = "Error al verificar usuario 😢";
-  return;
-}
-
-// ❌ no aprobado
-if (!perfil.aprobado) {
-  await supabase.auth.signOut();
-
-  mensaje.innerText =
-    "Tu cuenta aún no ha sido aprobada 🕒";
-  return;
-}
+    if (!perfil.aprobado) {
+      await supabase.auth.signOut();
+      mensaje.innerText =
+        "Tu cuenta aún no ha sido aprobada 🕒";
+      return;
+    }
 
     // Redirigir si está aprobado
     window.location.href =
