@@ -329,11 +329,14 @@ function descargarExcel(){
     ? novelasFiltradas
     : novelas;
 
-  let contenido = "Titulo\n";
+  let contenido = "Titulo Español,Titulo Ingles,Capitulos\n";
 
   lista.forEach(n => {
     const titulo = (n.titulo || "").replace(/"/g, '""');
-    contenido += `"${titulo}"\n`;
+    const ingles = (n.ingles || "").replace(/"/g, '""');
+    const capitulos = (n.capitulos || "").replace(/"/g, '""');
+
+    contenido += `"${titulo}","${ingles}","${capitulos}"\n`;
   });
 
   const blob = new Blob(["\uFEFF" + contenido], { type: "text/csv;charset=utf-8;" });
@@ -342,7 +345,7 @@ function descargarExcel(){
 
   const a = document.createElement("a");
   a.href = url;
-  a.download = "titulos.csv";
+  a.download = "novelas.csv";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
