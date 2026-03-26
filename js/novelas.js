@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2️⃣ Título en inglés
   const subtituloElem = document.querySelector(".subtitulo");
-  const tituloEn = cardActual.dataset.titulo_en || "";
+  const tituloEn = cardActual.dataset.ingles || "";
   if (subtituloElem) subtituloElem.textContent = tituloEn;
 
   // 3️⃣ Capítulos
