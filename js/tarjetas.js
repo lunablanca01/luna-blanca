@@ -1798,7 +1798,7 @@ const novelas = [
 
 {
   titulo: 'Transmigración: la vida agrícola de un "tonto"',
-  ingles: '"Transmigration: The Farm Life of a ""Fool"""',
+  ingles: 'Transmigration: The Farm Life of a "Fool"',
   slug: 'Transmigración_la_vida_agrícola_de_un_tonto',
   imagen: 'Transmigración_la_vida_agrícola_de_un_tonto.jpg',
   tags: 'danmei pendiente china-antigua agricultura ger mpreg ninos protagonista-gong slice-of-life transmigracion',
@@ -2799,7 +2799,7 @@ const novelas = [
 
 {
   titulo: 'El Dragón y la "Princesa"',
-  ingles: '"The Dragon and the &quot;Princess&quot;"',
+  ingles: 'The Dragon and the "Princess"',
   slug: 'El_Dragón_y_la_Princesa',
   imagen: 'El_Dragón_y_la_Princesa.jpg',
   tags: 'danmei finalizado europa-antigua gender-bender mpreg no-humano smut realeza',
