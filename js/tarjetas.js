@@ -1017,7 +1017,7 @@ const novelas = [
 
 {
   titulo: 'Después de que regresó la luz de la luna blanca, el sustituto cayó en una crisis de desempleo',
-  ingles: 'Enemy After the White Moonlight Came Back, the Stand-in Fell Into Unemployment Crisis',
+  ingles: 'After the White Moonlight Came Back, the Stand-in Fell Into Unemployment Crisis',
   slug: 'Después_de_que_regresó_la_luz_de_la_luna_blanca,_el_sustituto_cayó_en_una_crisis_de_desempleo',
   imagen: 'Después_de_que_regresó_la_luz_de_la_luna_blanca,_el_sustituto_cayó_en_una_crisis_de_desempleo.jpg',
   tags: 'danmei pendiente moderno comedia malentendidos',
