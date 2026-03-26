@@ -148,39 +148,42 @@ document.addEventListener("DOMContentLoaded", () => {
   const tituloActual = document.querySelector("h1")?.textContent.trim();
   if (!tituloActual) return;
 
-  // Parsear las tarjetas HTML
+  // Usamos tarjetasHTML como en el script del autor
   const parser = new DOMParser();
   const doc = parser.parseFromString(tarjetasHTML, "text/html");
   const cards = doc.querySelectorAll(".card");
 
-  // Buscar la card que coincida con el título
   const cardActual = Array.from(cards).find(card =>
     card.querySelector("h3")?.textContent.trim() === tituloActual
   );
-  if (!cardActual) return;
+  if(!cardActual) return;
 
-  // 1️⃣ Portada
+  // Portada
   const imgElem = document.querySelector(".portada");
-  const imagen = cardActual.dataset.imagen || cardActual.querySelector("img")?.src || "";
-  if (imgElem && imagen) imgElem.src = imagen.startsWith("http") ? imagen : `../imagenes/${imagen}`;
+  if(imgElem){
+    imgElem.src = cardActual.dataset.imagen.startsWith("http") 
+      ? cardActual.dataset.imagen 
+      : `../imagenes/${cardActual.dataset.imagen}`;
+  }
 
-  // 2️⃣ Título en inglés
+  // Título en inglés
   const subtituloElem = document.querySelector(".subtitulo");
-  const ingles = cardActual.dataset.ingles || '';
-  if (subtituloElem) subtituloElem.textContent = ingles;
+  if(subtituloElem) subtituloElem.textContent = cardActual.dataset.ingles || "";
 
-  // 3️⃣ Capítulos
+  // Capítulos
   const capElem = document.querySelector(".capitulos");
-  const capitulos = cardActual.dataset.capitulos || "?";
-  if (capElem) capElem.innerHTML = `<b>Capítulos:</b> ${capitulos}`;
-
-  // 4️⃣ Progreso de lectura
   const inputProgreso = document.getElementById("progreso-capitulo");
   const totalCapElem = document.getElementById("total-capitulos");
-  if (inputProgreso && totalCapElem) {
-    const numeros = capitulos.match(/\d+/g) || [];
-    const totalCap = numeros.reduce((acc, n) => acc + parseInt(n), 0) || "?";
-    totalCapElem.textContent = totalCap;
-    inputProgreso.max = totalCap !== "?" ? totalCap : 1;
+
+  if(capElem){
+    const capitulosTexto = cardActual.dataset.capitulos || "?";
+    capElem.innerHTML = `<b>Capítulos:</b> ${capitulosTexto}`;
+
+    if(inputProgreso && totalCapElem){
+      const numeros = capitulosTexto.match(/\d+/g);
+      const totalCap = numeros ? numeros.reduce((acc, n) => acc + parseInt(n), 0) : "?";
+      totalCapElem.textContent = totalCap;
+      inputProgreso.max = totalCap !== "?" ? totalCap : 1;
+    }
   }
 });
