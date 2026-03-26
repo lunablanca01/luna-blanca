@@ -144,30 +144,32 @@ cargarAutor();
   /* ================================
      🔢 6 GENERAR IMAGEN, TITULO INGLES, CAPITULOS
   ================================= */
-const tituloActual = document.querySelector("h1")?.textContent.trim();
-if(!tituloActual) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const tituloActual = document.querySelector("h1")?.textContent.trim();
+  if(!tituloActual) return;
 
-// Buscar la novela en el array global
-const novela = window.novelas.find(n => n.titulo === tituloActual || n.slug === tituloActual);
-if(!novela) return;
+  // Buscar la novela en el array global
+  const novela = window.novelas.find(n => n.titulo === tituloActual || n.slug === tituloActual);
+  if(!novela) return;
 
-// Actualizar portada
-const imgElem = document.querySelector(".portada");
-if(imgElem) imgElem.src = novela.imagen.startsWith("http") ? novela.imagen : `../imagenes/${novela.imagen}`;
+  // Actualizar portada
+  const imgElem = document.querySelector(".portada");
+  if(imgElem) imgElem.src = novela.imagen.startsWith("http") ? novela.imagen : `../imagenes/${novela.imagen}`;
 
-// Actualizar título en inglés
-const subtituloElem = document.querySelector(".subtitulo");
-if(subtituloElem) subtituloElem.textContent = novela.ingles || "";
+  // Actualizar título en inglés
+  const subtituloElem = document.querySelector(".subtitulo");
+  if(subtituloElem) subtituloElem.textContent = novela.ingles || "";
 
-// Actualizar capítulos
-const capElem = document.querySelector(".capitulos");
-if(capElem) capElem.innerHTML = `<b>Capítulos:</b> ${novela.capitulos || "?"}`;
+  // Actualizar capítulos
+  const capElem = document.querySelector(".capitulos");
+  if(capElem) capElem.innerHTML = `<b>Capítulos:</b> ${novela.capitulos || "?"}`;
 
-// Actualizar progreso
-const inputProgreso = document.getElementById("progreso-capitulo");
-const totalCapElem = document.getElementById("total-capitulos");
-if(inputProgreso && totalCapElem){
-  const totalCap = parseInt(novela.capitulos) || 0;
-  totalCapElem.textContent = totalCap;
-  inputProgreso.max = totalCap || 1;
-}
+  // Actualizar progreso
+  const inputProgreso = document.getElementById("progreso-capitulo");
+  const totalCapElem = document.getElementById("total-capitulos");
+  if(inputProgreso && totalCapElem){
+    const totalCap = parseInt(novela.capitulos) || 0;
+    totalCapElem.textContent = totalCap;
+    inputProgreso.max = totalCap || 1;
+  }
+});
