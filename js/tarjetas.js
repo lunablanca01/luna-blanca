@@ -236,13 +236,13 @@ const novelas = [
 
 {
   titulo: 'Tengo un Halo de "Sistema"',
-  ingles: '',
+  ingles: 'I Have a "System" Halo',
   slug: 'Tengo_un_Halo_de_Sistema',
   imagen: 'Tengo_un_Halo_de_Sistema.jpg',
   tags: 'danmei pendiente multiples-mundos amnesia comedia sistema transmigracion',
   autor: 'qian-mo-li-shang',
   link: 'https://www.novelupdates.com/series/i-have-a-system-halo/',
-  capitulos: ''
+  capitulos: '293 + 14 extras'
 },
 
 {
@@ -2645,13 +2645,13 @@ const novelas = [
 
 {
   titulo: 'Gallo x gallo',
-  ingles: '',
+  ingles: 'Rooster X Rooster',
   slug: 'Gallo_x_gallo',
   imagen: 'Gallo_x_gallo.jpg',
   tags: 'danmei finalizado china-antigua animales comedia mpreg no-humano omegaverse smut',
   autor: 'tian-mu-you',
   link: 'https://drive.google.com/drive/u/4/folders/1lRvvNW4mQjMtaiF3hkvkCsR5Hk1svF0I',
-  capitulos: ''
+  capitulos: '5 + 1 extra'
 },
 
 {
