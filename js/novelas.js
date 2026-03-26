@@ -110,7 +110,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // TOTAL PARA PROGRESO
-    const total = parseInt(novelaData.capitulos);
+    const numeros = novelaData.capitulos.match(/\d+/g);
+    let total = 0;
+
+    if(numeros){
+      total = numeros.reduce((acc, num) => acc + parseInt(num), 0);
+    }
     document.getElementById("total-capitulos").textContent = total;
 
     const input = document.getElementById("progreso-capitulo");
