@@ -97,7 +97,7 @@ window.login = async () => {
       await supabase.auth.signOut();
 
       mensaje.innerText =
-        "Tu cuenta aún no ha sido aprobada por Luna Blanca 🌙✨";
+        "Tu cuenta aún no ha sido aprobada 🕒";
       return;
     }
 
