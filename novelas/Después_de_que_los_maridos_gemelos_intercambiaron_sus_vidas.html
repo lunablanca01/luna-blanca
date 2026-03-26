@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Después de que los maridos gemelos intercambiaron sus vidas</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>Después de que los maridos gemelos intercambiaron sus vidas</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>双生夫郎互换人生后</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>La familia Lu era pobre en sus primeros años y envió a un niño lejos de casa. </p>
+  <p>Dieciocho años después, ambos hermanos alcanzaron la edad en la que pudieron empezar a buscar pareja para contraer matrimonio. </p>
+  <p>El hermano mayor tiene una personalidad tenaz, y la cazadora con la que su familia lo casó también es testaruda. Cuando se conocieron, chocaron de inmediato, golpeando las mesas y mirándose con enojo, casi discutiendo sobre quién se haría cargo de la casa. Él pensó: «Ojalá pudiera cancelar este compromiso». </p>
+  <p>El hermano menor tiene una personalidad dulce y gentil, y la familia del erudito, con la que su familia organizó su matrimonio, es conocida por ser "un rollo de carne": han reunido a un grupo de parientes como lobos, todos difíciles de tratar. Solo verlos de lejos lo asusta. Suspiró: "Si tan solo pudiera cancelar este compromiso". </p>
+  <p>Por casualidad, los dos hermanos se conocen y deciden cambiar sus planes matrimoniales. </p>
+  <p>El hermano mayor se viste de novia y entra en la casa del erudito. El día de la boda, se arma una ruidosa broma nupcial. El débil erudito lo protege torpemente, pero lo empujan y le golpean la cabeza. </p>
+  <p>Hermano mayor: ??? </p>
+  <p>“Él va a ser el mejor estudiante, ¿qué están haciendo?” </p>
+  <p>El hermano menor se cubre el rostro con un velo y entra en la casa del cazador. Esa noche, espera obediente y tímidamente la noche de bodas. Pero el cazador lo mira con frialdad y le dice con desprecio: «Deja de fingir». </p>
+  <p>Tan pronto como las palabras salen de su boca, los ojos del joven esposo se ponen rojos: "¿Por qué actúas así justo después de casarnos?" </p>
+  <p>Cazador: ??? </p>
+  <p>"¿Pasa algo malo contigo?" </p>
+  <p>Todos sabían que la familia Xie no podía defenderse. Toda la familia era débil y cualquiera podía pisotearla. Nadie les guardaba rencor, pero cualquiera podía escupirles frente a la puerta solo porque estaban de mal humor. </p>
+  <p>Desde ese día nadie se atrevió a hacerlo más. </p>
+  <p>¡El marido de Xie Yan podía golpear a la gente! </p>
+  <p>Y en cuanto a la familia Li, que todos pensaban que discutiría y pelearía hasta separarse, ahora tienen comidas calientes en un kang caliente todos los días. </p>
+  <p>La gente tenía curiosidad de saber si su fogoso marido había sido golpeado hasta la muerte. </p>
+  <p>Cuando fueron a comprobarlo en silencio, vieron a Li Feng persuadiendo suavemente a la persona: "Me equivoqué, no llores..." </p>
+  <p>Dos emparejamientos: </p>
+  <p>Pareja de hermanos mayores: Fuerte y protector x Genio académico deprimido </p>
+  <p>Pareja del hermano menor: Un chico dulce y obediente x Un hombre duro con un lado suave </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="no-leido">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>
