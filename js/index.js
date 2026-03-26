@@ -11,47 +11,63 @@ window.registrar = async () => {
 
   mensaje.innerText = "";
 
+  // Validación rápida de password
+  if (password.length < 6) {
+    mensaje.innerText = "La contraseña debe tener al menos 6 caracteres 💭";
+    return;
+  }
+
   try {
-    // 1️⃣ Crear usuario en Auth
-    const { data, error } = await supabase.auth.signUp({ email, password });
-    console.log("SIGNUP DATA:", data);
-    console.log("SIGNUP ERROR:", error);
+    // Crear usuario en Auth
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password
+    });
+
+    console.log("SIGNUP DATA:", data, "SIGNUP ERROR:", error);
 
     if (error) {
-      mensaje.innerText = "Error al crear usuario 💭";
+      mensaje.innerText = "Ups… revisa tu correo o contraseña 💭";
       return;
     }
 
     const user = data.user ?? data.session?.user;
+
     if (!user) {
-      mensaje.innerText = "No se obtuvo el usuario 😢";
+      mensaje.innerText = "Error al crear usuario 😢";
       return;
     }
 
-    // 🔹 Activar sesión del usuario inmediatamente (importante para RLS)
+    // Activar sesión temporal (para REST)
     if (data.session?.access_token) {
       await supabase.auth.setSession(data.session.access_token);
       console.log("Sesión activada con token:", data.session.access_token);
     }
 
-    // 2️⃣ Intentar crear perfil
-    const { data: perfilData, error: perfilError, status, statusText } = await supabase
+    // Insertar perfil
+    const { data: perfilData, error: perfilError, status } = await supabase
       .from("perfiles")
-      .insert({ id: user.id, email, nombre, aprobado: false });
+      .insert({
+        id: user.id,
+        email: email,
+        nombre: nombre,
+        aprobado: false
+      });
 
     console.log("PERFIL DATA:", perfilData);
     console.log("PERFIL ERROR:", perfilError);
-    console.log("PERFIL STATUS:", status, statusText);
+    console.log("PERFIL STATUS:", status);
 
     if (perfilError) {
-      mensaje.innerText = "Usuario creado, pero error al guardar perfil 😢";
+      mensaje.innerText =
+        "Usuario creado, pero error al guardar perfil 😢";
       return;
     }
 
     mensaje.innerText = "Registro exitoso, espera aprobación ⏳";
 
   } catch (err) {
-    console.error("ERROR INESPERADO:", err);
+    console.error("ERROR REGISTRO:", err);
     mensaje.innerText = "Error inesperado 😢";
   }
 };
@@ -67,9 +83,12 @@ window.login = async () => {
   mensaje.innerText = "";
 
   try {
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-    console.log("LOGIN DATA:", data);
-    console.log("LOGIN ERROR:", error);
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    console.log("LOGIN:", data, error);
 
     if (error) {
       mensaje.innerText = "Ups... correo o contraseña incorrectos 💭";
@@ -86,7 +105,7 @@ window.login = async () => {
       .eq("id", user.id)
       .single();
 
-    console.log("PERFIL DATA:", perfil, "PERFIL ERROR:", perfilError);
+    console.log("PERFIL:", perfil, "ERROR PERFIL:", perfilError);
 
     if (perfilError) {
       mensaje.innerText = "Error al verificar usuario 😢";
@@ -99,11 +118,12 @@ window.login = async () => {
       return;
     }
 
-    // Redirigir si está aprobado
-    window.location.href = "https://lunablanca01.github.io/luna-blanca/luna-blanca.html";
+    // Redirigir si aprobado
+    window.location.href =
+      "https://lunablanca01.github.io/luna-blanca/luna-blanca.html";
 
   } catch (err) {
-    console.error("ERROR INESPERADO LOGIN:", err);
+    console.error("ERROR LOGIN:", err);
     mensaje.innerText = "Error inesperado 😢";
   }
 };
@@ -124,10 +144,11 @@ window.recuperarPassword = async () => {
 
   try {
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: "https://lunablanca01.github.io/luna-blanca/reset.html"
+      redirectTo:
+        "https://lunablanca01.github.io/luna-blanca/reset.html"
     });
 
-    console.log("RESET ERROR:", error);
+    console.log("RESET:", error);
 
     if (error) {
       mensaje.innerText = "No pudimos enviar el correo 😢";
@@ -137,8 +158,43 @@ window.recuperarPassword = async () => {
     mensaje.innerText = "Te enviamos un enlace a tu correo 💌";
 
   } catch (err) {
-    console.error("ERROR INESPERADO RESET:", err);
+    console.error("ERROR RESET:", err);
     mensaje.innerText = "Error inesperado 😢";
   }
 };
 
+// =======================
+// MOSTRAR / OCULTAR CONTRASEÑA
+// =======================
+window.togglePassword = (id, icon) => {
+  const input = document.getElementById(id);
+
+  if (input.type === "password") {
+    input.type = "text";
+    icon.textContent = "👁️";
+  } else {
+    input.type = "password";
+    icon.textContent = "🙈";
+  }
+};
+
+// =======================
+// FUNCIONES DE UI
+// =======================
+window.mostrarRegistro = () => {
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("registroForm").style.display = "block";
+  document.getElementById("recuperarForm").style.display = "none";
+};
+
+window.mostrarLogin = () => {
+  document.getElementById("loginForm").style.display = "block";
+  document.getElementById("registroForm").style.display = "none";
+  document.getElementById("recuperarForm").style.display = "none";
+};
+
+window.mostrarRecuperar = () => {
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("registroForm").style.display = "none";
+  document.getElementById("recuperarForm").style.display = "block";
+};
