@@ -35,20 +35,32 @@ function mostrarLecturas(lecturas) {
     "leido": "✅"
   };
 
+  if (!lecturas || lecturas.length === 0) {
+    contenedor.innerHTML = `<div class="sin-lecturas">Aún no tienes novelas en esta lista ✨</div>`;
+    return;
+  }
+
   lecturas.forEach(l => {
+    const estado = (l.estado || "").toLowerCase();
+
     const divCard = document.createElement("div");
     divCard.className = "card";
-    divCard.dataset.estado = l.estado.toLowerCase();
+    divCard.dataset.estado = estado;
 
     const divEstado = document.createElement("div");
     divEstado.className = "estado-lectura";
-    divEstado.textContent = emojiMap[l.estado.toLowerCase()] || "";
+    divEstado.textContent = emojiMap[estado] || "📘";
 
     const h3 = document.createElement("h3");
-    h3.textContent = l.novela;
+    h3.textContent = l.novela || "Sin título";
+
+    const textoEstado = document.createElement("div");
+    textoEstado.className = "texto-estado";
+    textoEstado.textContent = l.estado || "";
 
     divCard.appendChild(divEstado);
     divCard.appendChild(h3);
+    divCard.appendChild(textoEstado);
     contenedor.appendChild(divCard);
   });
 }
