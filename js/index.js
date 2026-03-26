@@ -4,16 +4,32 @@ import { supabase } from "./supabase.js";
 // REGISTRO
 // =======================
 window.registrar = async () => {
-  const email = document.getElementById("emailRegistro").value;
-  const password = document.getElementById("passwordRegistro").value;
-  const nombre = document.getElementById("nombreRegistro").value;
+  const emailInput = document.getElementById("emailRegistro");
+  const passwordInput = document.getElementById("passwordRegistro");
+  const nombreInput = document.getElementById("nombreRegistro");
   const mensaje = document.getElementById("mensaje");
 
+  const email = emailInput.value;
+  const password = passwordInput.value;
+  const nombre = nombreInput.value;
+
+  // Resetear estilos
+  emailInput.style.borderColor = "";
+  passwordInput.style.borderColor = "";
   mensaje.innerText = "";
 
-  // Validación rápida de password
+  // Validación rápida
+  if (!nombre) {
+    mensaje.innerText = "Ingresa tu nombre 💭";
+    nombreInput.style.borderColor = "red";
+    nombreInput.focus();
+    return;
+  }
+
   if (password.length < 6) {
     mensaje.innerText = "La contraseña debe tener al menos 6 caracteres 💭";
+    passwordInput.style.borderColor = "red";
+    passwordInput.focus();
     return;
   }
 
@@ -27,7 +43,14 @@ window.registrar = async () => {
     console.log("SIGNUP DATA:", data, "SIGNUP ERROR:", error);
 
     if (error) {
-      mensaje.innerText = "Ups… revisa tu correo o contraseña 💭";
+      // Correo ya registrado
+      if (error.message.includes("already registered") || error.status === 400) {
+        mensaje.innerText = "Correo ya registrado 💭";
+        emailInput.style.borderColor = "red";
+        emailInput.focus();
+      } else {
+        mensaje.innerText = "Ups… revisa tu correo o contraseña 💭";
+      }
       return;
     }
 
@@ -198,3 +221,18 @@ window.mostrarRecuperar = () => {
   document.getElementById("registroForm").style.display = "none";
   document.getElementById("recuperarForm").style.display = "block";
 };
+
+// =======================
+// RESTABLECER ESTILO AL ESCRIBIR
+// =======================
+document.getElementById("emailRegistro").addEventListener("input", () => {
+  document.getElementById("emailRegistro").style.borderColor = "";
+});
+
+document.getElementById("passwordRegistro").addEventListener("input", () => {
+  document.getElementById("passwordRegistro").style.borderColor = "";
+});
+
+document.getElementById("nombreRegistro").addEventListener("input", () => {
+  document.getElementById("nombreRegistro").style.borderColor = "";
+});
