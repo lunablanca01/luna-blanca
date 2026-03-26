@@ -1,5 +1,6 @@
 import { supabase } from "./supabase.js";
-import { novelas } from "./tarjetas.js";
+
+const novelas = window.novelasCompartidas || [];
 
 function normalizarTexto(texto) {
   return (texto || "")
@@ -9,17 +10,9 @@ function normalizarTexto(texto) {
     .trim();
 }
 
-function normalizarEstado(texto) {
-  return normalizarTexto(texto);
-}
-
 document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
-
-  if (!contenedor) {
-    console.error("No existe el contenedor #contenedor-mis-lecturas");
-    return;
-  }
+  if (!contenedor) return;
 
   contenedor.innerHTML = `<div class="sin-lecturas">Cargando lecturas...</div>`;
 
@@ -50,9 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    window.lecturasUsuario = lecturas || [];
     mostrarLecturas(lecturas || []);
-
   } catch (err) {
     console.error("Error general:", err);
     contenedor.innerHTML = `<div class="sin-lecturas">Algo salió mal al cargar la página</div>`;
@@ -61,8 +52,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 function mostrarLecturas(lecturas) {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
-  if (!contenedor) return;
-
   contenedor.innerHTML = "";
 
   const emojiMap = {
@@ -71,13 +60,13 @@ function mostrarLecturas(lecturas) {
     "leido": "✅"
   };
 
-  if (!lecturas || lecturas.length === 0) {
+  if (!lecturas.length) {
     contenedor.innerHTML = `<div class="sin-lecturas">Aún no tienes novelas en esta lista ✨</div>`;
     return;
   }
 
   lecturas.forEach(l => {
-    const estado = normalizarEstado(l.estado);
+    const estado = normalizarTexto(l.estado);
 
     const novelaCompleta = novelas.find(n =>
       normalizarTexto(n.titulo) === normalizarTexto(l.novela)
@@ -101,9 +90,7 @@ function mostrarLecturas(lecturas) {
         <h3>${novelaCompleta.titulo}</h3>
 
         <div class="links-tarjeta">
-          <a href="${novelaCompleta.link}"
-             target="_blank"
-             onclick="event.stopPropagation()">ePub</a>
+          <a href="${novelaCompleta.link}" target="_blank" onclick="event.stopPropagation()">ePub</a>
         </div>
 
         <div class="texto-estado">${l.estado || "Sin estado"}</div>
@@ -121,14 +108,13 @@ function mostrarLecturas(lecturas) {
 }
 
 window.filtrar = function(estadoFiltro) {
+  const estadoNormalizado = normalizarTexto(estadoFiltro);
   const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
-  const estadoNormalizado = normalizarEstado(estadoFiltro);
 
   cards.forEach(card => {
-    if (estadoNormalizado === "todos" || card.dataset.estado === estadoNormalizado) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
+    card.style.display =
+      estadoNormalizado === "todos" || card.dataset.estado === estadoNormalizado
+        ? "block"
+        : "none";
   });
 };
