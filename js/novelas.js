@@ -148,7 +148,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const tituloActual = document.querySelector("h1")?.textContent.trim();
   if (!tituloActual) return;
 
-  // Usamos tarjetasHTML como en el script del autor
+  if(typeof tarjetasHTML === "undefined") return; // Aseguramos que exista
+
   const parser = new DOMParser();
   const doc = parser.parseFromString(tarjetasHTML, "text/html");
   const cards = doc.querySelectorAll(".card");
@@ -158,19 +159,18 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   if(!cardActual) return;
 
-  // Portada
+  // ===== Portada =====
   const imgElem = document.querySelector(".portada");
   if(imgElem){
-    imgElem.src = cardActual.dataset.imagen.startsWith("http") 
-      ? cardActual.dataset.imagen 
-      : `../imagenes/${cardActual.dataset.imagen}`;
+    const rutaImg = cardActual.dataset.imagen || "";
+    imgElem.src = rutaImg.startsWith("http") ? rutaImg : `../imagenes/${rutaImg}`;
   }
 
-  // Título en inglés
+  // ===== Título en inglés =====
   const subtituloElem = document.querySelector(".subtitulo");
-  if(subtituloElem) subtituloElem.textContent = cardActual.dataset.ingles || "";
+  if(subtituloElem) subtituloElem.textContent = cardActual.dataset.titulo_en || "";
 
-  // Capítulos
+  // ===== Capítulos =====
   const capElem = document.querySelector(".capitulos");
   const inputProgreso = document.getElementById("progreso-capitulo");
   const totalCapElem = document.getElementById("total-capitulos");
