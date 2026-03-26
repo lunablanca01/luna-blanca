@@ -9,42 +9,60 @@ window.registrar = async () => {
   const nombreInput = document.getElementById("nombreRegistro");
   const mensaje = document.getElementById("mensaje");
 
-  const email = emailInput.value;
+  const email = emailInput.value.trim();
   const password = passwordInput.value;
-  const nombre = nombreInput.value;
+  const nombre = nombreInput.value.trim();
 
-  // Resetear estilos
-  emailInput.style.borderColor = "";
-  passwordInput.style.borderColor = "";
+  // Resetear mensaje
   mensaje.innerText = "";
 
-  // Validación rápida
+  let error = false;
+
+  // Validaciones
   if (!nombre) {
     mensaje.innerText = "Ingresa tu nombre 💭";
     nombreInput.style.borderColor = "red";
     nombreInput.focus();
-    return;
+    error = true;
+  } else {
+    nombreInput.style.borderColor = "";
   }
 
   if (password.length < 6) {
-    mensaje.innerText = "La contraseña debe tener al menos 6 caracteres";
+    mensaje.innerText = "La contraseña debe tener al menos 6 caracteres 💭";
     passwordInput.style.borderColor = "red";
-    passwordInput.focus();
-    return;
+    if (!error) passwordInput.focus();
+    error = true;
+  } else {
+    passwordInput.style.borderColor = "";
   }
+
+  if (!email) {
+    mensaje.innerText = "Ingresa tu correo 💭";
+    emailInput.style.borderColor = "red";
+    if (!error) emailInput.focus();
+    error = true;
+  } else {
+    emailInput.style.borderColor = "";
+  }
+
+  if (error) return;
 
   try {
     // Crear usuario en Auth
-    const { data, error } = await supabase.auth.signUp({
+    const { data, error: signupError } = await supabase.auth.signUp({
       email,
       password
     });
 
-    console.log("SIGNUP DATA:", data, "SIGNUP ERROR:", error);
+    console.log("SIGNUP DATA:", data, "SIGNUP ERROR:", signupError);
 
-    if (error) {
-      // Correo ya registrado
-      if (error.message.includes("already registered") || error.status === 400) {
+    if (signupError) {
+      // Detectar correo ya registrado
+      if (
+        signupError.message.includes("already registered") ||
+        signupError.status === 400
+      ) {
         mensaje.innerText = "Correo ya registrado 💭";
         emailInput.style.borderColor = "red";
         emailInput.focus();
@@ -55,7 +73,6 @@ window.registrar = async () => {
     }
 
     const user = data.user ?? data.session?.user;
-
     if (!user) {
       mensaje.innerText = "Error al crear usuario 😢";
       return;
@@ -68,7 +85,7 @@ window.registrar = async () => {
     }
 
     // Insertar perfil
-    const { data: perfilData, error: perfilError, status } = await supabase
+    const { data: perfilData, error: perfilError } = await supabase
       .from("perfiles")
       .insert({
         id: user.id,
@@ -77,13 +94,8 @@ window.registrar = async () => {
         aprobado: false
       });
 
-    console.log("PERFIL DATA:", perfilData);
-    console.log("PERFIL ERROR:", perfilError);
-    console.log("PERFIL STATUS:", status);
-
     if (perfilError) {
-      mensaje.innerText =
-        "Usuario creado, pero error al guardar perfil 😢";
+      mensaje.innerText = "Usuario creado, pero error al guardar perfil 😢";
       return;
     }
 
@@ -225,14 +237,17 @@ window.mostrarRecuperar = () => {
 // =======================
 // RESTABLECER ESTILO AL ESCRIBIR
 // =======================
-document.getElementById("emailRegistro").addEventListener("input", () => {
-  document.getElementById("emailRegistro").style.borderColor = "";
-});
+const resetInputStyle = (input) => {
+  input.addEventListener("input", () => {
+    if (input.style.borderColor === "red") {
+      // Solo quitar rojo si ahora el valor es válido
+      if (input.id === "emailRegistro" && input.value) input.style.borderColor = "";
+      if (input.id === "passwordRegistro" && input.value.length >= 6) input.style.borderColor = "";
+      if (input.id === "nombreRegistro" && input.value) input.style.borderColor = "";
+    }
+  });
+};
 
-document.getElementById("passwordRegistro").addEventListener("input", () => {
-  document.getElementById("passwordRegistro").style.borderColor = "";
-});
-
-document.getElementById("nombreRegistro").addEventListener("input", () => {
-  document.getElementById("nombreRegistro").style.borderColor = "";
-});
+resetInputStyle(document.getElementById("emailRegistro"));
+resetInputStyle(document.getElementById("passwordRegistro"));
+resetInputStyle(document.getElementById("nombreRegistro"));
