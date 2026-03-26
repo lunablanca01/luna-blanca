@@ -144,46 +144,30 @@ cargarAutor();
   /* ================================
      🔢 6 GENERAR IMAGEN, TITULO INGLES, CAPITULOS
   ================================= */
-document.addEventListener("DOMContentLoaded", () => {
-  const tituloActual = document.querySelector("h1")?.textContent.trim();
-  if (!tituloActual) return;
+const tituloActual = document.querySelector("h1")?.textContent.trim();
+if(!tituloActual) return;
 
-  if(typeof tarjetasHTML === "undefined") return; // Aseguramos que exista
+// Buscar la novela en el array global
+const novela = window.novelas.find(n => n.titulo === tituloActual || n.slug === tituloActual);
+if(!novela) return;
 
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(tarjetasHTML, "text/html");
-  const cards = doc.querySelectorAll(".card");
+// Actualizar portada
+const imgElem = document.querySelector(".portada");
+if(imgElem) imgElem.src = novela.imagen.startsWith("http") ? novela.imagen : `../imagenes/${novela.imagen}`;
 
-  const cardActual = Array.from(cards).find(card =>
-    card.querySelector("h3")?.textContent.trim() === tituloActual
-  );
-  if(!cardActual) return;
+// Actualizar título en inglés
+const subtituloElem = document.querySelector(".subtitulo");
+if(subtituloElem) subtituloElem.textContent = novela.ingles || "";
 
-  // ===== Portada =====
-  const imgElem = document.querySelector(".portada");
-  if(imgElem){
-    const rutaImg = cardActual.dataset.imagen || "";
-    imgElem.src = rutaImg.startsWith("http") ? rutaImg : `../imagenes/${rutaImg}`;
-  }
+// Actualizar capítulos
+const capElem = document.querySelector(".capitulos");
+if(capElem) capElem.innerHTML = `<b>Capítulos:</b> ${novela.capitulos || "?"}`;
 
-  // ===== Título en inglés =====
-  const subtituloElem = document.querySelector(".subtitulo");
-  if(subtituloElem) subtituloElem.textContent = cardActual.dataset.ingles || "";
-
-  // ===== Capítulos =====
-  const capElem = document.querySelector(".capitulos");
-  const inputProgreso = document.getElementById("progreso-capitulo");
-  const totalCapElem = document.getElementById("total-capitulos");
-
-  if(capElem){
-    const capitulosTexto = cardActual.dataset.capitulos || "?";
-    capElem.innerHTML = `<b>Capítulos:</b> ${capitulosTexto}`;
-
-    if(inputProgreso && totalCapElem){
-      const numeros = capitulosTexto.match(/\d+/g);
-      const totalCap = numeros ? numeros.reduce((acc, n) => acc + parseInt(n), 0) : "?";
-      totalCapElem.textContent = totalCap;
-      inputProgreso.max = totalCap !== "?" ? totalCap : 1;
-    }
-  }
-});
+// Actualizar progreso
+const inputProgreso = document.getElementById("progreso-capitulo");
+const totalCapElem = document.getElementById("total-capitulos");
+if(inputProgreso && totalCapElem){
+  const totalCap = parseInt(novela.capitulos) || 0;
+  totalCapElem.textContent = totalCap;
+  inputProgreso.max = totalCap || 1;
+}
