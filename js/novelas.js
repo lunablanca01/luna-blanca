@@ -144,37 +144,45 @@ cargarAutor();
   /* ================================
      🔢 6 GENERAR IMAGEN, TITULO INGLES, CAPITULOS
   ================================= */
+/* ================================
+   🔢 6. CARGAR PORTADA, TÍTULO INGLES Y CAPÍTULOS
+================================ */
 document.addEventListener("DOMContentLoaded", () => {
   const tituloActual = document.querySelector("h1")?.textContent.trim();
   if (!tituloActual) return;
 
-  // Buscar la novela en el array global
-  const novela = window.novelas.find(n => n.titulo === tituloActual || n.slug === tituloActual);
-  if (!novela) return;
+  // Parsear las tarjetas HTML
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(tarjetasHTML, "text/html");
+  const cards = doc.querySelectorAll(".card");
 
-  // Actualizar portada
+  // Buscar la card que coincida con el título
+  const cardActual = Array.from(cards).find(card =>
+    card.querySelector("h3")?.textContent.trim() === tituloActual
+  );
+  if (!cardActual) return;
+
+  // 1️⃣ Portada
   const imgElem = document.querySelector(".portada");
-  if (imgElem) imgElem.src = novela.imagen.startsWith("http") 
-    ? novela.imagen 
-    : `../imagenes/${novela.imagen}`;
+  const imagen = cardActual.dataset.imagen || cardActual.querySelector("img")?.src || "";
+  if (imgElem && imagen) imgElem.src = imagen.startsWith("http") ? imagen : `../imagenes/${imagen}`;
 
-  // Actualizar título en inglés
+  // 2️⃣ Título en inglés
   const subtituloElem = document.querySelector(".subtitulo");
-  if (subtituloElem) subtituloElem.textContent = novela.ingles || "";
+  const tituloEn = cardActual.dataset.titulo_en || "";
+  if (subtituloElem) subtituloElem.textContent = tituloEn;
 
-  // Actualizar capítulos
+  // 3️⃣ Capítulos
   const capElem = document.querySelector(".capitulos");
-  if (capElem) capElem.innerHTML = `<b>Capítulos:</b> ${novela.capitulos || "?"}`;
+  const capitulos = cardActual.dataset.capitulos || "?";
+  if (capElem) capElem.innerHTML = `<b>Capítulos:</b> ${capitulos}`;
 
-  // Actualizar progreso de lectura
+  // 4️⃣ Progreso de lectura
   const inputProgreso = document.getElementById("progreso-capitulo");
   const totalCapElem = document.getElementById("total-capitulos");
-
   if (inputProgreso && totalCapElem) {
-    // Solo extraer números si el campo es solo números, si no dejamos en ?
-    const numeros = novela.capitulos?.match(/\d+/g) || [];
+    const numeros = capitulos.match(/\d+/g) || [];
     const totalCap = numeros.reduce((acc, n) => acc + parseInt(n), 0) || "?";
-
     totalCapElem.textContent = totalCap;
     inputProgreso.max = totalCap !== "?" ? totalCap : 1;
   }
