@@ -83,6 +83,7 @@ window.login = async () => {
     }
 
     const user = data.user;
+    console.log("USER:", user);
 
     // Verificar aprobación
 const { data: perfil, error: perfilError } = await supabase
@@ -90,6 +91,9 @@ const { data: perfil, error: perfilError } = await supabase
   .select("aprobado")
   .eq("id", user.id)
   .single();
+
+    console.log("PERFIL:", perfil);
+console.log("ERROR PERFIL:", perfilError);
 
 console.log("PERFIL:", perfil, perfilError);
 
