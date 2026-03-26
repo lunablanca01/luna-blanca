@@ -7,46 +7,55 @@ window.registrar = async () => {
   const email = document.getElementById("emailRegistro").value;
   const password = document.getElementById("passwordRegistro").value;
   const nombre = document.getElementById("nombreRegistro").value;
+  const mensaje = document.getElementById("mensaje");
 
-  document.getElementById("mensaje").innerText = "";
+  mensaje.innerText = "";
 
-  const { data, error } = await supabase.auth.signUp({
-    email,
-    password
-  });
-
-  if (error) {
-  document.getElementById("mensaje").innerText =
-    "Ups… revisa tu correo o contraseña 💭";
-  return;
-}
-
-  const user = data.user ?? data.session?.user;
-
-  if (!user) {
-    document.getElementById("mensaje").innerText =
-      "Error al crear usuario";
-    return;
-  }
-
-  // Guardar perfil
-  const { error: perfilError } = await supabase
-    .from("perfiles")
-    .insert({
-      id: user.id,
-      email: email,
-      nombre: nombre,
-      aprobado: false
+  try {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password
     });
 
-  if (perfilError) {
-    document.getElementById("mensaje").innerText =
-      "Usuario creado, pero error al guardar perfil";
-    return;
-  }
+    console.log("SIGNUP:", data, error);
 
-  document.getElementById("mensaje").innerText =
-    "Registro exitoso, espera aprobación ⏳";
+    if (error) {
+      mensaje.innerText =
+        "Ups… revisa tu correo o contraseña 💭";
+      return;
+    }
+
+    const user = data.user ?? data.session?.user;
+
+    if (!user) {
+      mensaje.innerText = "Error al crear usuario 😢";
+      return;
+    }
+
+    // Guardar perfil
+    const { error: perfilError } = await supabase
+      .from("perfiles")
+      .insert({
+        id: user.id,
+        email: email,
+        nombre: nombre,
+        aprobado: false
+      });
+
+    if (perfilError) {
+      console.error("PERFIL ERROR:", perfilError);
+      mensaje.innerText =
+        "Usuario creado, pero error al guardar perfil 😢";
+      return;
+    }
+
+    mensaje.innerText =
+      "Registro exitoso, espera aprobación ⏳";
+
+  } catch (err) {
+    console.error("ERROR REGISTRO:", err);
+    mensaje.innerText = "Error inesperado 😢";
+  }
 };
 
 // =======================
@@ -55,66 +64,85 @@ window.registrar = async () => {
 window.login = async () => {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
+  const mensaje = document.getElementById("mensaje");
 
-  document.getElementById("mensaje").innerText = "";
+  mensaje.innerText = "";
 
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email,
-    password
-  });
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
 
-  if (error) {
-    document.getElementById("mensaje").innerText = error.message;
-    return;
+    console.log("LOGIN:", data, error);
+
+    if (error) {
+      mensaje.innerText =
+        "Ups... correo o contraseña incorrectos 💭";
+      return;
+    }
+
+    const user = data.user;
+
+    // Verificar aprobación
+    const { data: perfil, error: perfilError } = await supabase
+      .from("perfiles")
+      .select("aprobado")
+      .eq("id", user.id)
+      .single();
+
+    console.log("PERFIL:", perfil, perfilError);
+
+    if (perfilError || !perfil?.aprobado) {
+      await supabase.auth.signOut();
+
+      mensaje.innerText =
+        "Tu cuenta aún no ha sido aprobada por Luna Blanca 🌙✨";
+      return;
+    }
+
+    // Redirigir si está aprobado
+    window.location.href =
+      "https://lunablanca01.github.io/luna-blanca/luna-blanca.html";
+
+  } catch (err) {
+    console.error("ERROR LOGIN:", err);
+    mensaje.innerText = "Error inesperado 😢";
   }
-
-  const user = data.user;
-
-  // Verificar aprobación
-  const { data: perfil, error: perfilError } = await supabase
-    .from("perfiles")
-    .select("aprobado")
-    .eq("id", user.id)
-    .single();
-
-  if (perfilError || !perfil?.aprobado) {
-    await supabase.auth.signOut();
-
-    document.getElementById("mensaje").innerText =
-      "Tu cuenta aún no ha sido aprobada por Luna Blanca 🌙✨";
-    return;
-  }
-
-  // Redirigir si está aprobado
-  window.location.href =
-    "https://lunablanca01.github.io/luna-blanca/luna-blanca.html";
 };
-
 
 // =======================
 // RECUPERAR CONTRASEÑA
 // =======================
 window.recuperarPassword = async () => {
   const email = document.getElementById("emailRecuperar").value;
+  const mensaje = document.getElementById("mensaje");
 
-  document.getElementById("mensaje").innerText = "";
+  mensaje.innerText = "";
 
   if (!email) {
-    document.getElementById("mensaje").innerText =
-      "Ingresa tu correo 💭";
+    mensaje.innerText = "Ingresa tu correo 💭";
     return;
   }
 
-  const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: "https://lunablanca01.github.io/luna-blanca/reset.html"
-  });
+  try {
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: "https://lunablanca01.github.io/luna-blanca/reset.html"
+    });
 
-  if (error) {
-    document.getElementById("mensaje").innerText =
-      "No pudimos enviar el correo 😢";
-    return;
+    console.log("RESET:", error);
+
+    if (error) {
+      mensaje.innerText =
+        "No pudimos enviar el correo 😢";
+      return;
+    }
+
+    mensaje.innerText =
+      "Te enviamos un enlace a tu correo 💌";
+
+  } catch (err) {
+    console.error("ERROR RESET:", err);
+    mensaje.innerText = "Error inesperado 😢";
   }
-
-  document.getElementById("mensaje").innerText =
-    "Te enviamos un enlace a tu correo 💌";
 };
