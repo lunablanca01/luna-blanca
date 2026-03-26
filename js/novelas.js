@@ -148,36 +148,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const tituloActual = document.querySelector("h1")?.textContent.trim();
   if (!tituloActual) return;
 
-  // Encontrar la novela correspondiente
-  const novela = novelas.find(n => n.titulo === tituloActual || n.slug === tituloActual);
+  // Buscar la novela en el array global
+  const novela = window.novelas.find(n => n.titulo === tituloActual || n.slug === tituloActual);
   if (!novela) return;
 
-  // Cambiar portada
+  // Actualizar portada
   const imgElem = document.querySelector(".portada");
-  if (imgElem) imgElem.src = novela.imagen.startsWith("http") ? novela.imagen : `../imagenes/${novela.imagen}`;
+  if (imgElem) imgElem.src = novela.imagen.startsWith("http") 
+    ? novela.imagen 
+    : `../imagenes/${novela.imagen}`;
 
-  // Cambiar título en inglés
+  // Actualizar título en inglés
   const subtituloElem = document.querySelector(".subtitulo");
-  if (subtituloElem) subtituloElem.textContent = novela.ingles || "";
+  if (subtituloElem) subtituloElem.textContent = novela.titulo_en || "";
 
-  // Cambiar capítulos
+  // Actualizar capítulos
   const capElem = document.querySelector(".capitulos");
   if (capElem) capElem.innerHTML = `<b>Capítulos:</b> ${novela.capitulos || "?"}`;
 
-  // ================================
-  // Actualizar panel de progreso
-  // ================================
+  // Actualizar progreso de lectura
   const inputProgreso = document.getElementById("progreso-capitulo");
-  const totalSpan = document.getElementById("total-capitulos");
+  const totalCapElem = document.getElementById("total-capitulos");
 
-  let totalCap = 0;
+  if (inputProgreso && totalCapElem) {
+    // Solo extraer números si el campo es solo números, si no dejamos en ?
+    const numeros = novela.capitulos?.match(/\d+/g) || [];
+    const totalCap = numeros.reduce((acc, n) => acc + parseInt(n), 0) || "?";
 
-  if (novela.capitulos) {
-    // Extrae todos los números de la cadena (ej: "122 + 4 extras")
-    const numeros = novela.capitulos.toString().match(/\d+/g);
-    if (numeros) totalCap = numeros.reduce((acc, n) => acc + parseInt(n), 0);
+    totalCapElem.textContent = totalCap;
+    inputProgreso.max = totalCap !== "?" ? totalCap : 1;
   }
-
-  if (totalSpan) totalSpan.textContent = totalCap;
-  if (inputProgreso) inputProgreso.max = totalCap;
 });
