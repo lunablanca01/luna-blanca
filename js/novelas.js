@@ -67,109 +67,85 @@ function obtenerNombreTag(valor){
 }
 
 /* ================================
-   📋 4. MOSTRAR ETIQUETAS Y EPUB
+   👤 4. CARGAR AUTOR, PORTADA, CAPÍTULOS, ETIQUETAS Y EPUB
 ================================ */
-document.addEventListener("DOMContentLoaded", function () {
-  const tituloActual = document.querySelector("h1")?.textContent.trim();
-  if (!tituloActual) return;
-
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(tarjetasHTML, "text/html");
-  const cards = doc.querySelectorAll(".card");
-
-  let tarjetaCoincidente = Array.from(cards).find(card =>
-    card.querySelector("h3")?.textContent.trim() === tituloActual
-  );
-  if(!tarjetaCoincidente) return;
-
-  // Mostrar etiquetas
-  const tagsEncontrados = tarjetaCoincidente.dataset.tags;
-  if(tagsEncontrados){
-    const tagsArray = tagsEncontrados.toLowerCase().split(" ");
-    const tipo = tagsArray[0] || "";
-    const estado = tagsArray[1] || "";
-    const ambientado = tagsArray[2] || "";
-    const categorias = tagsArray.slice(3);
-    const contenedor = document.querySelector(".etiquetas");
-    if(contenedor){
-      contenedor.innerHTML = `
-        <span>Tipo: <a href="../luna-blanca.html?tipo=${tipo}">${obtenerNombreTag(tipo)}</a></span>
-        <span>Estado: <a href="../luna-blanca.html?estado=${estado}">${obtenerNombreTag(estado)}</a></span>
-        <span>Ambientado: <a href="../luna-blanca.html?ambientado=${ambientado}">${obtenerNombreTag(ambientado)}</a></span>
-        <br>
-        <div class="lista-etiquetas">
-          Etiqueta: ${categorias.map(cat => `<a href="../luna-blanca.html?categoria=${cat}">${obtenerNombreTag(cat)}</a>`).join("")}
-        </div>
-      `;
-    }
-  }
-
-  // Mostrar ePub
-  const linkEpub = tarjetaCoincidente.querySelector(".links-tarjeta a")?.href;
-  if(linkEpub){
-    const contenedorEpub = document.getElementById("epub-container");
-    if(contenedorEpub){
-      contenedorEpub.innerHTML = `<div class="epub">Leer en: <a href="${linkEpub}" target="_blank">ePub</a></div>`;
-    }
-  }
-});
-
-/* ================================
-   👤 5. CARGAR AUTOR Y RELACIONADOS
-================================ */
-function cargarAutor(){
-  const titulo = document.querySelector("h1")?.textContent.trim();
-  if(!titulo) return;
-
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(tarjetasHTML, "text/html");
-  const cards = doc.querySelectorAll(".card");
-
-  const cardActual = Array.from(cards).find(card =>
-    card.querySelector("h3")?.textContent.trim() === titulo
-  );
-  if(!cardActual) return;
-
-  const autor = cardActual.dataset.autor;
-  const autorNombre = autor.split("-").map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
-  document.querySelector(".autor").innerHTML = `Autor: <a href="../luna-blanca.html?autor=${autor}">${autorNombre}</a>`;
-
-  // Mostrar relacionados
-  mostrarPorAutor(autor, "bloque-autor");
-}
-
-// Ejecutar autor
-cargarAutor();
-
-  /* ================================
-     🔢 6 GENERAR IMAGEN, TITULO INGLES, CAPITULOS
-  ================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const tituloActual = document.querySelector("h1")?.textContent.trim();
   if(!tituloActual) return;
 
-  // Buscar la novela en el array global
+  // 🔹 Analizar tarjetasHTML
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(tarjetasHTML, "text/html");
+  const cards = doc.querySelectorAll(".card");
+
+  // ===== 1️⃣ Autor y relacionados =====
+  const cardActual = Array.from(cards).find(card =>
+    card.querySelector("h3")?.textContent.trim() === tituloActual
+  );
+  if(cardActual){
+    const autor = cardActual.dataset.autor;
+    const autorNombre = autor.split("-").map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
+    const autorElem = document.querySelector(".autor");
+    if(autorElem) autorElem.innerHTML = `Autor: <a href="../luna-blanca.html?autor=${autor}">${autorNombre}</a>`;
+
+    // Mostrar relacionados
+    mostrarPorAutor(autor, "bloque-autor");
+  }
+
+  // ===== 2️⃣ Etiquetas y ePub =====
+  if(cardActual){
+    const tagsEncontrados = cardActual.dataset.tags;
+    if(tagsEncontrados){
+      const tagsArray = tagsEncontrados.toLowerCase().split(" ");
+      const tipo = tagsArray[0] || "";
+      const estado = tagsArray[1] || "";
+      const ambientado = tagsArray[2] || "";
+      const categorias = tagsArray.slice(3);
+      const contenedor = document.querySelector(".etiquetas");
+      if(contenedor){
+        contenedor.innerHTML = `
+          <span>Tipo: <a href="../luna-blanca.html?tipo=${tipo}">${obtenerNombreTag(tipo)}</a></span>
+          <span>Estado: <a href="../luna-blanca.html?estado=${estado}">${obtenerNombreTag(estado)}</a></span>
+          <span>Ambientado: <a href="../luna-blanca.html?ambientado=${ambientado}">${obtenerNombreTag(ambientado)}</a></span>
+          <br>
+          <div class="lista-etiquetas">
+            Etiqueta: ${categorias.map(cat => `<a href="../luna-blanca.html?categoria=${cat}">${obtenerNombreTag(cat)}</a>`).join("")}
+          </div>
+        `;
+      }
+    }
+
+    const linkEpub = cardActual.querySelector(".links-tarjeta a")?.href;
+    if(linkEpub){
+      const contenedorEpub = document.getElementById("epub-container");
+      if(contenedorEpub){
+        contenedorEpub.innerHTML = `<div class="epub">Leer en: <a href="${linkEpub}" target="_blank">ePub</a></div>`;
+      }
+    }
+  }
+
+  // ===== 3️⃣ Portada, título inglés, capítulos y progreso =====
   const novela = window.novelas.find(n => n.titulo === tituloActual || n.slug === tituloActual);
-  if(!novela) return;
+  if(novela){
+    // Portada
+    const imgElem = document.querySelector(".portada");
+    if(imgElem) imgElem.src = novela.imagen.startsWith("http") ? novela.imagen : `../imagenes/${novela.imagen}`;
 
-  // Actualizar portada
-  const imgElem = document.querySelector(".portada");
-  if(imgElem) imgElem.src = novela.imagen.startsWith("http") ? novela.imagen : `../imagenes/${novela.imagen}`;
+    // Título en inglés
+    const subtituloElem = document.querySelector(".subtitulo");
+    if(subtituloElem) subtituloElem.textContent = novela.ingles || "";
 
-  // Actualizar título en inglés
-  const subtituloElem = document.querySelector(".subtitulo");
-  if(subtituloElem) subtituloElem.textContent = novela.ingles || "";
+    // Capítulos
+    const capElem = document.querySelector(".capitulos");
+    if(capElem) capElem.innerHTML = `<b>Capítulos:</b> ${novela.capitulos || "?"}`;
 
-  // Actualizar capítulos
-  const capElem = document.querySelector(".capitulos");
-  if(capElem) capElem.innerHTML = `<b>Capítulos:</b> ${novela.capitulos || "?"}`;
-
-  // Actualizar progreso
-  const inputProgreso = document.getElementById("progreso-capitulo");
-  const totalCapElem = document.getElementById("total-capitulos");
-  if(inputProgreso && totalCapElem){
-    const totalCap = parseInt(novela.capitulos) || 0;
-    totalCapElem.textContent = totalCap;
-    inputProgreso.max = totalCap || 1;
+    // Progreso
+    const inputProgreso = document.getElementById("progreso-capitulo");
+    const totalCapElem = document.getElementById("total-capitulos");
+    if(inputProgreso && totalCapElem){
+      const totalCap = parseInt(novela.capitulos) || 0;
+      totalCapElem.textContent = totalCap;
+      inputProgreso.max = totalCap || 1;
+    }
   }
 });
