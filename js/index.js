@@ -27,7 +27,7 @@ window.registrar = async () => {
   }
 
   if (password.length < 6) {
-    mensaje.innerText = "La contraseña debe tener al menos 6 caracteres 💭";
+    mensaje.innerText = "La contraseña debe tener al menos 6 caracteres";
     passwordInput.style.borderColor = "red";
     passwordInput.focus();
     return;
