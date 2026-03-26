@@ -329,14 +329,14 @@ function descargarExcel(){
     ? novelasFiltradas
     : novelas;
 
-  let contenido = "Titulo Español,Titulo Ingles,Capitulos\n";
+  let contenido = "Titulo Español;Titulo Ingles;Capitulos\n";
 
   lista.forEach(n => {
     const titulo = (n.titulo || "").replace(/"/g, '""');
     const ingles = (n.ingles || "").replace(/"/g, '""');
     const capitulos = (n.capitulos || "").replace(/"/g, '""');
 
-    contenido += `"${titulo}","${ingles}","${capitulos}"\n`;
+    contenido += `"${titulo}";"${ingles}";"${capitulos}"\n`;
   });
 
   const blob = new Blob(["\uFEFF" + contenido], { type: "text/csv;charset=utf-8;" });
