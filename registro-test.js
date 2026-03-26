@@ -2,7 +2,7 @@ import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 
 // 🔹 Reemplaza con tu URL y ANON KEY de Supabase
 const supabaseUrl = "https://qaophiaogsvhkgmbfcuf.supabase.co";
-const supabaseKey = "TU_ANON_KEY";
+const supabaseKey = "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN";
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
 const mensaje = document.getElementById("mensaje");
