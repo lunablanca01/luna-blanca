@@ -2853,10 +2853,10 @@ const novelas = [
 },
 
 {
-  titulo: 'Después de ser obligada a casarse con el malvado general estelar',
+  titulo: 'Después de ser obligado a casarse con el malvado general',
   ingles: 'After Being Forced to Marry the Evil Star General',
-  slug: 'Después_de_ser_obligada_a_casarse_con_el_malvado_general_estelar',
-  imagen: 'Después_de_ser_obligada_a_casarse_con_el_malvado_general_estelar.jpg',
+  slug: 'Después_de_ser_obligado_a_casarse_con_el_malvado_general',
+  imagen: 'Después_de_ser_obligado_a_casarse_con_el_malvado_general.jpg',
   tags: 'danmei finalizado china-antigua comedia drama lucha-de-poder matrimonio-arreglado',
   autor: 'gu-sanyue',
   link: 'https://drive.google.com/drive/u/4/folders/18089PCokjfiFSJbsImYbLAYYLxU-qhWp',
