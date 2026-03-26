@@ -85,21 +85,29 @@ window.login = async () => {
     const user = data.user;
 
     // Verificar aprobación
-    const { data: perfil, error: perfilError } = await supabase
-      .from("perfiles")
-      .select("aprobado")
-      .eq("id", user.id)
-      .single();
+const { data: perfil, error: perfilError } = await supabase
+  .from("perfiles")
+  .select("aprobado")
+  .eq("id", user.id)
+  .single();
 
-    console.log("PERFIL:", perfil, perfilError);
+console.log("PERFIL:", perfil, perfilError);
 
-    if (perfilError || !perfil?.aprobado) {
-      await supabase.auth.signOut();
+// ❌ error real
+if (perfilError) {
+  console.error(perfilError);
+  mensaje.innerText = "Error al verificar usuario 😢";
+  return;
+}
 
-      mensaje.innerText =
-        "Tu cuenta aún no ha sido aprobada 🕒";
-      return;
-    }
+// ❌ no aprobado
+if (!perfil.aprobado) {
+  await supabase.auth.signOut();
+
+  mensaje.innerText =
+    "Tu cuenta aún no ha sido aprobada 🕒";
+  return;
+}
 
     // Redirigir si está aprobado
     window.location.href =
