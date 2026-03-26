@@ -12,53 +12,46 @@ window.registrar = async () => {
   mensaje.innerText = "";
 
   try {
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password
-    });
-
-    console.log("SIGNUP:", data, error);
+    // 1️⃣ Crear usuario en Auth
+    const { data, error } = await supabase.auth.signUp({ email, password });
+    console.log("SIGNUP DATA:", data);
+    console.log("SIGNUP ERROR:", error);
 
     if (error) {
-      mensaje.innerText =
-        "Ups… revisa tu correo o contraseña 💭";
+      mensaje.innerText = "Error al crear usuario 💭";
       return;
     }
 
     const user = data.user ?? data.session?.user;
-
     if (!user) {
-      mensaje.innerText = "Error al crear usuario 😢";
+      mensaje.innerText = "No se obtuvo el usuario 😢";
       return;
     }
 
-    // 🔹 Activar sesión del usuario inmediatamente
+    // 🔹 Activar sesión del usuario inmediatamente (importante para RLS)
     if (data.session?.access_token) {
       await supabase.auth.setSession(data.session.access_token);
+      console.log("Sesión activada con token:", data.session.access_token);
     }
 
-    // Guardar perfil
-    const { error: perfilError } = await supabase
+    // 2️⃣ Intentar crear perfil
+    const { data: perfilData, error: perfilError, status, statusText } = await supabase
       .from("perfiles")
-      .insert({
-        id: user.id,
-        email: email,
-        nombre: nombre,
-        aprobado: false
-      });
+      .insert({ id: user.id, email, nombre, aprobado: false });
+
+    console.log("PERFIL DATA:", perfilData);
+    console.log("PERFIL ERROR:", perfilError);
+    console.log("PERFIL STATUS:", status, statusText);
 
     if (perfilError) {
-      console.error("PERFIL ERROR:", perfilError);
-      mensaje.innerText =
-        "Usuario creado, pero error al guardar perfil 😢";
+      mensaje.innerText = "Usuario creado, pero error al guardar perfil 😢";
       return;
     }
 
-    mensaje.innerText =
-      "Registro exitoso, espera aprobación ⏳";
+    mensaje.innerText = "Registro exitoso, espera aprobación ⏳";
 
   } catch (err) {
-    console.error("ERROR REGISTRO:", err);
+    console.error("ERROR INESPERADO:", err);
     mensaje.innerText = "Error inesperado 😢";
   }
 };
@@ -74,16 +67,12 @@ window.login = async () => {
   mensaje.innerText = "";
 
   try {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
-
-    console.log("LOGIN:", data, error);
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    console.log("LOGIN DATA:", data);
+    console.log("LOGIN ERROR:", error);
 
     if (error) {
-      mensaje.innerText =
-        "Ups... correo o contraseña incorrectos 💭";
+      mensaje.innerText = "Ups... correo o contraseña incorrectos 💭";
       return;
     }
 
@@ -97,27 +86,24 @@ window.login = async () => {
       .eq("id", user.id)
       .single();
 
-    console.log("PERFIL:", perfil, "ERROR PERFIL:", perfilError);
+    console.log("PERFIL DATA:", perfil, "PERFIL ERROR:", perfilError);
 
     if (perfilError) {
-      console.error(perfilError);
       mensaje.innerText = "Error al verificar usuario 😢";
       return;
     }
 
     if (!perfil.aprobado) {
       await supabase.auth.signOut();
-      mensaje.innerText =
-        "Tu cuenta aún no ha sido aprobada 🕒";
+      mensaje.innerText = "Tu cuenta aún no ha sido aprobada 🕒";
       return;
     }
 
     // Redirigir si está aprobado
-    window.location.href =
-      "https://lunablanca01.github.io/luna-blanca/luna-blanca.html";
+    window.location.href = "https://lunablanca01.github.io/luna-blanca/luna-blanca.html";
 
   } catch (err) {
-    console.error("ERROR LOGIN:", err);
+    console.error("ERROR INESPERADO LOGIN:", err);
     mensaje.innerText = "Error inesperado 😢";
   }
 };
@@ -141,19 +127,17 @@ window.recuperarPassword = async () => {
       redirectTo: "https://lunablanca01.github.io/luna-blanca/reset.html"
     });
 
-    console.log("RESET:", error);
+    console.log("RESET ERROR:", error);
 
     if (error) {
-      mensaje.innerText =
-        "No pudimos enviar el correo 😢";
+      mensaje.innerText = "No pudimos enviar el correo 😢";
       return;
     }
 
-    mensaje.innerText =
-      "Te enviamos un enlace a tu correo 💌";
+    mensaje.innerText = "Te enviamos un enlace a tu correo 💌";
 
   } catch (err) {
-    console.error("ERROR RESET:", err);
+    console.error("ERROR INESPERADO RESET:", err);
     mensaje.innerText = "Error inesperado 😢";
   }
 };
