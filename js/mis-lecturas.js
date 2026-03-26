@@ -1,13 +1,16 @@
 import { supabase } from "./supabase.js";
+import { novelas } from "./tarjetas.js";
 
-console.log("mis-lecturas.js cargó");
-
-function normalizarEstado(texto) {
+function normalizarTexto(texto) {
   return (texto || "")
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .trim();
+}
+
+function normalizarEstado(texto) {
+  return normalizarTexto(texto);
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -76,24 +79,42 @@ function mostrarLecturas(lecturas) {
   lecturas.forEach(l => {
     const estado = normalizarEstado(l.estado);
 
+    const novelaCompleta = novelas.find(n =>
+      normalizarTexto(n.titulo) === normalizarTexto(l.novela)
+    );
+
     const divCard = document.createElement("div");
     divCard.className = "card";
     divCard.dataset.estado = estado;
 
-    const divEstado = document.createElement("div");
-    divEstado.className = "estado-lectura";
-    divEstado.textContent = emojiMap[estado] || "📘";
+    if (novelaCompleta) {
+      divCard.dataset.tags = novelaCompleta.tags || "";
+      divCard.dataset.autor = novelaCompleta.autor || "";
 
-    const h3 = document.createElement("h3");
-    h3.textContent = l.novela || "Sin título";
+      divCard.innerHTML = `
+        <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
 
-    const textoEstado = document.createElement("div");
-    textoEstado.className = "texto-estado";
-    textoEstado.textContent = l.estado || "Sin estado";
+        <a href="../novelas/${novelaCompleta.slug}.html">
+          <img src="../imagenes/${novelaCompleta.imagen}" alt="${novelaCompleta.titulo}">
+        </a>
 
-    divCard.appendChild(divEstado);
-    divCard.appendChild(h3);
-    divCard.appendChild(textoEstado);
+        <h3>${novelaCompleta.titulo}</h3>
+
+        <div class="links-tarjeta">
+          <a href="${novelaCompleta.link}"
+             target="_blank"
+             onclick="event.stopPropagation()">ePub</a>
+        </div>
+
+        <div class="texto-estado">${l.estado || "Sin estado"}</div>
+      `;
+    } else {
+      divCard.innerHTML = `
+        <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
+        <h3>${l.novela || "Sin título"}</h3>
+        <div class="texto-estado">${l.estado || "Sin estado"}</div>
+      `;
+    }
 
     contenedor.appendChild(divCard);
   });
