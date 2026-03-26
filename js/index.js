@@ -142,34 +142,3 @@ window.recuperarPassword = async () => {
   }
 };
 
-// =======================
-// PRUEBA DE INSERCIÓN MANUAL
-// =======================
-async function testInsertPerfil() {
-  const userId = "f2997511-8e91-4575-a0c6-1eed22df9694"; // Pon aquí el id de un usuario existente
-  const email = "test@luna.com";
-  const nombre = "Test Usuario";
-
-  try {
-    console.log("🔹 Intentando insertar perfil de prueba...");
-
-    const { data, error, status } = await supabase
-      .from("perfiles")
-      .insert({
-        id: userId,
-        email: email,
-        nombre: nombre,
-        aprobado: false
-      });
-
-    console.log("RESULTADO INSERT:", data);
-    console.log("ERROR INSERT:", error);
-    console.log("STATUS INSERT:", status);
-
-  } catch (err) {
-    console.error("ERROR CRASH:", err);
-  }
-}
-
-// Ejecutar test manualmente desde consola
-// testInsertPerfil();
