@@ -142,23 +142,42 @@ function cargarAutor(){
 cargarAutor();
 
   /* ================================
-     🔢 6 CAPÍTULOS
+     🔢 6 GENERAR IMAGEN, TITULO INGLES, CAPITULOS
   ================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const tituloActual = document.querySelector("h1")?.textContent.trim();
+  if (!tituloActual) return;
 
+  // Encontrar la novela correspondiente
+  const novela = novelas.find(n => n.titulo === tituloActual || n.slug === tituloActual);
+  if (!novela) return;
+
+  // Cambiar portada
+  const imgElem = document.querySelector(".portada");
+  if (imgElem) imgElem.src = novela.imagen.startsWith("http") ? novela.imagen : `../imagenes/${novela.imagen}`;
+
+  // Cambiar título en inglés
+  const subtituloElem = document.querySelector(".subtitulo");
+  if (subtituloElem) subtituloElem.textContent = novela.ingles || "";
+
+  // Cambiar capítulos
   const capElem = document.querySelector(".capitulos");
+  if (capElem) capElem.innerHTML = `<b>Capítulos:</b> ${novela.capitulos || "?"}`;
+
+  // ================================
+  // Actualizar panel de progreso
+  // ================================
+  const inputProgreso = document.getElementById("progreso-capitulo");
+  const totalSpan = document.getElementById("total-capitulos");
+
   let totalCap = 0;
 
-  if(capElem){
-    const numeros = capElem.textContent.match(/\d+/g);
-
-    if(numeros){
-      totalCap = numeros.reduce((acc, num) => acc + parseInt(num), 0);
-
-      document.getElementById("total-capitulos").textContent = totalCap;
-
-      const inputProgreso = document.getElementById("progreso-capitulo");
-      if(inputProgreso){
-        inputProgreso.max = totalCap;
-      }
-    }
+  if (novela.capitulos) {
+    // Extrae todos los números de la cadena (ej: "122 + 4 extras")
+    const numeros = novela.capitulos.toString().match(/\d+/g);
+    if (numeros) totalCap = numeros.reduce((acc, n) => acc + parseInt(n), 0);
   }
+
+  if (totalSpan) totalSpan.textContent = totalCap;
+  if (inputProgreso) inputProgreso.max = totalCap;
+});
