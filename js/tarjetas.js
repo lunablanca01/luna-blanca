@@ -2282,7 +2282,7 @@ const novelas = [
 
 {
   titulo: 'Un nido de serpientes dentro de una tumba antigua',
-  ingles: 'A Guide to Raising Your Natural Enemy',
+  ingles: 'A Nest of Snakes Inside an Old Tomb',
   slug: 'Un_nido_de_serpientes_dentro_de_una_tumba_antigua',
   imagen: 'Un_nido_de_serpientes_dentro_de_una_tumba_antigua.jpg',
   tags: 'danmei finalizado fantasia animales comedia mpreg no-humano reencarnacion',
