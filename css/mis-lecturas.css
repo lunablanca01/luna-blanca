@@ -1,0 +1,203 @@
+/* ================================
+   ⭐ CONTENIDO GENERAL
+================================ */
+.contenido{
+  padding:20px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+/* ================================
+   ⭐ TITULO
+================================ */
+h1{
+  text-align:center;
+  font-size:70px;
+  color:#ff8b8b;
+  font-family:'Pacifico', cursive;
+  font-weight:400;
+  margin:0 0 18px 0;
+}
+
+/* ================================
+   ⭐ BOTONES DE FILTRO
+================================ */
+.filtros-estado{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:24px;
+}
+
+.filtros-estado button{
+  background:#ffe4d2;
+  border:none;
+  padding:12px 18px;
+  border-radius:12px;
+  font-family:'Molengo', serif;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.2s;
+  color:#5a4a4a;
+  box-shadow:0 4px 10px rgba(255, 139, 139, 0.08);
+}
+
+.filtros-estado button:hover{
+  background:#ffd2b8;
+  transform:translateY(-1px);
+}
+
+/* ================================
+   ⭐ GRID DE TARJETAS
+================================ */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(190px, 1fr));
+  gap:16px;
+}
+
+/* ================================
+   ⭐ TARJETAS
+================================ */
+.card{
+  background:linear-gradient(180deg, #fffefe 0%, #fff8f4 100%);
+  border-radius:16px;
+  padding:18px 14px 14px;
+  border:3px solid #f3d3d8;
+  position:relative;
+  text-align:center;
+  min-height:140px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 8px 20px rgba(232, 139, 154, 0.12);
+  transition:transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 24px rgba(232, 139, 154, 0.18);
+}
+
+/* ================================
+   ⭐ ICONO / EMOJI DE ESTADO
+================================ */
+.estado-lectura{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff4ec;
+  border-radius:50%;
+  font-size:18px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.08);
+}
+
+/* ================================
+   ⭐ TITULO DE NOVELA
+================================ */
+.card h3{
+  color:#ff8b8b;
+  margin:0;
+  font-size:18px;
+  font-weight:600;
+  line-height:1.35;
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  min-height:72px;
+  font-family:'Molengo', serif;
+}
+
+/* ================================
+   ⭐ TEXTO DE ESTADO OPCIONAL
+================================ */
+.card .texto-estado{
+  margin-top:10px;
+  font-size:14px;
+  color:#8a6f6f;
+  background:#fff4ec;
+  padding:5px 10px;
+  border-radius:999px;
+  font-family:'Molengo', serif;
+}
+
+/* ================================
+   ⭐ MENSAJE VACÍO
+================================ */
+.sin-lecturas{
+  grid-column:1 / -1;
+  text-align:center;
+  background:#fff8f4;
+  border:2px dashed #f3d3d8;
+  border-radius:16px;
+  padding:28px 20px;
+  color:#8a6f6f;
+  font-family:'Molengo', serif;
+  font-size:18px;
+}
+
+/* ================================
+   ⭐ CELULAR
+================================ */
+@media (max-width:500px){
+
+  .contenido{
+    padding:12px;
+  }
+
+  h1{
+    font-size:42px;
+    margin-bottom:14px;
+  }
+
+  .filtros-estado{
+    gap:8px;
+    margin-bottom:18px;
+  }
+
+  .filtros-estado button{
+    flex:1 1 calc(50% - 8px);
+    font-size:15px;
+    padding:11px 10px;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px;
+  }
+
+  .card{
+    min-height:130px;
+    padding:16px 10px 12px;
+    border:2px solid #f3d3d8;
+    border-radius:14px;
+  }
+
+  .card h3{
+    font-size:15px;
+    min-height:62px;
+    -webkit-line-clamp:3;
+  }
+
+  .estado-lectura{
+    width:30px;
+    height:30px;
+    font-size:16px;
+    top:8px;
+    right:8px;
+  }
+
+  .card .texto-estado{
+    font-size:13px;
+    padding:4px 8px;
+  }
+  }
