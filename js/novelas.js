@@ -67,7 +67,7 @@ function obtenerNombreTag(valor){
 }
 
 /* ================================
-   📋 4. MOSTRAR ETIQUETAS Y EPUB
+   📋 4. MOSTRAR ETIQUETAS Y DATOS
 ================================ */
 document.addEventListener("DOMContentLoaded", function () {
   const tituloActual = document.querySelector("h1")?.textContent.trim();
@@ -82,7 +82,44 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   if(!tarjetaCoincidente) return;
 
-  // Mostrar etiquetas
+  /* ================================
+     🆕 DATOS DE LA NOVELA
+  ================================= */
+
+  // IMAGEN
+  const img = tarjetaCoincidente.querySelector("img")?.getAttribute("src");
+  const portada = document.querySelector(".portada");
+  if(img && portada){
+    portada.src = img;
+  }
+
+  // DATOS DESDE ARRAY
+  const novelaData = novelas.find(n => n.titulo === tituloActual);
+
+  if(novelaData){
+    // TÍTULO EN INGLÉS
+    const subtitulo = document.querySelector(".subtitulo");
+    if(subtitulo){
+      subtitulo.textContent = novelaData.ingles;
+    }
+
+    // CAPÍTULOS
+    const capDiv = document.querySelector(".capitulos");
+    if(capDiv){
+      capDiv.textContent = `Capítulos: ${novelaData.capitulos}`;
+    }
+
+    // TOTAL PARA PROGRESO
+    const total = parseInt(novelaData.capitulos);
+    document.getElementById("total-capitulos").textContent = total;
+
+    const input = document.getElementById("progreso-capitulo");
+    if(input){
+      input.max = total;
+    }
+  }
+
+  // ETIQUETAS
   const tagsEncontrados = tarjetaCoincidente.dataset.tags;
   if(tagsEncontrados){
     const tagsArray = tagsEncontrados.toLowerCase().split(" ");
@@ -104,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Mostrar ePub
+  // EPUB
   const linkEpub = tarjetaCoincidente.querySelector(".links-tarjeta a")?.href;
   if(linkEpub){
     const contenedorEpub = document.getElementById("epub-container");
@@ -134,31 +171,7 @@ function cargarAutor(){
   const autorNombre = autor.split("-").map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
   document.querySelector(".autor").innerHTML = `Autor: <a href="../luna-blanca.html?autor=${autor}">${autorNombre}</a>`;
 
-  // Mostrar relacionados
   mostrarPorAutor(autor, "bloque-autor");
 }
 
-// Ejecutar autor
 cargarAutor();
-
-  /* ================================
-     🔢 6 CAPÍTULOS
-  ================================= */
-
-  const capElem = document.querySelector(".capitulos");
-  let totalCap = 0;
-
-  if(capElem){
-    const numeros = capElem.textContent.match(/\d+/g);
-
-    if(numeros){
-      totalCap = numeros.reduce((acc, num) => acc + parseInt(num), 0);
-
-      document.getElementById("total-capitulos").textContent = totalCap;
-
-      const inputProgreso = document.getElementById("progreso-capitulo");
-      if(inputProgreso){
-        inputProgreso.max = totalCap;
-      }
-    }
-  }
