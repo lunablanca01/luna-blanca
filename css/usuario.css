@@ -1,0 +1,103 @@
+/* ⭐ BARRA USUARIO (arriba derecha) */
+
+.barra-usuario{
+  position:absolute;
+  top:20px;
+  right:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:'Molengo', serif;
+  z-index:1000;
+}
+
+/* nombre usuario */
+#nombre-usuario{
+  font-size:16px;
+  color:#ff8b8b;
+  font-weight:500;
+}
+
+/* contenedor del botón */
+.usuario-menu{
+  position:relative;
+}
+
+/* botón icono */
+#btn-usuario{
+  background:#ffe4d2;
+  border:none;
+  border-radius:50%;
+  width:36px;
+  height:36px;
+  font-size:18px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+#btn-usuario:hover{
+  background:#ffd2b8;
+  transform:scale(1.05);
+}
+
+/* ⭐ MENÚ DESPLEGABLE */
+
+.menu-desplegable{
+  display:none;
+  position:absolute;
+  right:0;
+  top:45px;
+  background:#ffe4d2;
+  border-radius:12px;
+  padding:6px 0;
+  min-width:160px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  z-index:1000;
+}
+
+/* links del menú */
+.menu-desplegable a{
+  display:block;
+  padding:10px 14px;
+  text-decoration:none;
+  color:black;
+  font-size:14px;
+  font-family:'Molengo', serif;
+  transition:0.2s;
+}
+
+/* hover */
+.menu-desplegable a:hover{
+  background:#ffd2b8;
+}
+
+/* estado visible */
+.menu-desplegable.activo{
+  display:block;
+}
+
+
+/* ⭐ RESPONSIVE (celular) */
+@media (max-width:500px){
+
+  .barra-usuario{
+    top:10px;
+    right:12px;
+    gap:6px;
+  }
+
+  #nombre-usuario{
+    font-size:14px;
+  }
+
+  #btn-usuario{
+    width:32px;
+    height:32px;
+    font-size:16px;
+  }
+
+  .menu-desplegable{
+    top:40px;
+    min-width:140px;
+  }
+}
