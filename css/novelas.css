@@ -194,6 +194,19 @@ h1{
   background: #ff6f6f;
 }
 
+#eliminar-lectura {
+  margin-left: 10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+#eliminar-lectura:hover {
+  background: #e60000;
+}
+
 .grid {
   display:grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
