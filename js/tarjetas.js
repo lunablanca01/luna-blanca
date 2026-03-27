@@ -1892,7 +1892,7 @@ const novelas = [
   tags: 'danmei pendiente china-antigua gender-bender smut',
   autor: 'zi-yue',
   link: 'https://www.novelupdates.com/series/counterfeit-bride/',
-  capitulos: '10 + epílogo'
+  capitulos: '10 + 1 epílogo'
 },
 
 {
