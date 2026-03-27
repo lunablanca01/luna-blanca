@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     "por leer": "📘",
     "leyendo": "📖",
     "leido": "✅"
+    "leido_mtl": "📚"
   };
 
   // Recorremos cada tarjeta
