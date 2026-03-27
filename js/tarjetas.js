@@ -434,7 +434,7 @@ const novelas = [
 
 {
   titulo: 'En realidad, no es fácil ser un protagonista masculino secundario',
-  ingles: 'A It’s Actually Not Easy Wanting to be a Supporting Male Lead',
+  ingles: 'It’s Actually Not Easy Wanting to be a Supporting Male Lead',
   slug: 'En_realidad,_no_es_fácil_ser_un_protagonista_masculino_secundario',
   imagen: 'En_realidad,_no_es_fácil_ser_un_protagonista_masculino_secundario.jpg',
   tags: 'danmei pendiente multiples-mundos bestias cultivo malentendidos no-humano realeza smut tragedia transmigracion zombies',
