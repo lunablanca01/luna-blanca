@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Especies raras interestelares</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>Especies raras interestelares</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>星际稀有物种</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Cuando Gu Yu se despertó, se encontró transmigrado a un planeta hombre bestia y convirtiéndose en una 'mujer artificial' entregada al mariscal imperial. </p>
+  <p>Estremecimiento. </p>
+  <p>Mientras que los machos en Brilliant Splendor son tan capaces que pueden cambiar libremente de forma de bestia a humana, las hembras eran demasiado frágiles en forma humana y perdieron la capacidad de convertirse en humanos durante la catástrofe. </p>
+  <p>Era el deseo más común de los machos: que sus parejas tuvieran forma humana. </p>
+  <p>Para satisfacer este deseo, apareció en el mercado un nuevo producto: las hembras artificiales, robots biológicos idénticos a las hembras humanas naturales, equipados con chips inteligentes y capaces de responder a estímulos. </p>
+  <p>Planet Law estipula que, para garantizar la tasa de natalidad de los jóvenes, si uno no se casa solo a la edad de ochenta años, Star Network le otorgará una pareja. </p>
+  <p>El primer soltero de mayor edad de Brilliant Splendor, Marshal Cyno Bruce, tomó una decisión que conmocionó a la cadena cuando estaba a punto de cumplir ochenta años. </p>
+  <p>– Casarse con una mujer artificial. </p>
+  <p>Cyno: ¡Cásate con una mujer bestia, de ninguna manera! ¿En cuanto a las hembras artificiales? Bueno, es barato y no será un estorbo. </p>
+  <p>Luego… </p>
+  <p>¡Realmente fragante! _(:з”∠)_ ¡Bebé, déjame abrazarte! </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>

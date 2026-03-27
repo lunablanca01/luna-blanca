@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estrategia para capturar esa escoria Gong</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>Estrategia para capturar esa escoria Gong</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>攻略那个渣攻[快穿]</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Como un verdadero presidente autoritario, escoria gong, cuando Xie He rechazó por enésima vez a su admirador, escuchó una frase en su cabeza: "Felicitaciones por lograr el logro de "rechaza 100 hosts"; Como premio, pronto te vincularás al sistema "Scum Gong and Cheap Shou", ingresando a otros mundos para completar misiones de captura. </p>
+  <p>Como un gong de escoria, Xie He expresa que es muy fácil ocultar los verdaderos colores de uno, pero... </p>
+  <p>"Escuché que el hermano de mi novio me ama en secreto" </p>
+  <p>"Maestro, ámame una vez más" </p>
+  <p>"Manual para la crianza de jóvenes" </p>
+  <p>"Su Majestad, este sirviente obedece" </p>
+  <p>"El amante sustituto del Señor Tirano" </p>
+  <p>"Cautivo del Imperio" </p>
+  <p>"Horno de cultivo del discípulo"… </p>
+  <p>Xie He: Espera un minuto. Estas palabras suenan realmente extrañas… ¿y por qué mi papel es el de 'shou barato'? </p>
+  <p>Sistema: Combatir el veneno con veneno. Usar escoria para superar la escoria. ¡Confiaré en ti para abusar del gong de escoria! Recuerda no OOC~ </p>
+  <p>Xie He: Jeje. </p>
+  <p>Más tarde… </p>
+  <p>Xie He: ¿Hm? ¿Dices que toda la escoria me ama? Lo siento, sólo me amo a mí mismo. </p>
+  <p>Gong de escoria: ??? </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>
