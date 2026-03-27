@@ -194,17 +194,40 @@ h1{
   background: #ff6f6f;
 }
 
-#eliminar-lectura {
-  margin-left: 10px;
-  background: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  cursor: pointer;
+.acciones-lectura {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
 }
 
-#eliminar-lectura:hover {
-  background: #e60000;
+/* 🔴 Botón eliminar limpio */
+#eliminar-lectura {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  height: 38px;
+}
+
+/* 🖼️ Imagen del tacho */
+#eliminar-lectura img {
+  height: 100%;
+  filter: grayscale(100%) brightness(0.7);
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+/* ✨ Hover bonito */
+#eliminar-lectura:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* 👇 Click */
+#eliminar-lectura:active img {
+  transform: scale(0.95);
 }
 
 .grid {
