@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No te gusto</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>¿No te gusto?</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>你是不是喜欢我</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Bajo, rico y guapo, Lin Feiran siempre fue el centro de atención. Pero tras cambiarse de escuela en segundo año de preparatoria, descubrió que su compañero de Adonis, Gu Kaifeng, le había arrebatado el protagonismo. </p>
+  <p>Lin Feiran estaba muy resentido, y él y Gu Kaifeng se convirtieron en archienemigos (de forma unilateral). Aunque vivían juntos, eran como extraños. </p>
+  <p>Cuando Lin Feiran regresó a casa para asistir al funeral de su abuelo, heredó accidentalmente los ojos Yin-Yang que se habían transmitido de generación en generación. Tras adquirir la capacidad de ver fantasmas, el tímido Lin Feiran descubrió que su dormitorio para dos personas era en realidad una habitación fantasmal para dieciséis. Todos los días, el miedo lo hacía desmayarse. </p>
+  <p>Lo más molesto es que, debido a su constitución corporal innata, Gu Kaifeng poseía una abundante energía Yang. Lin Feiran descubrió que cada vez que tocaba a Gu Kaifeng, su energía Yang podía inutilizar temporalmente sus ojos Yin-Yang. Un toque ligero los inutilizaba durante cinco minutos, un beso durante una hora, y así sucesivamente... </p>
+  <p>Lin Feiran no tuvo más remedio que entregarse a su archienemigo. Este cambio radical en su actitud hacia la intimidad con Gu Kaifeng persistió día tras día, de la mañana a la noche. </p>
+  <p>Para dormir, tenía que apretujarse en la misma cama que Gu Kaifeng. ¿Ir al baño? Tenía que arrastrar a Gu Kaifeng consigo. ¿Hacer la tarea? Tenía que hacerla codo con codo con Gu Kaifeng... También tuvo que esforzarse al máximo para convencer al profesor de que lo hiciera compañero de pupitre de Gu Kaifeng. Todos los días en clase, le frotaba la pantorrilla con el pie bajo los pupitres... </p>
+  <p>Tras el repentino cambio de personalidad del pequeño bastardo pegajoso, Gu Kaifeng, inicialmente sorprendido, se enamoró poco a poco. A diario perseguía a Lin Feiran para coquetear con él, hacerle confesiones disparatadas e incluso empujarlo contra la pared y besarlo... </p>
+  <p>Gu Kaifeng: "¿No te gusto? Me gustas, así que estemos juntos". </p>
+  <p>Lin Feiran: "¡No me gustas! ¡No vengas!" </p>
+  <p>Gu Kaifeng: "..." </p>
+  <p>Cinco minutos después, para evitar ver fantasmas, Lin Feiran se acercó sigilosamente a tocar a Gu Kaifeng. </p>
+  <p>Gu Kaifeng se dio la vuelta y detuvo su mano: "Después de rechazarme, ¿¡vuelves a coquetear conmigo!?" </p>
+  <p>Lin Feiran: "¿Quién te está coqueteando? Me descuidé y te toqué; no creas que me gustas también". </p>
+  <p>Oh, eso es todo. </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>

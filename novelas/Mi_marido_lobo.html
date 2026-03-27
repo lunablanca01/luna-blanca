@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi marido lobo</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>Mi marido lobo</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>狼相公</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Lin Shuishi nació paralizado de cintura para abajo, pero murió en un accidente de coche mientras intentaba salvar a su madre. Inesperadamente, transmigró al cuerpo de un "Ger" (hombre con capacidad de gestación) en tiempos antiguos. Antes de que pudiera siquiera pensar, fue amordazado y atado, y los aldeanos planeaban llevarlo a la montaña Dongshan para sacrificarlo a los lobos. </p>
+  <p>"¿Voy a morir tan rápido…?" </p>
+  <p>Pero Lin Shuishi gritó en su corazón: </p>
+  <p>¡Por fin tengo piernas! ¡Aunque muera, elegiré correr hasta la muerte! </p>
+  <p>Y así, la manada de lobos en la montaña Dongshan fue testigo de una “bestia de dos patas” corriendo locamente por el bosque nevado… </p>
+  <p>Los lobos pensaron que se trataba de una especie de locura, temieron que fuera contagiosa y decidieron que era necesario combatirla. Así que llamaron al hermano del Rey Lobo, que también tenía dos piernas. </p>
+  <p>Sin decir palabra, el segundo líder, Fuli, lo levantó y lo arrojó a su propia guarida de lobos. </p>
+  <p>Al año siguiente, gracias a su constante trabajo duro día y noche, acabaron teniendo un cachorro. </p>
+  <p>Pero cuando el esposo lobo, Fuli, miró a los once cachorros en la guarida del Rey Lobo, y luego al cachorro solitario nacido de su pequeño esposo, ¡sus oscuros ojos dorados se llenaron de confusión! </p>
+  <p>¿Acaso no soy tan capaz como el Rey Lobo? ¡No debería ser así! En fin, ¡tendré que esforzarme más de ahora en adelante! </p>
+  <p>(Inserte aquí la expresión de terror de Lin Shuishi) </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>
