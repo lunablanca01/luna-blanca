@@ -17,11 +17,15 @@ async function initLectura(tituloActual) {
   const selectEstado = document.getElementById("estado-lectura");
   const inputProgreso = document.getElementById("progreso-capitulo");
   const btnGuardar = document.getElementById("guardar-lectura");
-  const btnEliminar = document.getElementById("eliminar-lectura");
+  const btnEliminar = document.getElementById("eliminar-lectura"); // 🗑️ botón
 
   if (!selectEstado || !inputProgreso) return;
 
-  // Cargar estado existente
+  // ✅ VALORES POR DEFECTO (inmediato)
+  selectEstado.value = ""; // "No leído"
+  inputProgreso.value = 0;
+
+  // 🔍 Cargar datos desde Supabase
   const { data } = await supabase.from("lecturas")
     .select("*")
     .eq("usuario_id", user.id)
@@ -29,18 +33,11 @@ async function initLectura(tituloActual) {
     .maybeSingle();
 
   if (data) {
-    // 👉 Si existe en BD
     selectEstado.value = data.estado;
     inputProgreso.value = data.progreso ?? 0;
-  } else {
-    // 👉 Estado inicial vacío
-    selectEstado.value = "";
-    inputProgreso.value = 0;
   }
 
-  // =========================
-  // 💾 GUARDAR
-  // =========================
+  // 💾 Guardar cambios
   if (btnGuardar) {
     btnGuardar.addEventListener("click", async () => {
 
@@ -70,17 +67,14 @@ async function initLectura(tituloActual) {
     });
   }
 
-  // =========================
-  // 🗑️ ELIMINAR
-  // =========================
+  // 🗑️ ELIMINAR lectura
   if (btnEliminar) {
     btnEliminar.addEventListener("click", async () => {
 
-      const confirmar = confirm("¿Eliminar de tu lista?");
+      const confirmar = confirm("¿Eliminar esta novela de tu lista?");
       if (!confirmar) return;
 
-      const { error } = await supabase
-        .from("lecturas")
+      const { error } = await supabase.from("lecturas")
         .delete()
         .eq("usuario_id", user.id)
         .eq("novela", tituloActual);
@@ -89,26 +83,28 @@ async function initLectura(tituloActual) {
         console.error("Error al eliminar:", error);
         mostrarToast("Error al eliminar", "error");
       } else {
-        mostrarToast("Eliminado", "ok");
-
         // 🔄 Reset visual
-        selectEstado.value = "";
+        selectEstado.value = ""; // No leído
         inputProgreso.value = 0;
+
+        mostrarToast("Eliminado", "ok");
       }
     });
   }
 }
 
-// Función para mostrar toast
+// 🔔 Toast
 function mostrarToast(mensaje, tipo = "ok") {
   const toast = document.getElementById("toast");
   if (!toast) return;
+
   toast.textContent = (tipo === "ok" ? "✅ " : "❌ ") + mensaje;
   toast.className = "toast show " + tipo;
+
   setTimeout(() => toast.classList.remove("show"), 2000);
 }
 
-// Auto-ejecutar cuando carga la página
+// 🚀 Auto iniciar
 document.addEventListener("DOMContentLoaded", () => {
   const tituloActual = document.querySelector("h1")?.textContent.trim();
   initLectura(tituloActual);
