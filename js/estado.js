@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const emojiMap = {
     "por leer": "📘",
     "leyendo": "📖",
-    "leido": "✅"
+    "leido": "✅",
+    "leido_mtl": "🈶"
   };
 
   // Recorremos cada tarjeta
