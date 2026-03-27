@@ -17,6 +17,8 @@ async function initLectura(tituloActual) {
   const selectEstado = document.getElementById("estado-lectura");
   const inputProgreso = document.getElementById("progreso-capitulo");
   const btnGuardar = document.getElementById("guardar-lectura");
+  const btnEliminar = document.getElementById("eliminar-lectura");
+
   if (!selectEstado || !inputProgreso) return;
 
   // Cargar estado existente
@@ -31,16 +33,17 @@ async function initLectura(tituloActual) {
     selectEstado.value = data.estado;
     inputProgreso.value = data.progreso ?? 0;
   } else {
-    // 👉 Estado visual por defecto
-    selectEstado.value = ""; // "No leído"
+    // 👉 Estado inicial vacío
+    selectEstado.value = "";
     inputProgreso.value = 0;
   }
 
-  // Guardar cambios
+  // =========================
+  // 💾 GUARDAR
+  // =========================
   if (btnGuardar) {
     btnGuardar.addEventListener("click", async () => {
 
-      // ❌ No permitir guardar si sigue en "No leído"
       if (!selectEstado.value) {
         alert("Selecciona un estado");
         return;
@@ -63,6 +66,34 @@ async function initLectura(tituloActual) {
         mostrarToast("Error al guardar", "error");
       } else {
         mostrarToast("Guardado", "ok");
+      }
+    });
+  }
+
+  // =========================
+  // 🗑️ ELIMINAR
+  // =========================
+  if (btnEliminar) {
+    btnEliminar.addEventListener("click", async () => {
+
+      const confirmar = confirm("¿Eliminar de tu lista?");
+      if (!confirmar) return;
+
+      const { error } = await supabase
+        .from("lecturas")
+        .delete()
+        .eq("usuario_id", user.id)
+        .eq("novela", tituloActual);
+
+      if (error) {
+        console.error("Error al eliminar:", error);
+        mostrarToast("Error al eliminar", "error");
+      } else {
+        mostrarToast("Eliminado", "ok");
+
+        // 🔄 Reset visual
+        selectEstado.value = "";
+        inputProgreso.value = 0;
       }
     });
   }
