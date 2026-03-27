@@ -27,18 +27,26 @@ async function initLectura(tituloActual) {
     .maybeSingle();
 
   if (data) {
+    // 👉 Si existe en BD
     selectEstado.value = data.estado;
-    inputProgreso.value = data.progreso;
+    inputProgreso.value = data.progreso ?? 0;
+  } else {
+    // 👉 Estado visual por defecto
+    selectEstado.value = ""; // "No leído"
+    inputProgreso.value = 0;
   }
 
   // Guardar cambios
   if (btnGuardar) {
     btnGuardar.addEventListener("click", async () => {
-      const valor = parseInt(inputProgreso.value);
-      if (isNaN(valor)) {
-        alert("Ingresa un número válido");
+
+      // ❌ No permitir guardar si sigue en "No leído"
+      if (!selectEstado.value) {
+        alert("Selecciona un estado");
         return;
       }
+
+      const valor = parseInt(inputProgreso.value) || 0;
 
       const { error } = await supabase.from("lecturas").upsert(
         {
@@ -50,7 +58,12 @@ async function initLectura(tituloActual) {
         { onConflict: ["usuario_id", "novela"] }
       );
 
-      mostrarToast(error ? "Error al guardar" : "Guardado", error ? "error" : "ok");
+      if (error) {
+        console.error("Error Supabase:", error);
+        mostrarToast("Error al guardar", "error");
+      } else {
+        mostrarToast("Guardado", "ok");
+      }
     });
   }
 }
