@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El gran maestro de la cultivación demoníaca</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>El gran maestro de la cultivación demoníaca</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>魔道祖师</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Como gran maestro del cultivo demoníaco, Wei Wuxian vagó por el mundo, odiado por millones de personas por cometer actos de nigromancia. Derrocado por los poderosos clanes que había intentado subyugar, Wei Wuxian supuestamente es asesinado por su shidi para salvar el mundo del cultivo. </p>
+  <p>Restaurado a la vida en el cuerpo de Mo Xuanyu, el lunático local, para vengarse de sus abusivos parientes, Wei Wuxian rápidamente se encuentra regresando a su antigua vida cuando se lo llevan los despiadados y severos, y, en última instancia, bastante aburrido, Lan Wangji, que podría estar albergando sentimientos más cálidos que el desprecio. ¿Quizás del tipo… romántico? </p>
+  <p>Pero a pesar de su nuevo comienzo, Wei Wuxian comienza a desentrañar un misterio de década y media que está destinado a deshacer el tejido mismo del mundo de la cultivación tal como lo conocen. </p>
+  <p>Un viaje misterioso y lleno de acción, ¡este es un viaje que no querrás perderte! </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="no-leido">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+<button id="guardar-lectura">Guardar</button>
+</div>
+
+<div id="epub-container"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>
