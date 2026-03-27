@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   const emojiMap = {
-    "no-leido": "📘",
+    "por_leer": "📘",
     "leyendo": "📖",
     "leido": "✅",
     "leido_mtl": "🈶"
