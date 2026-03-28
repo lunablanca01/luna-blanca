@@ -105,6 +105,8 @@ function mostrarLecturas(lecturas) {
   });
 }
 
+window.aplicarEstadoNovela();
+
 window.filtrar = function(estadoFiltro) {
   const estadoNormalizado = normalizarTexto(estadoFiltro);
   const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
