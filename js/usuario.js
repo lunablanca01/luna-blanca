@@ -34,9 +34,26 @@ async function cargarUsuario() {
     const { data: { user } } = await supabase.auth.getUser();
 
     if (user) {
-      nombreUsuario.textContent =
-        user.user_metadata?.nombre || user.email;
-    } else {
+  // 🔥 traer nombre desde la tabla perfiles
+  const { data: perfil, error } = await supabase
+    .from("perfiles")
+    .select("nombre")
+    .eq("id", user.id)
+    .single();
+
+   if (perfil && perfil.nombre) {
+     nombreUsuario.textContent = perfil.nombre;
+   } else {
+     nombreUsuario.textContent = user.email; // fallback
+   }
+
+   } else {
+  nombreUsuario.textContent = "Invitado";
+
+  // cambiar menú si no hay sesión
+  btnCerrar.textContent = "Iniciar sesión";
+  btnCerrar.href = "./pages/login.html";
+} else {
       nombreUsuario.textContent = "Invitado";
 
       // cambiar menú si no hay sesión
