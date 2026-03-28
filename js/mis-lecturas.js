@@ -58,6 +58,7 @@ function mostrarLecturas(lecturas) {
     "por_leer": "📘",
     "leyendo": "📖",
     "leido": "✅"
+    "leido_mtl": "🈶"
   };
 
   if (!lecturas.length) {
