@@ -103,9 +103,10 @@ function mostrarLecturas(lecturas) {
 
     contenedor.appendChild(divCard);
   });
+
+  window.aplicarEstadoNovela();
 }
 
-window.aplicarEstadoNovela();
 
 window.filtrar = function(estadoFiltro) {
   const estadoNormalizado = normalizarTexto(estadoFiltro);
