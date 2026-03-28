@@ -5,43 +5,6 @@ document.getElementById("contenedor-tarjetas").innerHTML = tarjetasHTML;
 
 
 /* ================================
-   🏷️ 2. CREAR ETIQUETAS DE ESTADO
-================================ */
-document.querySelectorAll(".card").forEach(card => {
-
-  const tags = (card.dataset.tags || "").toLowerCase();
-  let estadoTexto = "";
-  let estadoClase = "";
-
-  if(tags.includes("finalizado")){
-    estadoTexto = "Finalizado";
-    estadoClase = "estado-finalizado";
-  }
-
-  if(tags.includes("en-proceso")){
-    estadoTexto = "En proceso";
-    estadoClase = "estado-proceso";
-  }
-
-  if(tags.includes("mtl")){
-    estadoTexto = "MTL";
-    estadoClase = "estado-mtl";
-  }
-
-  if(tags.includes("pendiente")){
-    estadoTexto = "Pendiente";
-    estadoClase = "estado-pendiente";
-  }
-
-  if(estadoTexto){
-    const etiqueta = `<div class="estado ${estadoClase}">${estadoTexto}</div>`;
-    card.insertAdjacentHTML("afterbegin", etiqueta);
-  }
-
-});
-
-
-/* ================================
    🔤 3. LIMPIAR TEXTO PARA ORDEN
 ================================ */
 function limpiarTextoOrden(texto){
