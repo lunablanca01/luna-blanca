@@ -93,7 +93,6 @@ function mostrarLecturas(lecturas) {
         <div class="links-tarjeta">
           <a href="${novelaCompleta.link}" target="_blank" onclick="event.stopPropagation()">ePub</a>
         </div>
-
       `;
     } else {
       divCard.innerHTML = `
@@ -104,7 +103,10 @@ function mostrarLecturas(lecturas) {
 
     contenedor.appendChild(divCard);
   });
+
+  window.aplicarEstadoNovela();
 }
+
 
 window.filtrar = function(estadoFiltro) {
   const estadoNormalizado = normalizarTexto(estadoFiltro);
