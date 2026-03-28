@@ -57,8 +57,7 @@ function mostrarLecturas(lecturas) {
   const emojiMap = {
     "por_leer": "📘",
     "leyendo": "📖",
-    "leido": "✅",
-    "leido_mtl": "🈶"
+    "leido": "✅"
   };
 
   if (!lecturas.length) {
@@ -93,20 +92,20 @@ function mostrarLecturas(lecturas) {
         <div class="links-tarjeta">
           <a href="${novelaCompleta.link}" target="_blank" onclick="event.stopPropagation()">ePub</a>
         </div>
+
+        <div class="texto-estado">${l.estado || "Sin estado"}</div>
       `;
     } else {
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
         <h3>${l.novela || "Sin título"}</h3>
+        <div class="texto-estado">${l.estado || "Sin estado"}</div>
       `;
     }
 
     contenedor.appendChild(divCard);
   });
-
-  window.aplicarEstadoNovela();
 }
-
 
 window.filtrar = function(estadoFiltro) {
   const estadoNormalizado = normalizarTexto(estadoFiltro);
