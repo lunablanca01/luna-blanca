@@ -98,7 +98,6 @@ function mostrarLecturas(lecturas) {
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
         <h3>${l.novela || "Sin título"}</h3>
-        <div class="texto-estado">${l.estado || "Sin estado"}</div>
       `;
     }
 
