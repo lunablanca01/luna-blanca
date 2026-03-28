@@ -53,21 +53,26 @@ body::before{
   position:relative;
 }
 
-/* botón icono */
-#btn-usuario{
-  background:#ffe4d2;
-  border:none;
-  border-radius:50%;
-  width:36px;
-  height:36px;
-  font-size:18px;
-  cursor:pointer;
-  transition:0.2s;
+/* Botón de usuario con imagen */
+#btn-usuario {
+  background: transparent; /* Sin fondo */
+  border: none;            /* Sin borde */
+  cursor: pointer;         /* Mano al pasar el mouse */
+  padding: 0;              /* Sin padding extra */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#btn-usuario:hover{
-  background:#ffd2b8;
-  transform:scale(1.05);
+#btn-usuario img {
+  width: 32px;   /* Ajusta el tamaño de la imagen */
+  height: 32px;
+  object-fit: contain; /* Para que la imagen no se deforme */
+  transition: transform 0.2s; /* Animación suave */
+}
+
+#btn-usuario:hover img {
+  transform: scale(1.1); /* Efecto zoom al pasar el mouse */
 }
 
 /* ⭐ MENÚ DESPLEGABLE */
