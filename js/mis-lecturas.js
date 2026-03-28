@@ -93,8 +93,6 @@ function mostrarLecturas(lecturas) {
         <div class="links-tarjeta">
           <a href="${novelaCompleta.link}" target="_blank" onclick="event.stopPropagation()">ePub</a>
         </div>
-
-        <div class="texto-estado">${l.estado || "Sin estado"}</div>
       `;
     } else {
       divCard.innerHTML = `
