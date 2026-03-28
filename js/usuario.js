@@ -1,60 +1,60 @@
-import { supabase } from .supabase.js;
+import { supabase } from "./supabase.js";
 
 async function cargarUsuario() {
-  const contenedor = document.getElementById(usuario-container);
+  const contenedor = document.getElementById("usuario-container");
   if (!contenedor) return;
 
   try {
-     📦 cargar HTML del componente
-    const res = await fetch(pagesusuario.html);
+    // 📦 cargar HTML del componente
+    const res = await fetch("./pages/usuario.html");
     const html = await res.text();
     contenedor.innerHTML = html;
 
-     🎯 elementos
-    const btnUsuario = document.getElementById(btn-usuario);
-    const menuUsuario = document.getElementById(menuUsuario);
-    const nombreUsuario = document.getElementById(nombre-usuario);
-    const btnCerrar = document.getElementById(cerrarSesion);
+    // 🎯 elementos
+    const btnUsuario = document.getElementById("btn-usuario");
+    const menuUsuario = document.getElementById("menuUsuario");
+    const nombreUsuario = document.getElementById("nombre-usuario");
+    const btnCerrar = document.getElementById("cerrarSesion");
 
-     🧠 abrircerrar menú
-    btnUsuario.addEventListener(click, (e) = {
+    // 🧠 abrir/cerrar menú
+    btnUsuario.addEventListener("click", (e) => {
       e.stopPropagation();
-      menuUsuario.classList.toggle(activo);
+      menuUsuario.classList.toggle("activo");
     });
 
-    document.addEventListener(click, () = {
-      menuUsuario.classList.remove(activo);
+    document.addEventListener("click", () => {
+      menuUsuario.classList.remove("activo");
     });
 
-    menuUsuario.addEventListener(click, (e) = {
+    menuUsuario.addEventListener("click", (e) => {
       e.stopPropagation();
     });
 
-     🔐 obtener usuario
-    const { data { user } } = await supabase.auth.getUser();
+    // 🔐 obtener usuario
+    const { data: { user } } = await supabase.auth.getUser();
 
     if (user) {
       nombreUsuario.textContent =
-        user.user_metadata.nombre  user.email;
+        user.user_metadata?.nombre || user.email;
     } else {
-      nombreUsuario.textContent = Invitado;
+      nombreUsuario.textContent = "Invitado";
 
-       opcional cambiar menú si no hay sesión
-      btnCerrar.textContent = Iniciar sesión;
-      btnCerrar.href = pageslogin.html;
+      // cambiar menú si no hay sesión
+      btnCerrar.textContent = "Iniciar sesión";
+      btnCerrar.href = "./pages/login.html";
     }
 
-     🚪 cerrar sesión
-    btnCerrar.addEventListener(click, async (e) = {
-      if (btnCerrar.textContent === Cerrar sesión) {
+    // 🚪 cerrar sesión
+    btnCerrar.addEventListener("click", async (e) => {
+      if (btnCerrar.textContent === "Cerrar sesión") {
         e.preventDefault();
         await supabase.auth.signOut();
-        window.location.href = index.html;
+        window.location.href = "./index.html";
       }
     });
 
   } catch (error) {
-    console.error(Error cargando usuario, error);
+    console.error("Error cargando usuario:", error);
   }
 }
 
