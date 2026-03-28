@@ -6,7 +6,7 @@ async function cargarUsuario() {
 
   try {
     // 📦 cargar HTML del componente
-    const res = await fetch("luna-blanca/pages/usuario.html");
+    const res = await fetch("/luna-blanca/pages/usuario.html");
     const html = await res.text();
     contenedor.innerHTML = html;
 
