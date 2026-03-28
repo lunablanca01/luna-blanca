@@ -55,7 +55,7 @@ function mostrarLecturas(lecturas) {
   contenedor.innerHTML = "";
 
   const emojiMap = {
-    "por leer": "📕",
+    "por_leer": "📘",
     "leyendo": "📖",
     "leido": "✅",
     "leido_mtl": "🈶"
