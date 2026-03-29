@@ -1,155 +1,513 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luna Blanca</title>
+/* ⭐ LAYOUT PRINCIPAL */
 
-<!-- Evitar cache -->
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-  
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+.layout-principal{
+  display:grid;
+  grid-template-columns: 280px 1fr;
+  gap:10px;
+  padding:20px;
+}
 
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/luna-blanca.css">
-</head>
+/* COLUMNA IZQUIERDA */
+.controles{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
 
-<body>
+/* COLUMNA DERECHA */
+.col-tarjetas{
+  width:100%;
+}
 
-<div class="contenido">
+#kofi-container{
+  position:relative;
+  margin-top:20px;
+  text-align:center;
+}
 
-<h1><a href="luna-blanca.html">Luna Blanca</a></h1>
-
-<!-- 🔥 ESTE ES EL CONTENEDOR QUE FALTABA -->
-<div class="layout-principal">
-
-  <!-- 🟣 IZQUIERDA -->
-  <div class="controles">
-
-    <!-- BUSCADOR -->
-    <div class="barra-busqueda">
-      <input type="text" id="buscador" placeholder="Buscar danmei...">
-      <button class="btn-suave" onclick="buscarTexto()">Buscar</button>
-    </div>
-
-    <!-- FILTROS -->
-    <button class="btn-suave btn-filtros-movil" onclick="togglePanelFiltros()">
-      Filtros ▼
-    </button>
-
-    <div class="panel-filtros">
-      <div class="fila-filtros">
-
-        <div class="dropdown">
-          <button class="dropdownBtn" onclick="toggleDropdown('tipo',this)">Tipo ▼</button>
-          <div class="dropdownContenido" id="dropdown-tipo"></div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropdownBtn" onclick="toggleDropdown('estado',this)">Estado ▼</button>
-          <div class="dropdownContenido" id="dropdown-estado"></div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropdownBtn" onclick="toggleDropdown('ambientado',this)">Ambientado ▼</button>
-          <div class="dropdownContenido" id="dropdown-ambientado"></div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropdownBtn" onclick="toggleDropdown('inicial',this)">Inicial ▼</button>
-          <div class="dropdownContenido" id="dropdown-inicial">
-            <label><input type="checkbox" value="a"> A</label>
-            <label><input type="checkbox" value="b"> B</label>
-            <label><input type="checkbox" value="c"> C</label>
-            <label><input type="checkbox" value="d"> D</label>
-            <label><input type="checkbox" value="e"> E</label>
-            <label><input type="checkbox" value="f"> F</label>
-            <label><input type="checkbox" value="g"> G</label>
-            <label><input type="checkbox" value="h"> H</label>
-            <label><input type="checkbox" value="i"> I</label>
-            <label><input type="checkbox" value="j"> J</label>
-            <label><input type="checkbox" value="k"> K</label>
-            <label><input type="checkbox" value="l"> L</label>
-            <label><input type="checkbox" value="m"> M</label>
-            <label><input type="checkbox" value="n"> N</label>
-            <label><input type="checkbox" value="o"> O</label>
-            <label><input type="checkbox" value="p"> P</label>
-            <label><input type="checkbox" value="q"> Q</label>
-            <label><input type="checkbox" value="r"> R</label>
-            <label><input type="checkbox" value="s"> S</label>
-            <label><input type="checkbox" value="t"> T</label>
-            <label><input type="checkbox" value="u"> U</label>
-            <label><input type="checkbox" value="v"> V</label>
-            <label><input type="checkbox" value="w"> W</label>
-            <label><input type="checkbox" value="x"> X</label>
-            <label><input type="checkbox" value="y"> Y</label>
-            <label><input type="checkbox" value="z"> Z</label>
-          </div>
-        </div>
-
-      </div>
-    </div>
+#kofi-container img{
+  width:180px;
+}
 
 
+/* ⭐ TITULO */
 
-    <!-- CATEGORÍAS -->
-    <button class="btn-suave btn-categorias" onclick="togglePanelCategorias()">
-      Categorías ▼
-    </button>
+h1{
+  text-align:center;
+  font-size:70px;
+  color:#ff8b8b;
+  font-family:'Pacifico', cursive;
+  font-weight:400;
+  margin-bottom:10px;
+  margin-top: 0;
+}
 
-    <div class="panel-categorias">
-      <div id="dropdown-categoria"></div>
-    </div>
+h1 a{
+  color:#ff8b8b;
+  text-decoration:none;
+}
 
-    <!-- BOTONES -->
-    <div class="botones-filtros">
-      <button class="btn-aplicar" onclick="aplicarFiltros()">Aplicar filtros</button>
-      <button class="btn-limpiar" onclick="limpiarFiltros()">Limpiar</button>
-    </div>
 
-    <!-- KO-FI -->
-    <div id="kofi-container">
-      <a href="https://ko-fi.com/marumaru0101" target="_blank">
-        <img src="assets/ko-fi.png" alt="Invítame un café">
-      </a>
-    </div>
+/* ⭐ BUSCADOR */
 
-  </div>
+.barra-busqueda{
+  display:flex;
+  gap:10px;
+}
 
-  <!-- 🔵 DERECHA -->
-  <div class="col-tarjetas">
-    <div id="filtros-activos"></div>
-    <div class="grid" id="contenedor-tarjetas"></div>
-  </div>
+#buscador{
+  flex:1;
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  background:#fff4ec;
+  font-family:'Molengo', serif;
+  font-size:15px;
+}
 
-</div>
+.btn-suave{
+  background:#ffe4d2;
+  border:none;
+  padding:10px 18px;
+  border-radius:10px;
+  font-family:'Molengo', serif;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.2s;
+}
 
-</div>
+.btn-suave:hover{
+  background:#ffd2b8;
+}
 
-<div class="bottom-banner">
-  <a href="pages/lista-de-etiquetas.html">Lista de etiquetas</a>
-  <a href="pages/autores.html">Lista de autores</a>
-  <a href="#" id="descargar">Descargar lista</a>
-</div>
 
-<script>
-  window.baseRuta = "";
-</script>
+/* ⭐ FILTROS */
 
-<script type="module" src="/luna-blanca/js/auth.js"></script>
-<script src="js/tags.js"></script>
-<script src="js/tarjetas.js"></script>
-<script src="js/main.js"></script>
-<script src="js/estadoNovela.js"></script>
-<script type="module" src="js/estadoLectura.js"></script>
+.panel-filtros{
+  display:none;
+  background:#fff4ec;
+  padding:10px;
+  border-radius:12px;
+}
 
-<div id="usuario-container"></div>
-<script type="module" src="js/usuario.js"></script>
+.panel-filtros.activo{
+  display:block;
+  margin-top:-14px;
+}
 
-<a href="#" id="scrollTop" title="Volver arriba">🌸</a>
+.fila-filtros{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
 
-</body>
-</html>
+/* DROPDOWN */
+
+.dropdown{
+  width:100%;
+  position:relative;
+}
+
+.dropdownBtn{
+  width:100%;
+  background:#ffe4d2;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  font-family:'Molengo', serif;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.dropdownBtn:hover{
+  background:#ffd2b8;
+}
+
+.dropdownContenido{
+  display:none;
+  position:absolute;
+  width:100%;
+  box-sizing:border-box;
+  border-radius:8px;
+  margin-top:0px;
+  max-height:200px;
+  overflow-y:auto;
+  z-index:999;
+  background:#fff4ec;
+  border:2px solid #ffe4d2;
+}
+
+.dropdownContenido label{
+  display:flex;
+  gap:6px;
+  padding:4px;
+  cursor:pointer;
+  color:black;
+}
+
+.dropdownContenido label:hover{
+  background:#ffd2b8;
+}
+
+.dropdownContenido input{
+  accent-color:#ff8b8b;
+}
+
+
+/* BOTONES FILTROS */
+
+.botones-filtros{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn-aplicar{
+  flex:1;
+  background:#ff8b8b;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.btn-aplicar:hover{
+  background:#ff5c5c;
+}
+
+.btn-limpiar{
+  flex:1;
+  background:#ffe4d2;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+
+/* ⭐ CATEGORÍAS */
+
+.panel-categorias{
+  display:none;
+  background:#fff4ec;
+  padding:10px;
+  border-radius:12px;
+  margin-top:8px;
+  color:black;
+  box-sizing:border-box;
+  background:#fff4ec;
+  border:2px solid #ffe4d2;
+}
+
+.panel-categorias.activo{
+  display:block;
+  margin-top:-14px;
+}
+
+/* 📏 limitar altura categorías */
+.panel-categorias #dropdown-categoria{
+  display:block !important;
+  position:static !important;
+
+  max-height:300px;   /* 👈 ajusta este valor */
+  overflow-y:auto;    /* 👈 scroll vertical */
+}
+
+.panel-categorias label{
+  display:block;
+  padding:6px 8px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.panel-categorias label:hover{
+  background:#ffd2b8;
+}
+
+.btn-autores{
+  background:#6fc7d3;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.btn-autores:hover{
+  background:#57b6c3;
+}
+
+
+/* TEXTO FILTROS */
+
+#filtros-activos{
+  text-align:center;
+  font-size:14px;
+}
+
+
+/* ⭐ GRID TARJETAS (NO TOCADO) */
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+
+/* ⭐ TARJETA (ORIGINAL) */
+
+.card{
+  background:#ffffff;
+  border-radius:12px;
+  overflow:hidden;
+  text-align:center;
+  padding-bottom:6px;
+  cursor:pointer;
+  transition:transform 0.15s ease;
+  border:3px solid #f3d3d8;
+  position:relative;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
+/* ESTADO */
+
+.estado{
+  position:absolute;
+  top:8px;
+  left:8px;
+  padding:4px 8px;
+  font-size:12px;
+  font-weight:bold;
+  color:white;
+  border-radius:6px;
+}
+
+.estado-finalizado{ background:#28a745; }
+.estado-proceso{ background:#f4b400; }
+.estado-mtl{ background:#e53935; }
+.estado-pendiente{ background:black; }
+
+/* TITULO */
+
+.card h3{
+  color:#ff8b8b;
+  margin:5px;
+  font-weight:600;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  min-height:40px;
+  font-size:18px;
+}
+
+/* IMAGEN */
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+/* EPUB */
+
+.links-tarjeta a{
+  color:#2198a6;
+  text-decoration:none;
+  margin:0 6px;
+}
+
+.links-tarjeta a:hover{
+  opacity:0.7;
+}
+
+/* ICONO LECTURA */
+
+.estado-lectura{
+  position:absolute;
+  top:8px;
+  right:8px;
+  font-size:18px;
+  z-index:10;
+  pointer-events:none;
+}
+
+
+/* ⭐ SCROLL */
+
+#scrollTop{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#fff;
+  padding:8px;
+  border-radius:50%;
+  display:none;
+}
+
+
+/* ⭐ FOOTER */
+
+.bottom-banner{
+  width:100%;
+  background:#6fc7d3;
+  padding:20px 0;
+  text-align:center;
+}
+
+.bottom-banner a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  margin-bottom:10px;
+}
+
+.bottom-banner a:hover{
+  text-decoration:underline;
+}
+
+
+/* 📱 MOBILE */
+
+@media (max-width:650px){
+
+.layout-principal{
+  grid-template-columns:1fr;
+}
+
+#kofi-container{
+  display:none;
+}
+
+.grid{
+  grid-template-columns:repeat(3,1fr);
+}
+
+.card img{
+  height:160px;
+}
+
+.card h3{
+  font-size:14px;
+  margin:6px 6px 4px;
+  -webkit-line-clamp:3;
+}
+}
+
+
+/* ====== MODO CELULAR ====== */
+@media (max-width:500px){
+
+  /* ⭐ PAGINA */
+  .layout-principal{
+    padding:12px;
+  }
+
+  /* ⭐ TITULO */
+  h1{
+    font-size:42px;
+    margin-bottom:8px;
+  }
+
+  /* ⭐ BUSCADOR */
+  .barra-busqueda{
+    flex-direction:column;
+    align-items:stretch;
+    gap:8px;
+  }
+
+  #buscador{
+    width:100%;
+    box-sizing:border-box;
+  }
+
+  .barra-busqueda button{
+    width:100%;
+  }
+
+  /* ⭐ BOTÓN FILTROS MOVIL */
+  .btn-filtros-movil{
+    display:block;
+    width:100%;
+  }
+
+  /* ⭐ PANEL FILTROS */
+  .panel-filtros{
+    display:none;
+    background:#fff4ec;
+    padding:12px;
+    border-radius:12px;
+  }
+
+  .panel-filtros.activo{
+    display:block;
+  }
+
+  /* ⭐ FILTROS EN COLUMNA */
+  .fila-filtros{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+
+  /* ⭐ DROPDOWN ARREGLADO */
+  .dropdown{
+    width:100%;
+    position:relative;
+  }
+
+  .dropdownBtn{
+    width:100%;
+    text-align:center;
+    box-sizing:border-box;
+  }
+
+  .dropdownContenido{
+    position:absolute;
+    left:0;
+    right:0;
+    width:auto;
+    box-sizing:border-box;
+
+    background:#fff4ec;
+    border:1px solid #ffd2b8;
+    margin-top:0px;
+  }
+
+  /* ⭐ BOTONES */
+  .botones-filtros{
+    display:flex;
+    gap:10px;
+  }
+
+  .btn-aplicar,
+  .btn-limpiar{
+    flex:1;
+    text-align:center;
+  }
+
+  /* ⭐ GRID */
+  .grid{
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px;
+  }
+
+  .card{
+    border:2px solid #f3d3d8;
+  }
+
+  .card img{
+    height:170px;
+  }
+
+  .card h3{
+    font-size:14px;
+    margin:6px 6px 4px;
+    -webkit-line-clamp:3;
+  }
+}
