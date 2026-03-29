@@ -74,13 +74,11 @@ function aplicarFiltros(){
   const texto = buscador.value.toLowerCase();
   let seleccionados = {};
 
-  // obtener checkboxes seleccionados
   filtros.forEach(filtro => {
     const checks = document.querySelectorAll(`#dropdown-${filtro} input:checked`);
     seleccionados[filtro] = Array.from(checks).map(c => c.value);
   });
 
-  // evaluar tarjetas
   cards.forEach(card => {
 
     const titulo = card.querySelector("h3").textContent.toLowerCase();
@@ -92,18 +90,15 @@ function aplicarFiltros(){
 
       if(seleccionados[filtro].length === 0) return true;
 
-      // 🔤 filtro por inicial
       if(filtro === "inicial"){
         const inicialTitulo = limpiarTextoOrden(titulo).charAt(0);
         return seleccionados[filtro].includes(inicialTitulo);
       }
 
-      // 📂 categoria → debe cumplir TODAS
       if(filtro === "categoria"){
         return seleccionados[filtro].every(tag => tags.includes(tag));
       }
 
-      // 📌 otros filtros → cualquiera
       return seleccionados[filtro].some(tag => tags.includes(tag));
 
     });
@@ -112,14 +107,10 @@ function aplicarFiltros(){
 
   });
 
-  // cerrar dropdowns
   document.querySelectorAll('.dropdownContenido').forEach(d => {
     d.style.display = 'none';
   });
 
-  /* ================================
-     🧾 MOSTRAR FILTROS ACTIVOS
-  ================================= */
   let listaFiltros = [];
 
   Object.values(seleccionados).forEach(arr => {
@@ -161,7 +152,6 @@ buscador.addEventListener("keydown", function(event){
   }
 });
 
-// 🔹 Función para el botón Buscar
 function buscarTexto() {
   aplicarFiltros();
 }
@@ -184,7 +174,6 @@ function aplicarFiltrosDesdeURL(){
     }
   });
 
-  // ⭐ filtro especial autor
   if(params.has("autor")){
     const autor = params.get("autor").toLowerCase();
 
@@ -260,10 +249,26 @@ document.addEventListener("click", function(e){
 
 
 /* ================================
-   📱 14. PANEL FILTROS (MÓVIL)
+   📱 14. PANEL FILTROS (MÓVIL + PC)
 ================================ */
 function togglePanelFiltros(){
-  document.querySelector(".panel-filtros").classList.toggle("activo");
+  const panel = document.querySelector(".panel-filtros");
+  const categorias = document.querySelector(".panel-categorias");
+
+  panel.classList.toggle("activo");
+
+  // cerrar categorías si está abierto
+  if(categorias) categorias.classList.remove("activo");
+}
+
+function togglePanelCategorias(){
+  const panel = document.querySelector(".panel-categorias");
+  const filtros = document.querySelector(".panel-filtros");
+
+  panel.classList.toggle("activo");
+
+  // cerrar filtros si está abierto
+  if(filtros) filtros.classList.remove("activo");
 }
 
 
