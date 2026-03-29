@@ -32,7 +32,7 @@ body::before{
 
 .barra-usuario{
   position:absolute;
-  top:20px;
+  top:10px;
   right:20px;
   display:flex;
   align-items:center;
@@ -116,7 +116,7 @@ body::before{
 @media (max-width:500px){
 
   .barra-usuario{
-    top:10px;
+    top:8px;
     right:12px;
     gap:6px;
   }
