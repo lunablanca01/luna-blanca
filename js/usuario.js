@@ -7,7 +7,32 @@ async function cargarUsuario() {
   try {
     // 📦 cargar HTML del componente
     const res = await fetch("./pages/usuario.html");
-    const html = await res.text();
+    let html = await res.text();
+
+    // 🔐 obtener usuario antes de insertar HTML
+    const { data: { user } } = await supabase.auth.getUser();
+    let rol = "user";
+
+    if (user) {
+      // 🔥 traer nombre y rol desde la tabla perfiles
+      const { data: perfil, error } = await supabase
+        .from("perfiles")
+        .select("nombre, rol")
+        .eq("id", user.id)
+        .single();
+
+      if (perfil) {
+        rol = perfil.rol || "user";
+      }
+    }
+
+    // 👀 filtrar contenido solo para admin
+    if (rol !== "admin") {
+      // remover o bloquear elementos solo admin antes de insertar
+      html = html.replace(/class="solo-admin"/g, 'style="display:none"');
+      html = html.replace(/id="epub-container"/g, 'id="epub-container" style="display:none"');
+    }
+
     contenedor.innerHTML = html;
 
     // 🎯 elementos
@@ -30,14 +55,11 @@ async function cargarUsuario() {
       e.stopPropagation();
     });
 
-    // 🔐 obtener usuario
-    const { data: { user } } = await supabase.auth.getUser();
-
+    // 🔐 mostrar nombre de usuario
     if (user) {
-      // 🔥 traer nombre desde la tabla perfiles
       const { data: perfil, error } = await supabase
         .from("perfiles")
-        .select("nombre, rol")
+        .select("nombre")
         .eq("id", user.id)
         .single();
 
@@ -47,12 +69,12 @@ async function cargarUsuario() {
         nombreUsuario.textContent = user.email; // fallback
       }
 
-      // 👇 NUEVO: controlar links por rol
-      const rol = perfil?.rol || "user";
-      
-      if(rol === "admin"){
+      // 👇 mostrar elementos solo admin si corresponde
+      if (rol === "admin") {
         document.querySelectorAll(".solo-admin")
           .forEach(el => el.style.display = "block");
+        const epub = document.getElementById("epub-container");
+        if (epub) epub.style.display = "block";
       }
 
     } else {
