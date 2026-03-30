@@ -37,7 +37,7 @@ async function cargarUsuario() {
       // 🔥 traer nombre desde la tabla perfiles
       const { data: perfil, error } = await supabase
         .from("perfiles")
-        .select("nombre")
+        .select("nombre, rol")
         .eq("id", user.id)
         .single();
 
@@ -45,6 +45,14 @@ async function cargarUsuario() {
         nombreUsuario.textContent = perfil.nombre;
       } else {
         nombreUsuario.textContent = user.email; // fallback
+      }
+
+      // 👇 NUEVO: controlar links por rol
+      const rol = perfil?.rol || "user";
+      
+      if(rol === "admin"){
+        document.querySelectorAll(".solo-admin")
+          .forEach(el => el.style.display = "block");
       }
 
     } else {
