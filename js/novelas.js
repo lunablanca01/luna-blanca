@@ -147,19 +147,33 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 // EPUB (solo mostrar a admins)
-const linkEpub = tarjetaCoincidente.querySelector(".links-tarjeta a")?.href;
-const contenedorEpub = document.getElementById("epub-container");
-if(contenedorEpub){
-  if(linkEpub && window.usuarioRol === "admin"){
-    // SOLO ADMIN: mostrar el div y contenido
-    contenedorEpub.style.display = "block";
-    contenedorEpub.innerHTML = `<div class="epub">Leer en: <a href="${linkEpub}" target="_blank">ePub</a></div>`;
-  } else {
-    // NO ADMIN: ocultar el div y limpiar contenido
-    contenedorEpub.style.display = "none";
-    contenedorEpub.innerHTML = "";
+function mostrarEpubSiAdmin() {
+  const tituloActual = document.querySelector("h1")?.textContent.trim();
+  if (!tituloActual) return;
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(tarjetasHTML, "text/html");
+  const tarjetaCoincidente = Array.from(doc.querySelectorAll(".card")).find(card =>
+    card.querySelector("h3")?.textContent.trim() === tituloActual
+  );
+  if(!tarjetaCoincidente) return;
+
+  const linkEpub = tarjetaCoincidente.querySelector(".links-tarjeta a")?.href;
+  const contenedorEpub = document.getElementById("epub-container");
+
+  if(contenedorEpub){
+    if(linkEpub && window.usuarioRol === "admin"){
+      contenedorEpub.style.display = "block";
+      contenedorEpub.innerHTML = `<div class="epub">Leer en: <a href="${linkEpub}" target="_blank">ePub</a></div>`;
+    } else {
+      contenedorEpub.style.display = "none";
+      contenedorEpub.innerHTML = "";
+    }
   }
 }
+
+// Esperar a que usuario se cargue
+document.addEventListener("usuarioCargado", mostrarEpubSiAdmin);
 });
 
 /* ================================
