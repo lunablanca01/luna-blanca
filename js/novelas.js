@@ -147,13 +147,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // EPUB
-  const linkEpub = tarjetaCoincidente.querySelector(".links-tarjeta a")?.href;
-  if(linkEpub){
-    const contenedorEpub = document.getElementById("epub-container");
-    if(contenedorEpub){
-      contenedorEpub.innerHTML = `<div class="epub">Leer en: <a href="${linkEpub}" target="_blank">ePub</a></div>`;
-    }
-  }
+//  const linkEpub = tarjetaCoincidente.querySelector(".links-tarjeta a")?.href;
+//  if(linkEpub){
+//    const contenedorEpub = document.getElementById("epub-container");
+//    if(contenedorEpub){
+ //     contenedorEpub.innerHTML = `<div class="epub">Leer en: <a href="${linkEpub}" target="_blank">ePub</a></div>`;
+ //   }
+//  }
 });
 
 /* ================================
