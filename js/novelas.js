@@ -146,14 +146,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // EPUB
-  const linkEpub = tarjetaCoincidente.querySelector(".links-tarjeta a")?.href;
-  if(linkEpub){
-    const contenedorEpub = document.getElementById("epub-container");
-    if(contenedorEpub){
-      contenedorEpub.innerHTML = `<div class="epub">Leer en: <a href="${linkEpub}" target="_blank">ePub</a></div>`;
-    }
+// EPUB (solo mostrar a admins)
+const linkEpub = tarjetaCoincidente.querySelector(".links-tarjeta a")?.href;
+const contenedorEpub = document.getElementById("epub-container");
+if(contenedorEpub){
+  if(linkEpub && window.usuarioRol === "admin"){
+    // SOLO ADMIN: mostrar el div y contenido
+    contenedorEpub.style.display = "block";
+    contenedorEpub.innerHTML = `<div class="epub">Leer en: <a href="${linkEpub}" target="_blank">ePub</a></div>`;
+  } else {
+    // NO ADMIN: ocultar el div y limpiar contenido
+    contenedorEpub.style.display = "none";
+    contenedorEpub.innerHTML = "";
   }
+}
 });
 
 /* ================================
