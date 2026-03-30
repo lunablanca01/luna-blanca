@@ -5,7 +5,7 @@ document.getElementById("contenedor-tarjetas").innerHTML = tarjetasHTML;
 
 
 /* ================================
-   🔤 3. LIMPIAR TEXTO PARA ORDEN
+   🔤 2. LIMPIAR TEXTO PARA ORDEN
 ================================ */
 function limpiarTextoOrden(texto){
   return texto
@@ -18,56 +18,200 @@ function limpiarTextoOrden(texto){
 
 
 /* ================================
-   🔤 4. ORDENAR TARJETAS
-================================ */
-function ordenarTarjetas(){
-  const contenedor = document.querySelector(".grid");
-  const tarjetas = Array.from(contenedor.querySelectorAll(".card"));
-
-  tarjetas.sort((a, b) => {
-    const tituloA = limpiarTextoOrden(a.querySelector("h3").textContent);
-    const tituloB = limpiarTextoOrden(b.querySelector("h3").textContent);
-    return tituloA.localeCompare(tituloB);
-  });
-
-  tarjetas.forEach(card => contenedor.appendChild(card));
-}
-
-
-/* ================================
-   🔽 5. DROPDOWNS (ABRIR/CERRAR)
-================================ */
-function toggleDropdown(id, boton){
-
-  const lista = document.getElementById("dropdown-" + id);
-  const todosDropdowns = document.querySelectorAll('.dropdownContenido');
-  const todosBotones = document.querySelectorAll('.dropdownBtn');
-
-  todosDropdowns.forEach(d => {
-    if(d !== lista) d.style.display = 'none';
-  });
-
-  todosBotones.forEach(b => b.classList.remove("activo"));
-
-  if(lista.style.display === "block"){
-    lista.style.display = "none";
-  } else {
-    lista.style.display = "block";
-    boton.classList.add("activo");
-  }
-}
-
-
-/* ================================
-   🔎 6. VARIABLES GLOBALES
+   🔎 3. VARIABLES GLOBALES
 ================================ */
 const buscador = document.getElementById("buscador");
 const cards = document.querySelectorAll(".card");
 const filtros = ['tipo','estado','ambientado','categoria','inicial','autor'];
 
+let paginaActual = 1;
+let tarjetasPorPagina = 24;
+let mostrarTodoActivo = false;
+let modoOrden = "az";
+
+// 🔥 ORDEN ORIGINAL
+let ordenOriginal = [];
+
 
 /* ================================
-   🔎 7. APLICAR FILTROS
+   🔤 4. ORDENAR TARJETAS
+================================ */
+function ordenarTarjetas(){
+
+  const contenedor = document.querySelector(".grid");
+  const tarjetas = Array.from(contenedor.querySelectorAll(".card"));
+
+  tarjetas.sort((a, b) => {
+
+    if(modoOrden === "az"){
+      const tituloA = limpiarTextoOrden(a.querySelector("h3").textContent);
+      const tituloB = limpiarTextoOrden(b.querySelector("h3").textContent);
+      return tituloA.localeCompare(tituloB);
+    }
+
+    if(modoOrden === "update"){
+      return ordenOriginal.indexOf(b) - ordenOriginal.indexOf(a);
+    }
+
+    return 0;
+  });
+
+  tarjetas.forEach(card => contenedor.appendChild(card));
+
+  paginaActual = 1;
+  mostrarPagina();
+}
+
+
+/* ================================
+   📄 5. PAGINACIÓN
+================================ */
+// 🔥 calcular tarjetas según columnas reales del grid
+function calcularTarjetasPorPagina(){
+
+  const grid = document.querySelector(".grid");
+  if(!grid) return 12;
+
+  const estilos = window.getComputedStyle(grid);
+
+  // cuenta columnas reales del CSS grid
+  const columnas = estilos.gridTemplateColumns.split(" ").length;
+
+  let filas;
+
+  if(window.innerWidth < 600){
+    filas = 5; // móvil
+  } else if(window.innerWidth < 900){
+    filas = 4; // tablet
+  } else {
+    filas = 3; // desktop
+  }
+
+  return columnas * filas;
+}
+
+
+function mostrarPagina(){
+
+  // 🔥 calcular dinámicamente
+  tarjetasPorPagina = calcularTarjetasPorPagina();
+
+  const todas = Array.from(document.querySelectorAll(".card"));
+  const visibles = todas.filter(card => card.dataset.visible !== "0");
+
+  todas.forEach(card => card.style.display = "none");
+
+  if(mostrarTodoActivo){
+    visibles.forEach(card => card.style.display = "block");
+    generarPaginacion(visibles.length);
+    return;
+  }
+
+  const inicio = (paginaActual - 1) * tarjetasPorPagina;
+  const fin = inicio + tarjetasPorPagina;
+
+  visibles.forEach((card, index) => {
+    if(index >= inicio && index < fin){
+      card.style.display = "block";
+    }
+  });
+
+  generarPaginacion(visibles.length);
+}
+
+
+function generarPaginacion(total){
+
+  const contenedor = document.getElementById("paginacion");
+  if(!contenedor) return;
+
+  contenedor.innerHTML = "";
+
+  if(mostrarTodoActivo) return;
+
+  const totalPaginas = Math.ceil(total / tarjetasPorPagina);
+
+  if(totalPaginas <= 1) return;
+
+  const rango = 1;
+
+  // ← anterior
+  if(paginaActual > 1){
+    const btnPrev = document.createElement("button");
+    btnPrev.textContent = "«";
+    btnPrev.addEventListener("click", () => {
+      paginaActual--;
+      mostrarPagina();
+    });
+    contenedor.appendChild(btnPrev);
+  }
+
+  function crearBoton(pagina){
+    const btn = document.createElement("button");
+    btn.textContent = pagina;
+
+    if(pagina === paginaActual){
+      btn.classList.add("activo");
+    }
+
+    btn.addEventListener("click", () => {
+      paginaActual = pagina;
+      mostrarPagina();
+    });
+
+    contenedor.appendChild(btn);
+  }
+
+  // primera
+  crearBoton(1);
+
+  // ...
+  if(paginaActual > 3){
+    const span = document.createElement("span");
+    span.textContent = "...";
+    contenedor.appendChild(span);
+  }
+
+  const inicio = Math.max(2, paginaActual - rango);
+  const fin = Math.min(totalPaginas - 1, paginaActual + rango);
+
+  for(let i = inicio; i <= fin; i++){
+    crearBoton(i);
+  }
+
+  // ...
+  if(paginaActual < totalPaginas - 2){
+    const span = document.createElement("span");
+    span.textContent = "...";
+    contenedor.appendChild(span);
+  }
+
+  // última
+  if(totalPaginas > 1){
+    crearBoton(totalPaginas);
+  }
+
+  // siguiente →
+  if(paginaActual < totalPaginas){
+    const btnNext = document.createElement("button");
+    btnNext.textContent = "»";
+    btnNext.addEventListener("click", () => {
+      paginaActual++;
+      mostrarPagina();
+    });
+    contenedor.appendChild(btnNext);
+  }
+}
+
+
+// 🔥 recalcular si cambia el tamaño de pantalla
+window.addEventListener("resize", () => {
+  mostrarPagina();
+});
+
+
+/* ================================
+   🔎 6. APLICAR FILTROS
 ================================ */
 function aplicarFiltros(){
 
@@ -103,7 +247,8 @@ function aplicarFiltros(){
 
     });
 
-    card.style.display = (coincideTexto && coincideFiltros) ? "block" : "none";
+    const visible = (coincideTexto && coincideFiltros);
+    card.dataset.visible = visible ? "1" : "0";
 
   });
 
@@ -124,11 +269,15 @@ function aplicarFiltros(){
   document.getElementById("filtros-activos").textContent =
     listaFiltros.length ? "Filtros activos: " + listaFiltros.join(", ") : "";
 
+  paginaActual = 1;
+  mostrarTodoActivo = false;
+
+  ordenarTarjetas();
 }
 
 
 /* ================================
-   🧹 8. LIMPIAR FILTROS
+   🧹 7. LIMPIAR FILTROS
 ================================ */
 function limpiarFiltros(){
   buscador.value = "";
@@ -138,13 +287,18 @@ function limpiarFiltros(){
     checks.forEach(c => c.checked = false);
   });
 
-  cards.forEach(card => card.style.display = "block");
+  cards.forEach(card => card.dataset.visible = "1");
   document.getElementById("filtros-activos").textContent = "";
+
+  paginaActual = 1;
+  mostrarTodoActivo = false;
+
+  ordenarTarjetas();
 }
 
 
 /* ================================
-   ⌨️ 9. BUSCAR CON ENTER
+   ⌨️ 8. BUSCADOR
 ================================ */
 buscador.addEventListener("keydown", function(event){
   if(event.key === "Enter"){
@@ -158,7 +312,75 @@ function buscarTexto() {
 
 
 /* ================================
-   🔗 10. FILTROS DESDE URL
+   🔽 9. DROPDOWNS FILTROS
+================================ */
+function toggleDropdown(id, boton){
+
+  const lista = document.getElementById("dropdown-" + id);
+  const todosDropdowns = document.querySelectorAll('.dropdownContenido');
+  const todosBotones = document.querySelectorAll('.dropdownBtn');
+
+  todosDropdowns.forEach(d => {
+    if(d !== lista) d.style.display = 'none';
+  });
+
+  todosBotones.forEach(b => b.classList.remove("activo"));
+
+  if(lista.style.display === "block"){
+    lista.style.display = "none";
+  } else {
+    lista.style.display = "block";
+    boton.classList.add("activo");
+  }
+}
+
+
+/* ================================
+   🔽 10. ORDENAR DROPDOWN
+================================ */
+const btnOrdenar = document.getElementById("btn-ordenar");
+const dropdownOrden = document.getElementById("dropdown-orden");
+
+if(btnOrdenar){
+  btnOrdenar.addEventListener("click", () => {
+    dropdownOrden.classList.toggle("activo");
+  });
+}
+
+document.querySelectorAll("#dropdown-orden button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    aplicarOrden(btn.dataset.orden);
+  });
+});
+
+function aplicarOrden(tipo){
+  modoOrden = tipo;
+  ordenarTarjetas();
+  dropdownOrden.classList.remove("activo");
+}
+
+
+/* ================================
+   📄 11. BOTÓN MOSTRAR TODO
+================================ */
+const btnMostrarTodo = document.getElementById("mostrar-todo");
+
+if(btnMostrarTodo){
+  btnMostrarTodo.addEventListener("click", () => {
+
+    mostrarTodoActivo = !mostrarTodoActivo;
+
+    btnMostrarTodo.textContent = mostrarTodoActivo
+      ? "Paginado"
+      : "Mostrar todo";
+
+    mostrarPagina();
+  });
+}
+
+
+/* ================================
+   🔗 12. FILTROS DESDE URL
 ================================ */
 function aplicarFiltrosDesdeURL(){
 
@@ -174,25 +396,12 @@ function aplicarFiltrosDesdeURL(){
     }
   });
 
-  if(params.has("autor")){
-    const autor = params.get("autor").toLowerCase();
-
-    cards.forEach(card => {
-      const autorCard = card.dataset.autor?.toLowerCase() || "";
-      if(autorCard !== autor){
-        card.style.display = "none";
-      }
-    });
-
-    return;
-  }
-
   aplicarFiltros();
 }
 
 
 /* ================================
-   🧩 11. GENERAR DROPDOWNS
+   🧩 13. GENERAR DROPDOWNS
 ================================ */
 function generarDropdown(idFiltro, objetoTags){
 
@@ -215,7 +424,7 @@ function generarDropdown(idFiltro, objetoTags){
 
 
 /* ================================
-   🚀 12. INICIALIZACIÓN
+   🚀 14. INICIALIZACIÓN
 ================================ */
 window.addEventListener("load", function(){
 
@@ -224,40 +433,49 @@ window.addEventListener("load", function(){
   generarDropdown("tipo", tags.tipo);
   generarDropdown("estado", tags.estado);
 
-  aplicarFiltrosDesdeURL();
-  ordenarTarjetas();
+  document.querySelectorAll(".card").forEach(card => {
+    card.dataset.visible = "1";
+  });
 
+  // 🔥 GUARDAR ORDEN ORIGINAL
+  ordenOriginal = Array.from(document.querySelectorAll(".card"));
+
+  aplicarFiltrosDesdeURL();
+
+  // 🔥 FORZAR ALFABÉTICO AL INICIO
+  modoOrden = "az";
+  ordenarTarjetas();
 });
 
 
 /* ================================
-   🖱️ 13. CERRAR DROPDOWNS
+   🖱️ 15. CERRAR DROPDOWNS
 ================================ */
 document.addEventListener("click", function(e){
 
   if(!e.target.closest(".dropdown")){
-
     document.querySelectorAll(".dropdownContenido")
       .forEach(d => d.style.display = "none");
 
     document.querySelectorAll(".dropdownBtn")
       .forEach(b => b.classList.remove("activo"));
+  }
 
+  if(!e.target.closest(".ordenar")){
+    dropdownOrden?.classList.remove("activo");
   }
 
 });
 
 
 /* ================================
-   📱 14. PANEL FILTROS (MÓVIL + PC)
+   📱 16. PANEL FILTROS
 ================================ */
 function togglePanelFiltros(){
   const panel = document.querySelector(".panel-filtros");
   const categorias = document.querySelector(".panel-categorias");
 
   panel.classList.toggle("activo");
-
-  // cerrar categorías si está abierto
   if(categorias) categorias.classList.remove("activo");
 }
 
@@ -266,14 +484,12 @@ function togglePanelCategorias(){
   const filtros = document.querySelector(".panel-filtros");
 
   panel.classList.toggle("activo");
-
-  // cerrar filtros si está abierto
   if(filtros) filtros.classList.remove("activo");
 }
 
 
 /* ================================
-   ⬆️ 15. BOTÓN SCROLL TOP
+   ⬆️ 17. SCROLL TOP
 ================================ */
 window.addEventListener("scroll", function(){
 
@@ -285,49 +501,4 @@ window.addEventListener("scroll", function(){
     scrollTopBtn.style.display = "none";
   }
 
-});
-
-
-/* ================================
-   ⬆️ 16. DESCARGAR EXCEL
-================================ */
-function descargarExcel(){
-
-  const lista = (typeof novelasFiltradas !== "undefined" && novelasFiltradas.length)
-    ? novelasFiltradas
-    : novelas;
-
-  let contenido = "Titulo Español;Titulo Ingles;Capitulos\n";
-
-  lista.forEach(n => {
-    const titulo = (n.titulo || "").replace(/"/g, '""');
-    const ingles = (n.ingles || "").replace(/"/g, '""');
-    const capitulos = (n.capitulos || "").replace(/"/g, '""');
-
-    contenido += `"${titulo}";"${ingles}";"${capitulos}"\n`;
-  });
-
-  const blob = new Blob(["\uFEFF" + contenido], { type: "text/csv;charset=utf-8;" });
-
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "novelas.csv";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-
-  URL.revokeObjectURL(url);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const link = document.getElementById("descargar");
-
-  if(link){
-    link.addEventListener("click", function(e){
-      e.preventDefault();
-      descargarExcel();
-    });
-  }
 });
