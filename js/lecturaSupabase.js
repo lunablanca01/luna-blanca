@@ -9,18 +9,32 @@ async function initLectura(tituloActual) {
     return;
   }
 
-  // 🔹 Obtener usuario
+  // Obtener usuario
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
 
-  // 🔹 Determinar rol
-  let usuarioRol = "user";
-  const { data: perfil } = await supabase.from("perfiles").select("rol").eq("id", user.id).maybeSingle();
-  if (perfil?.rol) usuarioRol = perfil.rol;
+  // 🔹 PRUEBA DE ADMIN: mostrar algo si es admin
+  let esAdmin = false;
+  const { data: perfil } = await supabase
+    .from("perfiles")
+    .select("rol")
+    .eq("id", user.id)
+    .single();
 
-  window.usuarioRol = usuarioRol; // para compatibilidad
+  if (perfil && perfil.rol === "admin") esAdmin = true;
 
-  // 🔹 Elementos de lectura
+  const contenedorEpub = document.getElementById("epub-container");
+  if (contenedorEpub) {
+    if (esAdmin) {
+      contenedorEpub.style.display = "block";
+      contenedorEpub.innerHTML = `<div>Usuario admin: aquí podría ir el link de ePub</div>`;
+    } else {
+      contenedorEpub.style.display = "none";
+      contenedorEpub.innerHTML = "";
+    }
+  }
+
+  // Elementos de la página
   const selectEstado = document.getElementById("estado-lectura");
   const inputProgreso = document.getElementById("progreso-capitulo");
   const btnGuardar = document.getElementById("guardar-lectura");
@@ -28,11 +42,11 @@ async function initLectura(tituloActual) {
 
   if (!selectEstado || !inputProgreso) return;
 
-  // ✅ Valores por defecto
-  selectEstado.value = "";
+  // ✅ VALORES POR DEFECTO (inmediato)
+  selectEstado.value = ""; // "No leído"
   inputProgreso.value = 0;
 
-  // 🔹 Cargar datos desde Supabase
+  // 🔍 Cargar datos desde Supabase
   const { data } = await supabase.from("lecturas")
     .select("*")
     .eq("usuario_id", user.id)
@@ -44,9 +58,10 @@ async function initLectura(tituloActual) {
     inputProgreso.value = data.progreso ?? 0;
   }
 
-  // 🔹 Guardar cambios
+  // 💾 Guardar cambios
   if (btnGuardar) {
     btnGuardar.addEventListener("click", async () => {
+
       if (!selectEstado.value) {
         alert("Selecciona un estado");
         return;
@@ -64,14 +79,19 @@ async function initLectura(tituloActual) {
         { onConflict: ["usuario_id", "novela"] }
       );
 
-      if (error) mostrarToast("Error al guardar", "error");
-      else mostrarToast("Guardado", "ok");
+      if (error) {
+        console.error("Error Supabase:", error);
+        mostrarToast("Error al guardar", "error");
+      } else {
+        mostrarToast("Guardado", "ok");
+      }
     });
   }
 
-  // 🔹 Eliminar lectura
+  // 🗑️ ELIMINAR lectura
   if (btnEliminar) {
     btnEliminar.addEventListener("click", async () => {
+
       const confirmar = confirm("¿Eliminar esta novela de tu lista?");
       if (!confirmar) return;
 
@@ -80,26 +100,17 @@ async function initLectura(tituloActual) {
         .eq("usuario_id", user.id)
         .eq("novela", tituloActual);
 
-      if (error) mostrarToast("Error al eliminar", "error");
-      else {
-        selectEstado.value = "";
+      if (error) {
+        console.error("Error al eliminar:", error);
+        mostrarToast("Error al eliminar", "error");
+      } else {
+        // 🔄 Reset visual
+        selectEstado.value = ""; // No leído
         inputProgreso.value = 0;
+
         mostrarToast("Eliminado", "ok");
       }
     });
-  }
-
-  // 🔹 Mostrar EPUB solo si es admin
-  const linkEpub = document.querySelector(".links-tarjeta a")?.href;
-  const contenedorEpub = document.getElementById("epub-container");
-  if (contenedorEpub && linkEpub) {
-    if (usuarioRol === "admin") {
-      contenedorEpub.style.display = "block";
-      contenedorEpub.innerHTML = `<div class="epub">Leer en: <a href="${linkEpub}" target="_blank">ePub</a></div>`;
-    } else {
-      contenedorEpub.style.display = "none";
-      contenedorEpub.innerHTML = "";
-    }
   }
 }
 
