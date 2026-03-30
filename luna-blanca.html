@@ -121,8 +121,34 @@
 
   <!-- 🔵 DERECHA -->
   <div class="col-tarjetas">
+
+    <!-- 🔹 FILTROS ACTIVOS -->
     <div id="filtros-activos"></div>
+
+    <!-- 🔹 HEADER TARJETAS (ORDENAR) -->
+    <div class="header-tarjetas">
+      <div></div>
+
+      <div class="ordenar">
+        <button id="btn-ordenar">Ordenar ▼</button>
+
+        <div class="dropdown-orden" id="dropdown-orden">
+          <button data-orden="az">Alfabéticamente</button>
+          <button data-orden="update">Última actualización</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔹 GRID TARJETAS -->
     <div class="grid" id="contenedor-tarjetas"></div>
+
+    <!-- 🔹 FOOTER TARJETAS -->
+    <div class="footer-tarjetas">
+
+      <button id="mostrar-todo">Mostrar todo</button>
+
+      <div id="paginacion"></div>
+
   </div>
 
 </div>
