@@ -372,7 +372,125 @@ h1 a{
 }
 
 
-/* 📱 MOBILE */
+/* ⭐ HEADER TARJETAS */
+
+.header-tarjetas{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.ordenar{
+  position:relative;
+}
+
+/* BOTÓN */
+#btn-ordenar{
+  background:#ffe4d2;
+  border:none;
+  padding:8px 14px;
+  border-radius:10px;
+  font-family:'Molengo', serif;
+  cursor:pointer;
+}
+
+#btn-ordenar:hover{
+  background:#ffd2b8;
+}
+
+/* DROPDOWN */
+.dropdown-orden{
+  display:none;
+  position:absolute;
+  right:0;
+  top:110%;
+  background:#fff4ec;
+  border:2px solid #ffe4d2;
+  border-radius:10px;
+  overflow:hidden;
+  z-index:999;
+  min-width:180px;
+}
+
+.dropdown-orden button{
+  width:100%;
+  padding:8px;
+  border:none;
+  background:none;
+  cursor:pointer;
+  text-align:left;
+}
+
+.dropdown-orden button:hover{
+  background:#ffd2b8;
+}
+
+/* ACTIVO */
+.dropdown-orden.activo{
+  display:block;
+}
+
+/* ⭐ FOOTER TARJETAS */
+
+.footer-tarjetas{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  margin-top:20px;
+}
+
+/* BOTÓN IZQUIERDA */
+#mostrar-todo{
+  position:absolute;
+  left:0;
+  background:#ffe4d2;
+  border:none;
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+#mostrar-todo:hover{
+  background:#ffd2b8;
+}
+
+/* PAGINACIÓN CENTRADA */
+#paginacion{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+#paginacion span {
+  padding: 0 8px;
+  color: black;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* BOTONES PAGINA */
+#paginacion button{
+  border:none;
+  padding:6px 10px;
+  border-radius:8px;
+  background:#ffe4d2;
+  cursor:pointer;
+}
+
+#paginacion button:hover{
+  background:#ffd2b8;
+}
+
+/* ACTIVO */
+#paginacion button.activo{
+  background:#ff8b8b;
+  color:white;
+}
+
+
+/* 📱 TABLET */
 
 @media (max-width:650px){
 
@@ -396,6 +514,18 @@ h1 a{
   font-size:14px;
   margin:6px 6px 4px;
   -webkit-line-clamp:3;
+}
+
+/* 📱 FOOTER MOBILE */
+.footer-tarjetas{
+  flex-direction:column;
+  gap:10px;
+}
+
+#mostrar-todo{
+  position:static;
+  width:100%;
+  text-align:center;
 }
 }
 
@@ -509,5 +639,13 @@ h1 a{
     font-size:14px;
     margin:6px 6px 4px;
     -webkit-line-clamp:3;
+  }
+
+  #paginacion button{
+    padding:4px 8px;
+  }
+
+  #paginacion span {
+    padding: 0 4px;
   }
 }
