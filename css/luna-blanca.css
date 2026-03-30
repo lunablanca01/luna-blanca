@@ -536,12 +536,13 @@ h1 a{
   /* ⭐ PAGINA */
   .layout-principal{
     padding:12px;
+    gap:14px;
   }
 
   /* ⭐ TITULO */
   h1{
     font-size:42px;
-    margin-bottom:8px;
+    margin-bottom:0px;
     margin-top: 30px;
   }
 
@@ -559,6 +560,10 @@ h1 a{
 
   .barra-busqueda button{
     width:100%;
+  }
+
+  .controles{
+    gap:8px;
   }
 
   /* ⭐ BOTÓN FILTROS MOVIL */
