@@ -90,6 +90,10 @@
   window.baseRuta = "../";
 </script>
 <script type="module" src="../js/auth.js"></script>
+<script type="module">
+  import { cargarUsuario } from "../js/auth.js";
+  await cargarUsuario(); // espera que cargue usuario
+</script>
 <script src="../js/tarjetas.js"></script>
 <script src="../js/tags.js"></script>
 <script src="../js/novelas.js"></script>
