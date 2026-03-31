@@ -217,14 +217,27 @@ window.addEventListener("resize", () => {
 ================================ */
 function guardarPaginaURL(){
   const params = new URLSearchParams(window.location.search);
-  params.set("pagina", paginaActual);
-  window.history.replaceState({}, "", "?" + params.toString());
+
+  if (paginaActual === 1) {
+    params.delete("pagina"); // 🔥 NO guardar página 1
+  } else {
+    params.set("pagina", paginaActual);
+  }
+
+  const query = params.toString();
+  const nuevaURL = query ? "?" + query : window.location.pathname;
+
+  window.history.replaceState({}, "", nuevaURL);
 }
 
 function limpiarPaginaURL(){
   const params = new URLSearchParams(window.location.search);
   params.delete("pagina");
-  window.history.replaceState({}, "", "?" + params.toString());
+
+  const query = params.toString();
+  const nuevaURL = query ? "?" + query : window.location.pathname;
+
+  window.history.replaceState({}, "", nuevaURL);
 }
 
 
