@@ -476,7 +476,7 @@ if (paginaURL && paginaURL > 0) {
   paginaActual = paginaURL;
   mostrarPagina(); // 🔥 forzar render correcto
 }
-
+});
 
 /* ================================
    🖱️ 15. CERRAR DROPDOWNS
