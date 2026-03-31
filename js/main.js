@@ -7,7 +7,7 @@ document.getElementById("contenedor-tarjetas").innerHTML = tarjetasHTML;
 /* ================================
    🔤 2. LIMPIAR TEXTO PARA ORDEN
 ================================ */
-function limpiarTextoOrden(texto){
+function limpiarTextoOrden(texto) {
   return texto
     .toLowerCase()
     .normalize("NFD")
@@ -39,37 +39,38 @@ let listaFiltrada = [];
 
 
 /* ================================
-   🔤 FILTROS ACTIVOS
+   🔤 4. FILTROS ACTIVOS
 ================================ */
-function hayFiltrosActivos(){
+function hayFiltrosActivos() {
   const params = new URLSearchParams(window.location.search);
 
-  for (let f of filtros){
-    if(params.has(f)) return true;
+  for (let f of filtros) {
+    if (params.has(f)) return true;
   }
 
-  if(buscador.value.trim() !== "") return true;
+  if (buscador.value.trim() !== "") return true;
 
   return false;
 }
 
+
 /* ================================
-   🔤 4. ORDENAR TARJETAS
+   🔤 5. ORDENAR TARJETAS
 ================================ */
-function ordenarTarjetas(){
+function ordenarTarjetas() {
 
   const contenedor = document.querySelector(".grid");
   const tarjetas = Array.from(contenedor.querySelectorAll(".card"));
 
   tarjetas.sort((a, b) => {
 
-    if(modoOrden === "az"){
+    if (modoOrden === "az") {
       const tituloA = limpiarTextoOrden(a.querySelector("h3").textContent);
       const tituloB = limpiarTextoOrden(b.querySelector("h3").textContent);
       return tituloA.localeCompare(tituloB);
     }
 
-    if(modoOrden === "update"){
+    if (modoOrden === "update") {
       return ordenOriginal.indexOf(b) - ordenOriginal.indexOf(a);
     }
 
@@ -84,24 +85,22 @@ function ordenarTarjetas(){
 
 
 /* ================================
-   📄 5. PAGINACIÓN
+   📄 6. PAGINACIÓN
 ================================ */
 // 🔥 calcular tarjetas según columnas reales del grid
-function calcularTarjetasPorPagina(){
-
+function calcularTarjetasPorPagina() {
   const grid = document.querySelector(".grid");
-  if(!grid) return 12;
+  if (!grid) return 12;
 
+  // Obtener columnas reales del CSS Grid
   const estilos = window.getComputedStyle(grid);
+  const columnas = estilos.gridTemplateColumns.split(" ").length || 3;
 
-  // cuenta columnas reales del CSS grid
-  const columnas = estilos.gridTemplateColumns.split(" ").length;
-
+  // Definir filas según ancho de pantalla
   let filas;
-
-  if(window.innerWidth < 600){
+  if (window.innerWidth < 600) {
     filas = 5; // móvil
-  } else if(window.innerWidth < 900){
+  } else if (window.innerWidth < 900) {
     filas = 4; // tablet
   } else {
     filas = 3; // desktop
@@ -110,8 +109,7 @@ function calcularTarjetasPorPagina(){
   return columnas * filas;
 }
 
-
-function mostrarPagina(){
+function mostrarPagina() {
 
   // 🔥 calcular dinámicamente
   tarjetasPorPagina = calcularTarjetasPorPagina();
@@ -124,7 +122,7 @@ function mostrarPagina(){
   // 🔥 SOLO respetar "mostrar todo" si NO hay filtros activos
   const hayFiltros = visibles.length !== todas.length;
 
-  if(mostrarTodoActivo && !hayFiltros){
+  if (mostrarTodoActivo && !hayFiltros) {
     visibles.forEach(card => card.style.display = "block");
     generarPaginacion(visibles.length);
     return;
@@ -141,34 +139,33 @@ function mostrarPagina(){
   const fin = inicio + tarjetasPorPagina;
 
   visibles.forEach((card, index) => {
-    if(index >= inicio && index < fin){
+    if (index >= inicio && index < fin) {
       card.style.display = "block";
     }
   });
 
   guardarPaginaURL();
-   
+
   generarPaginacion(visibles.length);
 }
 
-
-function generarPaginacion(total){
+function generarPaginacion(total) {
 
   const contenedor = document.getElementById("paginacion");
-  if(!contenedor) return;
+  if (!contenedor) return;
 
   contenedor.innerHTML = "";
 
-  if(mostrarTodoActivo) return;
+  if (mostrarTodoActivo) return;
 
   const totalPaginas = Math.ceil(total / tarjetasPorPagina);
 
-  if(totalPaginas <= 1) return;
+  if (totalPaginas <= 1) return;
 
   const rango = 1;
 
   // ← anterior
-  if(paginaActual > 1){
+  if (paginaActual > 1) {
     const btnPrev = document.createElement("button");
     btnPrev.textContent = "«";
     btnPrev.addEventListener("click", () => {
@@ -178,11 +175,11 @@ function generarPaginacion(total){
     contenedor.appendChild(btnPrev);
   }
 
-  function crearBoton(pagina){
+  function crearBoton(pagina) {
     const btn = document.createElement("button");
     btn.textContent = pagina;
 
-    if(pagina === paginaActual){
+    if (pagina === paginaActual) {
       btn.classList.add("activo");
     }
 
@@ -198,7 +195,7 @@ function generarPaginacion(total){
   crearBoton(1);
 
   // ...
-  if(paginaActual > 3){
+  if (paginaActual > 3) {
     const span = document.createElement("span");
     span.textContent = "...";
     contenedor.appendChild(span);
@@ -207,24 +204,24 @@ function generarPaginacion(total){
   const inicio = Math.max(2, paginaActual - rango);
   const fin = Math.min(totalPaginas - 1, paginaActual + rango);
 
-  for(let i = inicio; i <= fin; i++){
+  for (let i = inicio; i <= fin; i++) {
     crearBoton(i);
   }
 
   // ...
-  if(paginaActual < totalPaginas - 2){
+  if (paginaActual < totalPaginas - 2) {
     const span = document.createElement("span");
     span.textContent = "...";
     contenedor.appendChild(span);
   }
 
   // última
-  if(totalPaginas > 1){
+  if (totalPaginas > 1) {
     crearBoton(totalPaginas);
   }
 
   // siguiente →
-  if(paginaActual < totalPaginas){
+  if (paginaActual < totalPaginas) {
     const btnNext = document.createElement("button");
     btnNext.textContent = "»";
     btnNext.addEventListener("click", () => {
@@ -235,7 +232,6 @@ function generarPaginacion(total){
   }
 }
 
-
 // 🔥 recalcular si cambia el tamaño de pantalla
 window.addEventListener("resize", () => {
   mostrarPagina();
@@ -243,9 +239,9 @@ window.addEventListener("resize", () => {
 
 
 /* ================================
-   🔗 URL PAGINACIÓN
+   🔗 7. URL PAGINACIÓN
 ================================ */
-function guardarPaginaURL(){
+function guardarPaginaURL() {
 
   // 🔥 NO guardar durante carga inicial
   if (bloqueandoURL || cargandoDesdeURL) return;
@@ -260,10 +256,11 @@ function guardarPaginaURL(){
   window.history.pushState({}, "", nuevaURL); // 🔥 CAMBIO IMPORTANTE
 }
 
+
 /* ================================
-   🔎 6. APLICAR FILTROS
+   🔎 8. APLICAR FILTROS
 ================================ */
-function aplicarFiltros(){
+function aplicarFiltros() {
 
   const texto = buscador.value.toLowerCase();
   let seleccionados = {};
@@ -273,39 +270,39 @@ function aplicarFiltros(){
     seleccionados[filtro] = Array.from(checks).map(c => c.value);
   });
 
-listaFiltrada = [];
+  listaFiltrada = [];
 
-document.querySelectorAll(".card").forEach(card => {
+  document.querySelectorAll(".card").forEach(card => {
 
-  const titulo = card.querySelector("h3").textContent.toLowerCase();
-  const tags = card.dataset.tags.toLowerCase();
+    const titulo = card.querySelector("h3").textContent.toLowerCase();
+    const tags = card.dataset.tags.toLowerCase();
 
-  const coincideTexto = titulo.includes(texto);
+    const coincideTexto = titulo.includes(texto);
 
-  let coincideFiltros = filtros.every(filtro => {
+    let coincideFiltros = filtros.every(filtro => {
 
-    if(seleccionados[filtro].length === 0) return true;
+      if (seleccionados[filtro].length === 0) return true;
 
-    if(filtro === "inicial"){
-      const inicialTitulo = limpiarTextoOrden(titulo).charAt(0);
-      return seleccionados[filtro].includes(inicialTitulo);
+      if (filtro === "inicial") {
+        const inicialTitulo = limpiarTextoOrden(titulo).charAt(0);
+        return seleccionados[filtro].includes(inicialTitulo);
+      }
+
+      if (filtro === "categoria") {
+        return seleccionados[filtro].every(tag => tags.includes(tag));
+      }
+
+      return seleccionados[filtro].some(tag => tags.includes(tag));
+
+    });
+
+    const visible = (coincideTexto && coincideFiltros);
+
+    if (visible) {
+      listaFiltrada.push(card);
     }
-
-    if(filtro === "categoria"){
-      return seleccionados[filtro].every(tag => tags.includes(tag));
-    }
-
-    return seleccionados[filtro].some(tag => tags.includes(tag));
 
   });
-
-  const visible = (coincideTexto && coincideFiltros);
-
-  if(visible){
-    listaFiltrada.push(card);
-  }
-
-});
 
   document.querySelectorAll('.dropdownContenido').forEach(d => {
     d.style.display = 'none';
@@ -339,9 +336,9 @@ document.querySelectorAll(".card").forEach(card => {
 
 
 /* ================================
-   🧹 7. LIMPIAR FILTROS
+   🧹 9. LIMPIAR FILTROS
 ================================ */
-function limpiarFiltros(){
+function limpiarFiltros() {
 
   // 🔥 activar modo control
   cargandoDesdeURL = true;
@@ -375,10 +372,10 @@ function limpiarFiltros(){
 
 
 /* ================================
-   ⌨️ 8. BUSCADOR
+   ⌨️ 10. BUSCADOR
 ================================ */
-buscador.addEventListener("keydown", function(event){
-  if(event.key === "Enter"){
+buscador.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
     aplicarFiltros();
   }
 });
@@ -389,21 +386,21 @@ function buscarTexto() {
 
 
 /* ================================
-   🔽 9. DROPDOWNS FILTROS
+   🔽 11. DROPDOWNS FILTROS
 ================================ */
-function toggleDropdown(id, boton){
+function toggleDropdown(id, boton) {
 
   const lista = document.getElementById("dropdown-" + id);
   const todosDropdowns = document.querySelectorAll('.dropdownContenido');
   const todosBotones = document.querySelectorAll('.dropdownBtn');
 
   todosDropdowns.forEach(d => {
-    if(d !== lista) d.style.display = 'none';
+    if (d !== lista) d.style.display = 'none';
   });
 
   todosBotones.forEach(b => b.classList.remove("activo"));
 
-  if(lista.style.display === "block"){
+  if (lista.style.display === "block") {
     lista.style.display = "none";
   } else {
     lista.style.display = "block";
@@ -413,12 +410,12 @@ function toggleDropdown(id, boton){
 
 
 /* ================================
-   🔽 10. ORDENAR DROPDOWN
+   🔽 12. ORDENAR DROPDOWN
 ================================ */
 const btnOrdenar = document.getElementById("btn-ordenar");
 const dropdownOrden = document.getElementById("dropdown-orden");
 
-if(btnOrdenar){
+if (btnOrdenar) {
   btnOrdenar.addEventListener("click", () => {
     dropdownOrden.classList.toggle("activo");
   });
@@ -430,7 +427,7 @@ document.querySelectorAll("#dropdown-orden button").forEach(btn => {
   });
 });
 
-function aplicarOrden(tipo){
+function aplicarOrden(tipo) {
   modoOrden = tipo;
   ordenarTarjetas();
   dropdownOrden.classList.remove("activo");
@@ -438,11 +435,11 @@ function aplicarOrden(tipo){
 
 
 /* ================================
-   📄 11. BOTÓN MOSTRAR TODO
+   📄 13. BOTÓN MOSTRAR TODO
 ================================ */
 const btnMostrarTodo = document.getElementById("mostrar-todo");
 
-if(btnMostrarTodo){
+if (btnMostrarTodo) {
   btnMostrarTodo.addEventListener("click", () => {
 
     mostrarTodoActivo = !mostrarTodoActivo;
@@ -457,21 +454,21 @@ if(btnMostrarTodo){
 
 
 /* ================================
-   🔗 12. FILTROS DESDE URL
+   🔗 14. FILTROS DESDE URL
 ================================ */
-function aplicarFiltrosDesdeURL(){
+function aplicarFiltrosDesdeURL() {
 
   const params = new URLSearchParams(window.location.search);
 
   filtros.forEach(filtro => {
 
-    if(params.has(filtro)){
+    if (params.has(filtro)) {
 
       const valores = params.get(filtro).split(",");
 
       valores.forEach(valor => {
         const checkbox = document.querySelector(`#dropdown-${filtro} input[value="${valor}"]`);
-        if(checkbox){
+        if (checkbox) {
           checkbox.checked = true;
         }
       });
@@ -485,12 +482,12 @@ function aplicarFiltrosDesdeURL(){
 
 
 /* ================================
-   🧩 13. GENERAR DROPDOWNS
+   🧩 15. GENERAR DROPDOWNS
 ================================ */
-function generarDropdown(idFiltro, objetoTags){
+function generarDropdown(idFiltro, objetoTags) {
 
   const contenedor = document.getElementById("dropdown-" + idFiltro);
-  if(!contenedor) return;
+  if (!contenedor) return;
 
   contenedor.innerHTML = "";
 
@@ -508,9 +505,9 @@ function generarDropdown(idFiltro, objetoTags){
 
 
 /* ================================
-   🚀 14. INICIALIZACIÓN
+   🚀 16. INICIALIZACIÓN
 ================================ */
-window.addEventListener("load", function(){
+window.addEventListener("load", function() {
 
   generarDropdown("categoria", tags.categoria);
   generarDropdown("ambientado", tags.ambientado);
@@ -524,37 +521,37 @@ window.addEventListener("load", function(){
   // 🔥 GUARDAR ORDEN ORIGINAL
   ordenOriginal = Array.from(document.querySelectorAll(".card"));
 
-modoOrden = "az";
+  modoOrden = "az";
 
-// 🔥 primero ordenar
-ordenarTarjetas();
+  // 🔥 primero ordenar
+  ordenarTarjetas();
 
-// 🔥 luego aplicar filtros (esto ya ordena internamente)
-aplicarFiltrosDesdeURL();
+  // 🔥 luego aplicar filtros (esto ya ordena internamente)
+  aplicarFiltrosDesdeURL();
 
-// 🔥 ESTA LÍNEA ARREGLA TODO
-cargandoDesdeURL = false;
+  // 🔥 ESTA LÍNEA ARREGLA TODO
+  cargandoDesdeURL = false;
 
+  // ✅ RESTAURAR PAGINA DESPUÉS de ordenar
+  const params = new URLSearchParams(window.location.search);
+  const paginaURL = parseInt(params.get("pagina"));
 
-// ✅ RESTAURAR PAGINA DESPUÉS de ordenar
-const params = new URLSearchParams(window.location.search);
-const paginaURL = parseInt(params.get("pagina"));
+  if (paginaURL && paginaURL > 0) {
+    paginaActual = paginaURL;
+  }
 
-if (paginaURL && paginaURL > 0) {
-  paginaActual = paginaURL;
-}
-
-// 🔥 ahora sí render final
-bloqueandoURL = false;
-mostrarPagina();
+  // 🔥 ahora sí render final
+  bloqueandoURL = false;
+  mostrarPagina();
 });
 
-/* ================================
-   🖱️ 15. CERRAR DROPDOWNS
-================================ */
-document.addEventListener("click", function(e){
 
-  if(!e.target.closest(".dropdown")){
+/* ================================
+   🖱️ 17. CERRAR DROPDOWNS
+================================ */
+document.addEventListener("click", function(e) {
+
+  if (!e.target.closest(".dropdown")) {
     document.querySelectorAll(".dropdownContenido")
       .forEach(d => d.style.display = "none");
 
@@ -562,7 +559,7 @@ document.addEventListener("click", function(e){
       .forEach(b => b.classList.remove("activo"));
   }
 
-  if(!e.target.closest(".ordenar")){
+  if (!e.target.closest(".ordenar")) {
     dropdownOrden?.classList.remove("activo");
   }
 
@@ -570,33 +567,33 @@ document.addEventListener("click", function(e){
 
 
 /* ================================
-   📱 16. PANEL FILTROS
+   📱 18. PANEL FILTROS
 ================================ */
-function togglePanelFiltros(){
+function togglePanelFiltros() {
   const panel = document.querySelector(".panel-filtros");
   const categorias = document.querySelector(".panel-categorias");
 
   panel.classList.toggle("activo");
-  if(categorias) categorias.classList.remove("activo");
+  if (categorias) categorias.classList.remove("activo");
 }
 
-function togglePanelCategorias(){
+function togglePanelCategorias() {
   const panel = document.querySelector(".panel-categorias");
   const filtros = document.querySelector(".panel-filtros");
 
   panel.classList.toggle("activo");
-  if(filtros) filtros.classList.remove("activo");
+  if (filtros) filtros.classList.remove("activo");
 }
 
 
 /* ================================
-   ⬆️ 17. SCROLL TOP
+   ⬆️ 19. SCROLL TOP
 ================================ */
-window.addEventListener("scroll", function(){
+window.addEventListener("scroll", function() {
 
   const scrollTopBtn = document.getElementById("scrollTop");
 
-  if (window.scrollY > 200){
+  if (window.scrollY > 200) {
     scrollTopBtn.style.display = "block";
   } else {
     scrollTopBtn.style.display = "none";
@@ -605,9 +602,8 @@ window.addEventListener("scroll", function(){
 });
 
 
-
 /* ================================
-   ⬆️ 17. POPSTATE
+   ⬅️ 20. POPSTATE
 ================================ */
 window.addEventListener("popstate", () => {
 
@@ -638,8 +634,10 @@ window.addEventListener("popstate", () => {
 });
 
 
-
-function guardarFiltrosURL(){
+/* ================================
+   🔗 21. GUARDAR FILTROS URL
+================================ */
+function guardarFiltrosURL() {
 
   // 🔥 SI VIENE DE POPSTATE → NO TOCAR URL
   if (cargandoDesdeURL) return;
@@ -653,7 +651,7 @@ function guardarFiltrosURL(){
     const checks = document.querySelectorAll(`#dropdown-${filtro} input:checked`);
     const valores = Array.from(checks).map(c => c.value);
 
-    if(valores.length){
+    if (valores.length) {
       params.set(filtro, valores.join(","));
     }
   });
