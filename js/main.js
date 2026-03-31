@@ -219,10 +219,14 @@ window.addEventListener("resize", () => {
    🔗 URL PAGINACIÓN
 ================================ */
 function guardarPaginaURL(){
+
+  // 🔥 NO guardar durante carga inicial
+  if (bloqueandoURL) return;
+
   const params = new URLSearchParams(window.location.search);
 
   if (paginaActual === 1) {
-    params.delete("pagina"); // 🔥 NO guardar página 1
+    params.delete("pagina");
   } else {
     params.set("pagina", paginaActual);
   }
@@ -230,19 +234,8 @@ function guardarPaginaURL(){
   const query = params.toString();
   const nuevaURL = query ? "?" + query : window.location.pathname;
 
-  window.history.replaceState({}, "", nuevaURL);
+  window.history.pushState({}, "", nuevaURL); // 🔥 CAMBIO IMPORTANTE
 }
-
-function limpiarPaginaURL(){
-  const params = new URLSearchParams(window.location.search);
-  params.delete("pagina");
-
-  const query = params.toString();
-  const nuevaURL = query ? "?" + query : window.location.pathname;
-
-  window.history.replaceState({}, "", nuevaURL);
-}
-
 
 /* ================================
    🔎 6. APLICAR FILTROS
@@ -496,8 +489,11 @@ const paginaURL = parseInt(params.get("pagina"));
 
 if (paginaURL && paginaURL > 0) {
   paginaActual = paginaURL;
-  mostrarPagina(); // 🔥 forzar render correcto
 }
+
+// 🔥 ahora sí render final
+bloqueandoURL = false;
+mostrarPagina();
 });
 
 /* ================================
