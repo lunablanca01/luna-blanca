@@ -9,9 +9,28 @@ async function initLectura(tituloActual) {
     return;
   }
 
-  // Obtener usuario
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return;
+// Obtener usuario
+const { data: { user } } = await supabase.auth.getUser();
+if (!user) return;
+
+// 🔐 OBTENER ROL DESDE PERFILES
+const { data: perfil, error: errorPerfil } = await supabase
+  .from("perfiles")
+  .select("rol")
+  .eq("id", user.id)
+  .maybeSingle();
+
+if (errorPerfil) {
+  console.error("Error obteniendo rol:", errorPerfil);
+}
+
+// 🎯 MOSTRAR SOLO SI ES ADMIN
+if (perfil?.rol === "admin") {
+  const epubContainer = document.getElementById("epub-container");
+  if (epubContainer) {
+    epubContainer.style.display = "block";
+  }
+}
 
   // Elementos de la página
   const selectEstado = document.getElementById("estado-lectura");
