@@ -1,11 +1,12 @@
-import { supabase } from "./supabase.js";
+// usuario.js
+import { supabase } from "/js/supabase.js"; // ⚡ ruta absoluta desde la raíz
 
 async function cargarUsuario() {
   const contenedor = document.getElementById("usuario-container");
   if (!contenedor) return;
 
   try {
-    // 📦 cargar HTML del componente
+    // 📦 cargar HTML del componente desde ruta absoluta
     const res = await fetch("/pages/usuario.html");
     let html = await res.text();
 
@@ -15,7 +16,7 @@ async function cargarUsuario() {
 
     if (user) {
       // 🔥 traer nombre y rol desde la tabla perfiles
-      const { data: perfil, error } = await supabase
+      const { data: perfil } = await supabase
         .from("perfiles")
         .select("nombre, rol")
         .eq("id", user.id)
@@ -28,7 +29,6 @@ async function cargarUsuario() {
 
     // 👀 filtrar contenido solo para admin
     if (rol !== "admin") {
-      // remover o bloquear elementos solo admin antes de insertar
       html = html.replace(/class="solo-admin"/g, 'style="display:none"');
       html = html.replace(/id="epub-container"/g, 'id="epub-container" style="display:none"');
     }
@@ -57,17 +57,13 @@ async function cargarUsuario() {
 
     // 🔐 mostrar nombre de usuario
     if (user) {
-      const { data: perfil, error } = await supabase
+      const { data: perfil } = await supabase
         .from("perfiles")
         .select("nombre")
         .eq("id", user.id)
         .single();
 
-      if (perfil && perfil.nombre) {
-        nombreUsuario.textContent = perfil.nombre;
-      } else {
-        nombreUsuario.textContent = user.email; // fallback
-      }
+      nombreUsuario.textContent = (perfil && perfil.nombre) ? perfil.nombre : user.email;
 
       // 👇 mostrar elementos solo admin si corresponde
       if (rol === "admin") {
@@ -79,10 +75,8 @@ async function cargarUsuario() {
 
     } else {
       nombreUsuario.textContent = "Invitado";
-
-      // cambiar menú si no hay sesión
       btnCerrar.textContent = "Iniciar sesión";
-      btnCerrar.href = "./pages/login.html";
+      btnCerrar.href = "/pages/login.html";
     }
 
     // 🚪 cerrar sesión
@@ -90,7 +84,7 @@ async function cargarUsuario() {
       if (btnCerrar.textContent === "Cerrar sesión") {
         e.preventDefault();
         await supabase.auth.signOut();
-        window.location.href = "./index.html";
+        window.location.href = "/";
       }
     });
 
