@@ -18,7 +18,6 @@ async function initLectura(tituloActual) {
   const inputProgreso = document.getElementById("progreso-capitulo");
   const btnGuardar = document.getElementById("guardar-lectura");
   const btnEliminar = document.getElementById("eliminar-lectura"); // 🗑️ botón
-  const contenedorEpub = document.getElementById("epub-container");
 
   if (!selectEstado || !inputProgreso) return;
 
@@ -41,6 +40,7 @@ async function initLectura(tituloActual) {
   // 💾 Guardar cambios
   if (btnGuardar) {
     btnGuardar.addEventListener("click", async () => {
+
       if (!selectEstado.value) {
         alert("Selecciona un estado");
         return;
@@ -70,6 +70,7 @@ async function initLectura(tituloActual) {
   // 🗑️ ELIMINAR lectura
   if (btnEliminar) {
     btnEliminar.addEventListener("click", async () => {
+
       const confirmar = confirm("¿Eliminar esta novela de tu lista?");
       if (!confirmar) return;
 
@@ -89,34 +90,6 @@ async function initLectura(tituloActual) {
         mostrarToast("Eliminado", "ok");
       }
     });
-  }
-
-  // 🆕 ADMIN: Mostrar link de EPUB desde la tarjeta
-  if (contenedorEpub) {
-    // buscar tarjeta correspondiente en el DOM
-    const cards = document.querySelectorAll(".card");
-    const cardActual = Array.from(cards).find(card =>
-      card.querySelector("h3")?.textContent.trim() === tituloActual
-    );
-
-    if (cardActual && user) {
-      // ejemplo: mostrar EPUB solo a admin
-      const { data: perfil } = await supabase.from("perfiles")
-        .select("rol")
-        .eq("id", user.id)
-        .single();
-
-      if (perfil?.rol === "admin") {
-        const linkEpub = cardActual.querySelector(".links-tarjeta a")?.href;
-        if (linkEpub) {
-          contenedorEpub.style.display = "block";
-          contenedorEpub.innerHTML = `<div class="epub">Leer en: <a href="${linkEpub}" target="_blank">ePub</a></div>`;
-        }
-      } else {
-        contenedorEpub.style.display = "none";
-        contenedorEpub.innerHTML = "";
-      }
-    }
   }
 }
 
