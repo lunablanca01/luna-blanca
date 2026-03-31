@@ -29,6 +29,9 @@ let tarjetasPorPagina = 24;
 let mostrarTodoActivo = false;
 let modoOrden = "az";
 
+// 🔥 CONTROL DE CARGA DESDE URL
+let cargandoDesdeURL = true;
+
 // 🔥 ORDEN ORIGINAL
 let ordenOriginal = [];
 
@@ -303,8 +306,11 @@ function aplicarFiltros(){
   paginaActual = 1;
   mostrarTodoActivo = false;
 
-  limpiarPaginaURL();
-   
+  // 🔥 SOLO limpiar URL si NO estamos cargando desde URL
+  if (!cargandoDesdeURL) {
+    limpiarPaginaURL();
+  }
+
   ordenarTarjetas();
 }
 
@@ -432,6 +438,9 @@ function aplicarFiltrosDesdeURL(){
   });
 
   aplicarFiltros();
+
+  // 🔥 TERMINAMOS CARGA DESDE URL
+  cargandoDesdeURL = false;
 }
 
 
