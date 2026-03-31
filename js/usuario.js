@@ -1,5 +1,5 @@
 // usuario.js
-import { supabase } from "/js/supabase.js"; // ⚡ ruta absoluta desde la raíz
+import { supabase } from "/luna-blanca/js/supabase.js"; // ⚡ ruta absoluta desde la raíz
 
 async function cargarUsuario() {
   const contenedor = document.getElementById("usuario-container");
@@ -7,7 +7,7 @@ async function cargarUsuario() {
 
   try {
     // 📦 cargar HTML del componente desde ruta absoluta
-    const res = await fetch("/pages/usuario.html");
+    const res = await fetch("luna-blanca/pages/usuario.html");
     let html = await res.text();
 
     // 🔐 obtener usuario antes de insertar HTML
