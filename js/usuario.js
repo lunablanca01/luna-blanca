@@ -1,4 +1,4 @@
-import { supabase } from "/supabase.js";
+import { supabase } from "./supabase.js";
 
 async function cargarUsuario() {
   const contenedor = document.getElementById("usuario-container");
