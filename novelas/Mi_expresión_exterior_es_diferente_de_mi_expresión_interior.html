@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi expresión exterior es diferente de mi expresión interior</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>Mi expresión exterior es diferente de mi expresión interior</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>我表里不一在线翻车[穿书]</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Li Qingzhou, que había estado enfermo durante muchos años, murió y fue vinculado sistemáticamente a una vieja novela romántica, donde se convirtió en el villano. </p>
+  <p>Este villano era hermoso, pero tenía una personalidad sombría y estaba en silla de ruedas con problemas en las piernas…. </p>
+  <p>Li Qingzhou rompe a llorar y rueda por el suelo gritando: “¡No lo haré! ¡Me niego!" </p>
+  <p>Sistema: "Tu pierna estará bien tan pronto como completes la misión". </p>
+  <p>Li Qingzhou volvió a sentarse: “¿Qué misión? ¡Me lo llevo!" </p>
+  <p>La tarea: encontrar un amante para el tío del protagonista masculino, Liu Bohuai, para evitar que acabe solo. </p>
+  <p>Luego el sistema lo envió al libro y se fue, pero antes de irse, le arrojó un dedo dorado a Li Qingzhou, sin embargo, cayó sobre la persona equivocada... </p>
+  <p>Desde entonces, Liu Bohuai ha podido escuchar la voz en el corazón de Li Qingzhou y ver las burbujas de humor que se elevan desde lo alto de su cabeza. </p>
+  <p>[Un señor demonio frío y hermoso con un corazón de oro que está loco pero enfermo X un hombre cultivado, elegante y noble con el que nadie se atreve a meterse y que cree en la indiferencia de un Buda] </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+</body>
+</html>
