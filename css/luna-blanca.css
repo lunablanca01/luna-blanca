@@ -494,6 +494,21 @@ h1 a{
 }
 
 
+/* 📱 mini pantalla */
+
+@media (max-width:790px){
+.layout-principal{
+  grid-template-columns:1fr;
+}
+.grid{
+  grid-template-columns:repeat(4,1fr);
+}
+#kofi-container{
+  display:none;
+}
+}
+
+
 /* 📱 TABLET */
 
 @media (max-width:650px){
