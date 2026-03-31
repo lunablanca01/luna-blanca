@@ -31,14 +31,16 @@ const epubContainer = document.getElementById("epub-container");
 if (epubContainer) {
   epubContainer.style.display = "block";
 
-  // 🔍 BUSCAR EL LINK DESDE EL DOM REAL
-  const cards = document.querySelectorAll(".card");
+// 🔍 BUSCAR EL LINK DESDE tarjetasHTML
+const parser = new DOMParser();
+const doc = parser.parseFromString(window.tarjetasHTML, "text/html");
+const cards = doc.querySelectorAll(".card");
 
-  const cardActual = Array.from(cards).find(card =>
-    card.querySelector("h3")?.textContent.trim() === tituloActual
-  );
+const cardActual = Array.from(cards).find(card =>
+  card.querySelector("h3")?.textContent.trim() === tituloActual
+);
 
-  const linkEpub = cardActual?.querySelector(".links-tarjeta a")?.href;
+const linkEpub = cardActual?.querySelector(".links-tarjeta a")?.href;
 
   if (linkEpub) {
     epubContainer.innerHTML = `
