@@ -9,61 +9,64 @@ async function initLectura(tituloActual) {
     return;
   }
 
-// Obtener usuario
-const { data: { user } } = await supabase.auth.getUser();
-if (!user) return;
+  // 🔐 Obtener usuario
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return;
 
-// 🔐 OBTENER ROL DESDE PERFILES
-const { data: perfil, error: errorPerfil } = await supabase
-  .from("perfiles")
-  .select("rol")
-  .eq("id", user.id)
-  .maybeSingle();
+  // 🔐 Obtener rol
+  const { data: perfil, error: errorPerfil } = await supabase
+    .from("perfiles")
+    .select("rol")
+    .eq("id", user.id)
+    .maybeSingle();
 
-if (errorPerfil) {
-  console.error("Error obteniendo rol:", errorPerfil);
-}
-
-// 🎯 MOSTRAR SOLO SI ES ADMIN
-if (perfil?.rol === "admin") {
-const epubContainer = document.getElementById("epub-container");
-
-if (epubContainer) {
-  epubContainer.style.display = "block";
-
-// 🔍 BUSCAR EL LINK DESDE tarjetasHTML
-const parser = new DOMParser();
-const doc = parser.parseFromString(window.tarjetasHTML, "text/html");
-const cards = doc.querySelectorAll(".card");
-
-const cardActual = Array.from(cards).find(card =>
-  card.querySelector("h3")?.textContent.trim() === tituloActual
-);
-
-const linkEpub = cardActual?.querySelector(".links-tarjeta a")?.href;
-
-  if (linkEpub) {
-    epubContainer.innerHTML = `
-      <div class="epub">
-        Leer en: <a href="${linkEpub}" target="_blank">ePub</a>
-      </div>
-    `;
+  if (errorPerfil) {
+    console.error("Error obteniendo rol:", errorPerfil);
   }
-}
 
-  // Elementos de la página
+  // 🎯 SOLO ADMIN → mostrar epub
+  if (perfil?.rol === "admin") {
+    const epubContainer = document.getElementById("epub-container");
+
+    if (epubContainer && window.tarjetasHTML) {
+      epubContainer.style.display = "block";
+
+      // 🔍 Buscar link desde tarjetasHTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(window.tarjetasHTML, "text/html");
+      const cards = doc.querySelectorAll(".card");
+
+      const cardActual = Array.from(cards).find(card =>
+        card.querySelector("h3")?.textContent.trim() === tituloActual
+      );
+
+      const linkEpub = cardActual?.querySelector(".links-tarjeta a")?.href;
+
+      if (linkEpub) {
+        epubContainer.innerHTML = `
+          <div class="epub">
+            Leer en: <a href="${linkEpub}" target="_blank">ePub</a>
+          </div>
+        `;
+      }
+    }
+  } // ✅ CIERRE CORRECTO DEL IF ADMIN
+
+  // ================================
+  // 📌 ELEMENTOS DE LA PÁGINA
+  // ================================
   const selectEstado = document.getElementById("estado-lectura");
   const inputProgreso = document.getElementById("progreso-capitulo");
   const btnGuardar = document.getElementById("guardar-lectura");
-  const btnEliminar = document.getElementById("eliminar-lectura"); // 🗑️ botón
+  const btnEliminar = document.getElementById("eliminar-lectura");
 
   if (!selectEstado || !inputProgreso) return;
 
-  // ✅ VALORES POR DEFECTO (inmediato)
-  selectEstado.value = ""; // "No leído"
+  // Valores por defecto
+  selectEstado.value = "";
   inputProgreso.value = 0;
 
-  // 🔍 Cargar datos desde Supabase
+  // 🔍 Cargar desde Supabase
   const { data } = await supabase.from("lecturas")
     .select("*")
     .eq("usuario_id", user.id)
@@ -75,7 +78,7 @@ const linkEpub = cardActual?.querySelector(".links-tarjeta a")?.href;
     inputProgreso.value = data.progreso ?? 0;
   }
 
-  // 💾 Guardar cambios
+  // 💾 Guardar
   if (btnGuardar) {
     btnGuardar.addEventListener("click", async () => {
 
@@ -105,7 +108,7 @@ const linkEpub = cardActual?.querySelector(".links-tarjeta a")?.href;
     });
   }
 
-  // 🗑️ ELIMINAR lectura
+  // 🗑️ Eliminar
   if (btnEliminar) {
     btnEliminar.addEventListener("click", async () => {
 
@@ -121,10 +124,8 @@ const linkEpub = cardActual?.querySelector(".links-tarjeta a")?.href;
         console.error("Error al eliminar:", error);
         mostrarToast("Error al eliminar", "error");
       } else {
-        // 🔄 Reset visual
-        selectEstado.value = ""; // No leído
+        selectEstado.value = "";
         inputProgreso.value = 0;
-
         mostrarToast("Eliminado", "ok");
       }
     });
