@@ -551,3 +551,13 @@ window.addEventListener("scroll", function(){
   }
 
 });
+
+window.addEventListener("popstate", () => {
+
+  const params = new URLSearchParams(window.location.search);
+  const paginaURL = parseInt(params.get("pagina")) || 1;
+
+  paginaActual = paginaURL;
+
+  mostrarPagina();
+});
