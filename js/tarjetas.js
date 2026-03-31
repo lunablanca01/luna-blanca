@@ -2954,7 +2954,7 @@ const novelas = [
 ];
 
 
-const tarjetasHTML = novelas.map(novela => `
+window.tarjetasHTML = novelas.map(novela => `
 <div class="card"
   data-tags="${novela.tags}"
   data-autor="${novela.autor}">
