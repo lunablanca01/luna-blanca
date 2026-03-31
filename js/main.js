@@ -28,6 +28,7 @@ let paginaActual = 1;
 let tarjetasPorPagina = 24;
 let mostrarTodoActivo = false;
 let modoOrden = "az";
+let bloqueandoURL = true;
 
 // 🔥 CONTROL DE CARGA DESDE URL
 let cargandoDesdeURL = true;
