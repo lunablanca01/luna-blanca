@@ -26,9 +26,26 @@ if (errorPerfil) {
 
 // 🎯 MOSTRAR SOLO SI ES ADMIN
 if (perfil?.rol === "admin") {
-  const epubContainer = document.getElementById("epub-container");
-  if (epubContainer) {
-    epubContainer.style.display = "block";
+const epubContainer = document.getElementById("epub-container");
+
+if (epubContainer) {
+  epubContainer.style.display = "block";
+
+  // 🔍 BUSCAR EL LINK DESDE EL DOM REAL
+  const cards = document.querySelectorAll(".card");
+
+  const cardActual = Array.from(cards).find(card =>
+    card.querySelector("h3")?.textContent.trim() === tituloActual
+  );
+
+  const linkEpub = cardActual?.querySelector(".links-tarjeta a")?.href;
+
+  if (linkEpub) {
+    epubContainer.innerHTML = `
+      <div class="epub">
+        Leer en: <a href="${linkEpub}" target="_blank">ePub</a>
+      </div>
+    `;
   }
 }
 
