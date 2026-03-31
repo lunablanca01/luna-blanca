@@ -21,7 +21,6 @@ function limpiarTextoOrden(texto){
    🔎 3. VARIABLES GLOBALES
 ================================ */
 const buscador = document.getElementById("buscador");
-const cards = document.querySelectorAll(".card");
 const filtros = ['tipo','estado','ambientado','categoria','inicial','autor'];
 
 let paginaActual = 1;
@@ -36,6 +35,23 @@ let cargandoDesdeURL = true;
 // 🔥 ORDEN ORIGINAL
 let ordenOriginal = [];
 
+let listaFiltrada = [];
+
+
+/* ================================
+   🔤 FILTROS ACTIVOS
+================================ */
+function hayFiltrosActivos(){
+  const params = new URLSearchParams(window.location.search);
+
+  for (let f of filtros){
+    if(params.has(f)) return true;
+  }
+
+  if(buscador.value.trim() !== "") return true;
+
+  return false;
+}
 
 /* ================================
    🔤 4. ORDENAR TARJETAS
@@ -101,14 +117,24 @@ function mostrarPagina(){
   tarjetasPorPagina = calcularTarjetasPorPagina();
 
   const todas = Array.from(document.querySelectorAll(".card"));
-  const visibles = todas.filter(card => card.dataset.visible !== "0");
+  const visibles = hayFiltrosActivos() ? listaFiltrada : todas;
 
   todas.forEach(card => card.style.display = "none");
 
-  if(mostrarTodoActivo){
+  // 🔥 SOLO respetar "mostrar todo" si NO hay filtros activos
+  const hayFiltros = visibles.length !== todas.length;
+
+  if(mostrarTodoActivo && !hayFiltros){
     visibles.forEach(card => card.style.display = "block");
     generarPaginacion(visibles.length);
     return;
+  }
+
+  // 🔥 VALIDAR QUE LA PAGINA NO SE PASE
+  const totalPaginas = Math.ceil(visibles.length / tarjetasPorPagina);
+
+  if (paginaActual > totalPaginas) {
+    paginaActual = totalPaginas || 1;
   }
 
   const inicio = (paginaActual - 1) * tarjetasPorPagina;
@@ -222,15 +248,11 @@ window.addEventListener("resize", () => {
 function guardarPaginaURL(){
 
   // 🔥 NO guardar durante carga inicial
-  if (bloqueandoURL) return;
+  if (bloqueandoURL || cargandoDesdeURL) return;
 
   const params = new URLSearchParams(window.location.search);
 
-  if (paginaActual === 1) {
-    params.delete("pagina");
-  } else {
-    params.set("pagina", paginaActual);
-  }
+  params.set("pagina", paginaActual);
 
   const query = params.toString();
   const nuevaURL = query ? "?" + query : window.location.pathname;
@@ -251,34 +273,39 @@ function aplicarFiltros(){
     seleccionados[filtro] = Array.from(checks).map(c => c.value);
   });
 
-  cards.forEach(card => {
+listaFiltrada = [];
 
-    const titulo = card.querySelector("h3").textContent.toLowerCase();
-    const tags = card.dataset.tags.toLowerCase();
+document.querySelectorAll(".card").forEach(card => {
 
-    const coincideTexto = titulo.includes(texto);
+  const titulo = card.querySelector("h3").textContent.toLowerCase();
+  const tags = card.dataset.tags.toLowerCase();
 
-    let coincideFiltros = filtros.every(filtro => {
+  const coincideTexto = titulo.includes(texto);
 
-      if(seleccionados[filtro].length === 0) return true;
+  let coincideFiltros = filtros.every(filtro => {
 
-      if(filtro === "inicial"){
-        const inicialTitulo = limpiarTextoOrden(titulo).charAt(0);
-        return seleccionados[filtro].includes(inicialTitulo);
-      }
+    if(seleccionados[filtro].length === 0) return true;
 
-      if(filtro === "categoria"){
-        return seleccionados[filtro].every(tag => tags.includes(tag));
-      }
+    if(filtro === "inicial"){
+      const inicialTitulo = limpiarTextoOrden(titulo).charAt(0);
+      return seleccionados[filtro].includes(inicialTitulo);
+    }
 
-      return seleccionados[filtro].some(tag => tags.includes(tag));
+    if(filtro === "categoria"){
+      return seleccionados[filtro].every(tag => tags.includes(tag));
+    }
 
-    });
-
-    const visible = (coincideTexto && coincideFiltros);
-    card.dataset.visible = visible ? "1" : "0";
+    return seleccionados[filtro].some(tag => tags.includes(tag));
 
   });
+
+  const visible = (coincideTexto && coincideFiltros);
+
+  if(visible){
+    listaFiltrada.push(card);
+  }
+
+});
 
   document.querySelectorAll('.dropdownContenido').forEach(d => {
     d.style.display = 'none';
@@ -297,15 +324,17 @@ function aplicarFiltros(){
   document.getElementById("filtros-activos").textContent =
     listaFiltros.length ? "Filtros activos: " + listaFiltros.join(", ") : "";
 
-  paginaActual = 1;
-  mostrarTodoActivo = false;
-
-  // 🔥 SOLO limpiar URL si NO estamos cargando desde URL
   if (!cargandoDesdeURL) {
-    limpiarPaginaURL();
+    paginaActual = 1;
   }
 
-  ordenarTarjetas();
+  mostrarTodoActivo = false;
+
+  guardarFiltrosURL();
+
+  if (!cargandoDesdeURL) {
+    mostrarPagina();
+  }
 }
 
 
@@ -313,22 +342,35 @@ function aplicarFiltros(){
    🧹 7. LIMPIAR FILTROS
 ================================ */
 function limpiarFiltros(){
+
+  // 🔥 activar modo control
+  cargandoDesdeURL = true;
+
+  // 🧹 limpiar buscador
   buscador.value = "";
 
+  // 🧹 desmarcar todos los filtros
   filtros.forEach(filtro => {
     const checks = document.querySelectorAll(`#dropdown-${filtro} input`);
     checks.forEach(c => c.checked = false);
   });
 
-  cards.forEach(card => card.dataset.visible = "1");
   document.getElementById("filtros-activos").textContent = "";
 
+  // 🔥 reset estado
   paginaActual = 1;
   mostrarTodoActivo = false;
 
-  limpiarPaginaURL();
-   
-  ordenarTarjetas();
+  // 💣 LIMPIAR URL COMPLETA
+  window.history.pushState({}, "", window.location.pathname);
+
+  // 🔥 desactivar control
+  cargandoDesdeURL = false;
+
+  // 🔄 ordenar + render limpio
+  ordenarTarjetas(); // esto ya llama mostrarPagina()
+
+  listaFiltrada = [];
 }
 
 
@@ -421,20 +463,24 @@ function aplicarFiltrosDesdeURL(){
 
   const params = new URLSearchParams(window.location.search);
 
-  ['tipo','estado','ambientado','categoria','inicial'].forEach(filtro => {
+  filtros.forEach(filtro => {
+
     if(params.has(filtro)){
-      const valor = params.get(filtro);
-      const checkbox = document.querySelector(`#dropdown-${filtro} input[value="${valor}"]`);
-      if(checkbox){
-        checkbox.checked = true;
-      }
+
+      const valores = params.get(filtro).split(",");
+
+      valores.forEach(valor => {
+        const checkbox = document.querySelector(`#dropdown-${filtro} input[value="${valor}"]`);
+        if(checkbox){
+          checkbox.checked = true;
+        }
+      });
+
     }
+
   });
 
   aplicarFiltros();
-
-  // 🔥 TERMINAMOS CARGA DESDE URL
-  cargandoDesdeURL = false;
 }
 
 
@@ -478,11 +524,17 @@ window.addEventListener("load", function(){
   // 🔥 GUARDAR ORDEN ORIGINAL
   ordenOriginal = Array.from(document.querySelectorAll(".card"));
 
-aplicarFiltrosDesdeURL();
-
 modoOrden = "az";
 
+// 🔥 primero ordenar
 ordenarTarjetas();
+
+// 🔥 luego aplicar filtros (esto ya ordena internamente)
+aplicarFiltrosDesdeURL();
+
+// 🔥 ESTA LÍNEA ARREGLA TODO
+cargandoDesdeURL = false;
+
 
 // ✅ RESTAURAR PAGINA DESPUÉS de ordenar
 const params = new URLSearchParams(window.location.search);
@@ -552,12 +604,65 @@ window.addEventListener("scroll", function(){
 
 });
 
+
+
+/* ================================
+   ⬆️ 17. POPSTATE
+================================ */
 window.addEventListener("popstate", () => {
 
+  // 🔥 activar modo carga
+  cargandoDesdeURL = true;
+
+  // 🔥 leer URL primero
   const params = new URLSearchParams(window.location.search);
   const paginaURL = parseInt(params.get("pagina")) || 1;
 
+  // 🔥 limpiar filtros visuales
+  filtros.forEach(filtro => {
+    const checks = document.querySelectorAll(`#dropdown-${filtro} input`);
+    checks.forEach(c => c.checked = false);
+  });
+
+  buscador.value = "";
+
+  // 🔥 aplicar filtros (SIN cerrar el modo carga)
+  aplicarFiltrosDesdeURL();
+
+  // 🔥 restaurar página después de filtros
   paginaActual = paginaURL;
 
+  // 🔥 render FINAL limpio
+  cargandoDesdeURL = false;
   mostrarPagina();
 });
+
+
+
+function guardarFiltrosURL(){
+
+  // 🔥 SI VIENE DE POPSTATE → NO TOCAR URL
+  if (cargandoDesdeURL) return;
+
+  const params = new URLSearchParams(window.location.search);
+
+  // 🔥 limpiar filtros anteriores
+  filtros.forEach(f => params.delete(f));
+
+  filtros.forEach(filtro => {
+    const checks = document.querySelectorAll(`#dropdown-${filtro} input:checked`);
+    const valores = Array.from(checks).map(c => c.value);
+
+    if(valores.length){
+      params.set(filtro, valores.join(","));
+    }
+  });
+
+  // 🔥 mantener página
+  params.set("pagina", paginaActual);
+
+  const query = params.toString();
+  const nuevaURL = query ? "?" + query : window.location.pathname;
+
+  window.history.pushState({}, "", nuevaURL);
+}
