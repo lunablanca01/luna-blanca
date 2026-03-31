@@ -2964,9 +2964,6 @@ window.tarjetasHTML = novelas.map(novela => `
          alt="${novela.titulo}">
   </a>
 
-    <!-- Título visible solo al pasar -->
-    <span class="tooltip">${novela.titulo}</span>
-
   <h3>${novela.titulo}</h3>
 
   <div class="links-tarjeta">
