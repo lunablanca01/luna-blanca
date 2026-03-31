@@ -116,6 +116,8 @@ function mostrarPagina(){
     }
   });
 
+  guardarPaginaURL();
+   
   generarPaginacion(visibles.length);
 }
 
@@ -211,6 +213,22 @@ window.addEventListener("resize", () => {
 
 
 /* ================================
+   🔗 URL PAGINACIÓN
+================================ */
+function guardarPaginaURL(){
+  const params = new URLSearchParams(window.location.search);
+  params.set("pagina", paginaActual);
+  window.history.replaceState({}, "", "?" + params.toString());
+}
+
+function limpiarPaginaURL(){
+  const params = new URLSearchParams(window.location.search);
+  params.delete("pagina");
+  window.history.replaceState({}, "", "?" + params.toString());
+}
+
+
+/* ================================
    🔎 6. APLICAR FILTROS
 ================================ */
 function aplicarFiltros(){
@@ -272,6 +290,8 @@ function aplicarFiltros(){
   paginaActual = 1;
   mostrarTodoActivo = false;
 
+  limpiarPaginaURL();
+   
   ordenarTarjetas();
 }
 
@@ -293,6 +313,8 @@ function limpiarFiltros(){
   paginaActual = 1;
   mostrarTodoActivo = false;
 
+  limpiarPaginaURL();
+   
   ordenarTarjetas();
 }
 
@@ -440,12 +462,20 @@ window.addEventListener("load", function(){
   // 🔥 GUARDAR ORDEN ORIGINAL
   ordenOriginal = Array.from(document.querySelectorAll(".card"));
 
-  aplicarFiltrosDesdeURL();
+aplicarFiltrosDesdeURL();
 
-  // 🔥 FORZAR ALFABÉTICO AL INICIO
-  modoOrden = "az";
-  ordenarTarjetas();
-});
+modoOrden = "az";
+
+ordenarTarjetas();
+
+// ✅ RESTAURAR PAGINA DESPUÉS de ordenar
+const params = new URLSearchParams(window.location.search);
+const paginaURL = parseInt(params.get("pagina"));
+
+if (paginaURL && paginaURL > 0) {
+  paginaActual = paginaURL;
+  mostrarPagina(); // 🔥 forzar render correcto
+}
 
 
 /* ================================
