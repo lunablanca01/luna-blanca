@@ -7,6 +7,10 @@
   font-size: 18px
 }
 
+.solo-admin {
+  display: none;
+}
+
 .epub{
   font-size: 22px;
   color:#1696a7;
