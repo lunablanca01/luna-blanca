@@ -1,24 +1,24 @@
 // usuario.js
-const basePath = window.location.pathname.includes("/novela/") ? "../" : "./";
+
+const BASE = "/luna-blanca/"; // 🔥 nombre de tu repo
 
 async function cargarUsuario() {
   try {
-    // 🔹 importar supabase dinámicamente
-    const { supabase } = await import(basePath + "js/supabase.js");
+    // 🔹 importar supabase correctamente
+    const { supabase } = await import(BASE + "js/supabase.js");
 
     const contenedor = document.getElementById("usuario-container");
     if (!contenedor) return;
 
     // 📦 cargar HTML del componente
-    const res = await fetch(basePath + "pages/usuario.html");
+    const res = await fetch(BASE + "pages/usuario.html");
     let html = await res.text();
 
-    // 🔐 obtener usuario antes de insertar HTML
+    // 🔐 obtener usuario
     const { data: { user } } = await supabase.auth.getUser();
     let rol = "user";
 
     if (user) {
-      // 🔥 traer nombre y rol desde la tabla perfiles
       const { data: perfil } = await supabase
         .from("perfiles")
         .select("nombre, rol")
@@ -30,7 +30,7 @@ async function cargarUsuario() {
       }
     }
 
-    // 👀 filtrar contenido solo para admin
+    // 👀 ocultar cosas de admin si no lo es
     if (rol !== "admin") {
       html = html.replace(/class="solo-admin"/g, 'style="display:none"');
       html = html.replace(/id="epub-container"/g, 'id="epub-container" style="display:none"');
@@ -44,7 +44,7 @@ async function cargarUsuario() {
     const nombreUsuario = document.getElementById("nombre-usuario");
     const btnCerrar = document.getElementById("cerrarSesion");
 
-    // 🧠 abrir/cerrar menú
+    // 🧠 menú
     btnUsuario.addEventListener("click", (e) => {
       e.stopPropagation();
       menuUsuario.classList.toggle("activo");
@@ -58,7 +58,7 @@ async function cargarUsuario() {
       e.stopPropagation();
     });
 
-    // 🔐 mostrar nombre de usuario
+    // 🔐 usuario
     if (user) {
       const { data: perfil } = await supabase
         .from("perfiles")
@@ -66,12 +66,13 @@ async function cargarUsuario() {
         .eq("id", user.id)
         .single();
 
-      nombreUsuario.textContent = (perfil && perfil.nombre) ? perfil.nombre : user.email;
+      nombreUsuario.textContent =
+        (perfil && perfil.nombre) ? perfil.nombre : user.email;
 
-      // 👇 mostrar elementos solo admin si corresponde
       if (rol === "admin") {
         document.querySelectorAll(".solo-admin")
           .forEach(el => el.style.display = "block");
+
         const epub = document.getElementById("epub-container");
         if (epub) epub.style.display = "block";
       }
@@ -79,7 +80,7 @@ async function cargarUsuario() {
     } else {
       nombreUsuario.textContent = "Invitado";
       btnCerrar.textContent = "Iniciar sesión";
-      btnCerrar.href = basePath + "pages/login.html";
+      btnCerrar.href = BASE + "pages/login.html";
     }
 
     // 🚪 cerrar sesión
@@ -87,7 +88,7 @@ async function cargarUsuario() {
       if (btnCerrar.textContent === "Cerrar sesión") {
         e.preventDefault();
         await supabase.auth.signOut();
-        window.location.href = basePath + "index.html";
+        window.location.href = BASE;
       }
     });
 
