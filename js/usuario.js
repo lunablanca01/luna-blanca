@@ -1,13 +1,15 @@
 // usuario.js
 const basePath = window.location.pathname.includes("/novela/") ? "../" : "./";
-import { supabase } from basePath + "js/supabase.js";
 
 async function cargarUsuario() {
-  const contenedor = document.getElementById("usuario-container");
-  if (!contenedor) return;
-
   try {
-    // 📦 cargar HTML del componente desde ruta absoluta
+    // 🔹 importar supabase dinámicamente
+    const { supabase } = await import(basePath + "js/supabase.js");
+
+    const contenedor = document.getElementById("usuario-container");
+    if (!contenedor) return;
+
+    // 📦 cargar HTML del componente
     const res = await fetch(basePath + "pages/usuario.html");
     let html = await res.text();
 
@@ -77,7 +79,7 @@ async function cargarUsuario() {
     } else {
       nombreUsuario.textContent = "Invitado";
       btnCerrar.textContent = "Iniciar sesión";
-      btnCerrar.href = "/pages/login.html";
+      btnCerrar.href = basePath + "pages/login.html";
     }
 
     // 🚪 cerrar sesión
@@ -85,7 +87,7 @@ async function cargarUsuario() {
       if (btnCerrar.textContent === "Cerrar sesión") {
         e.preventDefault();
         await supabase.auth.signOut();
-        window.location.href = "/";
+        window.location.href = basePath + "index.html";
       }
     });
 
