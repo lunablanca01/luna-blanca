@@ -1768,9 +1768,9 @@ const novelas = [
   ingles: 'Traveling Through Ancient Times To Be a Shopkeeper',
   slug: 'Viajar_a_través_de_la_antigüedad_para_ser_comerciante',
   imagen: 'Viajar_a_través_de_la_antigüedad_para_ser_comerciante.jpg',
-  tags: 'danmei pendiente china-antigua ger matrimonio mpreg protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei finalizado china-antigua ger matrimonio mpreg protagonista-gong slice-of-life transmigracion',
   autor: 'yishi-yu',
-  link: 'https://www.novelupdates.com/series/traveling-through-ancient-times-to-be-a-shopkeeper/',
+  link: 'https://drive.google.com/drive/u/1/folders/1tsM0rv9zHbDTNgBGcKwQCQilCUWUw0eS',
   capitulos: '97 + 4 extras'
 },
 
