@@ -15,10 +15,10 @@ const novelas = [
 },
 
 {
-  titulo: 'Después de ser obligada a casarse con un marido feo',
+  titulo: 'Después de ser obligado a casarse con un marido feo',
   ingles: 'After Being Forced to Marry an Ugly Husband',
-  slug: 'Después_de_ser_obligada_a_casarse_con_un_marido_feo',
-  imagen: 'Después_de_ser_obligada_a_casarse_con_un_marido_feo.jpg',
+  slug: 'Después_de_ser_obligado_a_casarse_con_un_marido_feo',
+  imagen: 'Después_de_ser_obligado_a_casarse_con_un_marido_feo.jpg',
   tags: 'danmei pendiente china-antigua amnesia ger mpreg ninos transmigracion',
   autor: 'lin-qin-ren',
   link: 'https://www.novelupdates.com/series/after-being-forced-to-marry-an-ugly-husband/',
