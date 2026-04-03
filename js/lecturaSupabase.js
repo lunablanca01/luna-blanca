@@ -28,19 +28,11 @@ async function initLectura(tituloActual) {
   if (perfil?.rol === "admin") {
     const epubContainer = document.getElementById("epub-container");
 
-    if (epubContainer && window.tarjetasHTML) {
+    if (epubContainer) {
       epubContainer.style.display = "block";
 
-      // 🔍 Buscar link desde tarjetasHTML
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(window.tarjetasHTML, "text/html");
-      const cards = doc.querySelectorAll(".card");
-
-      const cardActual = Array.from(cards).find(card =>
-        card.querySelector("h3")?.textContent.trim() === tituloActual
-      );
-
-      const linkEpub = cardActual?.dataset.link;
+      const novelaData = novelas.find(n => n.titulo === tituloActual);
+      const linkEpub = novelaData?.link;
 
       if (linkEpub) {
         epubContainer.innerHTML = `
