@@ -2966,11 +2966,5 @@ window.tarjetasHTML = novelas.map(novela => `
 
   <h3>${novela.titulo}</h3>
 
-  <div class="links-tarjeta">
-    <a href="${novela.link}"
-       target="_blank"
-       onclick="event.stopPropagation()">ePub</a>
-  </div>
-
 </div>
 `).join("");
