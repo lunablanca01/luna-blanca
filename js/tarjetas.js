@@ -296,7 +296,7 @@ const novelas = [
   imagen: 'Nunca_imaginé_que_Long_Aotian_se_convertiría_en_mi_esposa_[Transmigración_rápida].jpg',
   tags: 'danmei pendiente multiples-mundos amnesia cultivo no-humano omegaverse protagonista-gong sistema transmigracion zombies',
   autor: 'zhen-zhong-mian',
-  link: 'https://www.novelupdates.com/series/i-never-imagined-long-aotian-would-become-my-wife-quick-transmigration/',
+  link: 'https://drive.google.com/drive/u/1/folders/1bL4hP9KO4mcFZtp2qL2zF8AfTfuUz8f_',
   capitulos: '145 + 15 extras'
 },
 
