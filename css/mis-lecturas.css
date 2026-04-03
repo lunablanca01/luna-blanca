@@ -365,4 +365,23 @@ h1{
     font-size:12px;
     padding:4px 8px;
   }
+
+  .grid{
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px;
+  }
+
+  .card{
+    border:2px solid #f3d3d8;
+  }
+
+  .card img{
+    height:170px;
+  }
+
+  .card h3{
+    font-size:14px;
+    margin:3px;
+    -webkit-line-clamp:3;
+  }
 }
