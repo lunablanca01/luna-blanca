@@ -89,10 +89,6 @@ function mostrarLecturas(lecturas) {
         </a>
 
         <h3>${novelaCompleta.titulo}</h3>
-
-        <div class="links-tarjeta">
-          <a href="${novelaCompleta.link}" target="_blank" onclick="event.stopPropagation()">ePub</a>
-        </div>
       `;
     } else {
       divCard.innerHTML = `
