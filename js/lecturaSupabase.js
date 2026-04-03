@@ -40,7 +40,7 @@ async function initLectura(tituloActual) {
         card.querySelector("h3")?.textContent.trim() === tituloActual
       );
 
-      const linkEpub = cardActual?.querySelector(".links-tarjeta a")?.href;
+      const linkEpub = cardActual?.dataset.link;
 
       if (linkEpub) {
         epubContainer.innerHTML = `
