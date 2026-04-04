@@ -1889,9 +1889,9 @@ const novelas = [
   ingles: 'Counterfeit Bride',
   slug: 'Novia_falsa',
   imagen: 'Novia_falsa.jpg',
-  tags: 'danmei pendiente china-antigua gender-bender smut',
+  tags: 'danmei finalizado china-antigua gender-bender smut',
   autor: 'zi-yue',
-  link: 'https://www.novelupdates.com/series/counterfeit-bride/',
+  link: 'https://drive.google.com/drive/u/1/folders/1Cae0TTlTAw28fCnb6N640eKJKc2CB0-v',
   capitulos: '10 + 1 epílogo'
 },
 
