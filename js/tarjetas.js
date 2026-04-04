@@ -910,9 +910,9 @@ const novelas = [
   ingles: 'Seduction Game',
   slug: 'Juego_de_seducción',
   imagen: 'Juego_de_seducción.jpg',
-  tags: 'danmei pendiente moderno malentendidos smut',
+  tags: 'danmei finalizado moderno malentendidos smut',
   autor: 'shi-jiu-chi-cha',
-  link: 'https://www.novelupdates.com/series/seduction-game/',
+  link: 'https://drive.google.com/drive/u/1/folders/1puCxatkYvNDMNuxvgVSJ2mOd6LlQh-4L',
   capitulos: '4'
 },
 
