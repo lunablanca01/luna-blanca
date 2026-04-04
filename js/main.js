@@ -229,7 +229,8 @@ function aplicarFiltros() {
       }
 
       if (filtro === "categoria") {
-        return seleccionados[filtro].every(tag => tags.includes(tag));
+     //   return seleccionados[filtro].every(tag => tags.includes(tag));   --- si quieres que se aplique todos los filtros
+        return seleccionados[filtro].some(tag => tags.includes(tag));
       }
 
       return seleccionados[filtro].some(tag => tags.includes(tag));
