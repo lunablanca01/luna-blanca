@@ -52,7 +52,7 @@ const novelas = [
   ingles: 'The Rebirth of Crazy Ger',
   slug: 'El_renacimiento_del_Ger_loco',
   imagen: 'El_renacimiento_del_Ger_loco.jpg',
-  tags: 'danmei pendiente tribal amnesia ger hombres-bestia matrimonio-arreglado mpreg transmigracion',
+  tags: 'danmei pendiente tribal amnesia ger hombre-bestia matrimonio-arreglado mpreg transmigracion',
   autor: 'mao-niao',
   link: 'https://www.novelupdates.com/series/the-rebirth-of-crazy-ger/',
   capitulos: '177 + 1 extra'
@@ -525,7 +525,7 @@ const novelas = [
   ingles: 'How to Fall in Love with the Villain',
   slug: 'Cómo_enamorarse_del_villano',
   imagen: 'Cómo_enamorarse_del_villano.jpg',
-  tags: 'danmei pendiente multiples-mundos hombres-bestia mpreg multiples-protagonistas transmigracion',
+  tags: 'danmei pendiente multiples-mundos hombre-bestia mpreg multiples-protagonistas transmigracion',
   autor: 'han-zhang-bu-luo',
   link: 'https://www.novelupdates.com/series/how-to-fall-in-love-with-the-villain/',
   capitulos: '84'
@@ -1086,7 +1086,7 @@ const novelas = [
   ingles: 'Transmigrated into a Beast Tribe',
   slug: 'Transmigrado_a_una_tribu_de_bestias',
   imagen: 'Transmigrado_a_una_tribu_de_bestias.jpg',
-  tags: 'danmei pendiente tribal hombres-bestia mpreg ninos slice-of-life transportado-a-otro-mundo',
+  tags: 'danmei pendiente tribal hombre-bestia mpreg ninos slice-of-life transportado-a-otro-mundo',
   autor: 'zise-jingji',
   link: 'https://www.novelupdates.com/series/transmigrated-into-a-beast-tribe/',
   capitulos: '102'
@@ -1097,7 +1097,7 @@ const novelas = [
   ingles: 'Rebirth With The Beast',
   slug: 'Renacimiento_con_la_bestia',
   imagen: 'Renacimiento_con_la_bestia.jpg',
-  tags: 'danmei pendiente tribal hombres-bestia mpreg ninos transmigracion',
+  tags: 'danmei pendiente tribal hombre-bestia mpreg ninos transmigracion',
   autor: 'ye-bu-siyu',
   link: 'https://www.novelupdates.com/series/rebirth-with-the-beast/',
   capitulos: '123 + 4 extras'
@@ -1108,7 +1108,7 @@ const novelas = [
   ingles: 'Silly Spring Attack',
   slug: 'La_primavera_del_tonto_Gong',
   imagen: 'La_primavera_del_tonto_Gong.jpg',
-  tags: 'danmei pendiente tribal hombres-bestia mpreg ninos protagonista-gong slice-of-life transportado-a-otro-mundo',
+  tags: 'danmei pendiente tribal hombre-bestia mpreg ninos protagonista-gong slice-of-life transportado-a-otro-mundo',
   autor: 'yi-luocheng-huo',
   link: 'https://www.novelupdates.com/series/silly-spring-attack/',
   capitulos: '79'
@@ -1119,7 +1119,7 @@ const novelas = [
   ingles: 'Beastman Forcefully Raising a Wife',
   slug: 'Hombre_bestia_criando_a_una_esposa_a_la_fuerza',
   imagen: 'Hombre_bestia_criando_a_una_esposa_a_la_fuerza.jpg',
-  tags: 'danmei pendiente tribal agricultura hombres-bestia no-humano smut transmigracion',
+  tags: 'danmei pendiente tribal agricultura hombre-bestia no-humano smut transmigracion',
   autor: 'tu-douya-er',
   link: 'https://www.novelupdates.com/series/beastman-forcefully-raising-a-wife/',
   capitulos: '110'
@@ -1130,7 +1130,7 @@ const novelas = [
   ingles: 'Crossing to the Primitive',
   slug: 'Cruzando_a_lo_Primitivo',
   imagen: 'Cruzando_a_lo_Primitivo.jpg',
-  tags: 'danmei pendiente tribal comedia hombres-bestia sistema transportado-a-otro-mundo',
+  tags: 'danmei pendiente tribal comedia hombre-bestia sistema transportado-a-otro-mundo',
   autor: 'ye-shen',
   link: 'https://www.novelupdates.com/series/crossing-to-the-primitive/',
   capitulos: '109'
@@ -1185,7 +1185,7 @@ const novelas = [
   ingles: 'Offered Into Marriage',
   slug: 'Ofrecido_en_matrimonio',
   imagen: 'Ofrecido_en_matrimonio.jpg',
-  tags: 'danmei pendiente futurista comedia hombres-bestia inteligencia-artificial mpreg ninos transmigracion',
+  tags: 'danmei pendiente futurista comedia hombre-bestia inteligencia-artificial mpreg ninos transmigracion',
   autor: 'gui-ban-jing',
   link: 'https://www.novelupdates.com/series/offered-into-marriage/',
   capitulos: '160 + 20 extras'
@@ -2329,7 +2329,7 @@ const novelas = [
   ingles: 'A Guide to Raising Your Natural Enemy',
   slug: 'Una_guía_para_criar_a_tu_enemigo_natural',
   imagen: 'Una_guía_para_criar_a_tu_enemigo_natural.jpg',
-  tags: 'danmei finalizado futurista comedia cultivo hombres-bestia maestro-discipulo matrimonio mpreg ninos transportado-a-otro-mundo',
+  tags: 'danmei finalizado futurista comedia cultivo hombre-bestia maestro-discipulo matrimonio mpreg ninos transportado-a-otro-mundo',
   autor: 'jue-jue',
   link: 'https://drive.google.com/drive/u/4/folders/1U3EeONqRhclwzLUFmsB2v6gLpi98ijdx',
   capitulos: '130'
@@ -2659,7 +2659,7 @@ const novelas = [
   ingles: 'Interstellar Rare Species',
   slug: 'Especies_raras_interestelares',
   imagen: 'Especies_raras_interestelares.jpg',
-  tags: 'danmei finalizado futurista discapacidad hombres-bestia matrimonio mpreg transportado-a-otro-mundo',
+  tags: 'danmei finalizado futurista discapacidad hombre-bestia matrimonio mpreg transportado-a-otro-mundo',
   autor: 'hanmen-yatou',
   link: 'https://drive.google.com/drive/u/4/folders/13ku_FokV0XO575-XfopxFE7vDACoRSj5',
   capitulos: '76 + 3 extras'
@@ -2835,7 +2835,7 @@ const novelas = [
   ingles: 'Stone Age Husband Raising Journal',
   slug: 'Diario_de_crianza_del_esposo_de_la_Edad_de_Piedra',
   imagen: 'Diario_de_crianza_del_esposo_de_la_Edad_de_Piedra.jpg',
-  tags: 'danmei finalizado tribal agricultura comedia compromiso-roto cultivo hombres-bestia protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei finalizado tribal agricultura comedia compromiso-roto cultivo hombre-bestia protagonista-gong slice-of-life transmigracion',
   autor: 'jue-jue',
   link: 'https://drive.google.com/drive/u/4/folders/18e32PD6y8n3MGWF75hzZbxpSpdiCEScK',
   capitulos: '161 + 20 extras'
