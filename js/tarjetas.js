@@ -184,7 +184,7 @@ const novelas = [
   ingles: 'It’s Hard for a Villain Character Not to Collapse',
   slug: 'Es_difícil_que_un_personaje_villano_no_colapse',
   imagen: 'Es_difícil_que_un_personaje_villano_no_colapse.jpg',
-  tags: 'danmei pendiente cultivacion bestias cultivo malentendidos sistema transmigracion xuanhuan',
+  tags: 'danmei pendiente cultivacion cultivo hibrido malentendidos sistema transmigracion xuanhuan',
   autor: 'yun-feixie',
   link: 'https://www.novelupdates.com/series/its-hard-for-a-villain-character-not-to-collapse/',
   capitulos: '176 + 2 extras'
@@ -437,7 +437,7 @@ const novelas = [
   ingles: 'It’s Actually Not Easy Wanting to be a Supporting Male Lead',
   slug: 'En_realidad,_no_es_fácil_ser_un_protagonista_masculino_secundario',
   imagen: 'En_realidad,_no_es_fácil_ser_un_protagonista_masculino_secundario.jpg',
-  tags: 'danmei pendiente multiples-mundos bestias cultivo malentendidos no-humano realeza novela-erotica tragedia transmigracion zombies',
+  tags: 'danmei pendiente multiples-mundos cultivo malentendidos no-humano realeza novela-erotica tragedia transmigracion zombies',
   autor: 'mijia',
   link: 'https://www.novelupdates.com/series/its-actually-not-easy-wanting-to-be-a-supporting-male-lead/',
   capitulos: '200 + 5 extras'
@@ -1251,7 +1251,7 @@ const novelas = [
   ingles: 'I Inherited Empire with Fake Pregnancy',
   slug: 'Heredé_el_imperio_con_un_embarazo_falso',
   imagen: 'Heredé_el_imperio_con_un_embarazo_falso.jpg',
-  tags: 'danmei pendiente futurista bestias cultivo malentendidos mpreg transportado-a-otro-mundo',
+  tags: 'danmei pendiente futurista bestia-humanizada cultivo malentendidos mpreg no-humano transportado-a-otro-mundo',
   autor: 'lian-yi',
   link: 'https://www.novelupdates.com/series/i-inherited-empire-with-fake-pregnancy/',
   capitulos: '115 + 10 extras'
@@ -2274,7 +2274,7 @@ const novelas = [
   ingles: 'In the Future, My Whole Body is a Treasure',
   slug: 'En_el_futuro,_todo_mi_cuerpo_es_un_tesoro',
   imagen: 'En_el_futuro,_todo_mi_cuerpo_es_un_tesoro.jpg',
-  tags: 'danmei finalizado futurista comedia cultivo matrimonio-arreglado mpreg ninos no-humano shota transportado-a-otro-mundo',
+  tags: 'danmei finalizado futurista bestia-humanizada comedia cultivo matrimonio-arreglado mpreg ninos no-humano shota transportado-a-otro-mundo',
   autor: 'jue-jue',
   link: 'https://drive.google.com/drive/u/4/folders/19r49bH2_LKRPSR88XdyAPm5-YFFIsyHa',
   capitulos: '120 + 4 extras'
@@ -2670,7 +2670,7 @@ const novelas = [
   ingles: 'In Love',
   slug: 'Enamorado',
   imagen: 'Enamorado.jpg',
-  tags: 'danmei finalizado multiples-mundos amnesia comedia industria-del-entretenimiento omegaverse protagonista-gong transformacion-animal',
+  tags: 'danmei finalizado multiples-mundos amnesia comedia hombre-bestia industria-del-entretenimiento omegaverse protagonista-gong',
   autor: 'jue-jue',
   link: 'https://drive.google.com/drive/u/4/folders/1Z29lrxIhS22-pY3kdKv2GrCsTvxH9F0S',
   capitulos: '195'
@@ -2714,7 +2714,7 @@ const novelas = [
   ingles: 'The White Cat’s Divine Scratching Post',
   slug: 'El_rascador_divino_del_gato_blanco',
   imagen: 'El_rascador_divino_del_gato_blanco.jpg',
-  tags: 'danmei finalizado cultivacion bestia-humanizada comedia cultivo maestro-discipulo mascotas no-humano protagonista-gong novela-erotica xianxia yandere',
+  tags: 'danmei finalizado cultivacion bestia-humanizada comedia cultivo maestro-discipulo mascotas no-humano protagonista-gong r18 transmigracion xianxia yandere',
   autor: 'lu-ye-qian-he',
   link: 'https://drive.google.com/drive/u/4/folders/1VUM7dNvO5VeJn_Z824fTJxdVGbDOE6CR',
   capitulos: '126 + 5 extras'
