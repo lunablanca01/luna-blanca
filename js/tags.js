@@ -32,6 +32,7 @@ const tags = {
   "aristocracia": "Aristocracia",
   "bestia-humanizada": "Bestia Humanizada",
   "bestias": "Bestias",
+  "canibalismo": "Canibalismo",  
   "comedia": "Comedia",
   "compromiso-roto": "Compromiso Roto",
   "cultivo": "Cultivo",
