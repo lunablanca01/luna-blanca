@@ -37,7 +37,7 @@ const tags = {
   "discapacidad": "Discapacidad",
   "drama": "Drama",
   "enemigos-a-amantes": "Enemigos a Amantes",
-  "espectaculo": "Espectáculo",
+  "industria-del-entretenimiento": "Industria del entretenimiento",
   "gender-bender": "Gender Bender",
   "ger": "Ger",
   "harem": "Harem",
@@ -63,12 +63,12 @@ const tags = {
   "realeza": "Realeza",
   "reencarnacion": "Reencarnación",
   "renacimiento": "Renacimiento",
-  "school-life": "School Life",
+  "vida-escolar": "Vida Escolar",
   "shota": "Shota",
   "sirena": "Sirena",
   "sistema": "Sistema",
-  "slice-of-life": "Slice of life",
-  "smut": "Smut",
+  "vida-diaria": "Vida Diaria",
+  "novela-erotica": "Novela Erótica",
   "sobrenatural": "Sobrenatural",
   "terror": "Terror",
   "tragedia": "Tragedia",
@@ -81,6 +81,8 @@ const tags = {
   "xuanhuan": "Xuanhuan",
   "yandere": "Yandere",
   "zerg": "Zerg",
-  "zombies": "Zombies"
+  "zombies": "Zombies",
+  "redencion": "Redención",
+  "abuso": "Abuso"
   }
 };
