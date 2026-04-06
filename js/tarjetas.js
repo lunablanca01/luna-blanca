@@ -1115,17 +1115,6 @@ const novelas = [
 },
 
 {
-  titulo: 'Hombre bestia criando a una esposa a la fuerza',
-  ingles: 'Beastman Forcefully Raising a Wife',
-  slug: 'Hombre_bestia_criando_a_una_esposa_a_la_fuerza',
-  imagen: 'Hombre_bestia_criando_a_una_esposa_a_la_fuerza.jpg',
-  tags: 'danmei pendiente tribal agricultura hombre-bestia no-humano novela-erotica transmigracion',
-  autor: 'tu-douya-er',
-  link: 'https://www.novelupdates.com/series/beastman-forcefully-raising-a-wife/',
-  capitulos: '110'
-},
-
-{
   titulo: 'Cruzando a lo Primitivo',
   ingles: 'Crossing to the Primitive',
   slug: 'Cruzando_a_lo_Primitivo',
