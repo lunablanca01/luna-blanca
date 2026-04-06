@@ -8,7 +8,7 @@ const novelas = [
   ingles: 'After the Male Supporting Role Fell Into My Arms',
   slug: 'Después_de_que_el_papel_secundario_masculino_cayera_en_mis_brazos',
   imagen: 'Después_de_que_el_papel_secundario_masculino_cayera_en_mis_brazos.jpg',
-  tags: 'danmei pendiente multiples-mundos amnesia cultivo espectaculo omegaverse realeza sistema transmigracion',
+  tags: 'danmei pendiente multiples-mundos amnesia cultivo industria-del-entretenimiento omegaverse realeza sistema transmigracion',
   autor: 'cheng-ling',
   link: 'https://www.novelupdates.com/series/after-the-male-supporting-role-fell-into-my-arms/',
   capitulos: '180'
@@ -30,7 +30,7 @@ const novelas = [
   ingles: 'The Farmer Ger in the Apocalypse',
   slug: 'El_granjero_Ger_en_el_apocalipsis',
   imagen: 'El_granjero_Ger_en_el_apocalipsis.jpg',
-  tags: 'danmei pendiente china-antigua agricultura ger mpreg slice-of-life sobrenatural transportado-a-otro-mundo zombies',
+  tags: 'danmei pendiente china-antigua agricultura ger mpreg vida-diaria sobrenatural transportado-a-otro-mundo zombies',
   autor: 'tang-li-jian-dan',
   link: 'https://www.novelupdates.com/series/the-farmer-ger-in-the-apocalypse/',
   capitulos: '189 + 26 extras'
@@ -85,7 +85,7 @@ const novelas = [
   ingles: 'There’s a Beauty [Ancient Wear Modern]',
   slug: 'Hay_una_belleza_[Vestimenta_antigua_moderna]',
   imagen: 'Hay_una_belleza_[Vestimenta_antigua_moderna].jpg',
-  tags: 'danmei pendiente moderno comedia malentendidos matrimonio-arreglado slice-of-life transmigracion',
+  tags: 'danmei pendiente moderno comedia malentendidos matrimonio-arreglado vida-diaria transmigracion',
   autor: 'nian-luan',
   link: 'https://www.novelupdates.com/series/theres-a-beauty-ancient-wear-modern/',
   capitulos: '105 + 6 extras'
@@ -96,7 +96,7 @@ const novelas = [
   ingles: 'Must Spend the Villain’s Money Before He Goes Bankrupt',
   slug: 'Hay_que_gastar_el_dinero_del_villano_antes_de_que_se_declare_en_bancarrota',
   imagen: 'Hay_que_gastar_el_dinero_del_villano_antes_de_que_se_declare_en_bancarrota.jpg',
-  tags: 'danmei pendiente moderno comedia espectaculo malentendidos transmigracion',
+  tags: 'danmei pendiente moderno comedia industria-del-entretenimiento malentendidos transmigracion',
   autor: 'cai-ying',
   link: 'https://www.novelupdates.com/series/must-spend-the-villains-money-before-he-goes-bankrupt/',
   capitulos: '162 + 2 extra'
@@ -129,7 +129,7 @@ const novelas = [
   ingles: 'Transmigrated Into a Scummy Gong Who Pampers His Husband (Farming)',
   slug: 'Transmigrado_a_un_gong_despreciable_que_mima_a_su_marido_(Agricultura)',
   imagen: 'Transmigrado_a_un_gong_despreciable_que_mima_a_su_marido_(Agricultura).jpg',
-  tags: 'danmei pendiente china-antigua mpreg ninos protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei pendiente china-antigua mpreg ninos protagonista-gong vida-diaria transmigracion',
   autor: 'chishang-hong-yi',
   link: 'https://www.novelupdates.com/series/transmigrated-into-a-scummy-gong-who-pampers-his-husband-farming/',
   capitulos: '97 + 1 extra'
@@ -140,7 +140,7 @@ const novelas = [
   ingles: 'Transmigrated into the Primitive Wilderness as a Great God',
   slug: 'Transmigrar_al_desierto_primitivo_como_un_Gran_Dios',
   imagen: 'Transmigrar_al_desierto_primitivo_como_un_Gran_Dios.jpg',
-  tags: 'danmei pendiente tribal comedia matrimonio-arreglado slice-of-life transmigracion',
+  tags: 'danmei pendiente tribal comedia matrimonio-arreglado vida-diaria transmigracion',
   autor: 'da-gou-de-xiao-baozi',
   link: 'https://www.novelupdates.com/series/transmigrated-into-the-primitive-wilderness-as-a-great-god/',
   capitulos: '136 + 7 extras'
@@ -151,7 +151,7 @@ const novelas = [
   ingles: 'Transmigrated to become a Koi Husband',
   slug: 'Transmigrar_para_convertirse_en_esposo_koi',
   imagen: 'Transmigrar_para_convertirse_en_esposo_koi.jpg',
-  tags: 'danmei pendiente china-antigua agricultura amnesia bestias mpreg no-humano slice-of-life transmigracion',
+  tags: 'danmei pendiente china-antigua agricultura amnesia bestias mpreg no-humano vida-diaria transmigracion',
   autor: 'chi-ling',
   link: 'https://www.novelupdates.com/series/transmigrated-to-become-a-koi-husband/',
   capitulos: '137 + 16 extras'
@@ -162,7 +162,7 @@ const novelas = [
   ingles: 'Scumbag Zerg Awakening Records',
   slug: 'Registros_del_despertar_de_los_Zerg_canalla',
   imagen: 'Registros_del_despertar_de_los_Zerg_canalla.jpg',
-  tags: 'danmei pendiente futurista protagonista-gong reencarnacion slice-of-life transmigracion',
+  tags: 'danmei pendiente futurista protagonista-gong reencarnacion vida-diaria transmigracion',
   autor: 'wo-suan-shenme-xiao-binggan',
   link: 'https://www.novelupdates.com/series/scumbag-zerg-awakening-records/',
   capitulos: '127'
@@ -173,7 +173,7 @@ const novelas = [
   ingles: 'Ger, So Proud',
   slug: 'Ger,_tan_orgulloso',
   imagen: 'Ger,_tan_orgulloso.jpg',
-  tags: 'danmei pendiente china-antigua agricultura mpreg protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei pendiente china-antigua agricultura mpreg protagonista-gong vida-diariae transmigracion',
   autor: 'jin-futu',
   link: 'https://www.novelupdates.com/series/ger-so-proud/',
   capitulos: '117 + 2 extras'
@@ -195,7 +195,7 @@ const novelas = [
   ingles: 'My Stuttering Boyfriend',
   slug: 'Mi_novio_tartamudo',
   imagen: 'Mi_novio_tartamudo.jpg',
-  tags: 'danmei pendiente moderno drama slice-of-life smut',
+  tags: 'danmei pendiente moderno drama vida-diaria smut',
   autor: 'duhai-bushi-yisheng',
   link: 'https://www.novelupdates.com/series/my-stuttering-boyfriend/',
   capitulos: '18'
@@ -206,7 +206,7 @@ const novelas = [
   ingles: 'Villain’s Strategy',
   slug: 'Estrategia_del_villano',
   imagen: 'Estrategia_del_villano.jpg',
-  tags: 'danmei pendiente moderno comedia malentendidos school-life sistema transmigracion',
+  tags: 'danmei pendiente moderno comedia malentendidos vida-escolar sistema transmigracion',
   autor: 'luobo-hua-tuzi',
   link: 'https://www.novelupdates.com/series/villains-strategy/',
   capitulos: '96 + 2 extra'
@@ -382,7 +382,7 @@ const novelas = [
   ingles: 'I’ve Got this Cannon Fodder’s Back',
   slug: 'Yo_cubro_las_espaldas_de_esta_carne_de_cañón',
   imagen: 'Yo_cubro_las_espaldas_de_esta_carne_de_cañón.jpg',
-  tags: 'danmei pendiente multiples-mundos comedia sistema slice-of-life transmigracion',
+  tags: 'danmei pendiente multiples-mundos comedia sistema vida-diaria transmigracion',
   autor: 'sanqian-da-meng-xu-pingsheng',
   link: 'https://www.novelupdates.com/series/ive-got-this-cannon-fodders-back/',
   capitulos: '152'
@@ -580,7 +580,7 @@ const novelas = [
   ingles: 'Transmigrating Into The Heartthrob’s Cannon Fodder Childhood Friend',
   slug: 'Transmigrar_en_el_amigo_de_la_infancia_carne_de_cañón_del_rompecorazones',
   imagen: 'Transmigrar_en_el_amigo_de_la_infancia_carne_de_cañón_del_rompecorazones.jpg',
-  tags: 'danmei pendiente moderno comedia school-life sistema transmigracion',
+  tags: 'danmei pendiente moderno comedia vida-escolar sistema transmigracion',
   autor: 'qie-zai-shan-yang',
   link: 'https://www.novelupdates.com/series/transmigrating-into-the-heartthrobs-cannon-fodder-childhood-friend/',
   capitulos: '105 + 1 extra'
@@ -613,7 +613,7 @@ const novelas = [
   ingles: 'Transmigrated As the Ex of the Blind Villain',
   slug: 'Transmigrado_como_el_ex_del_villano_ciego',
   imagen: 'Transmigrado_como_el_ex_del_villano_ciego.jpg',
-  tags: 'danmei pendiente moderno discapacidad matrimonio-arreglado slice-of-life transmigracion',
+  tags: 'danmei pendiente moderno discapacidad matrimonio-arreglado vida-diaria transmigracion',
   autor: 'caolu',
   link: 'https://www.novelupdates.com/series/transmigrated-as-the-ex-of-the-blind-villain/',
   capitulos: '96'
@@ -624,7 +624,7 @@ const novelas = [
   ingles: 'Transmigrated into the Film Emperor’s Death-Seeking Fiance',
   slug: 'Transmigrado_al_prometido_del_emperador_del_cine_que_busca_la_muerte',
   imagen: 'Transmigrado_al_prometido_del_emperador_del_cine_que_busca_la_muerte.jpg',
-  tags: 'danmei pendiente moderno espectaculo matrimonio-arreglado mpreg ninos slice-of-life transmigracion',
+  tags: 'danmei pendiente moderno industria-del-entretenimiento matrimonio-arreglado mpreg ninos vida-diaria transmigracion',
   autor: 'lin-ang-si',
   link: 'https://www.novelupdates.com/series/transmigrated-into-the-film-emperors-death-seeking-fiance/',
   capitulos: '191 + 98 extras'
@@ -635,7 +635,7 @@ const novelas = [
   ingles: 'Transmigrated into a School Idol and Forced to Do Business',
   slug: 'Transmigrado_a_un_ídolo_escolar_y_obligado_a_hacer_negocios',
   imagen: 'Transmigrado_a_un_ídolo_escolar_y_obligado_a_hacer_negocios.jpg',
-  tags: 'danmei pendiente moderno comedia malentendidos school-life sistema transmigracion venganza',
+  tags: 'danmei pendiente moderno comedia malentendidos vida-escolar sistema transmigracion venganza',
   autor: 'yu-wu-xiao-tian-bing',
   link: 'https://www.novelupdates.com/series/transmigrated-into-a-school-idol-and-forced-to-do-business/',
   capitulos: '61 + 1 extra'
@@ -657,7 +657,7 @@ const novelas = [
   ingles: 'Second Love',
   slug: 'Segundo_amor',
   imagen: 'Segundo_amor.jpg',
-  tags: 'danmei pendiente moderno discapacidad matrimonio slice-of-life smut',
+  tags: 'danmei pendiente moderno discapacidad matrimonio vida-diaria smut',
   autor: 'zhi-zhi',
   link: 'https://www.novelupdates.com/series/second-love/',
   capitulos: '11 + 5 extras'
@@ -668,7 +668,7 @@ const novelas = [
   ingles: 'Married the Scum Gong’s Villain Brother',
   slug: 'Se_casó_con_el_hermano_villano_de_la_escoria_Gong',
   imagen: 'Se_casó_con_el_hermano_villano_de_la_escoria_Gong.jpg',
-  tags: 'danmei pendiente moderno matrimonio-arreglado slice-of-life transmigracion',
+  tags: 'danmei pendiente moderno matrimonio-arreglado vida-diaria transmigracion',
   autor: 'guan-hongyi',
   link: 'https://www.novelupdates.com/series/married-the-scum-gongs-villain-brother/',
   capitulos: '84 + 9 extras'
@@ -679,7 +679,7 @@ const novelas = [
   ingles: 'Blooming Romance',
   slug: 'Romance_floreciente',
   imagen: 'Romance_floreciente.jpg',
-  tags: 'danmei pendiente moderno malentendidos mpreg slice-of-life',
+  tags: 'danmei pendiente moderno malentendidos mpreg vida-diaria',
   autor: 'han-shu',
   link: 'https://www.novelupdates.com/series/blooming-romance/',
   capitulos: '111 + 15 extras'
@@ -690,7 +690,7 @@ const novelas = [
   ingles: 'King of Classical Music',
   slug: 'Rey_de_la_música_clásica',
   imagen: 'Rey_de_la_música_clásica.jpg',
-  tags: 'danmei pendiente moderno r18 slice-of-life transmigracion venganza',
+  tags: 'danmei pendiente moderno r18 vida-diaria transmigracion venganza',
   autor: 'mo-chen-huan',
   link: 'https://www.novelupdates.com/series/king-of-classical-music/',
   capitulos: '290 + 22 extras'
@@ -712,7 +712,7 @@ const novelas = [
   ingles: 'Rebirth and Redemption',
   slug: 'Renacimiento_y_redención',
   imagen: 'Renacimiento_y_redención.jpg',
-  tags: 'danmei pendiente moderno protagonista-gong renacimiento school-life',
+  tags: 'danmei pendiente moderno protagonista-gong renacimiento vida-escolar',
   autor: 'yi-ting-mo-tong',
   link: 'https://www.novelupdates.com/series/rebirth-and-redemption/',
   capitulos: '128 + 15 extras'
@@ -734,7 +734,7 @@ const novelas = [
   ingles: 'Reborn as the Villain President’s Cat & Dog',
   slug: 'Renacido_como_el_gato_y_el_perro_del_presidente_villano',
   imagen: 'Renacido_como_el_gato_y_el_perro_del_presidente_villano.jpg',
-  tags: 'danmei pendiente moderno espectaculo mascotas matrimonio renacimiento',
+  tags: 'danmei pendiente moderno industria-del-entretenimiento mascotas matrimonio renacimiento',
   autor: 'lin-ang-si',
   link: 'https://www.novelupdates.com/series/reborn-as-the-villain-presidents-cat-dog/',
   capitulos: '111 + 10 extras'
@@ -756,7 +756,7 @@ const novelas = [
   ingles: 'Reborn with an Old Enemy on the Day of our Marriage',
   slug: 'Renacer_con_un_viejo_enemigo_el_día_de_nuestro_matrimonio',
   imagen: 'Renacer_con_un_viejo_enemigo_el_día_de_nuestro_matrimonio.jpg',
-  tags: 'danmei pendiente moderno comedia matrimonio renacimiento school-life',
+  tags: 'danmei pendiente moderno comedia matrimonio renacimiento vida-escolar',
   autor: 'lin-zhiluo',
   link: 'https://www.novelupdates.com/series/reborn-with-an-old-enemy-on-the-day-of-our-marriage/',
   capitulos: '93 + 11 extras'
@@ -767,7 +767,7 @@ const novelas = [
   ingles: 'Male Lead 2 and Male Lead 3 Happy Ending!',
   slug: 'Protagonista_masculino_2_y_Protagonista_masculino_3_Final_feliz',
   imagen: 'Protagonista_masculino_2_y_Protagonista_masculino_3_Final_feliz.jpg',
-  tags: 'danmei pendiente moderno malentendidos matrimonio slice-of-life transmigracion',
+  tags: 'danmei pendiente moderno malentendidos matrimonio vida-diaria transmigracion',
   autor: 'feng-jiu',
   link: 'https://www.novelupdates.com/series/male-lead-2-and-male-lead-3-happy-ending/',
   capitulos: '64 + 9 extras'
@@ -778,7 +778,7 @@ const novelas = [
   ingles: 'Pay Attention to Me',
   slug: 'Préstame_atención',
   imagen: 'Préstame_atención.jpg',
-  tags: 'danmei pendiente moderno comedia matrimonio omegaverse protagonista-gong school-life smut',
+  tags: 'danmei pendiente moderno comedia matrimonio omegaverse protagonista-gong vida-escolar smut',
   autor: 'bing-kuai-er',
   link: 'https://www.novelupdates.com/series/pay-attention-to-me/',
   capitulos: '113 + 4 extras'
@@ -789,7 +789,7 @@ const novelas = [
   ingles: 'I Don’t Want You To Be Responsible!',
   slug: 'No_quiero_que_seas_responsable',
   imagen: 'No_quiero_que_seas_responsable.jpg',
-  tags: 'danmei pendiente moderno comedia matrimonio mpreg renacimiento slice-of-life',
+  tags: 'danmei pendiente moderno comedia matrimonio mpreg renacimiento vida-diaria',
   autor: 'bei-tang-mo',
   link: 'https://www.novelupdates.com/series/i-dont-want-you-to-be-responsible/',
   capitulos: '204 + 9 extras'
@@ -822,7 +822,7 @@ const novelas = [
   ingles: 'My Old Gong Has Amnesia',
   slug: 'Mi_viejo_gong_tiene_amnesia',
   imagen: 'Mi_viejo_gong_tiene_amnesia.jpg',
-  tags: 'danmei pendiente moderno amnesia comedia espectaculo matrimonio no-humano slice-of-life',
+  tags: 'danmei pendiente moderno amnesia comedia industria-del-entretenimiento matrimonio no-humano vida-diaria',
   autor: 'su-jingxian',
   link: 'https://www.novelupdates.com/series/my-old-gong-has-amnesia/',
   capitulos: '130'
@@ -844,7 +844,7 @@ const novelas = [
   ingles: 'My Husband is Suffering from a Terminal Illness',
   slug: 'Mi_esposo_sufre_de_una_enfermedad_terminal',
   imagen: 'Mi_esposo_sufre_de_una_enfermedad_terminal.jpg',
-  tags: 'danmei pendiente moderno discapacidad espectaculo matrimonio matrimonio-arreglado sistema transmigracion',
+  tags: 'danmei pendiente moderno discapacidad industria-del-entretenimiento matrimonio matrimonio-arreglado sistema transmigracion',
   autor: 'bu-hui-xia-qi',
   link: 'https://www.novelupdates.com/series/my-husband-is-suffering-from-a-terminal-illness/',
   capitulos: '171 + 4 extras'
@@ -866,7 +866,7 @@ const novelas = [
   ingles: 'My Childhood Buddy Keeps Trying To Turn Me Gay',
   slug: 'Mi_amigo_de_la_infancia_sigue_intentando_convertirme_en_gay',
   imagen: 'Mi_amigo_de_la_infancia_sigue_intentando_convertirme_en_gay.jpg',
-  tags: 'danmei pendiente moderno matrimonio slice-of-life',
+  tags: 'danmei pendiente moderno matrimonio vida-diaria',
   autor: 'jiao-hua-qing-jiu',
   link: 'https://www.novelupdates.com/series/my-childhood-buddy-keeps-trying-to-turn-me-gay/',
   capitulos: '5 + 1 extra'
@@ -888,7 +888,7 @@ const novelas = [
   ingles: 'I Ran Away after that Rich Old Man was Pregnant with My Child',
   slug: 'Me_escapé_después_de_que_ese_viejo_rico_quedara_embarazado_de_mi_hijo',
   imagen: 'Me_escapé_después_de_que_ese_viejo_rico_quedara_embarazado_de_mi_hijo.jpg',
-  tags: 'danmei pendiente moderno comedia mpreg protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei pendiente moderno comedia mpreg protagonista-gong vida-diaria transmigracion',
   autor: 'yun-zhi',
   link: 'https://www.novelupdates.com/series/i-ran-away-after-that-rich-old-man-was-pregnant-with-my-child/',
   capitulos: '93'
@@ -921,7 +921,7 @@ const novelas = [
   ingles: 'Red Bean Ice',
   slug: 'Hielo_de_frijol_rojo',
   imagen: 'Hielo_de_frijol_rojo.jpg',
-  tags: 'danmei pendiente moderno comedia espectaculo matrimonio slice-of-life smut',
+  tags: 'danmei pendiente moderno comedia industria-del-entretenimiento matrimonio vida-diaria smut',
   autor: 'yige-mi-bing',
   link: 'https://www.novelupdates.com/series/red-bean-ice/',
   capitulos: '20 + 2 extras'
@@ -943,7 +943,7 @@ const novelas = [
   ingles: 'Strongly Pampered Male Wife',
   slug: 'Esposa_masculina_fuertemente_mimada',
   imagen: 'Esposa_masculina_fuertemente_mimada.jpg',
-  tags: 'danmei pendiente moderno drama matrimonio-arreglado mpreg slice-of-life',
+  tags: 'danmei pendiente moderno drama matrimonio-arreglado mpreg vida-diaria',
   autor: 'chijiao-xia-de-lu',
   link: 'https://www.novelupdates.com/series/strongly-pampered-male-wife/',
   capitulos: '64'
@@ -954,7 +954,7 @@ const novelas = [
   ingles: 'Epiphanies of Rebirth',
   slug: 'Epifanías_del_renacimiento',
   imagen: 'Epifanías_del_renacimiento.jpg',
-  tags: 'danmei pendiente moderno comedia malentendidos matrimonio renacimiento slice-of-life',
+  tags: 'danmei pendiente moderno comedia malentendidos matrimonio renacimiento vida-diaria',
   autor: 'yuan-hegu',
   link: 'https://www.novelupdates.com/series/epiphanies-of-rebirth/',
   capitulos: '85 + 12 extras'
@@ -965,7 +965,7 @@ const novelas = [
   ingles: 'The Film Emperor Asks for Divorce Every Day',
   slug: 'El_emperador_del_cine_pide_el_divorcio_todos_los_días',
   imagen: 'El_emperador_del_cine_pide_el_divorcio_todos_los_días.jpg',
-  tags: 'danmei pendiente moderno comedia espectaculo mpreg transmigracion',
+  tags: 'danmei pendiente moderno comedia industria-del-entretenimiento mpreg transmigracion',
   autor: 'lin-ang-si',
   link: 'https://www.novelupdates.com/series/the-film-emperor-asks-for-divorce-every-day/',
   capitulos: '116 + 8 extras'
@@ -976,7 +976,7 @@ const novelas = [
   ingles: 'Life-Saving Days by the Husky’s Side',
   slug: 'Días_en_que_salvé_mi_vida_al_lado_del_Husky',
   imagen: 'Días_en_que_salvé_mi_vida_al_lado_del_Husky.jpg',
-  tags: 'danmei pendiente moderno comedia mascotas school-life sobrenatural transmigracion yandere',
+  tags: 'danmei pendiente moderno comedia mascotas vida-escolar sobrenatural transmigracion yandere',
   autor: 'yishi-hua-shang',
   link: 'https://www.novelupdates.com/series/life-saving-days-by-the-huskys-side/',
   capitulos: '71 + 4 extras'
@@ -998,7 +998,7 @@ const novelas = [
   ingles: 'After Transmigrating I Made The Antagonist Cry',
   slug: 'Después_de_transmigrar_hice_llorar_al_antagonista',
   imagen: 'Después_de_transmigrar_hice_llorar_al_antagonista.jpg',
-  tags: 'danmei pendiente moderno comedia espectaculo protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei pendiente moderno comedia industria-del-entretenimiento protagonista-gong vida-diaria transmigracion',
   autor: 'qiaomu-li',
   link: 'https://www.novelupdates.com/series/after-transmigrating-i-made-the-antagonist-cry/',
   capitulos: '75 + 3 extras'
@@ -1009,7 +1009,7 @@ const novelas = [
   ingles: 'After Being Transported into a Book, I Adopted the Villain',
   slug: 'Después_de_ser_transportado_a_un_libro,_adopté_al_villano',
   imagen: 'Después_de_ser_transportado_a_un_libro,_adopté_al_villano.jpg',
-  tags: 'danmei pendiente moderno discapacidad slice-of-life transmigracion yandere',
+  tags: 'danmei pendiente moderno discapacidad vida-diaria transmigracion yandere',
   autor: 'tian-ni-xiaomi-zhou',
   link: 'https://www.novelupdates.com/series/after-being-transported-into-a-book-i-adopted-the-villain/',
   capitulos: '86 + 2 extras'
@@ -1031,7 +1031,7 @@ const novelas = [
   ingles: 'After I Possessed the Tmall Genie of the School Adonis',
   slug: 'Después_de_poseer_al_pequeño_genio_del_césped_de_la_escuela',
   imagen: 'Después_de_poseer_al_pequeño_genio_del_césped_de_la_escuela.jpg',
-  tags: 'danmei pendiente moderno comedia school-life sobrenatural',
+  tags: 'danmei pendiente moderno comedia vida-escolar sobrenatural',
   autor: 'lin-ang-si',
   link: 'https://www.novelupdates.com/series/after-i-possessed-the-tmall-genie-of-the-school-adonis/',
   capitulos: '80 + 4 extras'
@@ -1042,7 +1042,7 @@ const novelas = [
   ingles: 'After Becoming a Spare Tire, I Was Targeted by the Villain and the Male Lead at the Same Time',
   slug: 'Después_de_convertirme_en_llanta_de_repuesto,_el_villano_y_el_protagonista_masculino_me_atacaron_al_mismo_tiempo',
   imagen: 'Después_de_convertirme_en_llanta_de_repuesto,_el_villano_y_el_protagonista_masculino_me_atacaron_al_mismo_tiempo.jpg',
-  tags: 'danmei pendiente moderno comedia compromiso-roto enemigos-a-amantes sistema slice-of-life transmigracion yandere',
+  tags: 'danmei pendiente moderno comedia compromiso-roto enemigos-a-amantes sistema vida-diaria transmigracion yandere',
   autor: 'yi-yezi',
   link: 'https://www.novelupdates.com/series/after-becoming-a-spare-tire-i-was-targeted-by-the-villain-and-the-male-lead-at-the-same-time/',
   capitulos: '154'
@@ -1075,7 +1075,7 @@ const novelas = [
   ingles: 'Superstar Aspirations',
   slug: 'Aspiraciones_de_superestrella',
   imagen: 'Aspiraciones_de_superestrella.jpg',
-  tags: 'danmei pendiente moderno espectaculo slice-of-life transmigracion',
+  tags: 'danmei pendiente moderno industria-del-entretenimiento vida-diaria transmigracion',
   autor: 'mo-chen-huan',
   link: 'https://www.novelupdates.com/series/superstar-aspirations/',
   capitulos: '165 + 12 extras'
@@ -1086,7 +1086,7 @@ const novelas = [
   ingles: 'Transmigrated into a Beast Tribe',
   slug: 'Transmigrado_a_una_tribu_de_bestias',
   imagen: 'Transmigrado_a_una_tribu_de_bestias.jpg',
-  tags: 'danmei pendiente tribal hombre-bestia mpreg ninos slice-of-life transportado-a-otro-mundo',
+  tags: 'danmei pendiente tribal hombre-bestia mpreg ninos vida-diaria transportado-a-otro-mundo',
   autor: 'zise-jingji',
   link: 'https://www.novelupdates.com/series/transmigrated-into-a-beast-tribe/',
   capitulos: '102'
@@ -1108,7 +1108,7 @@ const novelas = [
   ingles: 'Silly Spring Attack',
   slug: 'La_primavera_del_tonto_Gong',
   imagen: 'La_primavera_del_tonto_Gong.jpg',
-  tags: 'danmei pendiente tribal hombre-bestia mpreg ninos protagonista-gong slice-of-life transportado-a-otro-mundo',
+  tags: 'danmei pendiente tribal hombre-bestia mpreg ninos protagonista-gong vida-diaria transportado-a-otro-mundo',
   autor: 'yi-luocheng-huo',
   link: 'https://www.novelupdates.com/series/silly-spring-attack/',
   capitulos: '79'
@@ -1229,7 +1229,7 @@ const novelas = [
   ingles: 'Raising a Bun with a Daily Life System',
   slug: 'Levantar_un_bollo_con_un_sistema_de_vida_diaria',
   imagen: 'Levantar_un_bollo_con_un_sistema_de_vida_diaria.jpg',
-  tags: 'danmei pendiente futurista comedia malentendidos mpreg ninos r18 sistema slice-of-life transmigracion',
+  tags: 'danmei pendiente futurista comedia malentendidos mpreg ninos r18 sistema vida-diaria transmigracion',
   autor: 'long-qi',
   link: 'https://www.novelupdates.com/series/raising-a-bun-with-a-daily-life-system/',
   capitulos: '158'
@@ -1273,7 +1273,7 @@ const novelas = [
   ingles: 'Transmigrated Into the Violent Boss’ Little Mermaid',
   slug: 'Transmigrado_a_la_sirenita_del_jefe_violento',
   imagen: 'Transmigrado_a_la_sirenita_del_jefe_violento.jpg',
-  tags: 'danmei pendiente futurista lucha-de-poder matrimonio no-humano sirena sistema slice-of-life transmigracion',
+  tags: 'danmei pendiente futurista lucha-de-poder matrimonio no-humano sirena sistema vida-diaria transmigracion',
   autor: 'xian-sanqian',
   link: 'https://drive.google.com/drive/u/4/folders/1QQANOW_YNXuM1rcKdQe10CJwSc8czXSX',
   capitulos: '106 + 10 extras'
@@ -1295,7 +1295,7 @@ const novelas = [
   ingles: 'The Last Creator',
   slug: 'El_último_creador',
   imagen: 'El_último_creador.jpg',
-  tags: 'danmei pendiente futurista inteligencia-artificial no-humano slice-of-life',
+  tags: 'danmei pendiente futurista inteligencia-artificial no-humano vida-diaria',
   autor: 'biandan-yi-hao',
   link: 'https://www.novelupdates.com/series/the-last-creator/',
   capitulos: '78'
@@ -1317,7 +1317,7 @@ const novelas = [
   ingles: 'The General Loves to Collect Little Red Flowers',
   slug: 'El_general_ama_coleccionar_pequeñas_flores_rojas',
   imagen: 'El_general_ama_coleccionar_pequeñas_flores_rojas.jpg',
-  tags: 'danmei pendiente futurista comedia matrimonio-arreglado mpreg omegaverse slice-of-life transmigracion',
+  tags: 'danmei pendiente futurista comedia matrimonio-arreglado mpreg omegaverse vida-diaria transmigracion',
   autor: 'kun-cheng-xiong-mao',
   link: 'https://www.novelupdates.com/series/the-general-loves-to-collect-little-red-flowers/',
   capitulos: '105 + 6 extras'
@@ -1372,7 +1372,7 @@ const novelas = [
   ingles: 'Back to the Peak',
   slug: 'De_vuelta_a_la_cima',
   imagen: 'De_vuelta_a_la_cima.jpg',
-  tags: 'danmei pendiente futurista bestias cultivo protagonista-gong slice-of-life',
+  tags: 'danmei pendiente futurista bestias cultivo protagonista-gong vida-diaria',
   autor: 'jue-jue',
   link: 'https://www.novelupdates.com/series/back-to-the-peak/',
   capitulos: '167'
@@ -1383,7 +1383,7 @@ const novelas = [
   ingles: 'Yin Yang Eye GunGun’s Marriage Contract',
   slug: 'Contrato_de_matrimonio_de_GunGun_ojos_Yin_Yang',
   imagen: 'Contrato_de_matrimonio_de_GunGun_ojos_Yin_Yang.jpg',
-  tags: 'danmei pendiente futurista comedia cultivo no-humano slice-of-life terror transformacion-animal transmigracion',
+  tags: 'danmei pendiente futurista comedia cultivo no-humano vida-diaria terror transformacion-animal transmigracion',
   autor: 'shui-sensen',
   link: 'https://www.novelupdates.com/series/yin-yang-eye-gunguns-marriage-contract/',
   capitulos: '115'
@@ -1427,7 +1427,7 @@ const novelas = [
   ingles: 'Nurturing the Hero to Avoid Death',
   slug: 'Nutrir_al_héroe_para_evitar_la_muerte',
   imagen: 'Nutrir_al_héroe_para_evitar_la_muerte.jpg',
-  tags: 'danmei pendiente europa-antigua aristocracia comedia punto-de-vista-multiple slice-of-life smut transportado-a-otro-mundo',
+  tags: 'danmei pendiente europa-antigua aristocracia comedia punto-de-vista-multiple vida-diaria smut transportado-a-otro-mundo',
   autor: 'yomogino',
   link: 'https://www.novelupdates.com/series/nurturing-the-hero-to-avoid-death/',
   capitulos: '45 + extras'
@@ -1768,7 +1768,7 @@ const novelas = [
   ingles: 'Traveling Through Ancient Times To Be a Shopkeeper',
   slug: 'Viajar_a_través_de_la_antigüedad_para_ser_comerciante',
   imagen: 'Viajar_a_través_de_la_antigüedad_para_ser_comerciante.jpg',
-  tags: 'danmei finalizado china-antigua ger matrimonio mpreg protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei finalizado china-antigua ger matrimonio mpreg protagonista-gong vida-diaria transmigracion',
   autor: 'yishi-yu',
   link: 'https://drive.google.com/drive/u/1/folders/1tsM0rv9zHbDTNgBGcKwQCQilCUWUw0eS',
   capitulos: '97 + 4 extras'
@@ -1779,7 +1779,7 @@ const novelas = [
   ingles: 'Transmigrating to the Ancient Times with Lu’s Convenience',
   slug: 'Transmigrar_a_la_antigüedad_con_la_conveniencia_de_Lu',
   imagen: 'Transmigrar_a_la_antigüedad_con_la_conveniencia_de_Lu.jpg',
-  tags: 'danmei pendiente china-antigua agricultura ger matrimonio-arreglado mpreg protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei pendiente china-antigua agricultura ger matrimonio-arreglado mpreg protagonista-gong vida-diaria transmigracion',
   autor: 'ye-yiluo',
   link: 'https://www.novelupdates.com/series/transmigrating-to-the-ancient-times-with-lus-convenience/',
   capitulos: '175'
@@ -1801,7 +1801,7 @@ const novelas = [
   ingles: 'Transmigration: The Farm Life of a "Fool"',
   slug: 'Transmigración_la_vida_agrícola_de_un_tonto',
   imagen: 'Transmigración_la_vida_agrícola_de_un_tonto.jpg',
-  tags: 'danmei pendiente china-antigua agricultura ger mpreg ninos protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei pendiente china-antigua agricultura ger mpreg ninos protagonista-gong vida-diaria transmigracion',
   autor: 'zixi',
   link: 'https://www.novelupdates.com/series/transmigration-the-farm-life-of-a-fool/',
   capitulos: '295 + 25 extras'
@@ -1812,7 +1812,7 @@ const novelas = [
   ingles: 'You’ve Got Mail: A Cautionary Tale',
   slug: 'Tienes_un_correo_un_cuento_con_moraleja',
   imagen: 'Tienes_un_correo_un_cuento_con_moraleja.jpg',
-  tags: 'danmei pendiente china-antigua comedia slice-of-life smut',
+  tags: 'danmei pendiente china-antigua comedia vida-diaria smut',
   autor: 'hei-dan-bai',
   link: 'https://www.novelupdates.com/series/youve-got-mail-a-cautionary-tale/',
   capitulos: '106'
@@ -1878,7 +1878,7 @@ const novelas = [
   ingles: 'Little Ger, Slow Life in Another World',
   slug: 'Pequeño_Ger,_vida_lenta_en_otro_mundo',
   imagen: 'Pequeño_Ger,_vida_lenta_en_otro_mundo.jpg',
-  tags: 'danmei pendiente china-antigua agricultura ger mpreg slice-of-life transmigracion',
+  tags: 'danmei pendiente china-antigua agricultura ger mpreg vida-diaria transmigracion',
   autor: 'j112233',
   link: 'https://www.novelupdates.com/series/little-ger-slow-life-in-another-world/',
   capitulos: '80 + 5 extras'
@@ -1911,7 +1911,7 @@ const novelas = [
   ingles: 'You Can’t Be Fierce Towards Me!',
   slug: 'No_puedes_ser_feroz_conmigo',
   imagen: 'No_puedes_ser_feroz_conmigo.jpg',
-  tags: 'danmei pendiente china-antigua comedia renacimiento slice-of-life venganza',
+  tags: 'danmei pendiente china-antigua comedia renacimiento vida-diaria venganza',
   autor: 'xiu-sheng',
   link: 'https://www.novelupdates.com/series/you-cant-be-fierce-towards-me/',
   capitulos: '128 + 3 extras'
@@ -1955,7 +1955,7 @@ const novelas = [
   ingles: 'The Spiritual Plant Master Transmigration',
   slug: 'La_transmigración_del_maestro_de_la_planta_espiritual',
   imagen: 'La_transmigración_del_maestro_de_la_planta_espiritual.jpg',
-  tags: 'danmei pendiente china-antigua agricultura cultivo mpreg ninos protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei pendiente china-antigua agricultura cultivo mpreg ninos protagonista-gong vida-diaria transmigracion',
   autor: 'ye-yiluo',
   link: 'https://www.novelupdates.com/series/the-spiritual-plant-master-transmigration/',
   capitulos: '397'
@@ -1966,7 +1966,7 @@ const novelas = [
   ingles: 'Transmigration of Mian [Reluctantly] Becomes His Man [Wife]',
   slug: 'La_transmigración_de_Mian_[a_regañadientes]_se_convierte_en_su_hombre_[esposa]',
   imagen: 'La_transmigración_de_Mian_[a_regañadientes]_se_convierte_en_su_hombre_[esposa].jpg',
-  tags: 'danmei pendiente china-antigua agricultura cultivo mpreg ninos slice-of-life transmigracion',
+  tags: 'danmei pendiente china-antigua agricultura cultivo mpreg ninos vida-diaria transmigracion',
   autor: 'lianxi-ningmou',
   link: 'https://www.novelupdates.com/series/transmigration-of-mian-reluctantly-becomes-his-man-wife/',
   capitulos: '222'
@@ -1988,7 +1988,7 @@ const novelas = [
   ingles: 'Earning a Living, Taking Examinations, and Supporting the Family Through the Rural Imperial Examinations System',
   slug: 'Ganarse_la_vida,_realizar_exámenes_y_apoyar_a_la_familia_a_través_del_sistema_de_exámenes_imperial_rural',
   imagen: 'Ganarse_la_vida,_realizar_exámenes_y_apoyar_a_la_familia_a_través_del_sistema_de_exámenes_imperial_rural.jpg',
-  tags: 'danmei pendiente china-antigua agricultura comedia ger mpreg slice-of-life transmigracion',
+  tags: 'danmei pendiente china-antigua agricultura comedia ger mpreg vida-diaria transmigracion',
   autor: 'tu-yue-guan',
   link: 'https://www.novelupdates.com/series/earning-a-living-taking-examinations-and-supporting-the-family-through-the-rural-imperial-examinations-system/',
   capitulos: '170 + 13 extras'
@@ -2032,7 +2032,7 @@ const novelas = [
   ingles: 'The Sweet Little Fulang',
   slug: 'El_pequeño_y_dulce_Fulang',
   imagen: 'El_pequeño_y_dulce_Fulang.jpg',
-  tags: 'danmei pendiente china-antigua agricultura ger matrimonio-arreglado mpreg slice-of-life',
+  tags: 'danmei pendiente china-antigua agricultura ger matrimonio-arreglado mpreg vida-diaria',
   autor: 'cha-chacha',
   link: 'https://www.novelupdates.com/series/the-sweet-little-fulang/',
   capitulos: '230'
@@ -2054,7 +2054,7 @@ const novelas = [
   ingles: 'The Culinary Tycoon',
   slug: 'El_magnate_culinario',
   imagen: 'El_magnate_culinario.jpg',
-  tags: 'danmei pendiente china-antigua agricultura mpreg protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei pendiente china-antigua agricultura mpreg protagonista-gong vida-diaria transmigracion',
   autor: 'fanchen-pian-ye',
   link: 'https://www.novelupdates.com/series/the-culinary-tycoon/',
   capitulos: '161 + 10 extras'
@@ -2109,7 +2109,7 @@ const novelas = [
   ingles: 'After Cannon Fodder Gong Started Farming, He Had HE With the Cold Male Protagonist',
   slug: 'Después_de_que_el_Gong_carne_de_cañon_comenzara_a_cultivar,_tuvo_HE_con_el_protagonista_masculino_frío',
   imagen: 'Después_de_que_el_Gong_carne_de_cañon_comenzara_a_cultivar,_tuvo_HE_con_el_protagonista_masculino_frío.jpg',
-  tags: 'danmei pendiente china-antigua discapacidad mpreg protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei pendiente china-antigua discapacidad mpreg protagonista-gong vida-diaria transmigracion',
   autor: 'dan-xueqing',
   link: 'https://www.novelupdates.com/series/after-cannon-fodder-gong-started-farming-he-had-he-with-the-cold-male-protagonist/',
   capitulos: '111 + 4 extras'
@@ -2131,7 +2131,7 @@ const novelas = [
   ingles: 'My Cherry Will Explode in the Apocalypse',
   slug: 'Mi_cereza_explotará_en_el_Apocalipsis',
   imagen: 'Mi_cereza_explotará_en_el_Apocalipsis.jpg',
-  tags: 'danmei pendiente apocalipsis renacimiento slice-of-life zombies',
+  tags: 'danmei pendiente apocalipsis renacimiento vida-diaria zombies',
   autor: 'yan-chu',
   link: 'https://www.novelupdates.com/series/my-cherry-will-explode-in-the-apocalypse/',
   capitulos: '112 + 1 extra'
@@ -2153,7 +2153,7 @@ const novelas = [
   ingles: 'The Rebirth of the Last Days and Return to [Fang] Hao',
   slug: 'El_renacimiento_de_los_últimos_días_y_el_regreso_de_[Fang]_Hao',
   imagen: 'El_renacimiento_de_los_últimos_días_y_el_regreso_de_[Fang]_Hao.jpg',
-  tags: 'danmei pendiente apocalipsis protagonista-gong renacimiento slice-of-life zombies',
+  tags: 'danmei pendiente apocalipsis protagonista-gong renacimiento vida-diaria zombies',
   autor: 'nuan-he',
   link: 'https://www.novelupdates.com/series/the-rebirth-of-the-last-days-and-return-to-fang-hao/',
   capitulos: '200 + 1 extra'
@@ -2175,7 +2175,7 @@ const novelas = [
   ingles: 'Back to the Apocalypse: The Rebirth of Bai Jing',
   slug: 'De_vuelta_al_Apocalipsis_El_renacimiento_de_Bai_Jing',
   imagen: 'De_vuelta_al_Apocalipsis_El_renacimiento_de_Bai_Jing.jpg',
-  tags: 'danmei pendiente apocalipsis protagonista-op r18 renacimiento slice-of-life yandere zombies',
+  tags: 'danmei pendiente apocalipsis protagonista-op r18 renacimiento vida-diaria yandere zombies',
   autor: 'ye-yo',
   link: 'https://www.novelupdates.com/series/back-to-the-apocalypse/',
   capitulos: '130 + 3 extras'
@@ -2197,7 +2197,7 @@ const novelas = [
   ingles: 'Back to the Countryside',
   slug: 'De_vuelta_al_campo',
   imagen: 'De_vuelta_al_campo.jpg',
-  tags: 'danmei finalizado china-antigua agricultura ger matrimonio mpreg protagonista-gong slice-of-life',
+  tags: 'danmei finalizado china-antigua agricultura ger matrimonio mpreg protagonista-gong vida-diaria',
   autor: 'bei-ming-chi',
   link: 'https://drive.google.com/drive/u/4/folders/1eSU_oQRfmYBKDchkDlzfKZlAy24wmOyu',
   capitulos: '98'
@@ -2208,7 +2208,7 @@ const novelas = [
   ingles: 'The Infatuated Second Male Lead Doesn’t Exist [Transmigration into Book]',
   slug: 'El_segundo_protagonista_masculino_enamorado_no_existe_[Transmigración_al_libro]',
   imagen: 'El_segundo_protagonista_masculino_enamorado_no_existe_[Transmigración_al_libro].jpg',
-  tags: 'danmei finalizado moderno discapacidad drama espectaculo protagonista-gong transmigracion',
+  tags: 'danmei finalizado moderno discapacidad drama industria-del-entretenimiento protagonista-gong transmigracion',
   autor: 'bei-ming-chi',
   link: 'https://drive.google.com/drive/u/4/folders/1cvdSERxyc98zbEzwwtvUTXXyf_ssShyT',
   capitulos: '88 + 2 extras'
@@ -2219,7 +2219,7 @@ const novelas = [
   ingles: 'How To Say I Love You',
   slug: 'Cómo_decir_Te_amo',
   imagen: 'Cómo_decir_Te_amo.jpg',
-  tags: 'danmei finalizado moderno drama espectaculo r18',
+  tags: 'danmei finalizado moderno drama industria-del-entretenimiento r18',
   autor: 'feng-liu-shu-dai',
   link: 'https://drive.google.com/drive/u/4/folders/1Z_DrP3bBM74J2Jv54MdGwt0XWtN0SkA7',
   capitulos: '136 + 1 extra'
@@ -2241,7 +2241,7 @@ const novelas = [
   ingles: 'After the Twin Husbands Swapped Lives',
   slug: 'Después_de_que_los_maridos_gemelos_intercambiaron_sus_vidas',
   imagen: 'Después_de_que_los_maridos_gemelos_intercambiaron_sus_vidas.jpg',
-  tags: 'danmei en-proceso china-antigua agricultura ger matrimonio-arreglado mpreg slice-of-life',
+  tags: 'danmei en-proceso china-antigua agricultura ger matrimonio-arreglado mpreg vida-diaria',
   autor: 'yu-chun',
   link: 'https://drive.google.com/drive/u/4/folders/1hV4WxOGqw-HxSgTX-WebDvIF6eKepRVi',
   capitulos: '203 + 64 extras'
@@ -2340,7 +2340,7 @@ const novelas = [
   ingles: 'Transmigrated into a Blacksmith’s Husband',
   slug: 'Transmigrado_en_el_esposo_de_un_herrero',
   imagen: 'Transmigrado_en_el_esposo_de_un_herrero.jpg',
-  tags: 'danmei finalizado china-antigua agricultura ger matrimonio-arreglado mpreg slice-of-life transmigracion',
+  tags: 'danmei finalizado china-antigua agricultura ger matrimonio-arreglado mpreg vida-diaria transmigracion',
   autor: 'yao-zhi',
   link: 'https://drive.google.com/drive/u/4/folders/1qmHQP4TubAuT7yOpr-U3-OxwbyeDJoj6',
   capitulos: '60'
@@ -2384,7 +2384,7 @@ const novelas = [
   ingles: 'Rebirth of the Wolfish Silkpants Bottom',
   slug: 'Renacimiento_del_pequeño_lobo_Shou_de_pantalones_de_seda',
   imagen: 'Renacimiento_del_pequeño_lobo_Shou_de_pantalones_de_seda.jpg',
-  tags: 'danmei finalizado moderno drama r18 renacimiento shota slice-of-life venganza',
+  tags: 'danmei finalizado moderno drama r18 renacimiento shota vida-diaria venganza',
   autor: 'xiangchang-jun',
   link: 'https://drive.google.com/drive/u/4/folders/12npI2_1TZZ54wWHKRtv_UOyss9R11i6L',
   capitulos: '151 + 2 extras'
@@ -2395,7 +2395,7 @@ const novelas = [
   ingles: 'Rebirth of a Movie Star',
   slug: 'Renacimiento_de_una_estrella_de_cine',
   imagen: 'Renacimiento_de_una_estrella_de_cine.jpg',
-  tags: 'danmei finalizado moderno drama espectaculo ninos renacimiento slice-of-life',
+  tags: 'danmei finalizado moderno drama industria-del-entretenimiento ninos renacimiento vida-diaria',
   autor: 'j112233',
   link: 'https://drive.google.com/drive/u/4/folders/1tHhEvjY1MzMTYrdlChtzYGNPZtQhj4DW',
   capitulos: '61 + 6 extras'
@@ -2428,7 +2428,7 @@ const novelas = [
   ingles: 'Beloved Husband',
   slug: 'Querido_esposo',
   imagen: 'Querido_esposo.jpg',
-  tags: 'danmei finalizado multiples-mundos amnesia comedia protagonista-gong protagonista-op slice-of-life',
+  tags: 'danmei finalizado multiples-mundos amnesia comedia protagonista-gong protagonista-op vida-diaria',
   autor: 'jue-jue',
   link: 'https://drive.google.com/drive/u/4/folders/1N_FUeIf1eRokBG5uHJ2x6IOOdO2hFhbE',
   capitulos: '257'
@@ -2472,7 +2472,7 @@ const novelas = [
   ingles: 'Foolish Omega Bound to the Rewind System',
   slug: 'Omega_tonto_atado_al_sistema_de_rebobinado',
   imagen: 'Omega_tonto_atado_al_sistema_de_rebobinado.jpg',
-  tags: 'danmei finalizado moderno comedia omegaverse sistema slice-of-life transmigracion',
+  tags: 'danmei finalizado moderno comedia omegaverse sistema vida-diaria transmigracion',
   autor: 'mao-qiu-qiu',
   link: 'https://drive.google.com/drive/u/4/folders/1w5n48SLBsFRHAzIt_v_QYdi5iqT0U5Lr',
   capitulos: '85 + 9 extras + 3 bonos'
@@ -2494,7 +2494,7 @@ const novelas = [
   ingles: 'Don’t You Like Me',
   slug: 'No_te_gusto',
   imagen: 'No_te_gusto.jpg',
-  tags: 'danmei finalizado moderno comedia malentendidos school-life sobrenatural',
+  tags: 'danmei finalizado moderno comedia malentendidos vida-escolar sobrenatural',
   autor: 'lu-tianyi',
   link: 'https://drive.google.com/drive/u/4/folders/197sDfbOt_HRJ7jsnqwhRDh9XlTnxG7Uu',
   capitulos: '80 + 18 extras'
@@ -2505,7 +2505,7 @@ const novelas = [
   ingles: 'I’m Not Human',
   slug: 'No_soy_humano',
   imagen: 'No_soy_humano.jpg',
-  tags: 'danmei finalizado futurista comedia no-humano protagonista-op reencarnacion slice-of-life zerg',
+  tags: 'danmei finalizado futurista comedia no-humano protagonista-op reencarnacion vida-diaria zerg',
   autor: 'jiuyi',
   link: 'https://drive.google.com/drive/u/4/folders/1PBu_SoysVWM0j_TdNQ4RbwUWugjuJKBJ',
   capitulos: '87 + 8 extras'
@@ -2549,7 +2549,7 @@ const novelas = [
   ingles: 'Husband, Let Me Touch Your Abs',
   slug: 'Marido,_déjame_tocar_tus_abdominales',
   imagen: 'Marido,_déjame_tocar_tus_abdominales.jpg',
-  tags: 'danmei finalizado china-antigua agricultura ger mpreg ninos r18 slice-of-life transmigracion',
+  tags: 'danmei finalizado china-antigua agricultura ger mpreg ninos r18 vida-diaria transmigracion',
   autor: '998',
   link: 'https://drive.google.com/drive/u/4/folders/1N6RtIcB2OIfxnWFZiyPDu9736KQEtsKL',
   capitulos: '150 + 49 extras'
@@ -2560,7 +2560,7 @@ const novelas = [
   ingles: 'Accidental Mark',
   slug: 'Marca_accidental',
   imagen: 'Marca_accidental.jpg',
-  tags: 'danmei finalizado moderno comedia espectaculo omegaverse protagonista-gong sistema slice-of-life transmigracion',
+  tags: 'danmei finalizado moderno comedia industria-del-entretenimiento omegaverse protagonista-gong sistema vida-diaria transmigracion',
   autor: 'die-zhiling',
   link: 'https://drive.google.com/drive/u/4/folders/10rYXUKKiqRciwxnl7NFIGkE1ME9Fcd6Y',
   capitulos: '84 + 11 extras'
@@ -2604,7 +2604,7 @@ const novelas = [
   ingles: 'The Sick Beauty Marries a Fellow Townsman Who Transmigrated into a Book',
   slug: 'La_belleza_enferma_se_casa_con_un_ciudadano_que_transmigró_en_un_libro',
   imagen: 'La_belleza_enferma_se_casa_con_un_ciudadano_que_transmigró_en_un_libro.jpg',
-  tags: 'danmei finalizado china-antigua comedia lucha-de-poder malentendidos matrimonio-arreglado punto-de-vista-multiple realeza slice-of-life transmigracion venganza',
+  tags: 'danmei finalizado china-antigua comedia lucha-de-poder malentendidos matrimonio-arreglado punto-de-vista-multiple realeza vida-diaria transmigracion venganza',
   autor: 'zeda',
   link: 'https://drive.google.com/drive/u/4/folders/1Ddjo3SFV5cjp5LfKivaiMBMeDPblpvrR',
   capitulos: '81 + 4 extras'
@@ -2637,7 +2637,7 @@ const novelas = [
   ingles: 'Home of the Zerg',
   slug: 'Hogar_de_los_zerg',
   imagen: 'Hogar_de_los_zerg.jpg',
-  tags: 'danmei finalizado futurista matrimonio mpreg ninos no-humano protagonista-gong slice-of-life transmigracion zerg',
+  tags: 'danmei finalizado futurista matrimonio mpreg ninos no-humano protagonista-gong vida-diaria transmigracion zerg',
   autor: 'heng-heng',
   link: 'https://drive.google.com/drive/u/4/folders/1Np_fp34kMWUeoIblm0rmvWmFV6GC6KcX',
   capitulos: '45 + 12 extras'
@@ -2670,7 +2670,7 @@ const novelas = [
   ingles: 'In Love',
   slug: 'Enamorado',
   imagen: 'Enamorado.jpg',
-  tags: 'danmei finalizado multiples-mundos amnesia comedia espectaculo omegaverse protagonista-gong transformacion-animal',
+  tags: 'danmei finalizado multiples-mundos amnesia comedia industria-del-entretenimiento omegaverse protagonista-gong transformacion-animal',
   autor: 'jue-jue',
   link: 'https://drive.google.com/drive/u/4/folders/1Z29lrxIhS22-pY3kdKv2GrCsTvxH9F0S',
   capitulos: '195'
@@ -2681,7 +2681,7 @@ const novelas = [
   ingles: 'The Only Favourite Ugly Husband',
   slug: 'El_único_marido_feo_favorito',
   imagen: 'El_único_marido_feo_favorito.jpg',
-  tags: 'danmei finalizado china-antigua agricultura ger matrimonio ninos protagonista-gong slice-of-life',
+  tags: 'danmei finalizado china-antigua agricultura ger matrimonio ninos protagonista-gong vida-diaria',
   autor: 'jue-jue',
   link: 'https://drive.google.com/drive/u/4/folders/1OvnvHyK7yQpTu6_vDnC4i1IWkpNtlohl',
   capitulos: '180'
@@ -2692,7 +2692,7 @@ const novelas = [
   ingles: 'The Foolish Gong was Reborn',
   slug: 'El_tonto_gong_renació',
   imagen: 'El_tonto_gong_renació.jpg',
-  tags: 'danmei finalizado moderno comedia matrimonio protagonista-gong renacimiento school-life',
+  tags: 'danmei finalizado moderno comedia matrimonio protagonista-gong renacimiento vida-escolar',
   autor: 'duo-jin-shaonu-mao',
   link: 'https://drive.google.com/drive/u/4/folders/1MkRt4bdx6oYvIjiiOKiUaPD-J8w7zrzM',
   capitulos: '119 + 7 extras'
@@ -2813,7 +2813,7 @@ const novelas = [
   ingles: 'The Reborn Otaku’s Code of Practice for the Apocalypse',
   slug: 'El_código_de_práctica_del_Otaku_Renacido_para_el_Apocalipsis',
   imagen: 'El_código_de_práctica_del_Otaku_Renacido_para_el_Apocalipsis.jpg',
-  tags: 'danmei finalizado apocalipsis agricultura comedia renacimiento slice-of-life zombies',
+  tags: 'danmei finalizado apocalipsis agricultura comedia renacimiento vida-diaria zombies',
   autor: 'warm-charge',
   link: 'https://drive.google.com/drive/u/4/folders/1EGLuxZ8TRZ_QUkUke-r6oGunvcR-BySv',
   capitulos: '259'
@@ -2835,7 +2835,7 @@ const novelas = [
   ingles: 'Stone Age Husband Raising Journal',
   slug: 'Diario_de_crianza_del_esposo_de_la_Edad_de_Piedra',
   imagen: 'Diario_de_crianza_del_esposo_de_la_Edad_de_Piedra.jpg',
-  tags: 'danmei finalizado tribal agricultura comedia compromiso-roto cultivo hombre-bestia protagonista-gong slice-of-life transmigracion',
+  tags: 'danmei finalizado tribal agricultura comedia compromiso-roto cultivo hombre-bestia protagonista-gong vida-diaria transmigracion',
   autor: 'jue-jue',
   link: 'https://drive.google.com/drive/u/4/folders/18e32PD6y8n3MGWF75hzZbxpSpdiCEScK',
   capitulos: '161 + 20 extras'
@@ -2912,7 +2912,7 @@ const novelas = [
   ingles: 'Paper Lover',
   slug: 'Amante_del_papel',
   imagen: 'Amante_del_papel.jpg',
-  tags: 'danmei finalizado moderno amnesia comedia inteligencia-artificial protagonista-gong slice-of-life',
+  tags: 'danmei finalizado moderno amnesia comedia inteligencia-artificial protagonista-gong vida-diaria',
   autor: 'chu-hanyi-qing',
   link: 'https://drive.google.com/drive/u/4/folders/1I4vkkGOZnE46V5141G7rpUIkXFlgjlcr',
   capitulos: '119 + 6 extras'
