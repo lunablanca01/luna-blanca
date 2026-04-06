@@ -1372,7 +1372,7 @@ const novelas = [
   ingles: 'Back to the Peak',
   slug: 'De_vuelta_a_la_cima',
   imagen: 'De_vuelta_a_la_cima.jpg',
-  tags: 'danmei pendiente futurista bestias cultivo protagonista-gong vida-diaria',
+  tags: 'danmei pendiente futurista cultivo protagonista-gong vida-diaria',
   autor: 'jue-jue',
   link: 'https://www.novelupdates.com/series/back-to-the-peak/',
   capitulos: '167'
@@ -1383,7 +1383,7 @@ const novelas = [
   ingles: 'Yin Yang Eye GunGun’s Marriage Contract',
   slug: 'Contrato_de_matrimonio_de_GunGun_ojos_Yin_Yang',
   imagen: 'Contrato_de_matrimonio_de_GunGun_ojos_Yin_Yang.jpg',
-  tags: 'danmei pendiente futurista comedia cultivo no-humano vida-diaria terror transformacion-animal transmigracion',
+  tags: 'danmei pendiente futurista bestia-humanizada comedia cultivo no-humano vida-diaria terror transmigracion',
   autor: 'shui-sensen',
   link: 'https://www.novelupdates.com/series/yin-yang-eye-gunguns-marriage-contract/',
   capitulos: '115'
@@ -2758,7 +2758,7 @@ const novelas = [
   ingles: 'The Reader and Protagonist Definitely Have to Be in True Love',
   slug: 'El_lector_y_el_protagonista_definitivamente_tienen_que_estar_en_un_amor_verdadero',
   imagen: 'El_lector_y_el_protagonista_definitivamente_tienen_que_estar_en_un_amor_verdadero.jpg',
-  tags: 'danmei finalizado fantasia comedia discapacidad no-humano novela-erotica transportado-a-otro-mundo yandere',
+  tags: 'danmei finalizado fantasia comedia discapacidad hibrido novela-erotica transportado-a-otro-mundo yandere',
   autor: 'tui',
   link: 'https://drive.google.com/drive/u/4/folders/1NL9uB9ycejHqiZJGZQ4_ezvGIYC0G65U',
   capitulos: '93 + 3 extras'
@@ -2791,7 +2791,7 @@ const novelas = [
   ingles: 'The Zombie Emperor’s Domesticated Cat',
   slug: 'El_gato_domesticado_del_emperador_zombi',
   imagen: 'El_gato_domesticado_del_emperador_zombi.jpg',
-  tags: 'danmei finalizado apocalipsis cultivo mascotas no-humano renacimiento sobrenatural transformacion-animal zombies',
+  tags: 'danmei finalizado apocalipsis bestia-humanizada cultivo mascotas no-humano reencarnacion sobrenatural transformacion-animal zombies',
   autor: 'shuishan',
   link: 'https://drive.google.com/drive/u/4/folders/1xS1P0fKoxmsGdgFDHn6uKq5T3afCEDKU',
   capitulos: '95 + 2 extras'
@@ -2802,7 +2802,7 @@ const novelas = [
   ingles: 'The Dragon and the "Princess"',
   slug: 'El_Dragón_y_la_Princesa',
   imagen: 'El_Dragón_y_la_Princesa.jpg',
-  tags: 'danmei finalizado europa-antigua gender-bender mpreg no-humano novela-erotica realeza',
+  tags: 'danmei finalizado europa-antigua bestia-humanizada gender-bender mpreg no-humano novela-erotica realeza',
   autor: 'some-wailing',
   link: 'https://drive.google.com/drive/u/4/folders/1V3YQazpGXUbK3WJW7lsozuzaxbwKQmj1',
   capitulos: '10'
