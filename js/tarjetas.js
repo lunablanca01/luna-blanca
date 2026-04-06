@@ -1515,7 +1515,7 @@ const novelas = [
   ingles: 'The Devil’s Origin',
   slug: 'El_origen_del_diablo',
   imagen: 'El_origen_del_diablo.jpg',
-  tags: 'danmei pendiente fantasia bestias harem ninos no-humano shota sistema novela-erotica transmigracion',
+  tags: 'danmei pendiente fantasia abuso bestia-humanizada bestias harem ninos no-humano shota sistema novela-erotica transmigracion',
   autor: 'misheng',
   link: 'https://www.novelupdates.com/series/the-devils-origin/',
   capitulos: '110 (Abandonado)'
@@ -1713,7 +1713,7 @@ const novelas = [
   ingles: 'The Two-Tailed Little Fox Demon and His Taoist Priest Gong',
   slug: 'El_pequeño_demonio_zorro_de_dos_colas_y_su_sacerdote_taoísta_Gong',
   imagen: 'El_pequeño_demonio_zorro_de_dos_colas_y_su_sacerdote_taoísta_Gong.jpg',
-  tags: 'danmei pendiente cultivacion bestias cultivo no-humano novela-erotica xianxia',
+  tags: 'danmei pendiente cultivacion bestia-humanizada cultivo no-humano novela-erotica xianxia',
   autor: 'liulian-qiaokeli',
   link: 'https://www.novelupdates.com/series/the-two-tailed-little-fox-demon-and-his-taoist-priest-gong/',
   capitulos: '56 + 3 extras'
@@ -2714,7 +2714,7 @@ const novelas = [
   ingles: 'The White Cat’s Divine Scratching Post',
   slug: 'El_rascador_divino_del_gato_blanco',
   imagen: 'El_rascador_divino_del_gato_blanco.jpg',
-  tags: 'danmei finalizado cultivacion bestias comedia cultivo maestro-discipulo mascotas no-humano protagonista-gong novela-erotica xianxia yandere',
+  tags: 'danmei finalizado cultivacion bestia-humanizada comedia cultivo maestro-discipulo mascotas no-humano protagonista-gong novela-erotica xianxia yandere',
   autor: 'lu-ye-qian-he',
   link: 'https://drive.google.com/drive/u/4/folders/1VUM7dNvO5VeJn_Z824fTJxdVGbDOE6CR',
   capitulos: '126 + 5 extras'
@@ -2725,7 +2725,7 @@ const novelas = [
   ingles: 'The Disabled Tyrant’s Pet Palm Fish [Transmigration]',
   slug: 'El_pez_palmera_mascota_del_tirano_discapacitado_[Transmigración]',
   imagen: 'El_pez_palmera_mascota_del_tirano_discapacitado_[Transmigración].jpg',
-  tags: 'danmei finalizado china-antigua comedia discapacidad lucha-de-poder mascotas matrimonio mpreg ninos no-humano realeza sistema transformacion-animal transmigracion',
+  tags: 'danmei finalizado china-antigua bestia-humanizada comedia discapacidad lucha-de-poder mascotas matrimonio mpreg ninos no-humano realeza sistema transformacion-animal transmigracion',
   autor: 'xueshan-fei-hu',
   link: 'https://drive.google.com/drive/u/4/folders/1nA6cgtLV78sHemShM8oLYfwRx9XGR0gZ',
   capitulos: '156'
