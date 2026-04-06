@@ -138,7 +138,7 @@ const tagInfo = {
   "terror": "Historia diseñada para provocar miedo, ansiedad o tensión, con elementos oscuros, amenazas, monstruos o situaciones que ponen en riesgo la seguridad o cordura de los personajes.",
   "tragedia": "Historia donde los eventos conducen a desenlaces desafortunados o dolorosos para los personajes. El sufrimiento, la pérdida y la fatalidad son elementos centrales.",
   "transformacion-animal": "Personaje que experimenta un cambio físico hacia un animal o adquiere rasgos animales de forma temporal o permanente. Esto puede ser voluntario o forzado por magia, sistema, técnica, etc.",
-  "transmigracion": "El protagonista es trasladado a otro cuerpo o mundo, manteniendo su conciencia original. A diferencia de la reencarnación, no comienza desde el nacimiento, sino que ocupa directamente otro cuerpo o identidad.",
+  "transmigracion": "El protagonista es trasladado a otro cuerpo o identidad, manteniendo su conciencia original. A diferencia de la reencarnación, no comienza desde el nacimiento, sino que ocupa directamente otro cuerpo o identidad.",
   "transportado-a-otro-mundo": "El protagonista es llevado a otro mundo con su propio cuerpo, sin cambiar de identidad. Debe adaptarse a un entorno completamente nuevo conservando su apariencia.",
   "venganza": "La historia gira en torno a un personaje que busca justicia, retribución o venganza por un daño, traición o injusticia recibida. Este conflicto impulsa la trama y puede combinarse con romance o drama.",
   "vida-diaria": "Historias centradas en la vida cotidiana, mostrando situaciones comunes, rutinas o relaciones de los personajes sin elementos extraordinarios.",
