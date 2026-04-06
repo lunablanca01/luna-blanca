@@ -107,7 +107,7 @@ const novelas = [
   ingles: 'Marshal’s Pregnant Little Mermaid',
   slug: 'La_sirenita_embarazada_del_Mariscal',
   imagen: 'La_sirenita_embarazada_del_Mariscal.jpg',
-  tags: 'danmei pendiente futurista mpreg sirena transmigracion',
+  tags: 'danmei pendiente futurista mpreg no-humano sirena transmigracion',
   autor: 'yan-liu-ruo-yun',
   link: 'https://www.novelupdates.com/series/marshals-pregnant-little-mermaid/',
   capitulos: '123 + 11 extras'
@@ -151,7 +151,7 @@ const novelas = [
   ingles: 'Transmigrated to become a Koi Husband',
   slug: 'Transmigrar_para_convertirse_en_esposo_koi',
   imagen: 'Transmigrar_para_convertirse_en_esposo_koi.jpg',
-  tags: 'danmei pendiente china-antigua agricultura amnesia bestias mpreg no-humano vida-diaria transmigracion',
+  tags: 'danmei pendiente china-antigua agricultura amnesia bestia-humanizada mpreg no-humano vida-diaria transmigracion',
   autor: 'chi-ling',
   link: 'https://www.novelupdates.com/series/transmigrated-to-become-a-koi-husband/',
   capitulos: '137 + 16 extras'
@@ -734,7 +734,7 @@ const novelas = [
   ingles: 'Reborn as the Villain President’s Cat & Dog',
   slug: 'Renacido_como_el_gato_y_el_perro_del_presidente_villano',
   imagen: 'Renacido_como_el_gato_y_el_perro_del_presidente_villano.jpg',
-  tags: 'danmei pendiente moderno industria-del-entretenimiento mascotas matrimonio renacimiento',
+  tags: 'danmei pendiente moderno industria-del-entretenimiento mascotas matrimonio renacimiento transformacion-animal',
   autor: 'lin-ang-si',
   link: 'https://www.novelupdates.com/series/reborn-as-the-villain-presidents-cat-dog/',
   capitulos: '111 + 10 extras'
@@ -1130,7 +1130,7 @@ const novelas = [
   ingles: 'Cute Beast Store No. 138',
   slug: 'Tienda_Bestia_Linda_No._138',
   imagen: 'Tienda_Bestia_Linda_No._138.jpg',
-  tags: 'danmei pendiente futurista bestias comedia no-humano transmigracion',
+  tags: 'danmei pendiente futurista bestia-humanizada comedia no-humano transmigracion',
   autor: 'da-jiangshi',
   link: 'https://www.novelupdates.com/series/cute-beast-store-no-138/',
   capitulos: '171 + 6 extras'
@@ -1383,7 +1383,7 @@ const novelas = [
   ingles: 'I am a Slime',
   slug: 'Soy_un_limo',
   imagen: 'Soy_un_limo.jpg',
-  tags: 'danmei pendiente fantasia no-humano oneshot novela-erotica',
+  tags: 'danmei pendiente fantasia bestias no-humano oneshot novela-erotica',
   autor: 'momose-wasabi',
   link: 'https://www.novelupdates.com/series/i-am-a-slime/',
   capitulos: '1'
@@ -1559,7 +1559,7 @@ const novelas = [
   ingles: 'Transmigrated into the World of “Demon Lord Wu Zun”',
   slug: 'Transmigrado_al_mundo_del_Señor_Demonio_Wu_Zun',
   imagen: 'Transmigrado_al_mundo_del_Señor_Demonio_Wu_Zun.jpg',
-  tags: 'danmei pendiente cultivacion bestias cultivo r18 transmigracion yandere',
+  tags: 'danmei pendiente cultivacion canibalismo bestias cultivo r18 transmigracion yandere',
   autor: 'yi-luocheng-huo',
   link: 'https://www.novelupdates.com/series/transmigrated-into-the-world-of-demon-lord-wu-zun/',
   capitulos: '133 + 19 extras'
@@ -2318,7 +2318,7 @@ const novelas = [
   ingles: 'A Guide to Raising Your Natural Enemy',
   slug: 'Una_guía_para_criar_a_tu_enemigo_natural',
   imagen: 'Una_guía_para_criar_a_tu_enemigo_natural.jpg',
-  tags: 'danmei finalizado futurista comedia cultivo hombre-bestia maestro-discipulo matrimonio mpreg ninos transportado-a-otro-mundo',
+  tags: 'danmei finalizado futurista bestia-humanizada comedia cultivo hombre-bestia maestro-discipulo matrimonio mpreg ninos transportado-a-otro-mundo',
   autor: 'jue-jue',
   link: 'https://drive.google.com/drive/u/4/folders/1U3EeONqRhclwzLUFmsB2v6gLpi98ijdx',
   capitulos: '130'
@@ -2527,7 +2527,7 @@ const novelas = [
   ingles: 'My Wolf Husband',
   slug: 'Mi_marido_lobo',
   imagen: 'Mi_marido_lobo.jpg',
-  tags: 'danmei finalizado china-antigua bestias ger mpreg no-humano transmigracion',
+  tags: 'danmei finalizado china-antigua bestia-humanizada ger mpreg no-humano transmigracion',
   autor: 'wushan-you-duan-yun',
   link: 'https://drive.google.com/drive/u/4/folders/1g1yvmwd8aYF2Jbu9j2MHRwmn-Kel6iUQ',
   capitulos: '89 + 10 extras'
@@ -2571,7 +2571,7 @@ const novelas = [
   ingles: 'The Legendary Master’s Wife',
   slug: 'La_esposa_del_Legendario_Maestro',
   imagen: 'La_esposa_del_Legendario_Maestro.jpg',
-  tags: 'danmei finalizado cultivacion bestias cultivo no-humano transmigracion xuanhuan',
+  tags: 'danmei finalizado cultivacion bestia-humanizada cultivo no-humano transmigracion xuanhuan',
   autor: 'yin-ya',
   link: 'https://drive.google.com/drive/u/4/folders/1BXkFDqJphEwoFNN0Ou5guBDeRxNF907q',
   capitulos: '713 + 18 extras'
