@@ -74,7 +74,7 @@ const novelas = [
   ingles: 'Blooming Flowers, Silent Sorrow',
   slug: 'Flores_en_flor,_tristeza_silenciosa',
   imagen: 'Flores_en_flor,_tristeza_silenciosa.jpg',
-  tags: 'danmei pendiente china-antigua comedia malentendidos smut yandere',
+  tags: 'danmei pendiente china-antigua comedia malentendidos novela-erotica yandere',
   autor: 'shui-qian-cheng',
   link: 'https://www.novelupdates.com/series/blooming-flowers-silent-sorrow/',
   capitulos: '??'
@@ -173,7 +173,7 @@ const novelas = [
   ingles: 'Ger, So Proud',
   slug: 'Ger,_tan_orgulloso',
   imagen: 'Ger,_tan_orgulloso.jpg',
-  tags: 'danmei pendiente china-antigua agricultura mpreg protagonista-gong vida-diariae transmigracion',
+  tags: 'danmei pendiente china-antigua agricultura mpreg protagonista-gong vida-diaria transmigracion',
   autor: 'jin-futu',
   link: 'https://www.novelupdates.com/series/ger-so-proud/',
   capitulos: '117 + 2 extras'
@@ -195,7 +195,7 @@ const novelas = [
   ingles: 'My Stuttering Boyfriend',
   slug: 'Mi_novio_tartamudo',
   imagen: 'Mi_novio_tartamudo.jpg',
-  tags: 'danmei pendiente moderno drama vida-diaria smut',
+  tags: 'danmei pendiente moderno drama vida-diaria novela-erotica',
   autor: 'duhai-bushi-yisheng',
   link: 'https://www.novelupdates.com/series/my-stuttering-boyfriend/',
   capitulos: '18'
@@ -250,7 +250,7 @@ const novelas = [
   ingles: 'A Wave of Exes Came Looking for Me. What to Do?!',
   slug: 'Una_ola_de_ex_vino_a_buscarme._Qué_hacer',
   imagen: 'Una_ola_de_ex_vino_a_buscarme._Qué_hacer.jpg',
-  tags: 'danmei pendiente multiples-mundos comedia sistema smut transmigracion yandere',
+  tags: 'danmei pendiente multiples-mundos comedia sistema novela-erotica transmigracion yandere',
   autor: 'long-qi',
   link: 'https://www.novelupdates.com/series/a-wave-of-exes-came-looking-for-me-what-to-do/',
   capitulos: '64'
@@ -327,7 +327,7 @@ const novelas = [
   ingles: 'My Patients Fall in Love with Me',
   slug: 'Mis_pacientes_se_enamoran_de_mí',
   imagen: 'Mis_pacientes_se_enamoran_de_mí.jpg',
-  tags: 'danmei pendiente multiples-mundos sistema smut transmigracion yandere',
+  tags: 'danmei pendiente multiples-mundos sistema novela-erotica transmigracion yandere',
   autor: 'xiu-sheng',
   link: 'https://www.novelupdates.com/series/my-patients-fall-in-love-with-me/',
   capitulos: '123'
@@ -393,7 +393,7 @@ const novelas = [
   ingles: 'Experiencing a Happy Ending With a Scum Shou',
   slug: 'Experimentar_un_final_feliz_con_la_escoria_Shou',
   imagen: 'Experimentar_un_final_feliz_con_la_escoria_Shou.jpg',
-  tags: 'danmei pendiente multiples-mundos protagonista-gong smut transmigracion yandere',
+  tags: 'danmei pendiente multiples-mundos protagonista-gong novela-erotica transmigracion yandere',
   autor: 'moru-gui',
   link: 'https://www.novelupdates.com/series/experiencing-a-happy-ending-with-a-scum-shou/',
   capitulos: '114 + 1 extra'
@@ -437,7 +437,7 @@ const novelas = [
   ingles: 'It’s Actually Not Easy Wanting to be a Supporting Male Lead',
   slug: 'En_realidad,_no_es_fácil_ser_un_protagonista_masculino_secundario',
   imagen: 'En_realidad,_no_es_fácil_ser_un_protagonista_masculino_secundario.jpg',
-  tags: 'danmei pendiente multiples-mundos bestias cultivo malentendidos no-humano realeza smut tragedia transmigracion zombies',
+  tags: 'danmei pendiente multiples-mundos bestias cultivo malentendidos no-humano realeza novela-erotica tragedia transmigracion zombies',
   autor: 'mijia',
   link: 'https://www.novelupdates.com/series/its-actually-not-easy-wanting-to-be-a-supporting-male-lead/',
   capitulos: '200 + 5 extras'
@@ -503,7 +503,7 @@ const novelas = [
   ingles: 'The Perfect Destiny',
   slug: 'El_destino_perfecto',
   imagen: 'El_destino_perfecto.jpg',
-  tags: 'danmei pendiente multiples-mundos comedia omegaverse sistema smut tragedia transmigracion yandere zombies',
+  tags: 'danmei pendiente multiples-mundos comedia omegaverse sistema novela-erotica tragedia transmigracion yandere zombies',
   autor: 'xi-zixu',
   link: 'https://www.novelupdates.com/series/the-perfect-destiny/',
   capitulos: '157'
@@ -657,7 +657,7 @@ const novelas = [
   ingles: 'Second Love',
   slug: 'Segundo_amor',
   imagen: 'Segundo_amor.jpg',
-  tags: 'danmei pendiente moderno discapacidad matrimonio vida-diaria smut',
+  tags: 'danmei pendiente moderno discapacidad matrimonio vida-diaria novela-erotica',
   autor: 'zhi-zhi',
   link: 'https://www.novelupdates.com/series/second-love/',
   capitulos: '11 + 5 extras'
@@ -701,7 +701,7 @@ const novelas = [
   ingles: 'Rebirth: Different Way',
   slug: 'Renacimiento_Un_camino_diferente',
   imagen: 'Renacimiento_Un_camino_diferente.jpg',
-  tags: 'danmei pendiente moderno drama renacimiento smut venganza',
+  tags: 'danmei pendiente moderno drama renacimiento novela-erotica venganza',
   autor: 'li-song-ru',
   link: 'https://www.novelupdates.com/series/rebirth-different-way/',
   capitulos: '101'
@@ -778,7 +778,7 @@ const novelas = [
   ingles: 'Pay Attention to Me',
   slug: 'Préstame_atención',
   imagen: 'Préstame_atención.jpg',
-  tags: 'danmei pendiente moderno comedia matrimonio omegaverse protagonista-gong vida-escolar smut',
+  tags: 'danmei pendiente moderno comedia matrimonio omegaverse protagonista-gong vida-escolar novela-erotica',
   autor: 'bing-kuai-er',
   link: 'https://www.novelupdates.com/series/pay-attention-to-me/',
   capitulos: '113 + 4 extras'
@@ -800,7 +800,7 @@ const novelas = [
   ingles: 'It’s Not Easy Being Your Love Rival’s Big Brother',
   slug: 'No_es_fácil_ser_el_hermano_mayor_de_tu_rival_en_el_amor',
   imagen: 'No_es_fácil_ser_el_hermano_mayor_de_tu_rival_en_el_amor.jpg',
-  tags: 'danmei pendiente moderno comedia matrimonio renacimiento smut',
+  tags: 'danmei pendiente moderno comedia matrimonio renacimiento novela-erotica',
   autor: 'jing-feng-youzhi-cha',
   link: 'https://www.novelupdates.com/series/its-not-easy-being-your-love-rivals-big-brother/',
   capitulos: '58 + 2 extras'
@@ -910,7 +910,7 @@ const novelas = [
   ingles: 'Seduction Game',
   slug: 'Juego_de_seducción',
   imagen: 'Juego_de_seducción.jpg',
-  tags: 'danmei finalizado moderno malentendidos smut',
+  tags: 'danmei finalizado moderno malentendidos novela-erotica',
   autor: 'shi-jiu-chi-cha',
   link: 'https://drive.google.com/drive/u/1/folders/1puCxatkYvNDMNuxvgVSJ2mOd6LlQh-4L',
   capitulos: '4'
@@ -921,7 +921,7 @@ const novelas = [
   ingles: 'Red Bean Ice',
   slug: 'Hielo_de_frijol_rojo',
   imagen: 'Hielo_de_frijol_rojo.jpg',
-  tags: 'danmei pendiente moderno comedia industria-del-entretenimiento matrimonio vida-diaria smut',
+  tags: 'danmei pendiente moderno comedia industria-del-entretenimiento matrimonio vida-diaria novela-erotica',
   autor: 'yige-mi-bing',
   link: 'https://www.novelupdates.com/series/red-bean-ice/',
   capitulos: '20 + 2 extras'
@@ -1119,7 +1119,7 @@ const novelas = [
   ingles: 'Beastman Forcefully Raising a Wife',
   slug: 'Hombre_bestia_criando_a_una_esposa_a_la_fuerza',
   imagen: 'Hombre_bestia_criando_a_una_esposa_a_la_fuerza.jpg',
-  tags: 'danmei pendiente tribal agricultura hombre-bestia no-humano smut transmigracion',
+  tags: 'danmei pendiente tribal agricultura hombre-bestia no-humano novela-erotica transmigracion',
   autor: 'tu-douya-er',
   link: 'https://www.novelupdates.com/series/beastman-forcefully-raising-a-wife/',
   capitulos: '110'
@@ -1207,7 +1207,7 @@ const novelas = [
   ingles: 'My Roommate Probably Is Not an Omega',
   slug: 'Mi_compañero_de_cuarto_probablemente_no_sea_un_omega',
   imagen: 'Mi_compañero_de_cuarto_probablemente_no_sea_un_omega.jpg',
-  tags: 'danmei pendiente futurista comedia malentendidos omegaverse smut',
+  tags: 'danmei pendiente futurista comedia malentendidos omegaverse novela-erotica',
   autor: 'ablfish',
   link: 'https://www.novelupdates.com/series/my-roommate-probably-is-not-an-omega/',
   capitulos: '25'
@@ -1262,7 +1262,7 @@ const novelas = [
   ingles: 'Imperial Marriage Guide',
   slug: 'Guía_de_matrimonio_imperial',
   imagen: 'Guía_de_matrimonio_imperial.jpg',
-  tags: 'danmei pendiente futurista mpreg omegaverse smut',
+  tags: 'danmei pendiente futurista mpreg omegaverse novela-erotica',
   autor: 'ban-renjian',
   link: 'https://www.novelupdates.com/series/imperial-marriage-guide/',
   capitulos: '26'
@@ -1394,7 +1394,7 @@ const novelas = [
   ingles: 'I am a Slime',
   slug: 'Soy_un_limo',
   imagen: 'Soy_un_limo.jpg',
-  tags: 'danmei pendiente fantasia no-humano oneshot smut',
+  tags: 'danmei pendiente fantasia no-humano oneshot novela-erotica',
   autor: 'momose-wasabi',
   link: 'https://www.novelupdates.com/series/i-am-a-slime/',
   capitulos: '1'
@@ -1405,7 +1405,7 @@ const novelas = [
   ingles: 'Reborn into A Slash Game',
   slug: 'Renacer_en_un_juego_de_Slash',
   imagen: 'Renacer_en_un_juego_de_Slash.jpg',
-  tags: 'danmei pendiente fantasia bestias comedia no-humano smut transmigracion',
+  tags: 'danmei pendiente fantasia bestias comedia no-humano novela-erotica transmigracion',
   autor: 'long-qi',
   link: 'https://www.novelupdates.com/series/reborn-into-a-slash-game/',
   capitulos: '80 + extras'
@@ -1427,7 +1427,7 @@ const novelas = [
   ingles: 'Nurturing the Hero to Avoid Death',
   slug: 'Nutrir_al_héroe_para_evitar_la_muerte',
   imagen: 'Nutrir_al_héroe_para_evitar_la_muerte.jpg',
-  tags: 'danmei pendiente europa-antigua aristocracia comedia punto-de-vista-multiple vida-diaria smut transportado-a-otro-mundo',
+  tags: 'danmei pendiente europa-antigua aristocracia comedia punto-de-vista-multiple vida-diaria novela-erotica transportado-a-otro-mundo',
   autor: 'yomogino',
   link: 'https://www.novelupdates.com/series/nurturing-the-hero-to-avoid-death/',
   capitulos: '45 + extras'
@@ -1449,7 +1449,7 @@ const novelas = [
   ingles: 'I Reincarnated as the Villain in an Eroge, But Before I Realized, I Became a Capture Target',
   slug: 'Me_reencarné_como_el_villano_de_un_eroge,_pero_antes_de_darme_cuenta,_me_convertí_en_un_objetivo_de_captura',
   imagen: 'Me_reencarné_como_el_villano_de_un_eroge,_pero_antes_de_darme_cuenta,_me_convertí_en_un_objetivo_de_captura.jpg',
-  tags: 'danmei pendiente fantasia comedia reencarnacion smut yandere',
+  tags: 'danmei pendiente fantasia comedia reencarnacion novela-erotica yandere',
   autor: 'yuzuki-haruka',
   link: 'https://www.novelupdates.com/series/i-reincarnated-as-the-villain-in-an-eroge-but-before-i-realized-i-became-a-capture-target/',
   capitulos: '126'
@@ -1460,7 +1460,7 @@ const novelas = [
   ingles: 'Doing It With the Creator in a Survival Game',
   slug: 'Hacerlo_con_el_creador_en_un_juego_de_supervivencia',
   imagen: 'Hacerlo_con_el_creador_en_un_juego_de_supervivencia.jpg',
-  tags: 'danmei pendiente fantasia no-humano reencarnacion smut sobrenatural terror yandere',
+  tags: 'danmei pendiente fantasia no-humano reencarnacion novela-erotica sobrenatural terror yandere',
   autor: 'xie-renxuan',
   link: 'https://www.novelupdates.com/series/doing-it-with-the-creator-in-a-survival-game/',
   capitulos: '135'
@@ -1515,7 +1515,7 @@ const novelas = [
   ingles: 'The Devil’s Origin',
   slug: 'El_origen_del_diablo',
   imagen: 'El_origen_del_diablo.jpg',
-  tags: 'danmei pendiente fantasia bestias harem ninos no-humano shota sistema smut transmigracion',
+  tags: 'danmei pendiente fantasia bestias harem ninos no-humano shota sistema novela-erotica transmigracion',
   autor: 'misheng',
   link: 'https://www.novelupdates.com/series/the-devils-origin/',
   capitulos: '110 (Abandonado)'
@@ -1537,7 +1537,7 @@ const novelas = [
   ingles: 'Know on the Third Morning',
   slug: 'Saber_en_la_tercera_mañana',
   imagen: 'Saber_en_la_tercera_mañana.jpg',
-  tags: 'danmei pendiente europa-antigua smut',
+  tags: 'danmei pendiente europa-antigua novela-erotica',
   autor: 'shiina',
   link: 'https://www.novelupdates.com/series/know-on-the-third-morning/',
   capitulos: '3'
@@ -1548,7 +1548,7 @@ const novelas = [
   ingles: 'I Want To Enjoy A Country Life!',
   slug: 'Quiero_disfrutar_de_la_vida_en_el_campo',
   imagen: 'Quiero_disfrutar_de_la_vida_en_el_campo.jpg',
-  tags: 'danmei pendiente europa-antigua agricultura harem incesto realeza reencarnacion smut yandere',
+  tags: 'danmei pendiente europa-antigua agricultura harem incesto realeza reencarnacion novela-erotica yandere',
   autor: 'botamochi',
   link: 'https://www.novelupdates.com/series/i-want-to-enjoy-a-country-life/',
   capitulos: '23 + 2 extras'
@@ -1713,7 +1713,7 @@ const novelas = [
   ingles: 'The Two-Tailed Little Fox Demon and His Taoist Priest Gong',
   slug: 'El_pequeño_demonio_zorro_de_dos_colas_y_su_sacerdote_taoísta_Gong',
   imagen: 'El_pequeño_demonio_zorro_de_dos_colas_y_su_sacerdote_taoísta_Gong.jpg',
-  tags: 'danmei pendiente cultivacion bestias cultivo no-humano smut xianxia',
+  tags: 'danmei pendiente cultivacion bestias cultivo no-humano novela-erotica xianxia',
   autor: 'liulian-qiaokeli',
   link: 'https://www.novelupdates.com/series/the-two-tailed-little-fox-demon-and-his-taoist-priest-gong/',
   capitulos: '56 + 3 extras'
@@ -1812,7 +1812,7 @@ const novelas = [
   ingles: 'You’ve Got Mail: A Cautionary Tale',
   slug: 'Tienes_un_correo_un_cuento_con_moraleja',
   imagen: 'Tienes_un_correo_un_cuento_con_moraleja.jpg',
-  tags: 'danmei pendiente china-antigua comedia vida-diaria smut',
+  tags: 'danmei pendiente china-antigua comedia vida-diaria novela-erotica',
   autor: 'hei-dan-bai',
   link: 'https://www.novelupdates.com/series/youve-got-mail-a-cautionary-tale/',
   capitulos: '106'
@@ -1889,7 +1889,7 @@ const novelas = [
   ingles: 'Counterfeit Bride',
   slug: 'Novia_falsa',
   imagen: 'Novia_falsa.jpg',
-  tags: 'danmei finalizado china-antigua gender-bender smut',
+  tags: 'danmei finalizado china-antigua gender-bender novela-erotica',
   autor: 'zi-yue',
   link: 'https://drive.google.com/drive/u/1/folders/1Cae0TTlTAw28fCnb6N640eKJKc2CB0-v',
   capitulos: '10 + 1 epílogo'
@@ -1977,7 +1977,7 @@ const novelas = [
   ingles: 'Today Prime Minister Also Wants to Bang His Head on the Pillar',
   slug: 'Hoy_el_Primer_Ministro_también_quiere_golpearse_la_cabeza_contra_el_pilar',
   imagen: 'Hoy_el_Primer_Ministro_también_quiere_golpearse_la_cabeza_contra_el_pilar.jpg',
-  tags: 'danmei pendiente china-antigua comedia matrimonio punto-de-vista-multiple realeza smut',
+  tags: 'danmei pendiente china-antigua comedia matrimonio punto-de-vista-multiple realeza novela-erotica',
   autor: 'bazaodashe',
   link: 'https://www.novelupdates.com/series/today-prime-minister-also-wants-to-bang-his-head-on-the-pillar/',
   capitulos: '21'
@@ -1999,7 +1999,7 @@ const novelas = [
   ingles: 'The Cruel Tyrant',
   slug: 'El_tirano_cruel',
   imagen: 'El_tirano_cruel.jpg',
-  tags: 'danmei pendiente china-antigua enemigos-a-amantes harem realeza smut transmigracion',
+  tags: 'danmei pendiente china-antigua enemigos-a-amantes harem realeza novela-erotica transmigracion',
   autor: 'rong-heng',
   link: 'https://www.novelupdates.com/series/the-cruel-tyrant/comment-page-2/?pg=1',
   capitulos: '127 + 4 extras'
@@ -2043,7 +2043,7 @@ const novelas = [
   ingles: 'Bird Dude Nie Bufan',
   slug: 'El_pájaro_Nie_Bufan',
   imagen: 'El_pájaro_Nie_Bufan.jpg',
-  tags: 'danmei pendiente china-antigua harem mpreg smut sobrenatural transmigracion',
+  tags: 'danmei pendiente china-antigua harem mpreg novela-erotica sobrenatural transmigracion',
   autor: 'xueyuan-youling',
   link: 'https://www.novelupdates.com/series/bird-dude-nie-bufan/',
   capitulos: '113'
@@ -2120,7 +2120,7 @@ const novelas = [
   ingles: 'Special Fondness',
   slug: 'Cariño_especial',
   imagen: 'Cariño_especial.jpg',
-  tags: 'danmei pendiente china-antigua matrimonio-arreglado smut',
+  tags: 'danmei pendiente china-antigua matrimonio-arreglado novela-erotica',
   autor: 'du-mao-cai',
   link: 'https://www.novelupdates.com/series/special-fondness/',
   capitulos: '26 + 5 extras'
@@ -2296,7 +2296,7 @@ const novelas = [
   ingles: 'Xiao Jiu',
   slug: 'Xiao_Jiu',
   imagen: 'Xiao_Jiu.jpg',
-  tags: 'danmei finalizado china-antigua malentendidos matrimonio realeza smut',
+  tags: 'danmei finalizado china-antigua malentendidos matrimonio realeza novela-erotica',
   autor: 'xu-banxian',
   link: 'https://drive.google.com/drive/u/4/folders/1qaVTt-B19U3Bp0zV9F_b7SUbJfVEgtPm',
   capitulos: '25 + 1 extra'
@@ -2318,7 +2318,7 @@ const novelas = [
   ingles: 'Quickly Wear the Face of the Devil',
   slug: 'Usa_rápidamente_la_cara_del_diablo',
   imagen: 'Usa_rápidamente_la_cara_del_diablo.jpg',
-  tags: 'danmei finalizado multiples-mundos drama protagonista-op smut transmigracion venganza yandere',
+  tags: 'danmei finalizado multiples-mundos drama protagonista-op novela-erotica transmigracion venganza yandere',
   autor: 'feng-liu-shu-dai',
   link: 'https://drive.google.com/drive/u/4/folders/19baWW1tZ1JMTG3Pe1o7b9bPl84qON2fr',
   capitulos: '259'
@@ -2406,7 +2406,7 @@ const novelas = [
   ingles: 'Reborn As a System',
   slug: 'Renacer_como_un_sistema',
   imagen: 'Renacer_como_un_sistema.jpg',
-  tags: 'danmei finalizado multiples-mundos no-humano renacimiento sistema smut transmigracion yandere',
+  tags: 'danmei finalizado multiples-mundos no-humano renacimiento sistema novela-erotica transmigracion yandere',
   autor: 'your-glory',
   link: 'https://drive.google.com/drive/u/4/folders/1omYjIaudPKQucuihTgjFGvt9L96a_PZT',
   capitulos: '103 + 2 extras'
@@ -2461,7 +2461,7 @@ const novelas = [
   ingles: 'Little Fool',
   slug: 'Pequeño_tonto',
   imagen: 'Pequeño_tonto.jpg',
-  tags: 'danmei finalizado china-antigua discapacidad ger matrimonio smut',
+  tags: 'danmei finalizado china-antigua discapacidad ger matrimonio novela-erotica',
   autor: 'xiaoshi-nan-ji',
   link: 'https://drive.google.com/drive/u/4/folders/1f1bTd0tsNmKdJ_M-KVqQ0PuxGfttIwNJ',
   capitulos: '10 + 11 extras'
@@ -2571,7 +2571,7 @@ const novelas = [
   ingles: 'The Wife is First',
   slug: 'La_esposa_es_primero',
   imagen: 'La_esposa_es_primero.jpg',
-  tags: 'danmei finalizado china-antigua matrimonio-arreglado protagonista-gong realeza renacimiento smut venganza',
+  tags: 'danmei finalizado china-antigua matrimonio-arreglado protagonista-gong realeza renacimiento novela-erotica venganza',
   autor: 'lu-ye-qian-he',
   link: 'https://drive.google.com/drive/u/4/folders/1L7XbAHqtGv2cB9IoRcBtUIGZLzFCevxA',
   capitulos: '105 + 3 extras'
@@ -2593,7 +2593,7 @@ const novelas = [
   ingles: 'The Short Story of ShaoWang',
   slug: 'La_breve_historia_de_ShaoWang',
   imagen: 'La_breve_historia_de_ShaoWang.jpg',
-  tags: 'danmei finalizado moderno comedia mpreg omegaverse smut',
+  tags: 'danmei finalizado moderno comedia mpreg omegaverse novela-erotica',
   autor: 'bing-kuai-er',
   link: 'https://drive.google.com/drive/u/4/folders/1GBeSSCyUz9PNrvV4xOAE9LeVpJ-VwJni',
   capitulos: '58 + 12 extras'
@@ -2648,7 +2648,7 @@ const novelas = [
   ingles: 'Rooster X Rooster',
   slug: 'Gallo_x_gallo',
   imagen: 'Gallo_x_gallo.jpg',
-  tags: 'danmei finalizado china-antigua animales comedia mpreg no-humano omegaverse smut',
+  tags: 'danmei finalizado china-antigua animales comedia mpreg no-humano omegaverse novela-erotica',
   autor: 'tian-mu-you',
   link: 'https://drive.google.com/drive/u/4/folders/1lRvvNW4mQjMtaiF3hkvkCsR5Hk1svF0I',
   capitulos: '5 + 1 extra'
@@ -2714,7 +2714,7 @@ const novelas = [
   ingles: 'The White Cat’s Divine Scratching Post',
   slug: 'El_rascador_divino_del_gato_blanco',
   imagen: 'El_rascador_divino_del_gato_blanco.jpg',
-  tags: 'danmei finalizado cultivacion bestias comedia cultivo maestro-discipulo mascotas no-humano protagonista-gong smut xianxia yandere',
+  tags: 'danmei finalizado cultivacion bestias comedia cultivo maestro-discipulo mascotas no-humano protagonista-gong novela-erotica xianxia yandere',
   autor: 'lu-ye-qian-he',
   link: 'https://drive.google.com/drive/u/4/folders/1VUM7dNvO5VeJn_Z824fTJxdVGbDOE6CR',
   capitulos: '126 + 5 extras'
@@ -2736,7 +2736,7 @@ const novelas = [
   ingles: 'The Pervert and the Yandere',
   slug: 'El_pervertido_y_el_yandere',
   imagen: 'El_pervertido_y_el_yandere.jpg',
-  tags: 'danmei finalizado moderno protagonista-gong smut transportado-a-otro-mundo yandere',
+  tags: 'danmei finalizado moderno protagonista-gong novela-erotica transportado-a-otro-mundo yandere',
   autor: 'heng-heng',
   link: 'https://drive.google.com/drive/u/4/folders/1Sf-PUYwpYYGVycWLGrhWmXbYbkzNb66L',
   capitulos: '13'
@@ -2758,7 +2758,7 @@ const novelas = [
   ingles: 'The Reader and Protagonist Definitely Have to Be in True Love',
   slug: 'El_lector_y_el_protagonista_definitivamente_tienen_que_estar_en_un_amor_verdadero',
   imagen: 'El_lector_y_el_protagonista_definitivamente_tienen_que_estar_en_un_amor_verdadero.jpg',
-  tags: 'danmei finalizado fantasia comedia discapacidad no-humano smut transportado-a-otro-mundo yandere',
+  tags: 'danmei finalizado fantasia comedia discapacidad no-humano novela-erotica transportado-a-otro-mundo yandere',
   autor: 'tui',
   link: 'https://drive.google.com/drive/u/4/folders/1NL9uB9ycejHqiZJGZQ4_ezvGIYC0G65U',
   capitulos: '93 + 3 extras'
@@ -2769,7 +2769,7 @@ const novelas = [
   ingles: 'The Icy Hero is Yearning for Love',
   slug: 'El_héroe_helado_anhela_el_amor',
   imagen: 'El_héroe_helado_anhela_el_amor.jpg',
-  tags: 'danmei finalizado europa-antigua drama punto-de-vista-multiple reencarnacion smut yandere',
+  tags: 'danmei finalizado europa-antigua drama punto-de-vista-multiple reencarnacion novela-erotica yandere',
   autor: 'momose-wasabi',
   link: 'https://drive.google.com/drive/u/4/folders/1iG5kNbFeT8Ml1Fr4Mt-h1Ypbzro-TqXX',
   capitulos: '13 + 7 extras'
@@ -2780,7 +2780,7 @@ const novelas = [
   ingles: 'The Script is Not Like This!',
   slug: 'El_guion_no_es_así',
   imagen: 'El_guion_no_es_así.jpg',
-  tags: 'danmei finalizado multiples-mundos comedia protagonista-gong smut transmigracion',
+  tags: 'danmei finalizado multiples-mundos comedia protagonista-gong novela-erotica transmigracion',
   autor: 'ziwuyueyuan',
   link: 'https://drive.google.com/drive/u/4/folders/1B6NM5-1B1Junnr5qyUxuq2jHieYwJyPG',
   capitulos: '19'
@@ -2802,7 +2802,7 @@ const novelas = [
   ingles: 'The Dragon and the "Princess"',
   slug: 'El_Dragón_y_la_Princesa',
   imagen: 'El_Dragón_y_la_Princesa.jpg',
-  tags: 'danmei finalizado europa-antigua gender-bender mpreg no-humano smut realeza',
+  tags: 'danmei finalizado europa-antigua gender-bender mpreg no-humano novela-erotica realeza',
   autor: 'some-wailing',
   link: 'https://drive.google.com/drive/u/4/folders/1V3YQazpGXUbK3WJW7lsozuzaxbwKQmj1',
   capitulos: '10'
