@@ -547,7 +547,7 @@ const novelas = [
   ingles: 'BOSS Transmigrates as a Little Cutie',
   slug: 'BOSS_transmigra_como_una_pequeña_monada',
   imagen: 'BOSS_transmigra_como_una_pequeña_monada.jpg',
-  tags: 'danmei pendiente multiples-mundos cultivo drama no-humano omegaverse protagonista-op transmigracion venganza',
+  tags: 'danmei pendiente multiples-mundos cultivo drama omegaverse protagonista-op transmigracion venganza',
   autor: 'guangming-zai-an',
   link: 'https://www.novelupdates.com/series/boss-transmigrates-as-a-little-cutie/',
   capitulos: '154 + 5 extras'
