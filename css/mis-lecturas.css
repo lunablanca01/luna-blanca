@@ -244,3 +244,40 @@ h1{
 .filtro-btn[data-valor="todos"]{
   display:none;
 }
+
+/* ================================
+   ⭐ BOTONES ACCIONES FILTRO
+================================ */
+.acciones-filtros{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+#btn-aplicar{
+  background:#ff8b8b;
+  color:white;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  font-family:'Molengo', serif;
+  cursor:pointer;
+}
+
+#btn-aplicar:hover{
+  opacity:0.9;
+}
+
+#btn-limpiar{
+  background:#eee;
+  color:#555;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  font-family:'Molengo', serif;
+  cursor:pointer;
+}
+
+#btn-limpiar:hover{
+  background:#ddd;
+}
