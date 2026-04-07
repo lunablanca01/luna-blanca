@@ -135,3 +135,13 @@ async function cerrarSesion(){
   await supabase.auth.signOut();
   window.location.href = BASE;
 }
+
+window.togglePassword = function(){
+  const input = document.getElementById("nueva-pass");
+
+  if (input.type === "password") {
+    input.type = "text";
+  } else {
+    input.type = "password";
+  }
+};
