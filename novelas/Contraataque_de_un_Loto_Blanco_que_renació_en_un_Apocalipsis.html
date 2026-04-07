@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contraataque de un Loto Blanco que renació en un Apocalipsis</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>Contraataque de un Loto Blanco que renació en un Apocalipsis</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>末世重生之白莲花的逆袭</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>¿Qué? ¿Ha transmigrado a una novela apocalíptica? </p>
+  <p>¿Qué? ¿Transmigró a un loto blanco? </p>
+  <p>¿Qué? ¿El loto blanco mató al personaje principal shou e incluso se convirtió con orgullo en amante? </p>
+  <p>Oh, afortunadamente el loto blanco del apocalipsis tiene un muslo grueso al que agarrarse. </p>
+  <p>¿Qué? ¿Esta fue en realidad una historia apocalíptica de venganza y renacimiento? </p>
+  <p>¿Qué? ¿El muslo grueso era en realidad una gran carne de cañón? </p>
+  <p>Por lo tanto, esta es la dramática historia de un hombre que se transformó en un loto blanco que lucha por sobrevivir en una novela apocalíptica de venganza y renacimiento, tratando de evitar la pata de cerdo reborn (el personaje principal original) y haciendo todo lo posible para alejarse del cañón. gong de forraje. </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+</div>
+
+<div id="banner-container"></div>
+<script type="module" src="../js/banner.js"></script>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+<div id="usuario-container"></div>
+<script type="module" src="../js/usuario.js"></script>
+
+<div id="toast" class="toast">Guardado</div>
+<div id="tooltip-tag"></div>
+  
+</body>
+</html>
