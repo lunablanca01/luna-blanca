@@ -58,6 +58,7 @@
 
 .seccion.activa{
   display:block;
+  font-size: 20px;
 }
 
 /* 🔹 PERFIL (vista principal) */
