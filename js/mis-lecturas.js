@@ -10,7 +10,6 @@ function normalizarTexto(texto) {
     .trim();
 }
 
-// filtros activos
 let filtroLecturaActivo = "todos";
 let filtroNovelaActivo = "todos";
 
@@ -85,7 +84,6 @@ function mostrarLecturas(lecturas) {
         <h3>${novelaCompleta.titulo}</h3>
       `;
     } else {
-      // Si no se encuentra la novela en tu array, solo ponemos el emoji y el título
       divCard.dataset.estadoNovela = "desconocido";
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estadoLectura] || "📘"}</div>
@@ -113,25 +111,20 @@ function aplicarFiltros() {
   });
 }
 
-// filtros por lectura
 window.filtrar = function(estado) {
   filtroLecturaActivo = normalizarTexto(estado);
   aplicarFiltros();
-  actualizarBotones("estado-lectura", filtroLecturaActivo);
+  actualizarBotones(".filtros-estado button", filtroLecturaActivo);
 };
 
-// filtros por estado de novela
 window.filtrarNovela = function(estado) {
   filtroNovelaActivo = normalizarTexto(estado);
   aplicarFiltros();
-  actualizarBotones("estado-novela", filtroNovelaActivo);
+  actualizarBotones(".filtros-novela button", filtroNovelaActivo);
 };
 
-// actualizar botones activos
-function actualizarBotones(tipo, activo) {
-  const selector = tipo === "estado-lectura" ? ".filtros-estado button" : ".filtros-novela button";
+function actualizarBotones(selector, activo) {
   const botones = document.querySelectorAll(selector);
-
   botones.forEach(btn => {
     const valor = normalizarTexto(btn.textContent);
     btn.classList.toggle("activo", valor.includes(activo.replace("_", " ")));
