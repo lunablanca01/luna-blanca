@@ -2,6 +2,10 @@ import { supabase } from "./supabase.js";
 
 const novelas = window.novelasCompartidas || [];
 
+// Filtros activos
+let filtroEstadoLecturaActivo = "todos";
+let filtroEstadoNovelaActivo = "todos";
+
 function normalizarTexto(texto) {
   return (texto || "")
     .toLowerCase()
@@ -9,10 +13,6 @@ function normalizarTexto(texto) {
     .replace(/[\u0300-\u036f]/g, "")
     .trim();
 }
-
-// Filtros activos
-let filtroEstadoLectura = "todos";
-let filtroEstadoNovela = "todos";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
@@ -82,24 +82,27 @@ function mostrarLecturas(lecturas) {
     divCard.dataset.estado = estadoLectura;
 
     if (novelaCompleta) {
+      // Guardamos tags y autor
       divCard.dataset.tags = novelaCompleta.tags || "";
       divCard.dataset.autor = novelaCompleta.autor || "";
-
-      // Estado de novela
-      const estadoNovela = normalizarTexto(novelaCompleta.estado || "pendiente");
-      divCard.dataset.estadoNovela = estadoNovela; // para filtrar
-      const claseEstado = `estado estado-${estadoNovela}`;
+      // Guardamos estado de novela
+      divCard.dataset.estadoNovela = normalizarTexto(novelaCompleta.estado || "pendiente");
 
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estadoLectura] || "📘"}</div>
-        <div class="${claseEstado}">${novelaCompleta.estado || "Pendiente"}</div>
+
+        <div class="estado estado-${divCard.dataset.estadoNovela}">
+          ${novelaCompleta.estado || "Pendiente"}
+        </div>
+
         <a href="../novelas/${novelaCompleta.slug}.html">
           <img src="../imagenes/${novelaCompleta.imagen}" alt="${novelaCompleta.titulo}">
         </a>
+
         <h3>${novelaCompleta.titulo}</h3>
       `;
     } else {
-      divCard.dataset.estadoNovela = "pendiente"; // default
+      divCard.dataset.estadoNovela = "pendiente";
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estadoLectura] || "📘"}</div>
         <div class="estado estado-pendiente">Pendiente</div>
@@ -113,51 +116,45 @@ function mostrarLecturas(lecturas) {
   aplicarFiltros();
 }
 
-// =======================
-// FILTRO ESTADO DE LECTURA
-// =======================
+// ================================
+// FILTROS
+// ================================
 window.filtrar = function(estado) {
-  filtroEstadoLectura = normalizarTexto(estado);
-  marcarBotonActivo(".filtros-estado button", estado);
+  filtroEstadoLecturaActivo = normalizarTexto(estado);
+  actualizarBotones("filtros-estado", estado);
   aplicarFiltros();
 };
 
-// =======================
-// FILTRO ESTADO DE NOVELA
-// =======================
 window.filtrarNovela = function(estado) {
-  filtroEstadoNovela = normalizarTexto(estado);
-  marcarBotonActivo(".filtros-novela button", estado);
+  filtroEstadoNovelaActivo = normalizarTexto(estado);
+  actualizarBotones("filtros-novela", estado);
   aplicarFiltros();
 };
 
-// =======================
-// FUNCION QUE APLICA LOS DOS FILTROS
-// =======================
 function aplicarFiltros() {
   const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
 
   cards.forEach(card => {
-    const mostrarLectura =
-      filtroEstadoLectura === "todos" || card.dataset.estado === filtroEstadoLectura;
-    const mostrarNovela =
-      filtroEstadoNovela === "todos" || card.dataset.estadoNovela === filtroEstadoNovela;
+    const coincideEstadoLectura =
+      filtroEstadoLecturaActivo === "todos" || card.dataset.estado === filtroEstadoLecturaActivo;
+    const coincideEstadoNovela =
+      filtroEstadoNovelaActivo === "todos" || card.dataset.estadoNovela === filtroEstadoNovelaActivo;
 
-    card.style.display = mostrarLectura && mostrarNovela ? "block" : "none";
+    card.style.display = (coincideEstadoLectura && coincideEstadoNovela) ? "block" : "none";
   });
 }
 
-// =======================
-// ACTIVAR BOTON OSCURO
-// =======================
-function marcarBotonActivo(selector, estado) {
-  const botones = document.querySelectorAll(selector);
+// ================================
+// COLOR BOTON ACTIVO
+// ================================
+function actualizarBotones(claseContenedor, estado) {
+  const contenedor = document.querySelector(`.${claseContenedor}`);
+  if (!contenedor) return;
+
+  const botones = contenedor.querySelectorAll("button");
   botones.forEach(btn => {
     btn.classList.remove("activo");
-    if (btn.textContent.toLowerCase().includes(estado.replace("_", ""))) {
-      btn.classList.add("activo");
-    }
-    if (estado === "todos" && btn.textContent.toLowerCase().includes("mostrar")) {
+    if (normalizarTexto(btn.textContent) === normalizarTexto(estado)) {
       btn.classList.add("activo");
     }
   });
