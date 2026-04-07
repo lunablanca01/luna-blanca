@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Después de convertirme en el protagonista alfa, arrebaté el Omega carne de cañón</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<header class="logo">
+  <a href="../luna-blanca.html">Luna Blanca</a>
+</header>
+
+<h1>Después de convertirme en el protagonista alfa, arrebaté el Omega carne de cañón</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>穿成主角A后把炮灰O扛跑了</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>El insensible Qiu Zhenyang acaba de transmigrar y se convirtió en el loco y genial protagonista alfa gong en una historia interestelar del campus ABO. </p>
+  <p>Miró en silencio al joven que lo miraba con ojos nublados. Este joven era el omega carne de cañón con el que el propietario original había roto recientemente el contrato matrimonial, y las feromonas desbordantes de su cuerpo indicaban que estaba a punto de entrar en celo. </p>
+  <p>¿Hacer o no hacer? </p>
+  <p>Esta es una pregunta en la que vale la pena pensar... </p>
+  <p>Al transmigrar al joven maestro de la Legión Principal de la Federación, el Primer Consorcio y una Familia de Farmacia, Qiu Zhenyang tiene todo lo que quiere. Quien no sea agradable a la vista, puede tratar con él. </p>
+  <p>En su primer día en la Academia Interestelar, frente a la confesión de la flor de la escuela omega: Lo siento, no eres mi tipo. </p>
+  <p>Sin darse cuenta, el héroe salva la belleza. Frente al protagonista de la historia original: Vete, no bebo té verde. </p>
+  <p>Asediada en casa, ante la persecución de la coqueta novia de la infancia: ¿Por qué llevas ropa tan llamativa? </p>
+  <p>La feromona de Qiu Zhenyang sabe a sol y su personalidad es como un pequeño sol. Pero sólo cuando se enfrentaba a Ling Mu, la carne de cañón cubierta de espinas, el corazón se ablandaba una y otra vez. Su afecto se hizo más fuerte y lo amaba incontrolablemente. </p>
+  <p>Después de que se canceló el contrato matrimonial con el joven maestro de la familia Qiu, la difícil vida de Ling Mu empeoró aún más. </p>
+  <p>Pero, poco más de un mes después, tuvo una aventura con el joven maestro, ¡e incluso quedó marcado temporalmente! </p>
+  <p>¡Ese bastardo! </p>
+  <p>Qiu Zhenyang, quien lo marcó temporalmente: "¡Seré responsable de ti!" </p>
+  <p>Ling Mu: "¡Cállate, vete!" </p>
+  <p>Qiu Zhenyang, quien presentó oficialmente a Ling Mu a sus amigos: "¡Esta es mi esposa!" </p>
+  <p>Ling Mu: "¡Qué esposa, vete!" </p>
+  <p>Qiu Zhenyang, que acababa de rechazar la confesión del protagonista: "Oh, ¿estás celoso?" </p>
+  <p>Ling Mu: "¡Joder, vete!" </p>
+  <p>Qiu Zhenyang: “¿Hablas en serio? Entonces... Xiao Mumu, ¿hagamos algo armonioso? </p>
+  <p>Ling Mu: "..." </p>
+  <p>Después de unos segundos, Qiu Zhenyang: “¡Ay! ¡Esposa, tus puños son tan poderosos! </p>
+  <p>Mi feromona es el sol, tu feromona es el girasol, nacimos para encajar. </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+<script>
+  window.baseRuta = "../";
+</script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+
+</div>
+
+<div id="toast" class="toast">Guardado</div>
+<div id="tooltip-tag"></div>
+</body>
+</html>
