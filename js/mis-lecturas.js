@@ -10,15 +10,54 @@ function normalizarTexto(texto) {
     .trim();
 }
 
-// filtros activos
-let filtroEstadoLectura = "todos";
-let filtroEstadoNovela = "todos";
+// 🔥 NUEVO: filtros seleccionados (NO se aplican automáticamente)
+let filtrosSeleccionados = {
+  estado: null,
+  estadoNovela: null
+};
 
 document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   if (!contenedor) return;
 
   contenedor.innerHTML = `<div class="sin-lecturas">Cargando lecturas...</div>`;
+
+  // 👇 EVENTOS DE BOTONES FILTRO
+  document.querySelectorAll(".filtro-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const grupo = btn.dataset.grupo;
+      const valor = btn.dataset.valor;
+
+      // quitar activo del grupo
+      document.querySelectorAll(`.filtro-btn[data-grupo="${grupo}"]`)
+        .forEach(b => b.classList.remove("activo"));
+
+      // marcar activo
+      btn.classList.add("activo");
+
+      // guardar selección (NO aplicar aún)
+      filtrosSeleccionados[grupo] = valor;
+    });
+  });
+
+  // 👉 BOTÓN APLICAR
+  document.getElementById("btn-aplicar")?.addEventListener("click", () => {
+    aplicarFiltros();
+  });
+
+  // 👉 BOTÓN LIMPIAR
+  document.getElementById("btn-limpiar")?.addEventListener("click", () => {
+
+    filtrosSeleccionados = {
+      estado: null,
+      estadoNovela: null
+    };
+
+    document.querySelectorAll(".filtro-btn")
+      .forEach(b => b.classList.remove("activo"));
+
+    aplicarFiltros();
+  });
 
   try {
     const { data, error: userError } = await supabase.auth.getUser();
@@ -85,7 +124,6 @@ function mostrarLecturas(lecturas) {
       divCard.dataset.tags = novelaCompleta.tags || "";
       divCard.dataset.autor = novelaCompleta.autor || "";
 
-      // Extraer estado de novela desde tags
       const tagsArray = (novelaCompleta.tags || "").split(" ");
       const estadosNovela = ["finalizado", "en-proceso", "pendiente", "mtl"];
       const estadoNovela = tagsArray.find(t => estadosNovela.includes(t)) || "";
@@ -101,7 +139,7 @@ function mostrarLecturas(lecturas) {
         <h3>${novelaCompleta.titulo}</h3>
       `;
     } else {
-      divCard.dataset.estadoNovela = ""; // si no hay datos, vacío
+      divCard.dataset.estadoNovela = "";
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
         <h3>${l.novela || "Sin título"}</h3>
@@ -111,53 +149,23 @@ function mostrarLecturas(lecturas) {
     contenedor.appendChild(divCard);
   });
 
-  window.aplicarEstadoNovela();
-  aplicarFiltros(); // aplicar filtros al cargar
+  window.aplicarEstadoNovela?.();
+  aplicarFiltros(); // 👈 aplica al cargar (sin filtros = muestra todo)
 }
 
-// Filtrar por estado de lectura
-window.filtrar = function(estadoFiltro) {
-  filtroEstadoLectura = estadoFiltro;
-  aplicarFiltros();
-};
-
-// Filtrar por estado de novela
-window.filtrarNovela = function(estadoFiltro) {
-  filtroEstadoNovela = estadoFiltro;
-  aplicarFiltros();
-};
-
-// Función que aplica ambos filtros combinados
+// 🔥 NUEVA LÓGICA DE FILTROS
 function aplicarFiltros() {
   const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
 
   cards.forEach(card => {
     const cumpleLectura =
-      filtroEstadoLectura === "todos" || card.dataset.estado === filtroEstadoLectura;
+      !filtrosSeleccionados.estado ||
+      card.dataset.estado === filtrosSeleccionados.estado;
+
     const cumpleNovela =
-      filtroEstadoNovela === "todos" || card.dataset.estadoNovela === filtroEstadoNovela;
+      !filtrosSeleccionados.estadoNovela ||
+      card.dataset.estadoNovela === filtrosSeleccionados.estadoNovela;
 
-    card.style.display = cumpleLectura && cumpleNovela ? "block" : "none";
-  });
-
-  actualizarBotonesActivos();
-}
-
-// Resaltar botones activos
-function actualizarBotonesActivos() {
-  // Lectura
-  document.querySelectorAll(".filtros-estado .filtro-btn").forEach(btn => {
-    btn.classList.remove("activo");
-    if (normalizarTexto(btn.getAttribute("onclick").split("'")[1]) === filtroEstadoLectura) {
-      btn.classList.add("activo");
-    }
-  });
-
-  // Novela
-  document.querySelectorAll(".filtros-novela .filtro-btn").forEach(btn => {
-    btn.classList.remove("activo");
-    if (normalizarTexto(btn.getAttribute("onclick").split("'")[1]) === filtroEstadoNovela) {
-      btn.classList.add("activo");
-    }
+    card.style.display = (cumpleLectura && cumpleNovela) ? "block" : "none";
   });
 }
