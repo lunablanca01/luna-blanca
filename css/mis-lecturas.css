@@ -411,3 +411,20 @@ h1{
   background:#ffd2b8;
   transform:translateY(-1px);
 }
+
+.filtro-btn {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  padding: 6px 12px;
+  margin: 2px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+/* Estado activo */
+.filtro-btn.activo {
+  background-color: #333;  /* color más oscuro */
+  color: #fff;             /* texto claro */
+}
