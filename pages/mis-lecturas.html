@@ -27,22 +27,20 @@
     <!-- Estado de lectura -->
     <div class="panel-filtros activo">
       <div class="fila-filtros">
-        <button class="filtro-btn" onclick="filtrar('por_leer')">📘 Por leer</button>
-        <button class="filtro-btn" onclick="filtrar('leyendo')">📖 Leyendo</button>
-        <button class="filtro-btn" onclick="filtrar('leido')">✅ Leído</button>
-        <button class="filtro-btn" onclick="filtrar('leido_mtl')">🈶 Leído MTL</button>
-        <button class="filtro-btn" onclick="filtrar('todos')">Mostrar todos</button>
+        <button class="filtro-btn" data-grupo="estado" data-valor="por_leer">📘 Por leer</button>
+        <button class="filtro-btn" data-grupo="estado" data-valor="leyendo">📖 Leyendo</button>
+        <button class="filtro-btn" data-grupo="estado" data-valor="leido">✅ Leído</button>
+        <button class="filtro-btn" data-grupo="estado" data-valor="leido_mtl">🈶 Leído MTL</button>
       </div>
     </div>
 
     <!-- Estado de novela -->
     <div class="panel-filtros activo">
       <div class="fila-filtros">
-        <button class="filtro-btn" onclick="filtrarNovela('finalizado')">✅ Finalizado</button>
-        <button class="filtro-btn" onclick="filtrarNovela('en-proceso')">🟡 En proceso</button>
-        <button class="filtro-btn" onclick="filtrarNovela('pendiente')">⚫ Pendiente</button>
-        <button class="filtro-btn" onclick="filtrarNovela('mtl')">🈶 MTL</button>
-        <button class="filtro-btn" onclick="filtrarNovela('todos')">Mostrar todos</button>
+        <button class="filtro-btn" data-grupo="estadoNovela" data-valor="finalizado">✅ Finalizado</button>
+        <button class="filtro-btn" data-grupo="estadoNovela" data-valor="en-proceso">🟡 En proceso</button>
+        <button class="filtro-btn" data-grupo="estadoNovela" data-valor="pendiente">⚫ Pendiente</button>
+        <button class="filtro-btn" data-grupo="estadoNovela" data-valor="mtl">🈶 MTL</button>
       </div>
     </div>
 
