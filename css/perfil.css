@@ -1,3 +1,8 @@
+.contenido{
+  max-with:900px;
+}
+
+
 /* 🔹 CONTENEDOR PRINCIPAL */
 .perfil-container{
   display:grid;
