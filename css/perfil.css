@@ -91,7 +91,9 @@
   border-radius:8px;
   border:1px solid #ddd;
   font-family: 'Molengo', sans-serif;
+  box-sizing: border-box; /* 🔥 ESTO evita que se salga */
 }
+
 
 /* botones editar */
 #seccion-editar button{
@@ -175,12 +177,3 @@
 }
 
 
-#seccion-editar input{
-  width:100%;
-  padding:8px;
-  margin:8px 0;
-  border-radius:8px;
-  border:1px solid #ddd;
-  font-family: 'Molengo', sans-serif;
-  box-sizing: border-box; /* 🔥 ESTO evita que se salga */
-}
