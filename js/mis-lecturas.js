@@ -10,15 +10,9 @@ function normalizarTexto(texto) {
     .trim();
 }
 
-// --------------------
-// Variables de filtros
-// --------------------
-let filtroLecturaActivo = "todos"; // solo 1 estado de lectura
-let filtroNovelaActivo = "todos";  // solo 1 estado de novela
+let filtroEstado = "todos";
+let filtroNovela = "todos";
 
-// --------------------
-// Carga de lecturas
-// --------------------
 document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   if (!contenedor) return;
@@ -27,15 +21,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const { data, error: userError } = await supabase.auth.getUser();
-
-    if (userError) {
-      console.error("Error al obtener usuario:", userError);
-      contenedor.innerHTML = `<div class="sin-lecturas">Error al obtener el usuario</div>`;
-      return;
-    }
+    if (userError) throw userError;
 
     const user = data?.user;
-
     if (!user) {
       contenedor.innerHTML = `<div class="sin-lecturas">Debes iniciar sesión para ver tus lecturas ✨</div>`;
       return;
@@ -45,23 +33,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       .from("lecturas")
       .select("novela, estado")
       .eq("usuario_id", user.id);
-
-    if (error) {
-      console.error("Error al traer lecturas:", error);
-      contenedor.innerHTML = `<div class="sin-lecturas">Ocurrió un error al cargar tus lecturas</div>`;
-      return;
-    }
+    if (error) throw error;
 
     mostrarLecturas(lecturas || []);
   } catch (err) {
-    console.error("Error general:", err);
+    console.error(err);
     contenedor.innerHTML = `<div class="sin-lecturas">Algo salió mal al cargar la página</div>`;
   }
 });
 
-// --------------------
-// Mostrar tarjetas
-// --------------------
 function mostrarLecturas(lecturas) {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   contenedor.innerHTML = "";
@@ -80,6 +60,7 @@ function mostrarLecturas(lecturas) {
 
   lecturas.forEach(l => {
     const estado = normalizarTexto(l.estado);
+
     const novelaCompleta = novelas.find(n =>
       normalizarTexto(n.titulo) === normalizarTexto(l.novela)
     );
@@ -112,35 +93,39 @@ function mostrarLecturas(lecturas) {
   aplicarFiltros();
 }
 
-// --------------------
-// Función combinada de filtrado
-// --------------------
+// --- FILTROS ---
+
+window.filtrar = function(estado) {
+  filtroEstado = normalizarTexto(estado);
+  marcarActivo(".filtro-lectura", estado);
+  aplicarFiltros();
+};
+
+window.filtrarNovela = function(tag) {
+  filtroNovela = tag.toLowerCase();
+  marcarActivo(".filtro-novela", tag);
+  aplicarFiltros();
+};
+
 function aplicarFiltros() {
   const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
 
   cards.forEach(card => {
-    const estadoLectura = card.dataset.estado || "";
-    const tags = (card.dataset.tags || "").toLowerCase();
+    const estadoMatch = filtroEstado === "todos" || card.dataset.estado === filtroEstado;
+    const tagMatch = filtroNovela === "todos" || (card.dataset.tags || "").toLowerCase().includes(filtroNovela);
 
-    const pasaLectura = filtroLecturaActivo === "todos" || estadoLectura === filtroLecturaActivo;
-    const pasaNovela = filtroNovelaActivo === "todos" || tags.includes(filtroNovelaActivo);
-
-    card.style.display = (pasaLectura && pasaNovela) ? "block" : "none";
+    card.style.display = estadoMatch && tagMatch ? "block" : "none";
   });
 }
 
-// --------------------
-// Filtro de lectura (solo 1)
-// --------------------
-window.filtrar = function(estadoFiltro) {
-  filtroLecturaActivo = normalizarTexto(estadoFiltro);
-  aplicarFiltros();
-};
-
-// --------------------
-// Filtro de novela (solo 1)
-// --------------------
-window.filtrarNovela = function(tagFiltro) {
-  filtroNovelaActivo = normalizarTexto(tagFiltro);
-  aplicarFiltros();
-};
+// Marca el botón activo
+function marcarActivo(selector, valor) {
+  const botones = document.querySelectorAll(selector);
+  botones.forEach(btn => btn.classList.remove("activo"));
+  botones.forEach(btn => {
+    if ((btn.dataset.estado && btn.dataset.estado === valor) ||
+        (btn.dataset.tag && btn.dataset.tag.toLowerCase() === valor.toLowerCase())) {
+      btn.classList.add("activo");
+    }
+  });
+}
