@@ -122,3 +122,23 @@
     grid-template-columns:1fr;
   }
 }
+
+.input-pass{
+  position: relative;
+  width: 100%;
+}
+
+.input-pass input{
+  width: 100%;
+  padding-right: 40px;
+}
+
+.toggle-pass{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+}
