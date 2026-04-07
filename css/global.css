@@ -138,3 +138,22 @@ body::before{
   }
 }
 
+/* ⭐ FOOTER */               /* 👈 */
+.bottom-banner{
+  width:100%;
+  background:#6fc7d3;
+  padding:20px 0;
+  text-align:center;
+}
+
+.bottom-banner a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  margin-bottom:10px;
+}
+
+.bottom-banner a:hover{
+  text-decoration:underline;
+}
+
