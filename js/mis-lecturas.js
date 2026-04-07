@@ -2,10 +2,6 @@ import { supabase } from "./supabase.js";
 
 const novelas = window.novelasCompartidas || [];
 
-// Filtros activos
-let filtroEstadoLecturaActivo = "todos";
-let filtroEstadoNovelaActivo = "todos";
-
 function normalizarTexto(texto) {
   return (texto || "")
     .toLowerCase()
@@ -71,29 +67,24 @@ function mostrarLecturas(lecturas) {
   }
 
   lecturas.forEach(l => {
-    const estadoLectura = normalizarTexto(l.estado);
-
+    const estadoLectura = normalizarTexto(l.estado); // estado de lectura
     const novelaCompleta = novelas.find(n =>
       normalizarTexto(n.titulo) === normalizarTexto(l.novela)
     );
 
     const divCard = document.createElement("div");
     divCard.className = "card";
-    divCard.dataset.estado = estadoLectura;
+    divCard.dataset.estadoLectura = estadoLectura; // filtrado por lectura
 
     if (novelaCompleta) {
-      // Guardamos tags y autor
+      const estadoNovela = normalizarTexto(novelaCompleta.estado || "pendiente"); // ← ESTADO DE NOVELA
+      divCard.dataset.estadoNovela = estadoNovela; // filtrado por novela
       divCard.dataset.tags = novelaCompleta.tags || "";
       divCard.dataset.autor = novelaCompleta.autor || "";
-      // Guardamos estado de novela
-      divCard.dataset.estadoNovela = normalizarTexto(novelaCompleta.estado || "pendiente");
 
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estadoLectura] || "📘"}</div>
-
-        <div class="estado estado-${divCard.dataset.estadoNovela}">
-          ${novelaCompleta.estado || "Pendiente"}
-        </div>
+        <div class="texto-estado estado-${estadoNovela}">${estadoNovela.replace("_", " ")}</div>
 
         <a href="../novelas/${novelaCompleta.slug}.html">
           <img src="../imagenes/${novelaCompleta.imagen}" alt="${novelaCompleta.titulo}">
@@ -105,7 +96,7 @@ function mostrarLecturas(lecturas) {
       divCard.dataset.estadoNovela = "pendiente";
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estadoLectura] || "📘"}</div>
-        <div class="estado estado-pendiente">Pendiente</div>
+        <div class="texto-estado estado-pendiente">pendiente</div>
         <h3>${l.novela || "Sin título"}</h3>
       `;
     }
@@ -113,49 +104,45 @@ function mostrarLecturas(lecturas) {
     contenedor.appendChild(divCard);
   });
 
-  aplicarFiltros();
+  window.aplicarEstadoNovela?.();
 }
 
-// ================================
-// FILTROS
-// ================================
-window.filtrar = function(estado) {
-  filtroEstadoLecturaActivo = normalizarTexto(estado);
-  actualizarBotones("filtros-estado", estado);
-  aplicarFiltros();
-};
-
-window.filtrarNovela = function(estado) {
-  filtroEstadoNovelaActivo = normalizarTexto(estado);
-  actualizarBotones("filtros-novela", estado);
-  aplicarFiltros();
-};
-
-function aplicarFiltros() {
+// ==========================
+// FILTRADO POR ESTADO DE LECTURA
+// ==========================
+window.filtrar = function(estadoFiltro) {
+  const estadoNormalizado = normalizarTexto(estadoFiltro);
   const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
 
   cards.forEach(card => {
-    const coincideEstadoLectura =
-      filtroEstadoLecturaActivo === "todos" || card.dataset.estado === filtroEstadoLecturaActivo;
-    const coincideEstadoNovela =
-      filtroEstadoNovelaActivo === "todos" || card.dataset.estadoNovela === filtroEstadoNovelaActivo;
-
-    card.style.display = (coincideEstadoLectura && coincideEstadoNovela) ? "block" : "none";
+    card.style.display =
+      (estadoNormalizado === "todos" || card.dataset.estadoLectura === estadoNormalizado)
+        ? "block"
+        : "none";
   });
-}
 
-// ================================
-// COLOR BOTON ACTIVO
-// ================================
-function actualizarBotones(claseContenedor, estado) {
-  const contenedor = document.querySelector(`.${claseContenedor}`);
-  if (!contenedor) return;
-
-  const botones = contenedor.querySelectorAll("button");
-  botones.forEach(btn => {
-    btn.classList.remove("activo");
-    if (normalizarTexto(btn.textContent) === normalizarTexto(estado)) {
-      btn.classList.add("activo");
-    }
+  // actualizar botón activo
+  document.querySelectorAll(".filtros-estado button").forEach(btn => {
+    btn.classList.toggle("activo", btn.dataset.filtro === estadoFiltro);
   });
-}
+};
+
+// ==========================
+// FILTRADO POR ESTADO DE NOVELA
+// ==========================
+window.filtrarNovela = function(estadoFiltro) {
+  const estadoNormalizado = normalizarTexto(estadoFiltro);
+  const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
+
+  cards.forEach(card => {
+    card.style.display =
+      (estadoNormalizado === "todos" || card.dataset.estadoNovela === estadoNormalizado)
+        ? "block"
+        : "none";
+  });
+
+  // actualizar botón activo
+  document.querySelectorAll(".filtros-novela button").forEach(btn => {
+    btn.classList.toggle("activo", btn.dataset.filtro === estadoFiltro);
+  });
+};
