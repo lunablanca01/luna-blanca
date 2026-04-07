@@ -238,3 +238,9 @@ h1{
     -webkit-line-clamp:3;
   }
 }
+
+
+/* ocultar boton mostrar todo */
+.filtro-btn[data-valor="todos"]{
+  display:none;
+}
