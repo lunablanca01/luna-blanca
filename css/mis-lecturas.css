@@ -20,32 +20,69 @@ h1{
 }
 
 /* ================================
-   ⭐ BOTONES DE FILTRO
+   ⭐ LAYOUT TIPO HOME
 ================================ */
-.filtros-estado{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:10px;
+.layout-principal{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:14px;
 }
 
-.filtros-estado button{
+/* COLUMNA IZQUIERDA */
+.controles{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* COLUMNA DERECHA */
+.col-tarjetas{
+  width:100%;
+  min-width:0;
+}
+
+/* ================================
+   ⭐ PANEL DE FILTROS
+================================ */
+.panel-filtros{
+  display:block;
+  background:#fff4ec;
+  padding:12px;
+  border-radius:12px;
+  border:2px solid #ffe4d2;
+}
+
+.fila-filtros{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+/* ================================
+   ⭐ BOTONES FILTRO
+================================ */
+.filtro-btn{
+  width:100%;
   background:#ffe4d2;
   border:none;
-  padding:12px 18px;
-  border-radius:12px;
+  padding:10px;
+  border-radius:10px;
   font-family:'Molengo', serif;
-  font-size:16px;
+  font-size:15px;
   cursor:pointer;
+  text-align:left;
   transition:0.2s;
   color:#5a4a4a;
-  box-shadow:0 4px 10px rgba(255, 139, 139, 0.08);
 }
 
-.filtros-estado button:hover{
+.filtro-btn:hover{
   background:#ffd2b8;
-  transform:translateY(-1px);
+}
+
+/* ACTIVO */
+.filtro-btn.activo{
+  background:#ff8b8b;
+  color:white;
 }
 
 /* ================================
@@ -77,99 +114,55 @@ h1{
 }
 
 /* ================================
-   ⭐ ICONO / EMOJI DE ESTADO
+   ⭐ ICONO ESTADO
 ================================ */
-.estado-lectura {
-  position: absolute; /* sobre la tarjeta */
-  top: 8px;           /* distancia desde arriba */
-  right: 8px;         /* distancia desde la derecha */
-  font-size: 18px;    /* tamaño del emoji */
-  background: none;   /* sin fondo */
-  color: black;       /* color si quieres */
-  z-index: 10;        /* sobre la imagen */
-  pointer-events: none; /* para que no interfiera con clicks */
+.estado-lectura{
+  position:absolute;
+  top:8px;
+  right:8px;
+  font-size:18px;
+  z-index:10;
+  pointer-events:none;
 }
 
 .estado{
   position:absolute;
   top:8px;
   left:8px;
-
   padding:4px 8px;
   font-size:12px;
   font-weight:bold;
-
   color:white;
   border-radius:6px;
 }
 
 /* colores */
-
-.estado-finalizado{
-  background:#28a745;
-}
-
-.estado-proceso{
-  background:#f4b400;
-}
-
-.estado-mtl{
-  background:#e53935;
-}
-
-.estado-pendiente{
-  background:black;
-}
+.estado-finalizado{ background:#28a745; }
+.estado-proceso{ background:#f4b400; }
+.estado-mtl{ background:#e53935; }
+.estado-pendiente{ background:black; }
 
 /* ================================
-   ⭐ TITULO DE NOVELA
+   ⭐ TITULO TARJETA
 ================================ */
 .card h3{
   color:#ff8b8b;
-  margin:5px 5px 5px;
+  margin:5px;
   font-weight:600;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;      /* máximo 2 líneas */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-height: 40px;           /* asegura altura igual */
-  align-items:center;  /* centra verticalmente */
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  min-height:40px;
   font-size:18px;
 }
 
-/* imagen de tarjeta */
+/* IMAGEN */
 .card img{
-  width:100%; 
+  width:100%;
   height:180px;
   object-fit:cover;
   display:block;
-}
-
-/* link epub */
-.links-tarjeta a{
-  color:#2198a6;
-  text-decoration:none;
-  margin:0 6px;
-  font-weight:normal;
-  transition:opacity 0.2s ease;
-}
-
-.links-tarjeta a:hover{
-  opacity:0.7;
-}
-
-/* ================================
-   ⭐ TEXTO DE ESTADO OPCIONAL
-================================ */
-.card .texto-estado{
-  margin-top:10px;
-  font-size:14px;
-  color:#8a6f6f;
-  background:#fff4ec;
-  padding:5px 10px;
-  border-radius:999px;
-  font-family:'Molengo', serif;
 }
 
 /* ================================
@@ -188,8 +181,33 @@ h1{
 }
 
 /* ================================
-   ⭐ CELULAR
+   ⭐ LOGO
 ================================ */
+.logo{
+  text-align:left;
+}
+
+.logo a{
+  font-family:'Pacifico', cursive;
+  font-size:28px;
+  text-decoration:none;
+  font-weight:200;
+  color:#ff8b8b;
+}
+
+.logo a:hover{
+  opacity:0.7;
+}
+
+/* ================================
+   ⭐ RESPONSIVE
+================================ */
+@media (max-width:790px){
+  .layout-principal{
+    grid-template-columns:1fr;
+  }
+}
+
 @media (max-width:500px){
 
   .contenido{
@@ -201,229 +219,22 @@ h1{
     margin-bottom:14px;
   }
 
-  .filtros-estado{
-    gap:8px;
-    margin-bottom:18px;
-  }
-
-  .filtros-estado button{
-    flex:1 1 calc(50% - 8px);
-    font-size:15px;
-    padding:11px 10px;
-  }
-
   .grid{
-    grid-template-columns:repeat(2, 1fr);
+    grid-template-columns:repeat(2,1fr);
     gap:10px;
   }
 
   .card{
-    min-height:130px;
-    border:2px solid #f3d3d8;
-    border-radius:14px;
-  }
-
-  .card h3{
-    font-size:15px;
-    min-height:62px;
-    -webkit-line-clamp:3;
-  }
-
-  .estado-lectura{
-    width:30px;
-    height:30px;
-    font-size:16px;
-    top:8px;
-    right:8px;
-  }
-
-  .card .texto-estado{
-    font-size:13px;
-    padding:4px 8px;
-  }
-  }
-
-/* ================================
-   MIS LECTURAS
-================================ */
-
-#contenedor-mis-lecturas{
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap:12px;
-}
-
-#contenedor-mis-lecturas .card{
-  background:#ffffff;
-  border-radius:12px;
-  overflow:hidden;
-  text-align:center;
-  padding-bottom:6px;
-  cursor:pointer;
-  transition:transform 0.15s ease;
-  border:3px solid #f3d3d8;
-  position:relative;
-}
-
-#contenedor-mis-lecturas .card:hover{
-  transform:translateY(-4px);
-}
-
-#contenedor-mis-lecturas .card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  display:block;
-}
-
-#contenedor-mis-lecturas .card h3{
-  color:#ff8b8b;
-  margin:5px 5px 5px;
-  font-weight:600;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  min-height:40px;
-  align-items:center;
-  font-size:18px;
-}
-
-#contenedor-mis-lecturas .links-tarjeta a{
-  color:#2198a6;
-  text-decoration:none;
-  margin:0 6px;
-  font-weight:normal;
-  transition:opacity 0.2s ease;
-}
-
-#contenedor-mis-lecturas .links-tarjeta a:hover{
-  opacity:0.7;
-}
-
-/* Emoji del estado */
-#contenedor-mis-lecturas .estado-lectura{
-  position:absolute;
-  top:8px;
-  right:8px;
-  font-size:18px;
-  background:none;
-  z-index:10;
-  pointer-events:none;
-}
-
-/* Texto del estado abajo */
-#contenedor-mis-lecturas .texto-estado{
-  margin:6px auto 2px;
-  font-size:13px;
-  color:#8a6f6f;
-  background:#fff4ec;
-  padding:4px 10px;
-  border-radius:999px;
-  width:fit-content;
-  max-width:90%;
-  font-family:'Molengo', serif;
-}
-
-/* Mensaje vacío */
-#contenedor-mis-lecturas .sin-lecturas{
-  grid-column:1 / -1;
-  text-align:center;
-  background:#fff8f4;
-  border:2px dashed #f3d3d8;
-  border-radius:16px;
-  padding:28px 20px;
-  color:#8a6f6f;
-  font-family:'Molengo', serif;
-  font-size:18px;
-}
-
-@media (max-width:500px){
-
-  #contenedor-mis-lecturas{
-    grid-template-columns:repeat(2, 1fr);
-    gap:10px;
-  }
-
-  #contenedor-mis-lecturas .card{
     border:2px solid #f3d3d8;
   }
 
-  #contenedor-mis-lecturas .card img{
+  .card img{
     height:170px;
   }
 
-  #contenedor-mis-lecturas .card h3{
+  .card h3{
     font-size:14px;
     margin:3px;
     -webkit-line-clamp:3;
   }
-
-  #contenedor-mis-lecturas .texto-estado{
-    font-size:12px;
-    padding:4px 8px;
-  }
-
-}
-
-.logo{
-  top: 0px;
-  text-align: left;
-
-  z-index: 9999;
-}
-
-.logo a{
-  font-family: 'Pacifico', cursive;
-  font-size: 28px;
-  text-decoration: none;
-  font-weight: 200;
-  color: #ff8b8b;
-}
-
-.logo a:hover{
-  opacity: 0.7;
-}
-
-.filtros-novela {
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:24px;
-}
-
-.filtros-novela button{
-  background:#ffe4d2;
-  border:none;
-  padding:12px 18px;
-  border-radius:12px;
-  font-family:'Molengo', serif;
-  font-size:16px;
-  cursor:pointer;
-  transition:0.2s;
-  color:#5a4a4a;
-  box-shadow:0 4px 10px rgba(255, 139, 139, 0.08);
-}
-
-.filtros-novela button:hover{
-  background:#ffd2b8;
-  transform:translateY(-1px);
-}
-
-.filtro-btn {
-  background-color: #f0f0f0;
-  color: #333;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  padding: 6px 12px;
-  margin: 2px;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-/* Estado activo */
-.filtro-btn.activo {
-  background-color: #ffd2b8;  /* color más oscuro */
 }
