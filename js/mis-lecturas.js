@@ -40,6 +40,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
+  // 👇 DROPDOWN (abrir/cerrar)
+  document.querySelectorAll(".filtro-header").forEach(header => {
+    header.addEventListener("click", () => {
+      const dropdown = header.parentElement;
+      dropdown.classList.toggle("activo");
+    });
+  });
+
   // 👉 BOTÓN APLICAR
   document.getElementById("btn-aplicar")?.addEventListener("click", () => {
     aplicarFiltros();
