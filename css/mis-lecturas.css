@@ -385,3 +385,29 @@ h1{
 .logo a:hover{
   opacity: 0.7;
 }
+
+.filtros-novela {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:24px;
+}
+
+.filtros-novela button{
+  background:#ffe4d2;
+  border:none;
+  padding:12px 18px;
+  border-radius:12px;
+  font-family:'Molengo', serif;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.2s;
+  color:#5a4a4a;
+  box-shadow:0 4px 10px rgba(255, 139, 139, 0.08);
+}
+
+.filtros-novela button:hover{
+  background:#ffd2b8;
+  transform:translateY(-1px);
+}
