@@ -85,7 +85,7 @@
 
 /* 🔹 INPUTS (editar) */
 #seccion-editar input{
-  width:50%;
+  width:100%;
   padding:8px;
   margin:8px 0;
   border-radius:8px;
@@ -165,5 +165,11 @@
 }
 
 .contenido-perfil{
+  background:#fff4ec;
+  padding:20px;
+  border-radius:16px;
+  border:2px solid #ffe4d2;
+
   min-width: 0;
+  overflow: hidden; /* 🔥 CLAVE */
 }
