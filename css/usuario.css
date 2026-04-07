@@ -74,6 +74,7 @@
 /* hover */
 .menu-desplegable a:hover{
   background:#ffd2b8;
+  overflow: hidden;
 }
 
 /* estado visible */
