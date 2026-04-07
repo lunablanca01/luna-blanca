@@ -138,10 +138,13 @@ async function cerrarSesion(){
 
 window.togglePassword = function(){
   const input = document.getElementById("nueva-pass");
+  const icon = document.querySelector(".toggle-pass");
 
   if (input.type === "password") {
     input.type = "text";
+    icon.textContent = "🙈";
   } else {
     input.type = "password";
+    icon.textContent = "👁️";
   }
 };
