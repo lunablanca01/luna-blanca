@@ -148,3 +148,14 @@ window.togglePassword = function(){
     icon.textContent = "👁️";
   }
 };
+
+function mostrarToast(mensaje){
+  const toast = document.getElementById("toast");
+
+  toast.textContent = mensaje;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+}
