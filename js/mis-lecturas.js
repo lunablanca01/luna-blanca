@@ -61,13 +61,15 @@ function mostrarLecturas(lecturas) {
     "leido_mtl": "🈶"
   };
 
+  const estadosNovela = ["pendiente", "finalizado", "en-proceso", "mtl"];
+
   if (!lecturas.length) {
     contenedor.innerHTML = `<div class="sin-lecturas">Aún no tienes novelas en esta lista ✨</div>`;
     return;
   }
 
   lecturas.forEach(l => {
-    const estado = normalizarTexto(l.estado);
+    const estadoUsuario = normalizarTexto(l.estado);
 
     const novelaCompleta = novelas.find(n =>
       normalizarTexto(n.titulo) === normalizarTexto(l.novela)
@@ -75,15 +77,26 @@ function mostrarLecturas(lecturas) {
 
     const divCard = document.createElement("div");
     divCard.className = "card";
-    divCard.dataset.estado = estado;
-    divCard.dataset.estadoNovela = novelaCompleta?.estado ? normalizarTexto(novelaCompleta.estado) : "";
+
+    // Extraer estado de novela desde los tags
+    let estadoNovela = "pendiente"; // por defecto
+    if (novelaCompleta?.tags) {
+      const tagsArray = novelaCompleta.tags.split(" ");
+      const encontrado = tagsArray.find(t => estadosNovela.includes(t));
+      if (encontrado) estadoNovela = encontrado;
+    }
+
+    // Guardar ambos estados en data attributes
+    divCard.dataset.estadoUsuario = estadoUsuario;
+    divCard.dataset.estadoNovela = estadoNovela;
 
     if (novelaCompleta) {
       divCard.dataset.tags = novelaCompleta.tags || "";
       divCard.dataset.autor = novelaCompleta.autor || "";
 
       divCard.innerHTML = `
-        <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
+        <div class="estado-lectura">${emojiMap[estadoUsuario] || "📘"}</div>
+        <div class="estado-novela">${estadoNovela}</div>
         <a href="../novelas/${novelaCompleta.slug}.html">
           <img src="../imagenes/${novelaCompleta.imagen}" alt="${novelaCompleta.titulo}">
         </a>
@@ -91,7 +104,8 @@ function mostrarLecturas(lecturas) {
       `;
     } else {
       divCard.innerHTML = `
-        <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
+        <div class="estado-lectura">${emojiMap[estadoUsuario] || "📘"}</div>
+        <div class="estado-novela">${estadoNovela}</div>
         <h3>${l.novela || "Sin título"}</h3>
       `;
     }
@@ -99,28 +113,45 @@ function mostrarLecturas(lecturas) {
     contenedor.appendChild(divCard);
   });
 
-  window.aplicarEstadoNovela();
+  aplicarFiltros(); // para que se aplique cualquier filtro activo al cargar
 }
 
-// Filtro combinado: por estado de lectura o estado de novela
-window.filtrar = function(estadoFiltro, tipoFiltro = "lectura") {
-  const estadoNormalizado = normalizarTexto(estadoFiltro);
+// FILTRO GENERAL: por estado de usuario o estado de novela
+window.filtrar = function(filtro) {
+  // limpiar clases activas de botones
+  document.querySelectorAll(".filtros-estado button, .filtros-novela button").forEach(btn => {
+    btn.classList.remove("activo");
+  });
+
+  // marcar botón activo
+  const boton = document.querySelector(`button[onclick="filtrar('${filtro}')"]`);
+  if (boton) boton.classList.add("activo");
+
+  const filtroNormalizado = normalizarTexto(filtro);
   const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
 
   cards.forEach(card => {
-    let valorCard = tipoFiltro === "novela" ? card.dataset.estadoNovela : card.dataset.estado;
+    let mostrar = true;
 
-    card.style.display =
-      estadoNormalizado === "todos" || valorCard === estadoNormalizado
-        ? "block"
-        : "none";
+    if (["por_leer","leyendo","leido","leido_mtl"].includes(filtroNormalizado)) {
+      mostrar = card.dataset.estadoUsuario === filtroNormalizado;
+    } else if (["pendiente","finalizado","en-proceso","mtl"].includes(filtroNormalizado)) {
+      mostrar = card.dataset.estadoNovela === filtroNormalizado;
+    } else if (filtroNormalizado === "todos") {
+      mostrar = true;
+    } else {
+      mostrar = false;
+    }
+
+    card.style.display = mostrar ? "block" : "none";
   });
-
-  // Manejo visual de botones
-  const botones = document.querySelectorAll(
-    tipoFiltro === "novela" ? ".filtros-novela button" : ".filtros-estado button"
-  );
-  botones.forEach(btn => btn.classList.remove("activo"));
-  const botonActivo = Array.from(botones).find(b => normalizarTexto(b.textContent).includes(estadoNormalizado));
-  if (botonActivo) botonActivo.classList.add("activo");
 };
+
+// Aplica filtros activos si existen (para refrescar al cargar)
+function aplicarFiltros() {
+  const activo = document.querySelector(".filtros-estado button.activo, .filtros-novela button.activo");
+  if (activo) {
+    const filtro = activo.getAttribute("onclick").match(/filtrar\('(.+)'\)/)[1];
+    window.filtrar(filtro);
+  }
+}
