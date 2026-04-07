@@ -91,6 +91,18 @@ const tags = {
 
 
 const tagInfo = {
+    ambientado: {
+    "apocalipsis": "Historia ambientada en un mundo al borde del colapso o destrucción total, donde los personajes enfrentan supervivencia extrema, recursos limitados o amenazas globales.",
+    "china-antigua": "Ambientación en la China histórica, con costumbres, vestimentas, política, cultura y jerarquías de la época antigua. Puede incluir emperadores, artes marciales y tradiciones milenarias.",
+    "cultivacion": "Mundo donde los personajes buscan fortalecer su cuerpo, espíritu o alma a través de técnicas de cultivo. Incluye niveles de poder, energía interna y sistemas de progreso personal.",
+    "europa-antigua": "Historia ambientada en épocas históricas de Europa, incluyendo culturas, reinos, sociedades medievales o antiguas, con costumbres, política y arquitectura propias de la época.",
+    "fantasia": "Mundo ficticio con elementos mágicos, criaturas imaginarias, poderes sobrenaturales y leyes físicas o sociales distintas a las reales. Puede incluir magia, reinos inventados y aventuras épicas.",
+    "futurista": "Ambientación en un futuro tecnológico o avanzado, con ciencia ficción, tecnología avanzada, ciudades futuristas, robótica, viajes espaciales o cambios sociales radicales.",
+    "moderno": "Historia ambientada en tiempos actuales o cercanos, con elementos de la vida cotidiana moderna: tecnología, trabajo, relaciones sociales y cultura contemporánea.",
+    "multiples-mundos": "Los personajes interactúan o se transportan entre distintos mundos, dimensiones o realidades paralelas, cada uno con sus propias reglas, culturas y desafíos.",
+    "tribal": "Ambientación centrada en sociedades tribales o primitivas, con costumbres, ritos, jerarquías y formas de vida basadas en clanes, naturaleza y supervivencia comunitaria.",
+  },
+  
   categoria: {
   "abuso": "Presencia de situaciones de maltrato físico, psicológico o sexual hacia uno o más personajes. Puede formar parte del conflicto o del trasfondo de la historia.",
   "agricultura": "Historia ambientada en un contexto rural o agrícola, donde los personajes viven, trabajan o dependen del cultivo y la vida en el campo. Puede incluir granjas, pueblos, cosechas y tradiciones campesinas.",
