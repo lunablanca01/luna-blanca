@@ -10,6 +10,15 @@ function normalizarTexto(texto) {
     .trim();
 }
 
+// --------------------
+// Variables de filtros
+// --------------------
+let filtroLecturaActivo = "todos"; // solo 1 estado de lectura
+let filtroNovelaActivo = "todos";  // solo 1 estado de novela
+
+// --------------------
+// Carga de lecturas
+// --------------------
 document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   if (!contenedor) return;
@@ -50,6 +59,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+// --------------------
+// Mostrar tarjetas
+// --------------------
 function mostrarLecturas(lecturas) {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   contenedor.innerHTML = "";
@@ -68,7 +80,6 @@ function mostrarLecturas(lecturas) {
 
   lecturas.forEach(l => {
     const estado = normalizarTexto(l.estado);
-
     const novelaCompleta = novelas.find(n =>
       normalizarTexto(n.titulo) === normalizarTexto(l.novela)
     );
@@ -83,11 +94,9 @@ function mostrarLecturas(lecturas) {
 
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
-
         <a href="../novelas/${novelaCompleta.slug}.html">
           <img src="../imagenes/${novelaCompleta.imagen}" alt="${novelaCompleta.titulo}">
         </a>
-
         <h3>${novelaCompleta.titulo}</h3>
       `;
     } else {
@@ -100,32 +109,38 @@ function mostrarLecturas(lecturas) {
     contenedor.appendChild(divCard);
   });
 
-  window.aplicarEstadoNovela();
+  aplicarFiltros();
 }
 
-
-window.filtrar = function(estadoFiltro) {
-  const estadoNormalizado = normalizarTexto(estadoFiltro);
+// --------------------
+// Función combinada de filtrado
+// --------------------
+function aplicarFiltros() {
   const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
 
   cards.forEach(card => {
-    card.style.display =
-      estadoNormalizado === "todos" || card.dataset.estado === estadoNormalizado
-        ? "block"
-        : "none";
-  });
-};
-
-window.filtrarNovela = function(estadoFiltro) {
-  const estadoNormalizado = estadoFiltro.toLowerCase();
-  const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
-
-  cards.forEach(card => {
+    const estadoLectura = card.dataset.estado || "";
     const tags = (card.dataset.tags || "").toLowerCase();
 
-    card.style.display =
-      estadoNormalizado === "todos" || tags.includes(estadoNormalizado)
-        ? "block"
-        : "none";
+    const pasaLectura = filtroLecturaActivo === "todos" || estadoLectura === filtroLecturaActivo;
+    const pasaNovela = filtroNovelaActivo === "todos" || tags.includes(filtroNovelaActivo);
+
+    card.style.display = (pasaLectura && pasaNovela) ? "block" : "none";
   });
+}
+
+// --------------------
+// Filtro de lectura (solo 1)
+// --------------------
+window.filtrar = function(estadoFiltro) {
+  filtroLecturaActivo = normalizarTexto(estadoFiltro);
+  aplicarFiltros();
+};
+
+// --------------------
+// Filtro de novela (solo 1)
+// --------------------
+window.filtrarNovela = function(tagFiltro) {
+  filtroNovelaActivo = normalizarTexto(tagFiltro);
+  aplicarFiltros();
 };
