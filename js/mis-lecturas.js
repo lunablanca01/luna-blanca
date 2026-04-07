@@ -116,17 +116,15 @@ window.filtrar = function(estadoFiltro) {
   });
 };
 
-
 window.filtrarNovela = function(estadoFiltro) {
-  const estadoNormalizado = normalizarTexto(estadoFiltro);
+  const estadoNormalizado = estadoFiltro.toLowerCase();
   const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
 
   cards.forEach(card => {
-    // card.dataset.estadoNovela es donde guardaremos el estado de la novela
-    const estadoCard = normalizarTexto(card.dataset.estado || card.dataset.tags);
+    const tags = (card.dataset.tags || "").toLowerCase();
 
     card.style.display =
-      estadoNormalizado === "todos" || estadoCard.includes(estadoNormalizado)
+      estadoNormalizado === "todos" || tags.includes(estadoNormalizado)
         ? "block"
         : "none";
   });
