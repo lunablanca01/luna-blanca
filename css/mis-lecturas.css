@@ -426,5 +426,4 @@ h1{
 /* Estado activo */
 .filtro-btn.activo {
   background-color: #ffd2b8;  /* color más oscuro */
-  color: #fff;             /* texto claro */
 }
