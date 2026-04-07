@@ -6,11 +6,9 @@ let user = null;
 /* 🔹 INICIO */
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // importar supabase
     const supa = await import(BASE + "js/supabase.js");
     supabase = supa.supabase;
 
-    // obtener usuario
     const { data } = await supabase.auth.getUser();
     user = data.user;
 
@@ -23,7 +21,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     document.body.style.display = "block";
 
-    // logout
     document.getElementById("btn-logout")
       .addEventListener("click", cerrarSesion);
 
@@ -35,22 +32,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 /* 🔹 CARGAR DATOS */
 async function cargarDatosUsuario(){
   try {
-    // traer perfil
-    const { data: perfil } = await supabase
+
+    console.log("USER:", user);
+
+    const { data: perfil, error } = await supabase
       .from("perfiles")
       .select("nombre")
       .eq("id", user.id)
-      .single();
+      .maybeSingle();
 
-    // nombre
-    const nombre = (perfil && perfil.nombre) 
-      ? perfil.nombre 
-      : user.email;
+    console.log("PERFIL:", perfil, error);
+
+    // 🔥 prioridad: BD → metadata → email
+    const nombre = perfil?.nombre 
+      || user.user_metadata?.nombre 
+      || user.email;
 
     document.getElementById("nombre-usuario").textContent = nombre;
-
-    // email
     document.getElementById("email-usuario").textContent = user.email;
+
+    // llenar input
+    const input = document.getElementById("nuevo-nombre");
+    if (input) input.value = nombre;
 
   } catch (error) {
     console.error("Error cargando datos:", error);
@@ -77,6 +80,8 @@ window.cambiarNombre = async function(){
   }
 
   try {
+
+    // 🔥 actualizar tabla perfiles
     const { error } = await supabase
       .from("perfiles")
       .update({ nombre: nuevoNombre })
@@ -84,10 +89,13 @@ window.cambiarNombre = async function(){
 
     if (error) throw error;
 
-    // actualizar UI
+    // 🔥 actualizar metadata también (para que coincida con el icono)
+    await supabase.auth.updateUser({
+      data: { nombre: nuevoNombre }
+    });
+
     document.getElementById("nombre-usuario").textContent = nuevoNombre;
 
-    input.value = "";
     alert("Nombre actualizado ✨");
 
   } catch (error) {
