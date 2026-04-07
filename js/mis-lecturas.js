@@ -115,3 +115,19 @@ window.filtrar = function(estadoFiltro) {
         : "none";
   });
 };
+
+
+window.filtrarNovela = function(estadoFiltro) {
+  const estadoNormalizado = normalizarTexto(estadoFiltro);
+  const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
+
+  cards.forEach(card => {
+    // card.dataset.estadoNovela es donde guardaremos el estado de la novela
+    const estadoCard = normalizarTexto(card.dataset.estado || card.dataset.tags);
+
+    card.style.display =
+      estadoNormalizado === "todos" || estadoCard.includes(estadoNormalizado)
+        ? "block"
+        : "none";
+  });
+};
