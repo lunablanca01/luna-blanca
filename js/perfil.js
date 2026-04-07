@@ -75,7 +75,7 @@ window.cambiarNombre = async function(){
   const nuevoNombre = input.value.trim();
 
   if (!nuevoNombre) {
-    alert("Escribe un nombre");
+    mostrarToast("Escribe un nombre");
     return;
   }
 
@@ -89,18 +89,18 @@ window.cambiarNombre = async function(){
 
     if (error) throw error;
 
-    // 🔥 actualizar metadata también (para que coincida con el icono)
+    // 🔥 actualizar metadata
     await supabase.auth.updateUser({
       data: { nombre: nuevoNombre }
     });
 
     document.getElementById("nombre-usuario").textContent = nuevoNombre;
 
-    alert("Nombre actualizado ✨");
+    mostrarToast("Nombre actualizado ✨");
 
   } catch (error) {
     console.error(error);
-    alert("Error al actualizar nombre");
+    mostrarToast("Error al actualizar nombre");
   }
 };
 
@@ -110,7 +110,7 @@ window.cambiarPassword = async function(){
   const nuevaPass = input.value.trim();
 
   if (!nuevaPass) {
-    alert("Escribe una contraseña");
+    mostrarToast("Escribe una contraseña");
     return;
   }
 
@@ -122,11 +122,11 @@ window.cambiarPassword = async function(){
     if (error) throw error;
 
     input.value = "";
-    alert("Contraseña actualizada 🔐");
+    mostrarToast("Contraseña actualizada 🔐");
 
   } catch (error) {
     console.error(error);
-    alert("Error al cambiar contraseña");
+    mostrarToast("Error al cambiar contraseña");
   }
 };
 
@@ -136,6 +136,7 @@ async function cerrarSesion(){
   window.location.href = BASE;
 }
 
+/* 🔹 MOSTRAR / OCULTAR PASSWORD */
 window.togglePassword = function(){
   const input = document.getElementById("nueva-pass");
   const icon = document.querySelector(".toggle-pass");
@@ -149,10 +150,18 @@ window.togglePassword = function(){
   }
 };
 
+/* 🔹 TOAST BONITO */
 function mostrarToast(mensaje){
   const toast = document.getElementById("toast");
 
+  if (!toast) return;
+
   toast.textContent = mensaje;
+
+  // 🔥 reset animación si se repite rápido
+  toast.classList.remove("show");
+  void toast.offsetWidth;
+
   toast.classList.add("show");
 
   setTimeout(() => {
