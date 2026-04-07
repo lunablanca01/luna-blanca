@@ -1,0 +1,117 @@
+/* 🔹 CONTENEDOR PRINCIPAL */
+.perfil-container{
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:20px;
+  margin-top:20px;
+}
+
+/* 🔹 SIDEBAR (panel izquierdo) */
+.sidebar{
+  background:#fff4ec;
+  padding:15px;
+  border-radius:16px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  border:2px solid #ffe4d2;
+}
+
+/* botones sidebar */
+.sidebar button{
+  background:#ffe4d2;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  text-align:left;
+  font-family: 'Molengo', sans-serif;
+}
+
+.sidebar button:hover{
+  background:#ffd1b3;
+}
+
+/* 🔹 CONTENIDO DERECHO */
+.contenido-perfil{
+  background:#fff4ec;
+  padding:20px;
+  border-radius:16px;
+  border:2px solid #ffe4d2;
+}
+
+/* 🔹 SECCIONES */
+.seccion{
+  display:none;
+}
+
+.seccion.activa{
+  display:block;
+}
+
+/* 🔹 PERFIL (vista principal) */
+#seccion-perfil{
+  text-align:center;
+}
+
+/* avatar */
+#seccion-perfil img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:10px;
+}
+
+/* nombre */
+#seccion-perfil h2{
+  margin:5px 0;
+  color:#ff8b8b;
+}
+
+/* email */
+#seccion-perfil p{
+  margin:0;
+  font-size:14px;
+  color:#777;
+}
+
+/* 🔹 INPUTS (editar) */
+#seccion-editar input{
+  width:100%;
+  padding:8px;
+  margin:8px 0;
+  border-radius:8px;
+  border:1px solid #ddd;
+  font-family: 'Molengo', sans-serif;
+}
+
+/* botones editar */
+#seccion-editar button{
+  background:#ff8b8b;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  color:white;
+  cursor:pointer;
+  margin-bottom:10px;
+  width:100%;
+}
+
+#seccion-editar button:hover{
+  opacity:0.9;
+}
+
+/* 🔹 BOTÓN LOGOUT (especial) */
+#btn-logout{
+  margin-top:10px;
+  background:#ff8b8b;
+  color:white;
+}
+
+/* 🔹 RESPONSIVE */
+@media (max-width:700px){
+  .perfil-container{
+    grid-template-columns:1fr;
+  }
+}
