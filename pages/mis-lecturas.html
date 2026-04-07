@@ -19,26 +19,41 @@
 
 <h1>Mis Lecturas</h1>
 
-<!-- Filtros por estado -->
-<div class="filtros-estado">
-  <button class="filtro-btn" onclick="filtrar('por_leer')">📘 Por leer</button>
-  <button class="filtro-btn" onclick="filtrar('leyendo')">📖 Leyendo</button>
-  <button class="filtro-btn" onclick="filtrar('leido')">✅ Leído</button>
-  <button class="filtro-btn" onclick="filtrar('leido_mtl')">🈶 Leído MTL</button>
-  <button class="filtro-btn" onclick="filtrar('todos')">Mostrar todos</button>
-</div>
+<div class="layout-principal">
 
-<!-- Filtros por estado de novela -->
-<div class="filtros-novela">
-  <button class="filtro-btn" onclick="filtrarNovela('finalizado')">✅ Finalizado</button>
-  <button class="filtro-btn" onclick="filtrarNovela('en-proceso')">🟡 En proceso</button>
-  <button class="filtro-btn" onclick="filtrarNovela('pendiente')">⚫ Pendiente</button>
-  <button class="filtro-btn" onclick="filtrarNovela('mtl')">🈶 MTL</button>
-  <button class="filtro-btn" onclick="filtrarNovela('todos')">Mostrar todos</button>
-</div>
+  <!-- 🔹 COLUMNA IZQUIERDA (FILTROS) -->
+  <div class="controles">
 
-<!-- Contenedor de tarjetas -->
-<div class="grid" id="contenedor-mis-lecturas"></div>
+    <!-- Estado de lectura -->
+    <div class="panel-filtros activo">
+      <div class="fila-filtros">
+        <button class="filtro-btn" onclick="filtrar('por_leer')">📘 Por leer</button>
+        <button class="filtro-btn" onclick="filtrar('leyendo')">📖 Leyendo</button>
+        <button class="filtro-btn" onclick="filtrar('leido')">✅ Leído</button>
+        <button class="filtro-btn" onclick="filtrar('leido_mtl')">🈶 Leído MTL</button>
+        <button class="filtro-btn" onclick="filtrar('todos')">Mostrar todos</button>
+      </div>
+    </div>
+
+    <!-- Estado de novela -->
+    <div class="panel-filtros activo">
+      <div class="fila-filtros">
+        <button class="filtro-btn" onclick="filtrarNovela('finalizado')">✅ Finalizado</button>
+        <button class="filtro-btn" onclick="filtrarNovela('en-proceso')">🟡 En proceso</button>
+        <button class="filtro-btn" onclick="filtrarNovela('pendiente')">⚫ Pendiente</button>
+        <button class="filtro-btn" onclick="filtrarNovela('mtl')">🈶 MTL</button>
+        <button class="filtro-btn" onclick="filtrarNovela('todos')">Mostrar todos</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 🔹 COLUMNA DERECHA (TARJETAS) -->
+  <div class="col-tarjetas">
+    <div class="grid" id="contenedor-mis-lecturas"></div>
+  </div>
+
+</div>
 
 </div>
 
