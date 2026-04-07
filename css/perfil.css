@@ -1,5 +1,4 @@
 .contenido{
-  max-width:900px;
   margin:0 auto;
   padding:20px;
 }
@@ -11,6 +10,7 @@
   grid-template-columns:200px 1fr;
   gap:20px;
   margin-top:20px;
+  max-width:900px;
 }
 
 /* 🔹 SIDEBAR (panel izquierdo) */
