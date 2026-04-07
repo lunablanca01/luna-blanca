@@ -166,3 +166,22 @@ body::before{
   display:none;
   text-decoration: none;
 }
+
+.logo{
+  top: 0px;
+  text-align: left;
+
+  z-index: 9999;
+}
+
+.logo a{
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  text-decoration: none;
+  font-weight: 200;
+  color: #ff8b8b;
+}
+
+.logo a:hover{
+  opacity: 0.7;
+}
