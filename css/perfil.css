@@ -163,3 +163,7 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.contenido-perfil{
+  min-width: 0;
+}
