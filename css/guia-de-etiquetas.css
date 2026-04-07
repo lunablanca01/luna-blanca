@@ -1,0 +1,145 @@
+/* ===== PAGINA ===== */
+body {
+  font-family: 'Molengo', Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  color: black;
+  background-color: #ffffff;
+}
+
+/* Fondo degradado igual a la página principal */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    #dff4ff 0%,
+    #eaf8ff 6%,
+    #ffffff 12%,
+    #ffffff 100%
+  );
+}
+
+.contenedor {
+  text-align: left;
+  max-width: 900px;
+  margin: auto;
+  color: black;
+}
+
+/* ===== TITULOS ===== */
+h1 {
+  font-size: 70px;
+  color: #ff8b8b;
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  margin-bottom: 20px;
+  margin-top: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 26px;
+  color: #ff8b8b;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 20px;
+  color: #ff8b8b;
+  font-weight: 300;
+  text-align: left;
+}
+
+/* Contenedor general */
+#lista-etiquetas {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Grupo de tags */
+.grupo-tags {
+  display: block; /* cada etiqueta en fila */
+  margin-bottom: 20px;
+}
+
+/* Etiqueta */
+.tag {
+  display: block; /* fila completa */
+  width: 100%;
+  text-decoration: none;
+  color: black;
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-family: 'Molengo', serif;
+  font-size: 18px;
+  margin-bottom: 8px; /* separación entre etiquetas */
+  transition: 0.2s;
+}
+
+.tag a {
+  display: block; /* fila completa */
+  width: 100%;
+}
+
+.tag:hover {
+  background: #ffe4d2;
+}
+
+/* Número */
+.cantidad {
+  color: #666;
+  margin-left: 4px;
+}
+
+/* Estado de lectura (tarjetas) */
+.estado-lectura {
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 4px 6px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  display: inline-block;
+  background-color: #f0f0f0; /* gris claro */
+  color: #333;
+}
+
+.estado-lectura.por-leer { background-color: #ffd700; color: #000; }
+.estado-lectura.leyendo { background-color: #87cefa; color: #000; }
+.estado-lectura.leido { background-color: #90ee90; color: #000; }
+
+/* Etiquetas inválidas */
+.tag-error {
+  background: #ffd6d6;
+  color: #b00000;
+  border: 2px solid #ff9a9a;
+}
+
+/* Logo */
+.logo {
+  top: 0px;
+  text-align: left;
+  z-index: 9999;
+}
+
+.logo a {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  text-decoration: none;
+  font-weight: 200;
+  color: #ff8b8b;
+}
+
+.logo a:hover { opacity: 0.7; }
+
+/* ===== CELULAR ===== */
+@media (max-width: 500px) {
+  h1 { font-size: 42px; }
+  h2 { font-size: 22px; }
+  .tag { font-size: 14px; padding: 7px 12px; }
+}
