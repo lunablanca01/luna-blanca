@@ -281,3 +281,33 @@ h1{
 #btn-limpiar:hover{
   background:#ddd;
 }
+
+/* ================================
+   ⭐ DROPDOWN FILTROS
+================================ */
+.filtro-dropdown{
+  border-radius:12px;
+  overflow:hidden;
+  border:2px solid #ffe4d2;
+  background:#fff4ec;
+}
+
+/* CABECERA (clickable) */
+.filtro-header{
+  padding:10px;
+  cursor:pointer;
+  font-weight:600;
+  color:#ff8b8b;
+  background:#ffe4d2;
+  text-align:center;
+}
+
+/* PANEL (oculto por defecto) */
+.filtro-dropdown .panel-filtros{
+  display:none;
+}
+
+/* CUANDO ESTA ABIERTO */
+.filtro-dropdown.activo .panel-filtros{
+  display:block;
+}
