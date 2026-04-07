@@ -69,12 +69,12 @@
   font-size:14px;
   font-family:'Molengo', serif;
   transition:0.2s;
+  overflow: hidden;
 }
 
 /* hover */
 .menu-desplegable a:hover{
   background:#ffd2b8;
-  overflow: hidden;
 }
 
 /* estado visible */
