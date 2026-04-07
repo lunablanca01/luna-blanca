@@ -180,3 +180,56 @@ function cargarAutor(){
 }
 
 cargarAutor();
+
+
+/* ================================
+   🖥️ 6. TOOLTIP PARA ETIQUETAS (SOLO ESCRITORIO)
+================================ */
+function activarTooltips() {
+  // No mostrar en pantallas pequeñas (<500px)
+  if(window.innerWidth < 500) return;
+
+  const tooltipDiv = document.getElementById("tooltip-tag");
+  if(!tooltipDiv) return;
+
+  const etiquetas = document.querySelectorAll(".etiquetas a");
+
+  etiquetas.forEach(a => {
+    const categoriaKey = a.getAttribute("href")?.split("categoria=")[1];
+    if(!categoriaKey) return;
+
+    const tooltipTexto = tagInfo.categoria[categoriaKey];
+    if(!tooltipTexto) return;
+
+    a.addEventListener("mouseenter", () => {
+      tooltipDiv.textContent = tooltipTexto;
+      tooltipDiv.style.display = "block";
+
+      const rect = a.getBoundingClientRect();
+      const top = rect.bottom + 5;
+      const tooltipWidth = tooltipDiv.offsetWidth;
+
+      let left;
+      // Si el tooltip es más pequeño que 400px, lo dejamos más a la izquierda
+      if(tooltipWidth < 400){
+        left = Math.max(rect.left, 10); // mínimo 10px desde el borde izquierdo
+      } else {
+        left = rect.left;
+        if(left + tooltipWidth > window.innerWidth - 10){
+          left = window.innerWidth - tooltipWidth - 10;
+        }
+      }
+
+      tooltipDiv.style.top = top + "px";
+      tooltipDiv.style.left = left + "px";
+    });
+
+    a.addEventListener("mouseleave", () => {
+      tooltipDiv.style.display = "none";
+    });
+  });
+}
+
+// Activar tooltips al cargar y al redimensionar
+document.addEventListener("DOMContentLoaded", activarTooltips);
+window.addEventListener("resize", activarTooltips);
