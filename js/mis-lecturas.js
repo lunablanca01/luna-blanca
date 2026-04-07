@@ -10,9 +10,6 @@ function normalizarTexto(texto) {
     .trim();
 }
 
-let filtroLecturaActivo = "todos";
-let filtroNovelaActivo = "todos";
-
 document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   if (!contenedor) return;
@@ -21,9 +18,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     const { data, error: userError } = await supabase.auth.getUser();
-    if (userError) throw userError;
+
+    if (userError) {
+      console.error("Error al obtener usuario:", userError);
+      contenedor.innerHTML = `<div class="sin-lecturas">Error al obtener el usuario</div>`;
+      return;
+    }
 
     const user = data?.user;
+
     if (!user) {
       contenedor.innerHTML = `<div class="sin-lecturas">Debes iniciar sesión para ver tus lecturas ✨</div>`;
       return;
@@ -34,12 +37,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       .select("novela, estado")
       .eq("usuario_id", user.id);
 
-    if (error) throw error;
+    if (error) {
+      console.error("Error al traer lecturas:", error);
+      contenedor.innerHTML = `<div class="sin-lecturas">Ocurrió un error al cargar tus lecturas</div>`;
+      return;
+    }
 
     mostrarLecturas(lecturas || []);
   } catch (err) {
-    console.error(err);
-    contenedor.innerHTML = `<div class="sin-lecturas">Ocurrió un error al cargar tus lecturas</div>`;
+    console.error("Error general:", err);
+    contenedor.innerHTML = `<div class="sin-lecturas">Algo salió mal al cargar la página</div>`;
   }
 });
 
@@ -60,33 +67,31 @@ function mostrarLecturas(lecturas) {
   }
 
   lecturas.forEach(l => {
-    const estadoLectura = normalizarTexto(l.estado);
+    const estado = normalizarTexto(l.estado);
+
     const novelaCompleta = novelas.find(n =>
       normalizarTexto(n.titulo) === normalizarTexto(l.novela)
     );
 
     const divCard = document.createElement("div");
     divCard.className = "card";
-    divCard.dataset.estadoLectura = estadoLectura;
+    divCard.dataset.estado = estado;
+    divCard.dataset.estadoNovela = novelaCompleta?.estado ? normalizarTexto(novelaCompleta.estado) : "";
 
     if (novelaCompleta) {
-      const estadoNovela = normalizarTexto(novelaCompleta.estado || "pendiente");
-      divCard.dataset.estadoNovela = estadoNovela;
       divCard.dataset.tags = novelaCompleta.tags || "";
       divCard.dataset.autor = novelaCompleta.autor || "";
 
       divCard.innerHTML = `
-        <div class="estado-lectura">${emojiMap[estadoLectura] || "📘"}</div>
-        ${estadoNovela ? `<div class="texto-estado estado-${estadoNovela}">${estadoNovela.replace("_", " ")}</div>` : ""}
+        <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
         <a href="../novelas/${novelaCompleta.slug}.html">
           <img src="../imagenes/${novelaCompleta.imagen}" alt="${novelaCompleta.titulo}">
         </a>
         <h3>${novelaCompleta.titulo}</h3>
       `;
     } else {
-      divCard.dataset.estadoNovela = "desconocido";
       divCard.innerHTML = `
-        <div class="estado-lectura">${emojiMap[estadoLectura] || "📘"}</div>
+        <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
         <h3>${l.novela || "Sin título"}</h3>
       `;
     }
@@ -94,39 +99,28 @@ function mostrarLecturas(lecturas) {
     contenedor.appendChild(divCard);
   });
 
-  aplicarFiltros();
+  window.aplicarEstadoNovela();
 }
 
-function aplicarFiltros() {
+// Filtro combinado: por estado de lectura o estado de novela
+window.filtrar = function(estadoFiltro, tipoFiltro = "lectura") {
+  const estadoNormalizado = normalizarTexto(estadoFiltro);
   const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
+
   cards.forEach(card => {
-    const lectura = card.dataset.estadoLectura;
-    const novela = card.dataset.estadoNovela;
+    let valorCard = tipoFiltro === "novela" ? card.dataset.estadoNovela : card.dataset.estado;
 
-    const mostrar =
-      (filtroLecturaActivo === "todos" || lectura === filtroLecturaActivo) &&
-      (filtroNovelaActivo === "todos" || novela === filtroNovelaActivo);
-
-    card.style.display = mostrar ? "block" : "none";
+    card.style.display =
+      estadoNormalizado === "todos" || valorCard === estadoNormalizado
+        ? "block"
+        : "none";
   });
-}
 
-window.filtrar = function(estado) {
-  filtroLecturaActivo = normalizarTexto(estado);
-  aplicarFiltros();
-  actualizarBotones(".filtros-estado button", filtroLecturaActivo);
+  // Manejo visual de botones
+  const botones = document.querySelectorAll(
+    tipoFiltro === "novela" ? ".filtros-novela button" : ".filtros-estado button"
+  );
+  botones.forEach(btn => btn.classList.remove("activo"));
+  const botonActivo = Array.from(botones).find(b => normalizarTexto(b.textContent).includes(estadoNormalizado));
+  if (botonActivo) botonActivo.classList.add("activo");
 };
-
-window.filtrarNovela = function(estado) {
-  filtroNovelaActivo = normalizarTexto(estado);
-  aplicarFiltros();
-  actualizarBotones(".filtros-novela button", filtroNovelaActivo);
-};
-
-function actualizarBotones(selector, activo) {
-  const botones = document.querySelectorAll(selector);
-  botones.forEach(btn => {
-    const valor = normalizarTexto(btn.textContent);
-    btn.classList.toggle("activo", valor.includes(activo.replace("_", " ")));
-  });
-}
