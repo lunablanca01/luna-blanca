@@ -481,7 +481,7 @@ const novelas = [
   ingles: 'The Counterattack Plan of A Villain With Ten Thousand Fans',
   slug: 'El_plan_de_contraataque_de_un_villano_con_diez_mil_fans',
   imagen: 'El_plan_de_contraataque_de_un_villano_con_diez_mil_fans.jpg',
-  tags: 'danmei pendiente multiples-mundos comedia cultivo omegaverse sistema yandere zombies',
+  tags: 'danmei pendiente multiples-mundos canibalismo comedia cultivo omegaverse sistema yandere zombies',
   autor: 'conglai-bu-wen',
   link: 'https://www.novelupdates.com/series/the-counterattack-plan-of-a-villain-with-ten-thousand-fans/',
   capitulos: '335 + 14 extras'
