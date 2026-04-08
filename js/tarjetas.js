@@ -833,9 +833,9 @@ const novelas = [
   ingles: 'My Outside Expression Is Different From My Inner Expression',
   slug: 'Mi_expresión_exterior_es_diferente_de_mi_expresión_interior',
   imagen: 'Mi_expresión_exterior_es_diferente_de_mi_expresión_interior.jpg',
-  tags: 'danmei pendiente moderno comedia discapacidad matrimonio sistema transmigracion',
+  tags: 'danmei finalizado moderno comedia discapacidad matrimonio sistema transmigracion',
   autor: 'gong-qing-han',
-  link: 'https://www.novelupdates.com/series/my-outside-expression-is-different-from-my-inner-expression/',
+  link: 'https://drive.google.com/drive/u/1/folders/1Oeda_uXkS1p9mrrbWoTY_d_8SKHNUtvC',
   capitulos: '113'
 },
 
