@@ -206,9 +206,9 @@ const novelas = [
   ingles: 'Villain’s Strategy',
   slug: 'Estrategia_del_villano',
   imagen: 'Estrategia_del_villano.jpg',
-  tags: 'danmei pendiente moderno comedia malentendidos vida-escolar sistema transmigracion',
+  tags: 'danmei finalizado moderno comedia malentendidos vida-escolar sistema transmigracion',
   autor: 'luobo-hua-tuzi',
-  link: 'https://www.novelupdates.com/series/villains-strategy/',
+  link: 'https://drive.google.com/drive/u/1/folders/1FbtjORwkAsT5_Qo6Y5i4N04IhTHWI8-1',
   capitulos: '96 + 2 extra'
 },
 
