@@ -4,6 +4,17 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+titulo: 'La altiva y feroz consorte',
+ingles: 'The Lofty Fierce Consort',
+slug: "La_altiva_y_feroz_consorte",
+imagen: "La_altiva_y_feroz_consorte.jpg",
+tags: "bg finalizado china-antigua aristocracia drama lucha-de-poder matrimonio ninos punto-de-vista-multiple realeza reencarnacion vida-diaria",
+autor: "jia-mian-de-sheng-yan",
+link: "https://drive.google.com/drive/u/1/folders/1V5jJvVUS8i1ZGYQCfgzMFt_6YRNPg1fM",
+capitulos: '181'
+},
+
+{
   titulo: 'Después de que el papel secundario masculino cayera en mis brazos',
   ingles: 'After the Male Supporting Role Fell Into My Arms',
   slug: 'Después_de_que_el_papel_secundario_masculino_cayera_en_mis_brazos',
