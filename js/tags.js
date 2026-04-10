@@ -1,7 +1,7 @@
 const tags = {
 
   tipo: {
-  "rofan": "Rofan",
+  "BG": "BG",
   "danmei": "Danmei",
   },
 
