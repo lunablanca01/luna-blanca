@@ -8,7 +8,7 @@ titulo: 'Contraataque de la concubina carne de cañón',
 ingles: 'Counterattack of the Cannon Fodder Chambermaid',
 slug: "Contraataque_de_la_concubina_carne_de_cañón",
 imagen: "Contraataque_de_la_concubina_carne_de_cañón.jpg",
-tags: "bg finalizado china-antigua drama ninos realeza renacimiento",
+tags: "bg finalizado china-antigua abuso drama ninos realeza renacimiento",
 autor: "jia-mian-de-sheng-yan",
 link: "https://drive.google.com/drive/u/1/folders/1aUb8HJ_sxYbFXZAmetAo3fVD0YMLeFnt",
 capitulos: '177 + 12 extras'
