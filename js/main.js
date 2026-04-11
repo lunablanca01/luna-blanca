@@ -64,7 +64,7 @@ function ordenarTarjetas() {
       return tituloA.localeCompare(tituloB);
     }
     if (modoOrden === "update") {
-      return ordenOriginal.indexOf(b) - ordenOriginal.indexOf(a);
+      return ordenOriginal.indexOf(a) - ordenOriginal.indexOf(b);
     }
     return 0;
   });
