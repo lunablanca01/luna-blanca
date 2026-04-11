@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+titulo: 'Condenada a ser carne de cañón',
+ingles: 'Doomed to be Cannon Fodder',
+slug: "Condenada_a_ser_carne_de_cañón",
+imagen: "Condenada_a_ser_carne_de_cañón.jpg",
+tags: "bg finalizado china-antigua aristocracia drama matrimonio transmigracion",
+autor: "jia-mian-de-sheng-yan",
+link: "https://drive.google.com/drive/u/1/folders/1OITynlBwVKjpknkXZPMGMyZrQ4JuweU7",
+capitulos: '295'
+},
+
+
+{
 titulo: 'Contraataque de la concubina carne de cañón',
 ingles: 'Counterattack of the Cannon Fodder Chambermaid',
 slug: "Contraataque_de_la_concubina_carne_de_cañón",
