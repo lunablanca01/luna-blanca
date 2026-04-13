@@ -1582,9 +1582,9 @@ capitulos: '181'
   ingles: 'Transmigrating into a Mob Character to Rehabilitate the Villain Plan',
   slug: 'Transmigrar_en_un_personaje_de_carne_de_cañón_para_rehabilitar_el_plan_de_villano',
   imagen: 'Transmigrar_en_un_personaje_de_carne_de_cañón_para_rehabilitar_el_plan_de_villano.jpg',
-  tags: 'danmei pendiente cultivacion amnesia cultivo drama transmigracion xianxia yandere',
+  tags: 'danmei finalizado cultivacion amnesia cultivo drama r18 transmigracion xianxia yandere',
   autor: 'sha-xiao-wan',
-  link: 'https://www.novelupdates.com/series/transmigrating-into-a-mob-character-to-rehabilitate-the-villain-plan/',
+  link: 'https://drive.google.com/drive/u/1/folders/19V5GMFx1F66gdWFXPFl3_jAVmhXWtUrT',
   capitulos: '92 + 14 extras'
 },
 
