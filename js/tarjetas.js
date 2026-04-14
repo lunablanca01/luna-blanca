@@ -1109,9 +1109,9 @@ capitulos: '181'
   ingles: 'Superstar Aspirations',
   slug: 'Aspiraciones_de_superestrella',
   imagen: 'Aspiraciones_de_superestrella.jpg',
-  tags: 'danmei pendiente moderno industria-del-entretenimiento vida-diaria transmigracion',
+  tags: 'danmei pendiente moderno industria-del-entretenimiento r18 vida-diaria transmigracion',
   autor: 'mo-chen-huan',
-  link: 'https://www.novelupdates.com/series/superstar-aspirations/',
+  link: 'https://drive.google.com/drive/u/1/folders/1a_54djnutD9dct7v64GDALz4PdKQ8QBl',
   capitulos: '165 + 12 extras'
 },
 
