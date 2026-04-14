@@ -447,6 +447,26 @@ h1 a{
   color:white;
 }
 
+/* DESCARGA */               /* 👈 */
+.paginacion-con-descarga {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#paginacion {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex: 1;
+}
+
+#btn-descargar {
+  margin-left: auto;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
 /* ⭐ SCROLL */               /* 👈 */
 
