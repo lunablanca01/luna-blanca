@@ -533,11 +533,13 @@ window.addEventListener("resize", function () {
 
 
 /* ================================
-   ⬆️ 23. DESCARGAR EXCEL
+   ⬇️ 23. DESCARGAR EXCEL
 ================================ */
-function descargarExcel(){
+function descargarExcel() {
 
-  const visibles = hayFiltrosActivos() ? listaFiltrada : Array.from(document.querySelectorAll(".card"));
+  // 🔥 Tomar SOLO lo que el usuario está viendo (filtrado o no)
+  const visibles = Array.from(document.querySelectorAll(".card"))
+    .filter(card => card.style.display !== "none");
 
   let contenido = "Titulo\n";
 
@@ -547,7 +549,10 @@ function descargarExcel(){
     contenido += `"${limpio}"\n`;
   });
 
-  const blob = new Blob(["\uFEFF" + contenido], { type: "text/csv;charset=utf-8;" });
+  const blob = new Blob(
+    ["\uFEFF" + contenido],
+    { type: "text/csv;charset=utf-8;" }
+  );
 
   const url = URL.createObjectURL(blob);
 
