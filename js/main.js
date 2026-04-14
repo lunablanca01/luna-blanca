@@ -18,7 +18,24 @@ function limpiarTextoOrden(texto) {
 
 
 /* ================================
-   🔥 CALCULAR TARJETAS
+   🔎 3. VARIABLES GLOBALES
+================================ */
+const buscador = document.getElementById("buscador");
+const filtros = ['tipo','estado','ambientado','categoria','inicial','autor'];
+
+let paginaActual = 1;
+let tarjetasPorPagina = calcularTarjetasPorPagina(); // 🔥 dinámico real
+let mostrarTodoActivo = false;
+let modoOrden = "az";
+let bloqueandoURL = true;
+
+let cargandoDesdeURL = true;
+let ordenOriginal = [];
+let listaFiltrada = [];
+
+
+/* ================================
+   🔥 CALCULAR TARJETAS (FIJO Y ESTABLE)
 ================================ */
 function calcularTarjetasPorPagina() {
   const ancho = window.innerWidth;
@@ -32,36 +49,6 @@ function calcularTarjetasPorPagina() {
   return 12;
 }
 
-
-/* ================================
-   🔎 3. VARIABLES GLOBALES
-================================ */
-const buscador = document.getElementById("buscador");
-const filtros = ['tipo','estado','ambientado','categoria','inicial','autor'];
-
-let paginaActual = 1;
-let tarjetasPorPagina = calcularTarjetasPorPagina(); // dinámico
-let mostrarTodoActivo = false;
-let modoOrden = "az";
-let bloqueandoURL = true;
-
-let cargandoDesdeURL = true;
-let ordenOriginal = [];
-let listaFiltrada = [];
-
-
-/* ================================
-   📱 RESPONSIVE PAGINACIÓN
-================================ */
-window.addEventListener("resize", () => {
-  const nuevoValor = calcularTarjetasPorPagina();
-
-  if (nuevoValor !== tarjetasPorPagina) {
-    tarjetasPorPagina = nuevoValor;
-    paginaActual = 1;
-    mostrarPagina();
-  }
-});
 
 
 /* ================================
@@ -116,6 +103,7 @@ function mostrarPagina() {
 
   todas.forEach(card => card.style.display = "none");
 
+  // 🔥 SOLO respetar "mostrar todo" si NO hay filtros
   const hayFiltros = visibles.length !== todas.length;
 
   if (mostrarTodoActivo && !hayFiltros) {
@@ -124,6 +112,7 @@ function mostrarPagina() {
     return;
   }
 
+  // 🔹 VALIDAR PÁGINA
   const totalPaginas = Math.ceil(visibles.length / tarjetasPorPagina);
   if (paginaActual > totalPaginas) {
     paginaActual = totalPaginas || 1;
@@ -140,7 +129,6 @@ function mostrarPagina() {
   generarPaginacion(visibles.length);
 }
 
-
 function generarPaginacion(total) {
 
   const contenedor = document.getElementById("paginacion");
@@ -154,6 +142,7 @@ function generarPaginacion(total) {
 
   const rango = 1;
 
+  // ← anterior
   if (paginaActual > 1) {
     const btnPrev = document.createElement("button");
     btnPrev.textContent = "«";
@@ -175,6 +164,7 @@ function generarPaginacion(total) {
     contenedor.appendChild(btn);
   }
 
+  // primera
   crearBoton(1);
 
   if (paginaActual > 3) {
@@ -194,8 +184,10 @@ function generarPaginacion(total) {
     contenedor.appendChild(span);
   }
 
+  // última
   if (totalPaginas > 1) crearBoton(totalPaginas);
 
+  // siguiente →
   if (paginaActual < totalPaginas) {
     const btnNext = document.createElement("button");
     btnNext.textContent = "»";
@@ -209,12 +201,214 @@ function generarPaginacion(total) {
 
 
 /* ================================
+   🔗 7. URL PAGINACIÓN
+================================ */
+function guardarPaginaURL() {
+  if (bloqueandoURL || cargandoDesdeURL) return;
+
+  const params = new URLSearchParams(window.location.search);
+  params.set("pagina", paginaActual);
+
+  const query = params.toString();
+  const nuevaURL = query ? "?" + query : window.location.pathname;
+
+  window.history.pushState({}, "", nuevaURL);
+}
+
+
+/* ================================
+   🔎 8. APLICAR FILTROS
+================================ */
+function aplicarFiltros() {
+
+  const texto = buscador.value.toLowerCase();
+  let seleccionados = {};
+
+  filtros.forEach(filtro => {
+    const checks = document.querySelectorAll(`#dropdown-${filtro} input:checked`);
+    seleccionados[filtro] = Array.from(checks).map(c => c.value);
+  });
+
+  listaFiltrada = [];
+
+  document.querySelectorAll(".card").forEach(card => {
+    const titulo = card.querySelector("h3").textContent.toLowerCase();
+    const tags = card.dataset.tags.toLowerCase();
+
+    const coincideTexto = titulo.includes(texto);
+
+    const coincideFiltros = filtros.every(filtro => {
+      if (seleccionados[filtro].length === 0) return true;
+
+      if (filtro === "inicial") {
+        const inicialTitulo = limpiarTextoOrden(titulo).charAt(0);
+        return seleccionados[filtro].includes(inicialTitulo);
+      }
+
+      if (filtro === "categoria") {
+     //   return seleccionados[filtro].every(tag => tags.includes(tag));   --- si quieres que se aplique todos los filtros
+        return seleccionados[filtro].some(tag => tags.includes(tag));
+      }
+
+      return seleccionados[filtro].some(tag => tags.includes(tag));
+    });
+
+    if (coincideTexto && coincideFiltros) listaFiltrada.push(card);
+  });
+
+  document.querySelectorAll('.dropdownContenido').forEach(d => d.style.display = 'none');
+
+  let listaFiltros = [];
+  Object.values(seleccionados).forEach(arr => {
+    arr.forEach(tag => {
+      let bonito = tag.replace(/-/g, " ");
+      bonito = bonito.charAt(0).toUpperCase() + bonito.slice(1);
+      listaFiltros.push(bonito);
+    });
+  });
+
+  document.getElementById("filtros-activos").textContent =
+    listaFiltros.length ? "Filtros activos: " + listaFiltros.join(", ") : "";
+
+  if (!cargandoDesdeURL) paginaActual = 1;
+  mostrarTodoActivo = false;
+  guardarFiltrosURL();
+  if (!cargandoDesdeURL) mostrarPagina();
+}
+
+
+/* ================================
+   🧹 9. LIMPIAR FILTROS
+================================ */
+function limpiarFiltros() {
+  cargandoDesdeURL = true;
+
+  buscador.value = "";
+  filtros.forEach(filtro => {
+    const checks = document.querySelectorAll(`#dropdown-${filtro} input`);
+    checks.forEach(c => c.checked = false);
+  });
+
+  document.getElementById("filtros-activos").textContent = "";
+
+  paginaActual = 1;
+  mostrarTodoActivo = false;
+
+  window.history.pushState({}, "", window.location.pathname);
+
+  cargandoDesdeURL = false;
+  ordenarTarjetas();
+  listaFiltrada = [];
+}
+
+
+/* ================================
+   ⌨️ 10. BUSCADOR
+================================ */
+buscador.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") aplicarFiltros();
+});
+
+function buscarTexto() { aplicarFiltros(); }
+
+
+/* ================================
+   🔽 11. DROPDOWNS FILTROS
+================================ */
+function toggleDropdown(id, boton) {
+  const lista = document.getElementById("dropdown-" + id);
+  const todosDropdowns = document.querySelectorAll('.dropdownContenido');
+  const todosBotones = document.querySelectorAll('.dropdownBtn');
+
+  todosDropdowns.forEach(d => { if (d !== lista) d.style.display = 'none'; });
+  todosBotones.forEach(b => b.classList.remove("activo"));
+
+  if (lista.style.display === "block") {
+    lista.style.display = "none";
+  } else {
+    lista.style.display = "block";
+    boton.classList.add("activo");
+  }
+}
+
+
+/* ================================
+   🔽 12. ORDENAR DROPDOWN
+================================ */
+const btnOrdenar = document.getElementById("btn-ordenar");
+const dropdownOrden = document.getElementById("dropdown-orden");
+
+if (btnOrdenar) {
+  btnOrdenar.addEventListener("click", () => {
+    dropdownOrden.classList.toggle("activo");
+  });
+}
+
+document.querySelectorAll("#dropdown-orden button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    aplicarOrden(btn.dataset.orden);
+  });
+});
+
+function aplicarOrden(tipo) {
+  modoOrden = tipo;
+  ordenarTarjetas();
+  dropdownOrden.classList.remove("activo");
+}
+
+
+/* ================================
+   📄 13. BOTÓN MOSTRAR TODO
+================================ */
+const btnMostrarTodo = document.getElementById("mostrar-todo");
+
+if (btnMostrarTodo) {
+  btnMostrarTodo.addEventListener("click", () => {
+    mostrarTodoActivo = !mostrarTodoActivo;
+    btnMostrarTodo.textContent = mostrarTodoActivo ? "Paginado" : "Mostrar todo";
+    mostrarPagina();
+  });
+}
+
+
+/* ================================
+   🔗 14. FILTROS DESDE URL
+================================ */
+function aplicarFiltrosDesdeURL() {
+  const params = new URLSearchParams(window.location.search);
+  filtros.forEach(filtro => {
+    if (params.has(filtro)) {
+      const valores = params.get(filtro).split(",");
+      valores.forEach(valor => {
+        const checkbox = document.querySelector(`#dropdown-${filtro} input[value="${valor}"]`);
+        if (checkbox) checkbox.checked = true;
+      });
+    }
+  });
+  aplicarFiltros();
+}
+
+
+/* ================================
+   🧩 15. GENERAR DROPDOWNS
+================================ */
+function generarDropdown(idFiltro, objetoTags) {
+  const contenedor = document.getElementById("dropdown-" + idFiltro);
+  if (!contenedor) return;
+
+  contenedor.innerHTML = "";
+  Object.keys(objetoTags).forEach(key => {
+    const label = document.createElement("label");
+    label.innerHTML = `<input type="checkbox" value="${key}"> ${objetoTags[key]}`;
+    contenedor.appendChild(label);
+  });
+}
+
+
+/* ================================
    🚀 16. INICIALIZACIÓN
 ================================ */
 window.addEventListener("load", function() {
-
-  // 🔥 asegurar cálculo correcto al iniciar
-  tarjetasPorPagina = calcularTarjetasPorPagina();
 
   generarDropdown("categoria", tags.categoria);
   generarDropdown("ambientado", tags.ambientado);
@@ -237,4 +431,108 @@ window.addEventListener("load", function() {
 
   bloqueandoURL = false;
   mostrarPagina();
+});
+
+
+/* ================================
+   🖱️ 17. CERRAR DROPDOWNS
+================================ */
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".dropdown")) {
+    document.querySelectorAll(".dropdownContenido").forEach(d => d.style.display = "none");
+    document.querySelectorAll(".dropdownBtn").forEach(b => b.classList.remove("activo"));
+  }
+  if (!e.target.closest(".ordenar")) dropdownOrden?.classList.remove("activo");
+});
+
+
+/* ================================
+   📱 18. PANEL FILTROS
+================================ */
+function togglePanelFiltros() {
+  const panel = document.querySelector(".panel-filtros");
+  const categorias = document.querySelector(".panel-categorias");
+  panel.classList.toggle("activo");
+  if (categorias) categorias.classList.remove("activo");
+}
+function togglePanelCategorias() {
+  const panel = document.querySelector(".panel-categorias");
+  const filtros = document.querySelector(".panel-filtros");
+  panel.classList.toggle("activo");
+  if (filtros) filtros.classList.remove("activo");
+}
+
+
+/* ================================
+   ⬆️ 19. SCROLL TOP
+================================ */
+window.addEventListener("scroll", function() {
+  const scrollTopBtn = document.getElementById("scrollTop");
+  scrollTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
+});
+
+
+/* ================================
+   ⬅️ 20. POPSTATE
+================================ */
+window.addEventListener("popstate", () => {
+  cargandoDesdeURL = true;
+
+  const params = new URLSearchParams(window.location.search);
+  const paginaURL = parseInt(params.get("pagina")) || 1;
+
+  filtros.forEach(filtro => {
+    const checks = document.querySelectorAll(`#dropdown-${filtro} input`);
+    checks.forEach(c => c.checked = false);
+  });
+
+  buscador.value = "";
+  aplicarFiltrosDesdeURL();
+
+  paginaActual = paginaURL;
+
+  cargandoDesdeURL = false;
+  mostrarPagina();
+});
+
+
+/* ================================
+   🔗 21. GUARDAR FILTROS URL
+================================ */
+function guardarFiltrosURL() {
+  if (cargandoDesdeURL) return;
+
+  const params = new URLSearchParams(window.location.search);
+  filtros.forEach(f => params.delete(f));
+
+  filtros.forEach(filtro => {
+    const checks = document.querySelectorAll(`#dropdown-${filtro} input:checked`);
+    const valores = Array.from(checks).map(c => c.value);
+    if (valores.length) params.set(filtro, valores.join(","));
+  });
+
+  params.set("pagina", paginaActual);
+  const query = params.toString();
+  const nuevaURL = query ? "?" + query : window.location.pathname;
+  window.history.pushState({}, "", nuevaURL);
+}
+
+
+/* ================================
+   📐 22. RESPONSIVE (RECALCULAR TARJETAS)
+================================ */
+window.addEventListener("resize", function () {
+
+  const nuevasTarjetas = calcularTarjetasPorPagina();
+
+  // Solo actualizar si realmente cambió (evita renders innecesarios)
+  if (nuevasTarjetas !== tarjetasPorPagina) {
+    tarjetasPorPagina = nuevasTarjetas;
+
+    // Reiniciar página para evitar quedar en una inválida
+    paginaActual = 1;
+
+    mostrarPagina();
+  }
+
 });
