@@ -47,7 +47,7 @@ function calcularTarjetasPorPagina() {
   if (ancho > 649) return 20;  // 5x4
   if (ancho > 500) return 15;  // 4x4
   return 12; // móvil
-
+}
 
 /* ================================
    🔤 4. FILTROS ACTIVOS
