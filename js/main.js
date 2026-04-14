@@ -24,7 +24,7 @@ const buscador = document.getElementById("buscador");
 const filtros = ['tipo','estado','ambientado','categoria','inicial','autor'];
 
 let paginaActual = 1;
-let tarjetasPorPagina = 21; // 🔹 fijo
+let tarjetasPorPagina = calcularTarjetasPorPagina(); // 🔥 dinámico real
 let mostrarTodoActivo = false;
 let modoOrden = "az";
 let bloqueandoURL = true;
@@ -32,6 +32,21 @@ let bloqueandoURL = true;
 let cargandoDesdeURL = true;
 let ordenOriginal = [];
 let listaFiltrada = [];
+
+
+/* ================================
+   🔥 CALCULAR TARJETAS (FIJO Y ESTABLE)
+================================ */
+function calcularTarjetasPorPagina() {
+  const ancho = window.innerWidth;
+
+  if (ancho > 1300) return 21; // 6x4
+  if (ancho > 1243) return 24; // 6x4
+  if (ancho > 1092) return 20; // 6x4
+  if (ancho > 789) return 24; // 6x4
+  if (ancho > 649) return 20;  // 5x4
+  if (ancho > 500) return 15;  // 4x4
+  return 12; // móvil
 
 
 /* ================================
