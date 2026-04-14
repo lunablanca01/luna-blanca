@@ -24,7 +24,7 @@ const buscador = document.getElementById("buscador");
 const filtros = ['tipo','estado','ambientado','categoria','inicial','autor'];
 
 let paginaActual = 1;
-let tarjetasPorPagina = calcularTarjetasPorPagina(); // 🔥 dinámico real
+let tarjetasPorPagina = calcularTarjetasPorPagina();
 let mostrarTodoActivo = false;
 let modoOrden = "az";
 let bloqueandoURL = true;
@@ -35,7 +35,7 @@ let listaFiltrada = [];
 
 
 /* ================================
-   🔥 CALCULAR TARJETAS (FIJO Y ESTABLE)
+   🔥 CALCULAR TARJETAS
 ================================ */
 function calcularTarjetasPorPagina() {
   const ancho = window.innerWidth;
@@ -48,7 +48,6 @@ function calcularTarjetasPorPagina() {
   if (ancho > 500) return 15;
   return 12;
 }
-
 
 
 /* ================================
@@ -103,7 +102,6 @@ function mostrarPagina() {
 
   todas.forEach(card => card.style.display = "none");
 
-  // 🔥 SOLO respetar "mostrar todo" si NO hay filtros
   const hayFiltros = visibles.length !== todas.length;
 
   if (mostrarTodoActivo && !hayFiltros) {
@@ -112,7 +110,6 @@ function mostrarPagina() {
     return;
   }
 
-  // 🔹 VALIDAR PÁGINA
   const totalPaginas = Math.ceil(visibles.length / tarjetasPorPagina);
   if (paginaActual > totalPaginas) {
     paginaActual = totalPaginas || 1;
@@ -142,7 +139,6 @@ function generarPaginacion(total) {
 
   const rango = 1;
 
-  // ← anterior
   if (paginaActual > 1) {
     const btnPrev = document.createElement("button");
     btnPrev.textContent = "«";
@@ -164,7 +160,6 @@ function generarPaginacion(total) {
     contenedor.appendChild(btn);
   }
 
-  // primera
   crearBoton(1);
 
   if (paginaActual > 3) {
@@ -184,10 +179,8 @@ function generarPaginacion(total) {
     contenedor.appendChild(span);
   }
 
-  // última
   if (totalPaginas > 1) crearBoton(totalPaginas);
 
-  // siguiente →
   if (paginaActual < totalPaginas) {
     const btnNext = document.createElement("button");
     btnNext.textContent = "»";
@@ -246,7 +239,6 @@ function aplicarFiltros() {
       }
 
       if (filtro === "categoria") {
-     //   return seleccionados[filtro].every(tag => tags.includes(tag));   --- si quieres que se aplique todos los filtros
         return seleccionados[filtro].some(tag => tags.includes(tag));
       }
 
@@ -406,6 +398,40 @@ function generarDropdown(idFiltro, objetoTags) {
 
 
 /* ================================
+   ⬇️ 23. DESCARGAR CSV
+================================ */
+function descargarExcel(){
+
+  const todas = Array.from(document.querySelectorAll(".card"));
+  const lista = hayFiltrosActivos() ? listaFiltrada : todas;
+
+  let contenido = "Titulo\n";
+
+  lista.forEach(card => {
+    const titulo = (card.querySelector("h3").textContent || "")
+      .replace(/"/g, '""');
+
+    contenido += `"${titulo}"\n`;
+  });
+
+  const blob = new Blob(["\uFEFF" + contenido], {
+    type: "text/csv;charset=utf-8;"
+  });
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "titulos.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  URL.revokeObjectURL(url);
+}
+
+
+/* ================================
    🚀 16. INICIALIZACIÓN
 ================================ */
 window.addEventListener("load", function() {
@@ -431,6 +457,12 @@ window.addEventListener("load", function() {
 
   bloqueandoURL = false;
   mostrarPagina();
+
+  // 🔥 BOTÓN DESCARGAR
+  const btnDescargar = document.getElementById("btn-descargar");
+  if (btnDescargar) {
+    btnDescargar.addEventListener("click", descargarExcel);
+  }
 });
 
 
@@ -519,19 +551,15 @@ function guardarFiltrosURL() {
 
 
 /* ================================
-   📐 22. RESPONSIVE (RECALCULAR TARJETAS)
+   📐 22. RESPONSIVE
 ================================ */
 window.addEventListener("resize", function () {
 
   const nuevasTarjetas = calcularTarjetasPorPagina();
 
-  // Solo actualizar si realmente cambió (evita renders innecesarios)
   if (nuevasTarjetas !== tarjetasPorPagina) {
     tarjetasPorPagina = nuevasTarjetas;
-
-    // Reiniciar página para evitar quedar en una inválida
     paginaActual = 1;
-
     mostrarPagina();
   }
 
