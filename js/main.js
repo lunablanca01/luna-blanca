@@ -537,15 +537,14 @@ window.addEventListener("resize", function () {
 ================================ */
 function descargarExcel(){
 
-  const lista = (typeof novelasFiltradas !== "undefined" && novelasFiltradas.length)
-    ? novelasFiltradas
-    : novelas;
+  const visibles = hayFiltrosActivos() ? listaFiltrada : Array.from(document.querySelectorAll(".card"));
 
   let contenido = "Titulo\n";
 
-  lista.forEach(n => {
-    const titulo = (n.titulo || "").replace(/"/g, '""');
-    contenido += `"${titulo}"\n`;
+  visibles.forEach(card => {
+    const titulo = card.querySelector("h3")?.textContent || "";
+    const limpio = titulo.replace(/"/g, '""');
+    contenido += `"${limpio}"\n`;
   });
 
   const blob = new Blob(["\uFEFF" + contenido], { type: "text/csv;charset=utf-8;" });
@@ -561,15 +560,3 @@ function descargarExcel(){
 
   URL.revokeObjectURL(url);
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const link = document.getElementById("descargar");
-
-  if(link){
-    link.addEventListener("click", function(e){
-      e.preventDefault();
-      descargarExcel();
-    });
-  }
-});
-
