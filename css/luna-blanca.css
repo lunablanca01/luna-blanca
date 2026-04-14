@@ -449,30 +449,22 @@ h1 a{
 
 /* DESCARGA */               /* 👈 */
 #btn-descargar {
-  background: #ffe4d2;
+  background: none;
   border: none;
-  padding: 8px 12px;
-  border-radius: 10px;
+  padding: 0;
   cursor: pointer;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+#btn-descargar img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
   transition: 0.2s;
 }
 
-/* hover igual que tus otros botones */
-#btn-descargar:hover {
-  background: #ffd2b8;
-  transform: translateY(-2px);
-}
-
-/* icono dentro del botón */
-#btn-descargar img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
+/* efecto sutil */
+#btn-descargar:hover img {
+  transform: scale(1.15);
 }
 
 /* ⭐ SCROLL */               /* 👈 */
