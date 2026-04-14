@@ -398,40 +398,6 @@ function generarDropdown(idFiltro, objetoTags) {
 
 
 /* ================================
-   ⬇️ 23. DESCARGAR CSV
-================================ */
-function descargarExcel(){
-
-  const todas = Array.from(document.querySelectorAll(".card"));
-  const lista = hayFiltrosActivos() ? listaFiltrada : todas;
-
-  let contenido = "Titulo\n";
-
-  lista.forEach(card => {
-    const titulo = (card.querySelector("h3").textContent || "")
-      .replace(/"/g, '""');
-
-    contenido += `"${titulo}"\n`;
-  });
-
-  const blob = new Blob(["\uFEFF" + contenido], {
-    type: "text/csv;charset=utf-8;"
-  });
-
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "titulos.csv";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-
-  URL.revokeObjectURL(url);
-}
-
-
-/* ================================
    🚀 16. INICIALIZACIÓN
 ================================ */
 window.addEventListener("load", function() {
@@ -564,3 +530,46 @@ window.addEventListener("resize", function () {
   }
 
 });
+
+
+/* ================================
+   ⬆️ 23. DESCARGAR EXCEL
+================================ */
+function descargarExcel(){
+
+  const lista = (typeof novelasFiltradas !== "undefined" && novelasFiltradas.length)
+    ? novelasFiltradas
+    : novelas;
+
+  let contenido = "Titulo\n";
+
+  lista.forEach(n => {
+    const titulo = (n.titulo || "").replace(/"/g, '""');
+    contenido += `"${titulo}"\n`;
+  });
+
+  const blob = new Blob(["\uFEFF" + contenido], { type: "text/csv;charset=utf-8;" });
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "titulos.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  URL.revokeObjectURL(url);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const link = document.getElementById("descargar");
+
+  if(link){
+    link.addEventListener("click", function(e){
+      e.preventDefault();
+      descargarExcel();
+    });
+  }
+});
+
