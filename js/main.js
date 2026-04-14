@@ -535,11 +535,19 @@ window.addEventListener("resize", function () {
 /* ================================
    ⬇️ 23. DESCARGAR EXCEL
 ================================ */
+/* ================================
+   ⬇️ 23. DESCARGAR EXCEL
+================================ */
 function descargarExcel() {
 
-  // 🔥 Tomar SOLO lo que el usuario está viendo (filtrado o no)
-  const visibles = Array.from(document.querySelectorAll(".card"))
-    .filter(card => card.style.display !== "none");
+  // 🔥 PRIORIDAD: lista filtrada real
+  let visibles = [];
+
+  if (listaFiltrada && listaFiltrada.length > 0) {
+    visibles = listaFiltrada;
+  } else {
+    visibles = Array.from(document.querySelectorAll(".card"));
+  }
 
   let contenido = "Titulo\n";
 
