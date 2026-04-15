@@ -40,6 +40,32 @@ h1{
   min-width:0;
 }
 
+/* ⭐ HEADER TARJETAS */               /* 👈 */
+.header-tarjetas{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.ordenar{
+  position:relative;
+}
+
+/* BOTÓN */               /* 👈 */
+#btn-ordenar{
+  background:#ffe4d2;
+  border:none;
+  padding:8px 14px;
+  border-radius:10px;
+  font-family:'Molengo', serif;
+  cursor:pointer;
+}
+
+#btn-ordenar:hover{
+  background:#ffd2b8;
+}
+
 /* ================================
    ⭐ PANEL DE FILTROS
 ================================ */
