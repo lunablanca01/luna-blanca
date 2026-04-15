@@ -66,6 +66,38 @@ h1{
   background:#ffd2b8;
 }
 
+/* DROPDOWN */               /* 👈 */
+.dropdown-orden{
+  display:none;
+  position:absolute;
+  right:0;
+  top:110%;
+  background:#fff4ec;
+  border:2px solid #ffe4d2;
+  border-radius:10px;
+  overflow:hidden;
+  z-index:999;
+  min-width:180px;
+}
+
+.dropdown-orden button{
+  width:100%;
+  padding:8px;
+  border:none;
+  background:none;
+  cursor:pointer;
+  text-align:left;
+}
+
+.dropdown-orden button:hover{
+  background:#ffd2b8;
+}
+
+/* ACTIVO */
+.dropdown-orden.activo{
+  display:block;
+}
+
 /* ================================
    ⭐ PANEL DE FILTROS
 ================================ */
