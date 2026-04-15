@@ -373,8 +373,7 @@ h1 a{
 .footer-tarjetas{
   display:flex;
   align-items:center;
-  justify-content:center;
-  position:relative;
+  justify-content:space-between; /* 🔥 clave */
   margin-top:20px;
 }
 
@@ -419,6 +418,7 @@ h1 a{
   display:flex;
   gap:6px;
   flex-wrap:wrap;
+  margin: 0 auto;
 }
 
 #paginacion span {
@@ -449,9 +449,6 @@ h1 a{
 
 /* DESCARGA */               /* 👈 */
 #btn-descargar{
-  position: absolute;
-  right: 0;
-
   background: none;
   border: none;
   padding: 0;
@@ -531,6 +528,10 @@ h1 a{
    flex-direction:column;
    gap:10px;
  }
+
+  #btn-descargar{
+    align-self: flex-end;
+  }
 
  #mostrar-todo{
   position:static;
