@@ -2,9 +2,6 @@ import { supabase } from "./supabase.js";
 
 const novelas = window.novelasCompartidas || [];
 
-/* ================================
-   🔤 NORMALIZAR TEXTO
-================================ */
 function normalizarTexto(texto) {
   return (texto || "")
     .toLowerCase()
@@ -13,42 +10,29 @@ function normalizarTexto(texto) {
     .trim();
 }
 
-/* ================================
-   🔤 LIMPIAR PARA ORDEN
-================================ */
-function limpiarTextoOrden(texto) {
-  return (texto || "")
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .trim();
-}
-
-/* ================================
-   🔎 VARIABLES
-================================ */
+// 🔥 FILTROS
 let filtrosSeleccionados = {
   estado: null,
   estadoNovela: null
 };
 
-let modoOrden = "az";
-let ordenOriginal = [];
+// 🔥 ORDEN
+let ordenActual = null; // "az" | "update"
 
-/* ================================
-   🚀 INICIO
-================================ */
+// 🔥 GUARDAR LECTURAS
+let lecturasGlobal = [];
+
 document.addEventListener("DOMContentLoaded", async () => {
-
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   if (!contenedor) return;
 
   contenedor.innerHTML = `<div class="sin-lecturas">Cargando lecturas...</div>`;
 
-  /* 🔘 BOTONES FILTRO */
+  // ================================
+  // 🔹 FILTROS
+  // ================================
   document.querySelectorAll(".filtro-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-
       const grupo = btn.dataset.grupo;
       const valor = btn.dataset.valor;
 
@@ -56,27 +40,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         .forEach(b => b.classList.remove("activo"));
 
       btn.classList.add("activo");
-
       filtrosSeleccionados[grupo] = valor;
     });
   });
 
-  /* 🔽 DROPDOWN */
   document.querySelectorAll(".filtro-header").forEach(header => {
     header.addEventListener("click", () => {
-      const dropdown = header.parentElement;
-      dropdown.classList.toggle("activo");
+      header.parentElement.classList.toggle("activo");
     });
   });
 
-  /* 🔘 APLICAR */
-  document.getElementById("btn-aplicar")?.addEventListener("click", () => {
-    aplicarFiltros();
-  });
+  document.getElementById("btn-aplicar")?.addEventListener("click", aplicarFiltros);
 
-  /* 🔘 LIMPIAR */
   document.getElementById("btn-limpiar")?.addEventListener("click", () => {
-
     filtrosSeleccionados = {
       estado: null,
       estadoNovela: null
@@ -88,31 +64,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     aplicarFiltros();
   });
 
-  /* 🔽 ORDENAR DROPDOWN */
+  // ================================
+  // 🔹 ORDENAR
+  // ================================
   const btnOrdenar = document.getElementById("btn-ordenar");
   const dropdownOrden = document.getElementById("dropdown-orden");
 
-  if (btnOrdenar) {
-    btnOrdenar.addEventListener("click", () => {
-      dropdownOrden.classList.toggle("activo");
-    });
-  }
+  btnOrdenar?.addEventListener("click", () => {
+    dropdownOrden.classList.toggle("activo");
+  });
 
   document.querySelectorAll("#dropdown-orden button").forEach(btn => {
     btn.addEventListener("click", () => {
-      modoOrden = btn.dataset.orden;
-      ordenarTarjetasLecturas();
+      ordenActual = btn.dataset.orden;
       dropdownOrden.classList.remove("activo");
+      renderizar();
     });
   });
 
-  /* 🔐 SUPABASE */
+  // ================================
+  // 🔹 CARGAR DATOS
+  // ================================
   try {
-
     const { data, error: userError } = await supabase.auth.getUser();
 
     if (userError) {
-      console.error("Error usuario:", userError);
       contenedor.innerHTML = `<div class="sin-lecturas">Error al obtener el usuario</div>`;
       return;
     }
@@ -126,28 +102,48 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const { data: lecturas, error } = await supabase
       .from("lecturas")
-      .select("novela, estado")
+      .select("novela, estado, updated_at")
       .eq("usuario_id", user.id);
 
     if (error) {
-      console.error("Error lecturas:", error);
-      contenedor.innerHTML = `<div class="sin-lecturas">Error al cargar lecturas</div>`;
+      contenedor.innerHTML = `<div class="sin-lecturas">Error al cargar</div>`;
       return;
     }
 
-    mostrarLecturas(lecturas || []);
+    lecturasGlobal = lecturas || [];
+    renderizar();
 
   } catch (err) {
-    console.error("Error general:", err);
-    contenedor.innerHTML = `<div class="sin-lecturas">Algo salió mal</div>`;
+    contenedor.innerHTML = `<div class="sin-lecturas">Error general</div>`;
   }
 });
 
-/* ================================
-   📦 MOSTRAR LECTURAS
-================================ */
-function mostrarLecturas(lecturas) {
+// ================================
+// 🔥 RENDER GENERAL
+// ================================
+function renderizar() {
+  let lista = [...lecturasGlobal];
 
+  // 🔹 ORDENAR
+  if (ordenActual === "az") {
+    lista.sort((a, b) =>
+      normalizarTexto(a.novela).localeCompare(normalizarTexto(b.novela))
+    );
+  }
+
+  if (ordenActual === "update") {
+    lista.sort((a, b) =>
+      new Date(b.updated_at) - new Date(a.updated_at)
+    );
+  }
+
+  mostrarLecturas(lista);
+}
+
+// ================================
+// 🔹 MOSTRAR TARJETAS
+// ================================
+function mostrarLecturas(lecturas) {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   contenedor.innerHTML = "";
 
@@ -159,12 +155,11 @@ function mostrarLecturas(lecturas) {
   };
 
   if (!lecturas.length) {
-    contenedor.innerHTML = `<div class="sin-lecturas">No tienes novelas ✨</div>`;
+    contenedor.innerHTML = `<div class="sin-lecturas">No hay resultados ✨</div>`;
     return;
   }
 
   lecturas.forEach(l => {
-
     const estado = normalizarTexto(l.estado);
 
     const novelaCompleta = novelas.find(n =>
@@ -176,28 +171,24 @@ function mostrarLecturas(lecturas) {
     divCard.dataset.estado = estado;
 
     if (novelaCompleta) {
-
       divCard.dataset.tags = novelaCompleta.tags || "";
-      divCard.dataset.autor = novelaCompleta.autor || "";
 
       const tagsArray = (novelaCompleta.tags || "").split(" ");
       const estadosNovela = ["finalizado", "en-proceso", "pendiente", "mtl"];
       const estadoNovela = tagsArray.find(t => estadosNovela.includes(t)) || "";
-
       divCard.dataset.estadoNovela = estadoNovela;
 
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
+
         <a href="../novelas/${novelaCompleta.slug}.html">
           <img src="../imagenes/${novelaCompleta.imagen}">
         </a>
+
         <h3>${novelaCompleta.titulo}</h3>
       `;
-
     } else {
-
       divCard.dataset.estadoNovela = "";
-
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
         <h3>${l.novela || "Sin título"}</h3>
@@ -207,23 +198,16 @@ function mostrarLecturas(lecturas) {
     contenedor.appendChild(divCard);
   });
 
-  /* 🔥 GUARDAR ORDEN ORIGINAL */
-  ordenOriginal = Array.from(document.querySelectorAll("#contenedor-mis-lecturas .card"));
-
-  window.aplicarEstadoNovela?.();
-
   aplicarFiltros();
 }
 
-/* ================================
-   🔎 FILTROS
-================================ */
+// ================================
+// 🔥 FILTRAR (SIN ROMPER ORDEN)
+// ================================
 function aplicarFiltros() {
-
   const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
 
   cards.forEach(card => {
-
     const cumpleLectura =
       !filtrosSeleccionados.estado ||
       card.dataset.estado === filtrosSeleccionados.estado;
@@ -234,32 +218,4 @@ function aplicarFiltros() {
 
     card.style.display = (cumpleLectura && cumpleNovela) ? "block" : "none";
   });
-
-  ordenarTarjetasLecturas(); // 🔥 clave
-}
-
-/* ================================
-   🔤 ORDENAR
-================================ */
-function ordenarTarjetasLecturas() {
-
-  const contenedor = document.getElementById("contenedor-mis-lecturas");
-  const tarjetas = Array.from(contenedor.querySelectorAll(".card"));
-
-  tarjetas.sort((a, b) => {
-
-    if (modoOrden === "az") {
-      const tituloA = limpiarTextoOrden(a.querySelector("h3")?.textContent);
-      const tituloB = limpiarTextoOrden(b.querySelector("h3")?.textContent);
-      return tituloA.localeCompare(tituloB);
-    }
-
-    if (modoOrden === "update") {
-      return ordenOriginal.indexOf(a) - ordenOriginal.indexOf(b);
-    }
-
-    return 0;
-  });
-
-  tarjetas.forEach(card => contenedor.appendChild(card));
 }
