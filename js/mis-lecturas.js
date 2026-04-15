@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const { data: lecturas, error } = await supabase
       .from("lecturas")
-      .select("novela, estado, updated_at")
+      .select("novela, estado")
       .eq("usuario_id", user.id);
 
     if (error) {
