@@ -199,6 +199,8 @@ function mostrarLecturas(lecturas) {
     contenedor.appendChild(divCard);
   });
 
+  window.aplicarEstadoNovela?.();
+
   aplicarFiltros();
 }
 
