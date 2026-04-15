@@ -18,7 +18,7 @@ let filtrosSeleccionados = {
 };
 
 // 🔥 ORDEN
-let ordenActual = null; // "az" | "update"
+let ordenActual = "az"; // "az" | "update"
 
 // 🔥 GUARDAR LECTURAS
 let lecturasGlobal = [];
