@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 function renderizar() {
   let lista = [...lecturasGlobal];
 
-  // 🔹 ORDEN (solo aquí)
+  // 🔹 ordenar
   lista.sort((a, b) => {
     const A = normalizarTexto(a.novela);
     const B = normalizarTexto(b.novela);
@@ -226,8 +226,32 @@ function renderizar() {
     return 0;
   });
 
-  crearTarjetas(lista);
-  aplicarFiltrosYMostrar();
+  // 🔥 aplicar filtros AQUÍ (no en DOM)
+  listaFiltrada = lista.filter(l => {
+    const estado = normalizarTexto(l.estado);
+
+    const novelaCompleta = novelas.find(n =>
+      normalizarTexto(n.titulo) === normalizarTexto(l.novela)
+    );
+
+    const tags = novelaCompleta?.tags || "";
+    const estadoNovela = tags.split(" ").find(t =>
+      ["finalizado", "en-proceso", "pendiente", "mtl"].includes(t)
+    ) || "";
+
+    const okEstado =
+      !filtrosSeleccionados.estado ||
+      estado === filtrosSeleccionados.estado;
+
+    const okNovela =
+      !filtrosSeleccionados.estadoNovela ||
+      estadoNovela === filtrosSeleccionados.estadoNovela;
+
+    return okEstado && okNovela;
+  });
+
+  crearTarjetas(listaFiltrada);
+  mostrarPagina();
 }
 
 // ================================
