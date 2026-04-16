@@ -363,6 +363,7 @@ document.querySelectorAll("#dropdown-orden button").forEach(btn => {
 function aplicarOrden(tipo) {
   modoOrden = tipo;
   ordenarTarjetas();
+  guardarFiltrosURL();
   dropdownOrden.classList.remove("activo");
 }
 
@@ -442,13 +443,23 @@ window.addEventListener("load", function() {
   document.querySelectorAll(".card").forEach(card => card.dataset.visible = "1");
 
   ordenOriginal = Array.from(document.querySelectorAll(".card"));
-  modoOrden = "az";
-
-  ordenarTarjetas();
-  aplicarFiltrosDesdeURL();
 
   const params = new URLSearchParams(window.location.search);
 
+  // 🔥 1. RESTAURAR ORDEN PRIMERO
+  const ordenURL = params.get("orden");
+  if (ordenURL) {
+    modoOrden = ordenURL;
+  } else {
+    modoOrden = "az";
+  }
+
+  // 🔥 2. ORDENAR CON EL MODO CORRECTO
+  ordenarTarjetas();
+
+  // 🔥 3. LUEGO aplicar filtros
+  aplicarFiltrosDesdeURL();
+   
   // 🔥 MOSTRAR TODO
   if (params.get("mostrar") === "todo") {
     mostrarTodoActivo = true;
@@ -551,6 +562,8 @@ function guardarFiltrosURL() {
     const valores = Array.from(checks).map(c => c.value);
     if (valores.length) params.set(filtro, valores.join(","));
   });
+
+  params.set("orden", modoOrden);
 
   params.set("pagina", paginaActual);
   const query = params.toString();
