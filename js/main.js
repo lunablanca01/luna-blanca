@@ -282,8 +282,10 @@ function aplicarFiltros() {
 
   if (!cargandoDesdeURL) paginaActual = 1;
   mostrarTodoActivo = false;
-  guardarFiltrosURL();
-  if (!cargandoDesdeURL) mostrarPagina();
+  if (!cargandoDesdeURL) {
+    guardarFiltrosURL();
+    mostrarPagina();
+  }
 }
 
 
@@ -539,6 +541,12 @@ window.addEventListener("popstate", () => {
   });
 
   buscador.value = "";
+
+  const ordenURL = params.get("orden");
+  if (ordenURL) modoOrden = ordenURL;
+
+  ordenarTarjetas();
+   
   aplicarFiltrosDesdeURL();
 
   paginaActual = paginaURL;
@@ -565,7 +573,13 @@ function guardarFiltrosURL() {
 
   params.set("orden", modoOrden);
 
-  params.set("pagina", paginaActual);
+  if (mostrarTodoActivo) {
+    params.delete("pagina");
+    params.set("mostrar", "todo");
+  } else {
+    params.delete("mostrar");
+    params.set("pagina", paginaActual);
+  }
   const query = params.toString();
   const nuevaURL = query ? "?" + query : window.location.pathname;
   window.history.pushState({}, "", nuevaURL);
