@@ -390,7 +390,15 @@ if (btnMostrarTodo) {
    🔗 14. FILTROS DESDE URL
 ================================ */
 function aplicarFiltrosDesdeURL() {
+
+  // 🔥 LIMPIAR TODO antes
+  filtros.forEach(filtro => {
+    const checks = document.querySelectorAll(`#dropdown-${filtro} input`);
+    checks.forEach(c => c.checked = false);
+  });
+
   const params = new URLSearchParams(window.location.search);
+
   filtros.forEach(filtro => {
     if (params.has(filtro)) {
       const valores = params.get(filtro).split(",");
@@ -400,6 +408,7 @@ function aplicarFiltrosDesdeURL() {
       });
     }
   });
+
   aplicarFiltros();
 }
 
