@@ -438,21 +438,23 @@ window.addEventListener("load", function() {
   ordenarTarjetas();
   aplicarFiltrosDesdeURL();
 
-   const params = new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(window.location.search);
 
-   if (params.get("mostrar") === "todo") {
-     mostrarTodoActivo = true;
+  // 🔥 MOSTRAR TODO
+  if (params.get("mostrar") === "todo") {
+    mostrarTodoActivo = true;
 
-     const btnMostrarTodo = document.getElementById("mostrar-todo");
-     if (btnMostrarTodo) {
-       btnMostrarTodo.textContent = "Paginado";
-     }
-   }
+    const btnMostrarTodo = document.getElementById("mostrar-todo");
+    if (btnMostrarTodo) {
+      btnMostrarTodo.textContent = "Paginado";
+    }
+  }
+
+  // 🔥 PAGINA
+  const paginaURL = parseInt(params.get("pagina"));
+  if (paginaURL && paginaURL > 0) paginaActual = paginaURL;
 
   cargandoDesdeURL = false;
-
-  const params = new URLSearchParams(window.location.search);
-  const paginaURL = parseInt(params.get("pagina"));
   if (paginaURL && paginaURL > 0) paginaActual = paginaURL;
 
   bloqueandoURL = false;
