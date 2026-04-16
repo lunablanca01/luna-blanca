@@ -50,18 +50,28 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ================================
   // 🔹 FILTROS
   // ================================
-  document.querySelectorAll(".filtro-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const grupo = btn.dataset.grupo;
-      const valor = btn.dataset.valor;
+// ================================
+// 🔹 FILTROS
+// ================================
+document.querySelectorAll(".filtro-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const grupo = btn.dataset.grupo;
+    const valor = btn.dataset.valor;
 
-      document.querySelectorAll(`.filtro-btn[data-grupo="${grupo}"]`)
-        .forEach(b => b.classList.remove("activo"));
+    document.querySelectorAll(`.filtro-btn[data-grupo="${grupo}"]`)
+      .forEach(b => b.classList.remove("activo"));
 
-      btn.classList.add("activo");
-      filtrosSeleccionados[grupo] = valor;
-    });
+    btn.classList.add("activo");
+    filtrosSeleccionados[grupo] = valor;
   });
+});
+
+// 🔥 ESTE BLOQUE FALTABA
+document.querySelectorAll(".filtro-header").forEach(header => {
+  header.addEventListener("click", () => {
+    header.parentElement.classList.toggle("activo");
+  });
+});
 
   document.getElementById("btn-aplicar")?.addEventListener("click", aplicarFiltros);
 
