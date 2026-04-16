@@ -494,11 +494,6 @@ window.addEventListener("load", function() {
   bloqueandoURL = false;
   mostrarPagina();
 
-  // 🔥 BOTÓN DESCARGAR
-  const btnDescargar = document.getElementById("btn-descargar");
-  if (btnDescargar) {
-    btnDescargar.addEventListener("click", descargarExcel);
-  }
 });
 
 
@@ -621,36 +616,35 @@ window.addEventListener("resize", function () {
 ================================ */
 function descargarExcel() {
 
-  // 🔥 PRIORIDAD: lista filtrada real
-  let visibles = [];
+  const cards = listaFiltrada.length
+    ? listaFiltrada
+    : Array.from(document.querySelectorAll(".card"));
 
-  if (listaFiltrada && listaFiltrada.length > 0) {
-    visibles = listaFiltrada;
-  } else {
-    visibles = Array.from(document.querySelectorAll(".card"));
-  }
+  let contenido = "Titulo Español;Titulo Ingles;Capitulos\n";
 
-  let contenido = "Titulo\n";
+  cards.forEach(card => {
 
-  visibles.forEach(card => {
     const titulo = card.querySelector("h3")?.textContent || "";
-    const limpio = titulo.replace(/"/g, '""');
-    contenido += `"${limpio}"\n`;
+
+    // ⚠️ esto viene de datos globales (novelas)
+    const novela = novelas.find(n => n.titulo === titulo);
+
+    const ingles = novela?.ingles || "";
+    const capitulos = novela?.capitulos || "";
+
+    contenido += `"${titulo}";"${ingles}";"${capitulos}"\n`;
   });
 
-  const blob = new Blob(
-    ["\uFEFF" + contenido],
-    { type: "text/csv;charset=utf-8;" }
-  );
+  const blob = new Blob(["\uFEFF" + contenido], {
+    type: "text/csv;charset=utf-8;"
+  });
 
   const url = URL.createObjectURL(blob);
-
   const a = document.createElement("a");
+
   a.href = url;
-  a.download = "titulos.csv";
-  document.body.appendChild(a);
+  a.download = "novelas.csv";
   a.click();
-  document.body.removeChild(a);
 
   URL.revokeObjectURL(url);
 }
@@ -679,3 +673,50 @@ function moverKofi() {
 
 window.addEventListener("load", moverKofi);
 window.addEventListener("resize", moverKofi);
+
+
+/* ================================
+   ⬇️ 25. POP UP DESCARGA
+================================ */
+window.addEventListener("DOMContentLoaded", () => {
+
+  const modal = document.getElementById("modal-descarga");
+  const btnDescargar = document.getElementById("btn-descargar");
+  const btnCerrar = document.getElementById("cerrar-modal");
+  const btnConfirmar = document.getElementById("confirmar-descarga");
+
+  if (!modal || !btnDescargar || !btnCerrar || !btnConfirmar) {
+    console.warn("Modal o botones no encontrados en el DOM");
+    return;
+  }
+
+  // abrir modal
+  btnDescargar.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.style.display = "flex";
+  });
+
+  // cerrar con X
+  btnCerrar.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // cerrar clic fuera
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+  // confirmar descarga
+  btnConfirmar.addEventListener("click", () => {
+
+    const checks = document.querySelectorAll("#modal-descarga input:checked");
+    const campos = Array.from(checks).map(c => c.value);
+
+    descargarExcel(campos);
+
+    modal.style.display = "none";
+  });
+
+});
