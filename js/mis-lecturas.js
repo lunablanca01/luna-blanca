@@ -438,3 +438,37 @@ function descargarExcelLecturas() {
 
   URL.revokeObjectURL(url);
 }
+
+
+/* ================================
+   ⬇️ 24. KOFI
+================================ */
+function moverKofi() {
+  const kofi = document.getElementById("kofi-container");
+  const footer = document.querySelector(".footer-tarjetas");
+  const controles = document.querySelector(".controles");
+
+  if (!kofi || !footer || !controles) return;
+
+  if (window.innerWidth <= 790) {
+    if (footer.nextElementSibling !== kofi) {
+      footer.after(kofi);
+    }
+  } else {
+    if (controles.lastElementChild !== kofi) {
+      controles.appendChild(kofi);
+    }
+  }
+}
+
+window.addEventListener("load", moverKofi);
+window.addEventListener("resize", moverKofi);
+
+
+/* ================================
+   ⬆️ 19. SCROLL TOP
+================================ */
+window.addEventListener("scroll", function() {
+  const scrollTopBtn = document.getElementById("scrollTop");
+  scrollTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
+});
