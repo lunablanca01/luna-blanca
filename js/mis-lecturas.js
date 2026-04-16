@@ -448,7 +448,7 @@ function descargarListas() {
 window.addEventListener("DOMContentLoaded", () => {
 
   const modal = document.getElementById("modal-descarga");
-  const btnDescargar = document.getElementById("btn-descargar");
+  const btnDescargar = document.getElementById("btn-descargar-lecturas");
   const btnCerrar = document.getElementById("cerrar-modal");
   const btnConfirmar = document.getElementById("confirmar-descarga");
 
