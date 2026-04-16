@@ -619,9 +619,6 @@ window.addEventListener("resize", function () {
 /* ================================
    ⬇️ 23. DESCARGAR EXCEL
 ================================ */
-/* ================================
-   ⬇️ 23. DESCARGAR EXCEL
-================================ */
 function descargarExcel() {
 
   // 🔥 PRIORIDAD: lista filtrada real
@@ -657,3 +654,28 @@ function descargarExcel() {
 
   URL.revokeObjectURL(url);
 }
+
+
+/* ================================
+   ⬇️ 24. KOFI
+================================ */
+function moverKofi() {
+  const kofi = document.getElementById("kofi-container");
+  const footer = document.querySelector(".footer-tarjetas");
+  const controles = document.querySelector(".controles");
+
+  if (!kofi || !footer || !controles) return;
+
+  if (window.innerWidth <= 790) {
+    if (footer.nextElementSibling !== kofi) {
+      footer.after(kofi);
+    }
+  } else {
+    if (controles.lastElementChild !== kofi) {
+      controles.appendChild(kofi);
+    }
+  }
+}
+
+window.addEventListener("load", moverKofi);
+window.addEventListener("resize", moverKofi);
