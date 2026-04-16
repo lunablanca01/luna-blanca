@@ -498,10 +498,7 @@ h1 a{
  .grid{
    grid-template-columns:repeat(4,1fr);
  }
-
- #kofi-container{
-   display:none;
- }
+  
 }
 
 
@@ -511,11 +508,7 @@ h1 a{
  .layout-principal{
    grid-template-columns:1fr;
  }
-
- #kofi-container{
-   display:none;
- }
-
+  
  .grid{
    grid-template-columns:repeat(3,1fr);
  }
