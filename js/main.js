@@ -369,6 +369,12 @@ document.querySelectorAll("#dropdown-orden button").forEach(btn => {
 
 function aplicarOrden(tipo) {
   modoOrden = tipo;
+
+  // 🔥 ACTIVAR BOTÓN VISUAL
+  document.querySelectorAll("#dropdown-orden button").forEach(btn => {
+    btn.classList.toggle("activo", btn.dataset.orden === tipo);
+  });
+   
   ordenarTarjetas();
   guardarFiltrosURL();
   dropdownOrden.classList.remove("activo");
@@ -457,6 +463,9 @@ window.addEventListener("load", function() {
   const ordenURL = params.get("orden");
   if (ordenURL) {
     modoOrden = ordenURL;
+      document.querySelectorAll("#dropdown-orden button").forEach(btn => {
+        btn.classList.toggle("activo", btn.dataset.orden === modoOrden);
+      });
   } else {
     modoOrden = "az";
   }
