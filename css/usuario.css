@@ -58,6 +58,7 @@
   min-width:160px;
   box-shadow:0 6px 18px rgba(0,0,0,0.15);
   z-index:1000;
+  overflow: hidden;
 }
 
 /* links del menú */
