@@ -284,6 +284,11 @@ h1 a{
   background:#ffd2b8;
 }
 
+.dropdown-orden button.activo{
+  background:#ff8b8b;
+  color:white;
+}
+
 /* ACTIVO */
 .dropdown-orden.activo{
   display:block;
