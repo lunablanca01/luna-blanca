@@ -544,12 +544,12 @@ window.addEventListener("popstate", () => {
 
   const ordenURL = params.get("orden");
   if (ordenURL) modoOrden = ordenURL;
-
-  ordenarTarjetas();
    
   aplicarFiltrosDesdeURL();
 
   paginaActual = paginaURL;
+
+  ordenarTarjetas();
 
   cargandoDesdeURL = false;
   mostrarPagina();
