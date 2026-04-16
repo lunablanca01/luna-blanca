@@ -148,6 +148,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   document.querySelectorAll("#dropdown-orden button").forEach(btn => {
     btn.addEventListener("click", () => {
+
+      document.querySelectorAll("#dropdown-orden button")
+        .forEach(b => b.classList.remove("activo"));
+
+      btn.classList.add("activo");
+
       ordenActual = btn.dataset.orden;
       paginaActual = 1;
 
@@ -311,7 +317,13 @@ function mostrarPagina() {
   todas.forEach(c => c.style.display = "none");
 
   if (!listaFiltrada.length) {
-    contenedor.innerHTML = `<div class="sin-lecturas">No hay resultados ✨</div>`;
+    document.getElementById("paginacion-lecturas").innerHTML = "";
+  
+    const mensaje = document.createElement("div");
+    mensaje.className = "sin-lecturas";
+    mensaje.textContent = "No hay resultados ✨";
+
+    contenedor.appendChild(mensaje);
     return;
   }
 
