@@ -379,8 +379,7 @@ h1 a{
 
 /* BOTÓN IZQUIERDA */
 #mostrar-todo{
-  position:absolute;
-  left:0;
+  position:static;
   background:#ffe4d2;
   border:none;
   padding:8px 12px;
