@@ -343,21 +343,61 @@ function generarPaginacion(total) {
   if (mostrarTodoActivo) return;
 
   const totalPaginas = Math.ceil(total / tarjetasPorPagina);
+  if (totalPaginas <= 1) return;
 
-  for (let i = 1; i <= totalPaginas; i++) {
+  const crearBtn = (num) => {
     const btn = document.createElement("button");
-    btn.textContent = i;
+    btn.textContent = num;
 
-    if (i === paginaActual) btn.classList.add("activo");
+    if (num === paginaActual) btn.classList.add("activo");
 
     btn.onclick = () => {
-      paginaActual = i;
+      paginaActual = num;
       actualizarURL();
       mostrarPagina();
     };
 
     contenedor.appendChild(btn);
+  };
+
+  const crearDots = () => {
+    const span = document.createElement("span");
+    span.textContent = "...";
+    span.className = "dots";
+    contenedor.appendChild(span);
+  };
+
+  // 🔥 LÓGICA INTELIGENTE
+
+  if (totalPaginas <= 7) {
+    // pocas páginas → mostrar todas
+    for (let i = 1; i <= totalPaginas; i++) {
+      crearBtn(i);
+    }
+    return;
   }
+
+  // siempre mostrar primera
+  crearBtn(1);
+
+  if (paginaActual > 3) {
+    crearDots();
+  }
+
+  // rango alrededor de la actual
+  let inicio = Math.max(2, paginaActual - 1);
+  let fin = Math.min(totalPaginas - 1, paginaActual + 1);
+
+  for (let i = inicio; i <= fin; i++) {
+    crearBtn(i);
+  }
+
+  if (paginaActual < totalPaginas - 2) {
+    crearDots();
+  }
+
+  // siempre mostrar última
+  crearBtn(totalPaginas);
 }
 
 // ================================
