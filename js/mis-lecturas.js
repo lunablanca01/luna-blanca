@@ -91,12 +91,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   paginaActual = parseInt(params.get("pagina")) || 1;
   mostrarTodoActivo = params.get("mostrar") === "todo";
 
-  document.getElementById("btn-descargar-lecturas")
-  ?.addEventListener("click", descargarExcelLecturas);
-
-  // ================================
-  // 🔹 FILTROS UI
-  // ================================
   document.querySelectorAll(".filtro-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const grupo = btn.dataset.grupo;
@@ -138,9 +132,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderizar();
   });
 
-  // ================================
-  // 🔹 ORDEN
-  // ================================
   const btnOrdenar = document.getElementById("btn-ordenar");
   const dropdownOrden = document.getElementById("dropdown-orden");
 
@@ -170,9 +161,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  // ================================
-  // 🔹 MOSTRAR TODO
-  // ================================
   document.getElementById("mostrar-todo-lecturas")?.addEventListener("click", () => {
     mostrarTodoActivo = !mostrarTodoActivo;
 
@@ -183,9 +171,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     mostrarPagina();
   });
 
-  // ================================
-  // 🔹 DATA
-  // ================================
   try {
     const { data, error: userError } = await supabase.auth.getUser();
 
@@ -210,6 +195,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch {
     contenedor.innerHTML = `<div class="sin-lecturas">Error general</div>`;
   }
+
+  // ================================
+  // ⬇️ BOTÓN DESCARGAR
+  // ================================
+  document.getElementById("btn-descargar-lecturas")?.addEventListener("click", descargarExcelLecturas);
 });
 
 // ================================
@@ -228,13 +218,11 @@ function renderizar() {
   });
 
   crearTarjetas(lista);
-
   aplicarFiltrosYMostrar();
-
 }
 
 // ================================
-// 🔹 CREAR TARJETAS (FIX CLAVE)
+// 🔹 CREAR TARJETAS
 // ================================
 function crearTarjetas(lista) {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
@@ -266,8 +254,6 @@ function crearTarjetas(lista) {
       ) || "";
 
       card.dataset.estadoNovela = estadoNovela;
-
-      // 🔥 IMPORTANTE: para estadoNovela.js
       card.dataset.tags = tags;
 
       card.innerHTML = `
@@ -288,7 +274,6 @@ function crearTarjetas(lista) {
     contenedor.appendChild(card);
   });
 
-  // 🔥 FIX FINAL: volver a aplicar etiquetas
   window.aplicarEstadoNovela?.();
 }
 
@@ -416,34 +401,25 @@ window.addEventListener("resize", () => {
   }
 });
 
-
 // ================================
-// ⬇️ DESCARGAR CSV (MIS LECTURAS)
+// ⬇️ DESCARGAR CSV
 // ================================
 function descargarExcelLecturas() {
 
-  const hayFiltroActivo =
-    filtrosSeleccionados.estado ||
-    filtrosSeleccionados.estadoNovela;
-
   let visibles = [];
 
-  if (hayFiltroActivo) {
+  if (listaFiltrada && listaFiltrada.length > 0) {
     visibles = listaFiltrada;
   } else {
     visibles = Array.from(document.querySelectorAll(".card"));
   }
 
-  let contenido = "Novela,Estado\n";
+  let contenido = "Novela\n";
 
   visibles.forEach(card => {
     const titulo = card.querySelector("h3")?.textContent || "";
-    const estado = card.dataset.estado || "";
-
-    const limpioTitulo = titulo.replace(/"/g, '""');
-    const limpioEstado = estado.replace(/"/g, '""');
-
-    contenido += `"${limpioTitulo}","${limpioEstado}"\n`;
+    const limpio = titulo.replace(/"/g, '""');
+    contenido += `"${limpio}"\n`;
   });
 
   const blob = new Blob(
