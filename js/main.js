@@ -104,7 +104,7 @@ function mostrarPagina() {
 
   const hayFiltros = visibles.length !== todas.length;
 
-  if (mostrarTodoActivo && !hayFiltros) {
+  if (mostrarTodoActivo) {
     visibles.forEach(card => card.style.display = "block");
     generarPaginacion(visibles.length);
     return;
