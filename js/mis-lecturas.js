@@ -27,6 +27,22 @@ function calcularTarjetasPorPagina() {
 }
 
 // ================================
+// 🔥 HELPERS
+// ================================
+function obtenerNovela(l) {
+  return novelas.find(n =>
+    normalizarTexto(n.titulo) === normalizarTexto(l.novela)
+  );
+}
+
+function obtenerEstadoNovela(novela) {
+  if (!novela?.tags) return "";
+  return novela.tags
+    .split(" ")
+    .find(t => ["finalizado", "en-proceso", "pendiente", "mtl"].includes(t)) || "";
+}
+
+// ================================
 // 🔥 ESTADO GLOBAL
 // ================================
 let filtrosSeleccionados = {
@@ -37,12 +53,11 @@ let filtrosSeleccionados = {
 let ordenActual = "az";
 
 let lecturasGlobal = [];
+let listaFiltrada = [];
 
 let paginaActual = 1;
 let tarjetasPorPagina = calcularTarjetasPorPagina();
 let mostrarTodoActivo = false;
-
-let listaFiltrada = [];
 
 // ================================
 // 🔗 URL
@@ -50,28 +65,13 @@ let listaFiltrada = [];
 function actualizarURL() {
   const params = new URLSearchParams();
 
-  if (filtrosSeleccionados.estado) {
-    params.set("estado", filtrosSeleccionados.estado);
-  }
+  if (filtrosSeleccionados.estado) params.set("estado", filtrosSeleccionados.estado);
+  if (filtrosSeleccionados.estadoNovela) params.set("estadoNovela", filtrosSeleccionados.estadoNovela);
+  if (ordenActual !== "az") params.set("orden", ordenActual);
+  if (paginaActual > 1) params.set("pagina", paginaActual);
+  if (mostrarTodoActivo) params.set("mostrar", "todo");
 
-  if (filtrosSeleccionados.estadoNovela) {
-    params.set("estadoNovela", filtrosSeleccionados.estadoNovela);
-  }
-
-  if (ordenActual !== "az") {
-    params.set("orden", ordenActual);
-  }
-
-  if (paginaActual > 1) {
-    params.set("pagina", paginaActual);
-  }
-
-  if (mostrarTodoActivo) {
-    params.set("mostrar", "todo");
-  }
-
-  const nuevaURL = window.location.pathname + "?" + params.toString();
-  window.history.replaceState({}, "", nuevaURL);
+  window.history.replaceState({}, "", window.location.pathname + "?" + params.toString());
 }
 
 // ================================
@@ -91,9 +91,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   paginaActual = parseInt(params.get("pagina")) || 1;
   mostrarTodoActivo = params.get("mostrar") === "todo";
 
-  // ================================
-  // 🔹 FILTROS UI
-  // ================================
+  // filtros UI
   document.querySelectorAll(".filtro-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const grupo = btn.dataset.grupo;
@@ -111,7 +109,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  // 🔥 ABRIR/CERRAR FILTROS (esto faltaba en tu versión anterior)
+  // abrir filtros
   document.querySelectorAll(".filtro-header").forEach(header => {
     header.addEventListener("click", () => {
       header.parentElement.classList.toggle("activo");
@@ -127,18 +125,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("btn-limpiar")?.addEventListener("click", () => {
     filtrosSeleccionados = { estado: null, estadoNovela: null };
     ordenActual = "az";
-
-    document.querySelectorAll(".filtro-btn")
-      .forEach(b => b.classList.remove("activo"));
-
     paginaActual = 1;
+
+    document.querySelectorAll(".filtro-btn").forEach(b => b.classList.remove("activo"));
+
     actualizarURL();
     renderizar();
   });
 
-  // ================================
-  // 🔹 ORDEN
-  // ================================
+  // orden
   const btnOrdenar = document.getElementById("btn-ordenar");
   const dropdownOrden = document.getElementById("dropdown-orden");
 
@@ -148,7 +143,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   document.querySelectorAll("#dropdown-orden button").forEach(btn => {
     btn.addEventListener("click", () => {
-
       document.querySelectorAll("#dropdown-orden button")
         .forEach(b => b.classList.remove("activo"));
 
@@ -162,15 +156,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       dropdownOrden.classList.remove("activo");
     });
-
-    if (btn.dataset.orden === ordenActual) {
-      btn.classList.add("activo");
-    }
   });
 
-  // ================================
-  // 🔹 MOSTRAR TODO
-  // ================================
+  // mostrar todo
   document.getElementById("mostrar-todo-lecturas")?.addEventListener("click", () => {
     mostrarTodoActivo = !mostrarTodoActivo;
 
@@ -181,23 +169,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     mostrarPagina();
   });
 
-  // ================================
-  // 🔹 DATA
-  // ================================
+  // DATA
   try {
-    const { data, error: userError } = await supabase.auth.getUser();
+    const { data, error } = await supabase.auth.getUser();
 
-    if (userError || !data?.user) {
+    if (error || !data?.user) {
       contenedor.innerHTML = `<div class="sin-lecturas">Debes iniciar sesión ✨</div>`;
       return;
     }
 
-    const { data: lecturas, error } = await supabase
+    const { data: lecturas, error: err2 } = await supabase
       .from("lecturas")
       .select("novela, estado")
       .eq("usuario_id", data.user.id);
 
-    if (error) {
+    if (err2) {
       contenedor.innerHTML = `<div class="sin-lecturas">Error al cargar</div>`;
       return;
     }
@@ -211,33 +197,26 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 // ================================
-// 🔥 RENDER CENTRAL (CLAVE)
+// 🔥 RENDER
 // ================================
 function renderizar() {
   let lista = [...lecturasGlobal];
 
-  // 🔹 ordenar
+  // orden
   lista.sort((a, b) => {
     const A = normalizarTexto(a.novela);
     const B = normalizarTexto(b.novela);
 
-    if (ordenActual === "az") return A.localeCompare(B);
-    if (ordenActual === "za") return B.localeCompare(A);
-    return 0;
+    return ordenActual === "az"
+      ? A.localeCompare(B)
+      : B.localeCompare(A);
   });
 
-  // 🔥 aplicar filtros AQUÍ (no en DOM)
+  // filtros + estado novela (CORRECTO)
   listaFiltrada = lista.filter(l => {
     const estado = normalizarTexto(l.estado);
-
-    const novelaCompleta = novelas.find(n =>
-      normalizarTexto(n.titulo) === normalizarTexto(l.novela)
-    );
-
-    const tags = novelaCompleta?.tags || "";
-    const estadoNovela = tags.split(" ").find(t =>
-      ["finalizado", "en-proceso", "pendiente", "mtl"].includes(t)
-    ) || "";
+    const novela = obtenerNovela(l);
+    const estadoNovela = obtenerEstadoNovela(novela);
 
     const okEstado =
       !filtrosSeleccionados.estado ||
@@ -255,50 +234,41 @@ function renderizar() {
 }
 
 // ================================
-// 🔹 CREAR TARJETAS
+// 🔥 TARJETAS
 // ================================
 function crearTarjetas(lista) {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   contenedor.innerHTML = "";
 
   const emojiMap = {
-    "por_leer": "📘",
-    "leyendo": "📖",
-    "leido": "✅",
-    "leido_mtl": "🈶"
+    por_leer: "📘",
+    leyendo: "📖",
+    leido: "✅",
+    leido_mtl: "🈶"
   };
 
   lista.forEach(l => {
     const estado = normalizarTexto(l.estado);
-
-    const novelaCompleta = novelas.find(n =>
-      normalizarTexto(n.titulo) === normalizarTexto(l.novela)
-    );
+    const novela = obtenerNovela(l);
+    const estadoNovela = obtenerEstadoNovela(novela);
 
     const card = document.createElement("div");
     card.className = "card";
     card.dataset.estado = estado;
+    card.dataset.estadoNovela = estadoNovela;
 
-    if (novelaCompleta) {
-      const tags = novelaCompleta.tags || "";
-      const estadoNovela = tags.split(" ").find(t =>
-        ["finalizado", "en-proceso", "pendiente", "mtl"].includes(t)
-      ) || "";
-
-      card.dataset.estadoNovela = estadoNovela;
-
+    if (novela) {
       card.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
-        <a href="../novelas/${novelaCompleta.slug}.html">
-          <img src="../imagenes/${novelaCompleta.imagen}">
+        <a href="../novelas/${novela.slug}.html">
+          <img src="../imagenes/${novela.imagen}">
         </a>
-        <h3>${novelaCompleta.titulo}</h3>
+        <h3>${novela.titulo}</h3>
       `;
     } else {
-      card.dataset.estadoNovela = "";
       card.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
-        <h3>${l.novela || "Sin título"}</h3>
+        <h3>${l.novela}</h3>
       `;
     }
 
@@ -307,49 +277,14 @@ function crearTarjetas(lista) {
 }
 
 // ================================
-// 🔥 FILTRAR + MOSTRAR
-// ================================
-function aplicarFiltrosYMostrar() {
-  const cards = Array.from(document.querySelectorAll(".card"));
-
-  listaFiltrada = cards.filter(card => {
-    const okEstado =
-      !filtrosSeleccionados.estado ||
-      card.dataset.estado === filtrosSeleccionados.estado;
-
-    const okNovela =
-      !filtrosSeleccionados.estadoNovela ||
-      card.dataset.estadoNovela === filtrosSeleccionados.estadoNovela;
-
-    return okEstado && okNovela;
-  });
-
-  if (!filtrosSeleccionados.estado && !filtrosSeleccionados.estadoNovela) {
-    listaFiltrada = cards;
-  }
-
-  mostrarPagina();
-}
-
-// ================================
 // 📄 PAGINACIÓN
 // ================================
 function mostrarPagina() {
-  const contenedor = document.getElementById("contenedor-mis-lecturas");
-  const todas = Array.from(contenedor.querySelectorAll(".card"));
+  const cards = Array.from(document.querySelectorAll(".card"));
 
-  todas.forEach(c => c.style.display = "none");
+  cards.forEach(c => c.style.display = "none");
 
-  if (!listaFiltrada.length) {
-    document.getElementById("paginacion-lecturas").innerHTML = "";
-  
-    const mensaje = document.createElement("div");
-    mensaje.className = "sin-lecturas";
-    mensaje.textContent = "No hay resultados ✨";
-
-    contenedor.appendChild(mensaje);
-    return;
-  }
+  if (!listaFiltrada.length) return;
 
   if (mostrarTodoActivo) {
     listaFiltrada.forEach(c => c.style.display = "block");
@@ -368,7 +303,7 @@ function mostrarPagina() {
 }
 
 // ================================
-// 🔢 BOTONES
+// 🔢 PAGINACIÓN
 // ================================
 function generarPaginacion(total) {
   const contenedor = document.getElementById("paginacion-lecturas");
@@ -381,63 +316,24 @@ function generarPaginacion(total) {
   const totalPaginas = Math.ceil(total / tarjetasPorPagina);
   if (totalPaginas <= 1) return;
 
-  const crearBtn = (num) => {
+  for (let i = 1; i <= totalPaginas; i++) {
     const btn = document.createElement("button");
-    btn.textContent = num;
+    btn.textContent = i;
 
-    if (num === paginaActual) btn.classList.add("activo");
+    if (i === paginaActual) btn.classList.add("activo");
 
     btn.onclick = () => {
-      paginaActual = num;
+      paginaActual = i;
       actualizarURL();
       mostrarPagina();
     };
 
     contenedor.appendChild(btn);
-  };
-
-  const crearDots = () => {
-    const span = document.createElement("span");
-    span.textContent = "...";
-    span.className = "dots";
-    contenedor.appendChild(span);
-  };
-
-  // 🔥 LÓGICA INTELIGENTE
-
-  if (totalPaginas <= 7) {
-    // pocas páginas → mostrar todas
-    for (let i = 1; i <= totalPaginas; i++) {
-      crearBtn(i);
-    }
-    return;
   }
-
-  // siempre mostrar primera
-  crearBtn(1);
-
-  if (paginaActual > 3) {
-    crearDots();
-  }
-
-  // rango alrededor de la actual
-  let inicio = Math.max(2, paginaActual - 1);
-  let fin = Math.min(totalPaginas - 1, paginaActual + 1);
-
-  for (let i = inicio; i <= fin; i++) {
-    crearBtn(i);
-  }
-
-  if (paginaActual < totalPaginas - 2) {
-    crearDots();
-  }
-
-  // siempre mostrar última
-  crearBtn(totalPaginas);
 }
 
 // ================================
-// 📱 RESPONSIVE
+// 📱 RESIZE
 // ================================
 window.addEventListener("resize", () => {
   const nuevas = calcularTarjetasPorPagina();
