@@ -287,6 +287,8 @@ h1 a{
 /* ACTIVO */
 .dropdown-orden.activo{
   display:block;
+  background: #333;
+  color: #fff;
 }
 
 
