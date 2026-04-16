@@ -341,9 +341,59 @@ h1{
    ⭐ RESPONSIVE
 ================================ */
 @media (max-width:790px){
-  .layout-principal{
-    grid-template-columns:1fr;
+ .layout-principal{
+   grid-template-columns:1fr;
+ }
+
+ .grid{
+   grid-template-columns:repeat(4,1fr);
+ }
+
+ #kofi-container{
+   display:none;
+ }
+}
+
+/* 📱 TABLET */
+
+@media (max-width:650px){
+ .layout-principal{
+   grid-template-columns:1fr;
+ }
+
+ #kofi-container{
+   display:none;
+ }
+
+ .grid{
+   grid-template-columns:repeat(3,1fr);
+ }
+
+ .card img{
+   height:160px;
+ }
+
+ .card h3{
+   font-size:14px;
+   margin:6px 6px 4px;
+   -webkit-line-clamp:3;
+ }
+
+ /* 📱 FOOTER MOBILE */
+ .footer-tarjetas{
+   flex-direction:column;
+   gap:10px;
+ }
+
+  #btn-descargar{
+    align-self: flex-end;
   }
+
+ #mostrar-todo{
+  position:static;
+  width:100%;
+  text-align:center;
+ }
 }
 
 @media (max-width:500px){
@@ -375,6 +425,15 @@ h1{
     margin:3px;
     -webkit-line-clamp:3;
   }
+
+  #paginacion button{
+    padding:4px 8px;
+  }
+
+  #paginacion span {
+    padding: 0 4px;
+  }
+   
 }
 
 
