@@ -500,7 +500,9 @@ h1 a{
  }
 
  #kofi-container{
-   display:none;
+   display:block;
+   order: 999; /* lo manda al final si está en flex */
+   margin-top: 20px;
  }
 }
 
