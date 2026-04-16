@@ -2,6 +2,9 @@ import { supabase } from "./supabase.js";
 
 const novelas = window.novelasCompartidas || [];
 
+// ================================
+// 🔤 UTIL
+// ================================
 function normalizarTexto(texto) {
   return (texto || "")
     .toLowerCase()
@@ -23,22 +26,22 @@ function calcularTarjetasPorPagina() {
   return 12;
 }
 
-// 🔥 FILTROS
+// ================================
+// 🔥 ESTADO GLOBAL
+// ================================
 let filtrosSeleccionados = {
   estado: null,
   estadoNovela: null
 };
 
-// 🔥 ORDEN
 let ordenActual = "az";
 
-// 🔥 DATA
 let lecturasGlobal = [];
 
-// 🔥 PAGINACIÓN
 let paginaActual = 1;
 let tarjetasPorPagina = calcularTarjetasPorPagina();
 let mostrarTodoActivo = false;
+
 let listaFiltrada = [];
 
 // ================================
@@ -55,6 +58,10 @@ function actualizarURL() {
     params.set("estadoNovela", filtrosSeleccionados.estadoNovela);
   }
 
+  if (ordenActual !== "az") {
+    params.set("orden", ordenActual);
+  }
+
   if (paginaActual > 1) {
     params.set("pagina", paginaActual);
   }
@@ -67,25 +74,25 @@ function actualizarURL() {
   window.history.replaceState({}, "", nuevaURL);
 }
 
+// ================================
+// 🚀 INIT
+// ================================
 document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   if (!contenedor) return;
 
   contenedor.innerHTML = `<div class="sin-lecturas">Cargando lecturas...</div>`;
 
-  // ================================
-  // 🔹 LEER URL
-  // ================================
   const params = new URLSearchParams(window.location.search);
 
   filtrosSeleccionados.estado = params.get("estado");
   filtrosSeleccionados.estadoNovela = params.get("estadoNovela");
-
+  ordenActual = params.get("orden") || "az";
   paginaActual = parseInt(params.get("pagina")) || 1;
   mostrarTodoActivo = params.get("mostrar") === "todo";
 
   // ================================
-  // 🔹 FILTROS
+  // 🔹 FILTROS UI
   // ================================
   document.querySelectorAll(".filtro-btn").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -99,34 +106,38 @@ document.addEventListener("DOMContentLoaded", async () => {
       filtrosSeleccionados[grupo] = valor;
     });
 
-    // 🔥 ACTIVAR DESDE URL
     if (btn.dataset.valor === filtrosSeleccionados[btn.dataset.grupo]) {
       btn.classList.add("activo");
     }
   });
 
-  // 🔥 ABRIR/CERRAR FILTROS
+  // 🔥 ABRIR/CERRAR FILTROS (esto faltaba en tu versión anterior)
   document.querySelectorAll(".filtro-header").forEach(header => {
     header.addEventListener("click", () => {
       header.parentElement.classList.toggle("activo");
     });
   });
 
-  document.getElementById("btn-aplicar")?.addEventListener("click", aplicarFiltros);
+  document.getElementById("btn-aplicar")?.addEventListener("click", () => {
+    paginaActual = 1;
+    actualizarURL();
+    renderizar();
+  });
 
   document.getElementById("btn-limpiar")?.addEventListener("click", () => {
     filtrosSeleccionados = { estado: null, estadoNovela: null };
+    ordenActual = "az";
 
     document.querySelectorAll(".filtro-btn")
       .forEach(b => b.classList.remove("activo"));
 
     paginaActual = 1;
     actualizarURL();
-    aplicarFiltros();
+    renderizar();
   });
 
   // ================================
-  // 🔹 ORDENAR
+  // 🔹 ORDEN
   // ================================
   const btnOrdenar = document.getElementById("btn-ordenar");
   const dropdownOrden = document.getElementById("dropdown-orden");
@@ -138,9 +149,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.querySelectorAll("#dropdown-orden button").forEach(btn => {
     btn.addEventListener("click", () => {
       ordenActual = btn.dataset.orden;
-      dropdownOrden.classList.remove("activo");
+      paginaActual = 1;
+
+      actualizarURL();
       renderizar();
+
+      dropdownOrden.classList.remove("activo");
     });
+
+    if (btn.dataset.orden === ordenActual) {
+      btn.classList.add("activo");
+    }
   });
 
   // ================================
@@ -153,23 +172,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       mostrarTodoActivo ? "Paginado" : "Mostrar todo";
 
     actualizarURL();
-    mostrarPaginaLecturas();
+    mostrarPagina();
   });
 
   // ================================
-  // 🔹 CARGAR DATOS
+  // 🔹 DATA
   // ================================
   try {
     const { data, error: userError } = await supabase.auth.getUser();
 
-    if (userError) {
-      contenedor.innerHTML = `<div class="sin-lecturas">Error usuario</div>`;
-      return;
-    }
-
-    const user = data?.user;
-
-    if (!user) {
+    if (userError || !data?.user) {
       contenedor.innerHTML = `<div class="sin-lecturas">Debes iniciar sesión ✨</div>`;
       return;
     }
@@ -177,7 +189,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const { data: lecturas, error } = await supabase
       .from("lecturas")
       .select("novela, estado")
-      .eq("usuario_id", user.id);
+      .eq("usuario_id", data.user.id);
 
     if (error) {
       contenedor.innerHTML = `<div class="sin-lecturas">Error al cargar</div>`;
@@ -187,30 +199,35 @@ document.addEventListener("DOMContentLoaded", async () => {
     lecturasGlobal = lecturas || [];
     renderizar();
 
-  } catch (err) {
+  } catch {
     contenedor.innerHTML = `<div class="sin-lecturas">Error general</div>`;
   }
 });
 
 // ================================
-// 🔥 RENDER
+// 🔥 RENDER CENTRAL (CLAVE)
 // ================================
 function renderizar() {
   let lista = [...lecturasGlobal];
 
-  if (ordenActual === "az") {
-    lista.sort((a, b) =>
-      normalizarTexto(a.novela).localeCompare(normalizarTexto(b.novela))
-    );
-  }
+  // 🔹 ORDEN (solo aquí)
+  lista.sort((a, b) => {
+    const A = normalizarTexto(a.novela);
+    const B = normalizarTexto(b.novela);
 
-  mostrarLecturas(lista);
+    if (ordenActual === "az") return A.localeCompare(B);
+    if (ordenActual === "za") return B.localeCompare(A);
+    return 0;
+  });
+
+  crearTarjetas(lista);
+  aplicarFiltrosYMostrar();
 }
 
 // ================================
 // 🔹 CREAR TARJETAS
 // ================================
-function mostrarLecturas(lecturas) {
+function crearTarjetas(lista) {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   contenedor.innerHTML = "";
 
@@ -221,31 +238,26 @@ function mostrarLecturas(lecturas) {
     "leido_mtl": "🈶"
   };
 
-  if (!lecturas.length) {
-    contenedor.innerHTML = `<div class="sin-lecturas">No hay resultados ✨</div>`;
-    return;
-  }
-
-  lecturas.forEach(l => {
+  lista.forEach(l => {
     const estado = normalizarTexto(l.estado);
 
     const novelaCompleta = novelas.find(n =>
       normalizarTexto(n.titulo) === normalizarTexto(l.novela)
     );
 
-    const divCard = document.createElement("div");
-    divCard.className = "card";
-    divCard.dataset.estado = estado;
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.estado = estado;
 
     if (novelaCompleta) {
-      divCard.dataset.tags = novelaCompleta.tags || "";
+      const tags = novelaCompleta.tags || "";
+      const estadoNovela = tags.split(" ").find(t =>
+        ["finalizado", "en-proceso", "pendiente", "mtl"].includes(t)
+      ) || "";
 
-      const tagsArray = (novelaCompleta.tags || "").split(" ");
-      const estadosNovela = ["finalizado", "en-proceso", "pendiente", "mtl"];
-      const estadoNovela = tagsArray.find(t => estadosNovela.includes(t)) || "";
-      divCard.dataset.estadoNovela = estadoNovela;
+      card.dataset.estadoNovela = estadoNovela;
 
-      divCard.innerHTML = `
+      card.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
         <a href="../novelas/${novelaCompleta.slug}.html">
           <img src="../imagenes/${novelaCompleta.imagen}">
@@ -253,83 +265,76 @@ function mostrarLecturas(lecturas) {
         <h3>${novelaCompleta.titulo}</h3>
       `;
     } else {
-      divCard.dataset.estadoNovela = "";
-      divCard.innerHTML = `
+      card.dataset.estadoNovela = "";
+      card.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
         <h3>${l.novela || "Sin título"}</h3>
       `;
     }
 
-    contenedor.appendChild(divCard);
+    contenedor.appendChild(card);
   });
-
-  aplicarFiltros();
 }
 
 // ================================
-// 🔥 FILTRAR + PAGINAR
+// 🔥 FILTRAR + MOSTRAR
 // ================================
-function aplicarFiltros() {
-  const cards = Array.from(document.querySelectorAll("#contenedor-mis-lecturas .card"));
+function aplicarFiltrosYMostrar() {
+  const cards = Array.from(document.querySelectorAll(".card"));
 
   listaFiltrada = cards.filter(card => {
-    const cumpleLectura =
+    const okEstado =
       !filtrosSeleccionados.estado ||
       card.dataset.estado === filtrosSeleccionados.estado;
 
-    const cumpleNovela =
+    const okNovela =
       !filtrosSeleccionados.estadoNovela ||
       card.dataset.estadoNovela === filtrosSeleccionados.estadoNovela;
 
-    return cumpleLectura && cumpleNovela;
+    return okEstado && okNovela;
   });
 
   if (!filtrosSeleccionados.estado && !filtrosSeleccionados.estadoNovela) {
     listaFiltrada = cards;
   }
 
-  paginaActual = 1;
-  actualizarURL();
-  mostrarPaginaLecturas();
+  mostrarPagina();
 }
 
 // ================================
 // 📄 PAGINACIÓN
 // ================================
-function mostrarPaginaLecturas() {
-  const todas = Array.from(document.querySelectorAll("#contenedor-mis-lecturas .card"));
-  const visibles = listaFiltrada;
+function mostrarPagina() {
+  const contenedor = document.getElementById("contenedor-mis-lecturas");
+  const todas = Array.from(contenedor.querySelectorAll(".card"));
 
-  todas.forEach(card => card.style.display = "none");
+  todas.forEach(c => c.style.display = "none");
 
-  if (!visibles.length) {
-    document.getElementById("contenedor-mis-lecturas").innerHTML =
-      `<div class="sin-lecturas">No hay resultados ✨</div>`;
+  if (!listaFiltrada.length) {
+    contenedor.innerHTML = `<div class="sin-lecturas">No hay resultados ✨</div>`;
     return;
   }
 
   if (mostrarTodoActivo) {
-    visibles.forEach(card => card.style.display = "block");
-    generarPaginacionLecturas(visibles.length);
+    listaFiltrada.forEach(c => c.style.display = "block");
+    generarPaginacion(listaFiltrada.length);
     return;
   }
 
   const inicio = (paginaActual - 1) * tarjetasPorPagina;
   const fin = inicio + tarjetasPorPagina;
 
-  visibles.forEach((card, index) => {
-    if (index >= inicio && index < fin) {
-      card.style.display = "block";
-    }
+  listaFiltrada.forEach((c, i) => {
+    if (i >= inicio && i < fin) c.style.display = "block";
   });
 
-  generarPaginacionLecturas(visibles.length);
+  generarPaginacion(listaFiltrada.length);
 }
 
 // ================================
-// 🔢 BOTONES PAGINACIÓN
+// 🔢 BOTONES
 // ================================
-function generarPaginacionLecturas(total) {
+function generarPaginacion(total) {
   const contenedor = document.getElementById("paginacion-lecturas");
   if (!contenedor) return;
 
@@ -338,7 +343,6 @@ function generarPaginacionLecturas(total) {
   if (mostrarTodoActivo) return;
 
   const totalPaginas = Math.ceil(total / tarjetasPorPagina);
-  if (totalPaginas <= 1) return;
 
   for (let i = 1; i <= totalPaginas; i++) {
     const btn = document.createElement("button");
@@ -346,11 +350,11 @@ function generarPaginacionLecturas(total) {
 
     if (i === paginaActual) btn.classList.add("activo");
 
-    btn.addEventListener("click", () => {
+    btn.onclick = () => {
       paginaActual = i;
       actualizarURL();
-      mostrarPaginaLecturas();
-    });
+      mostrarPagina();
+    };
 
     contenedor.appendChild(btn);
   }
@@ -359,12 +363,12 @@ function generarPaginacionLecturas(total) {
 // ================================
 // 📱 RESPONSIVE
 // ================================
-window.addEventListener("resize", function () {
+window.addEventListener("resize", () => {
   const nuevas = calcularTarjetasPorPagina();
 
   if (nuevas !== tarjetasPorPagina) {
     tarjetasPorPagina = nuevas;
     paginaActual = 1;
-    mostrarPaginaLecturas();
+    mostrarPagina();
   }
 });
