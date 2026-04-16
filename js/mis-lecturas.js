@@ -15,14 +15,13 @@ function normalizarTexto(texto) {
 }
 
 function calcularTarjetasPorPagina() {
-  const ancho = window.innerWidth;
-
-  if (ancho > 1300) return 21;
-  if (ancho > 1243) return 24;
-  if (ancho > 1092) return 20;
-  if (ancho > 789) return 24;
-  if (ancho > 649) return 20;
-  if (ancho > 500) return 15;
+  const w = window.innerWidth;
+  if (w > 1300) return 21;
+  if (w > 1243) return 24;
+  if (w > 1092) return 20;
+  if (w > 789) return 24;
+  if (w > 649) return 20;
+  if (w > 500) return 15;
   return 12;
 }
 
@@ -45,15 +44,11 @@ function obtenerEstadoNovela(novela) {
 // ================================
 // 🔥 ESTADO GLOBAL
 // ================================
-let filtrosSeleccionados = {
-  estado: null,
-  estadoNovela: null
-};
-
-let ordenActual = "az";
-
 let lecturasGlobal = [];
 let listaFiltrada = [];
+
+let filtrosSeleccionados = { estado: null, estadoNovela: null };
+let ordenActual = "az";
 
 let paginaActual = 1;
 let tarjetasPorPagina = calcularTarjetasPorPagina();
@@ -81,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   if (!contenedor) return;
 
-  contenedor.innerHTML = `<div class="sin-lecturas">Cargando lecturas...</div>`;
+  contenedor.innerHTML = `<div class="sin-lecturas">Cargando...</div>`;
 
   const params = new URLSearchParams(window.location.search);
 
@@ -91,88 +86,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   paginaActual = parseInt(params.get("pagina")) || 1;
   mostrarTodoActivo = params.get("mostrar") === "todo";
 
-  // filtros UI
-  document.querySelectorAll(".filtro-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const grupo = btn.dataset.grupo;
-      const valor = btn.dataset.valor;
-
-      document.querySelectorAll(`.filtro-btn[data-grupo="${grupo}"]`)
-        .forEach(b => b.classList.remove("activo"));
-
-      btn.classList.add("activo");
-      filtrosSeleccionados[grupo] = valor;
-    });
-
-    if (btn.dataset.valor === filtrosSeleccionados[btn.dataset.grupo]) {
-      btn.classList.add("activo");
-    }
-  });
-
-  // abrir filtros
-  document.querySelectorAll(".filtro-header").forEach(header => {
-    header.addEventListener("click", () => {
-      header.parentElement.classList.toggle("activo");
-    });
-  });
-
-  document.getElementById("btn-aplicar")?.addEventListener("click", () => {
-    paginaActual = 1;
-    actualizarURL();
-    renderizar();
-  });
-
-  document.getElementById("btn-limpiar")?.addEventListener("click", () => {
-    filtrosSeleccionados = { estado: null, estadoNovela: null };
-    ordenActual = "az";
-    paginaActual = 1;
-
-    document.querySelectorAll(".filtro-btn").forEach(b => b.classList.remove("activo"));
-
-    actualizarURL();
-    renderizar();
-  });
-
-  // orden
-  const btnOrdenar = document.getElementById("btn-ordenar");
-  const dropdownOrden = document.getElementById("dropdown-orden");
-
-  btnOrdenar?.addEventListener("click", () => {
-    dropdownOrden.classList.toggle("activo");
-  });
-
-  document.querySelectorAll("#dropdown-orden button").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll("#dropdown-orden button")
-        .forEach(b => b.classList.remove("activo"));
-
-      btn.classList.add("activo");
-
-      ordenActual = btn.dataset.orden;
-      paginaActual = 1;
-
-      actualizarURL();
-      renderizar();
-
-      dropdownOrden.classList.remove("activo");
-    });
-  });
-
-  // mostrar todo
-  document.getElementById("mostrar-todo-lecturas")?.addEventListener("click", () => {
-    mostrarTodoActivo = !mostrarTodoActivo;
-
-    document.getElementById("mostrar-todo-lecturas").textContent =
-      mostrarTodoActivo ? "Paginado" : "Mostrar todo";
-
-    actualizarURL();
-    mostrarPagina();
-  });
-
-  // DATA
   try {
     const { data, error } = await supabase.auth.getUser();
-
     if (error || !data?.user) {
       contenedor.innerHTML = `<div class="sin-lecturas">Debes iniciar sesión ✨</div>`;
       return;
@@ -194,10 +109,59 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch {
     contenedor.innerHTML = `<div class="sin-lecturas">Error general</div>`;
   }
+
+  // filtros
+  document.querySelectorAll(".filtro-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const grupo = btn.dataset.grupo;
+      const valor = btn.dataset.valor;
+
+      document.querySelectorAll(`.filtro-btn[data-grupo="${grupo}"]`)
+        .forEach(b => b.classList.remove("activo"));
+
+      btn.classList.add("activo");
+      filtrosSeleccionados[grupo] = valor;
+    });
+  });
+
+  document.getElementById("btn-aplicar")?.addEventListener("click", () => {
+    paginaActual = 1;
+    actualizarURL();
+    renderizar();
+  });
+
+  document.getElementById("btn-limpiar")?.addEventListener("click", () => {
+    filtrosSeleccionados = { estado: null, estadoNovela: null };
+    ordenActual = "az";
+    paginaActual = 1;
+
+    document.querySelectorAll(".filtro-btn").forEach(b => b.classList.remove("activo"));
+
+    actualizarURL();
+    renderizar();
+  });
+
+  // orden
+  document.querySelectorAll("#dropdown-orden button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      ordenActual = btn.dataset.orden;
+      paginaActual = 1;
+
+      actualizarURL();
+      renderizar();
+    });
+  });
+
+  document.getElementById("mostrar-todo-lecturas")?.addEventListener("click", () => {
+    mostrarTodoActivo = !mostrarTodoActivo;
+    paginaActual = 1;
+    actualizarURL();
+    renderizar();
+  });
 });
 
 // ================================
-// 🔥 RENDER
+// 🔥 RENDER PRINCIPAL
 // ================================
 function renderizar() {
   let lista = [...lecturasGlobal];
@@ -206,13 +170,10 @@ function renderizar() {
   lista.sort((a, b) => {
     const A = normalizarTexto(a.novela);
     const B = normalizarTexto(b.novela);
-
-    return ordenActual === "az"
-      ? A.localeCompare(B)
-      : B.localeCompare(A);
+    return ordenActual === "az" ? A.localeCompare(B) : B.localeCompare(A);
   });
 
-  // filtros + estado novela (CORRECTO)
+  // filtros
   listaFiltrada = lista.filter(l => {
     const estado = normalizarTexto(l.estado);
     const novela = obtenerNovela(l);
@@ -234,7 +195,7 @@ function renderizar() {
 }
 
 // ================================
-// 🔥 TARJETAS
+// 🔥 CREAR TARJETAS
 // ================================
 function crearTarjetas(lista) {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
@@ -254,6 +215,7 @@ function crearTarjetas(lista) {
 
     const card = document.createElement("div");
     card.className = "card";
+
     card.dataset.estado = estado;
     card.dataset.estadoNovela = estadoNovela;
 
@@ -277,17 +239,20 @@ function crearTarjetas(lista) {
 }
 
 // ================================
-// 📄 PAGINACIÓN
+// 🔥 PAGINACIÓN SEGURA (SIN ERRORES)
 // ================================
 function mostrarPagina() {
   const cards = Array.from(document.querySelectorAll(".card"));
+  if (!cards.length) return;
 
-  cards.forEach(c => c.style.display = "none");
+  cards.forEach(c => (c.style.display = "none"));
 
   if (!listaFiltrada.length) return;
 
   if (mostrarTodoActivo) {
-    listaFiltrada.forEach(c => c.style.display = "block");
+    listaFiltrada.forEach((_, i) => {
+      if (cards[i]) cards[i].style.display = "block";
+    });
     generarPaginacion(listaFiltrada.length);
     return;
   }
@@ -295,8 +260,13 @@ function mostrarPagina() {
   const inicio = (paginaActual - 1) * tarjetasPorPagina;
   const fin = inicio + tarjetasPorPagina;
 
-  listaFiltrada.forEach((c, i) => {
-    if (i >= inicio && i < fin) c.style.display = "block";
+  listaFiltrada.forEach((_, i) => {
+    const card = cards[i];
+    if (!card) return;
+
+    if (i >= inicio && i < fin) {
+      card.style.display = "block";
+    }
   });
 
   generarPaginacion(listaFiltrada.length);
