@@ -491,33 +491,17 @@ h1 a{
 /* 📱 mini pantalla */
 
 @media (max-width:790px){
-  .layout-principal{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "controles"
-      "tarjetas"
-      "kofi";
-  }
-
-  .controles{
-    grid-area: controles;
-  }
-
-  .col-tarjetas{
-    grid-area: tarjetas;
-  }
+ .layout-principal{
+   grid-template-columns:1fr;
+ }
 
  .grid{
    grid-template-columns:repeat(4,1fr);
  }
 
-  #kofi-container{
-    grid-area: kofi;
-    display:block;
-    margin-top:20px;
-    text-align:center;
-  }
+ #kofi-container{
+   display:none;
+ }
 }
 
 
@@ -526,6 +510,10 @@ h1 a{
 @media (max-width:650px){
  .layout-principal{
    grid-template-columns:1fr;
+ }
+
+ #kofi-container{
+   display:none;
  }
 
  .grid{
