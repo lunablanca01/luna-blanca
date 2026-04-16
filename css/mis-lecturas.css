@@ -324,21 +324,21 @@ h1{
 }
 
 /* DESCARGA */               /* 👈 */
-#btn-descargar{
+#btn-descargar-lecturas{
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
 }
 
-#btn-descargar img{
+#btn-descargar-lecturas img{
   width: 100%;
   height: 30px;
   object-fit: contain;
   transition: 0.2s;
 }
 
-#btn-descargar:hover img{
+#btn-descargar-lecturas:hover img{
   transform: scale(1.15);
 }
 
@@ -390,7 +390,7 @@ h1{
    gap:10px;
  }
 
-  #btn-descargar{
+  #btn-descargar-lecturas{
     align-self: flex-end;
   }
 
