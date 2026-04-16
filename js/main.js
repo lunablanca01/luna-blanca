@@ -79,6 +79,11 @@ function ordenarTarjetas() {
       const tituloB = limpiarTextoOrden(b.querySelector("h3").textContent);
       return tituloA.localeCompare(tituloB);
     }
+    if (modoOrden === "za") {
+      const tituloA = limpiarTextoOrden(a.querySelector("h3").textContent);
+      const tituloB = limpiarTextoOrden(b.querySelector("h3").textContent);
+      return tituloB.localeCompare(tituloA); // 👈 invertido
+    }
     if (modoOrden === "update") {
       return ordenOriginal.indexOf(a) - ordenOriginal.indexOf(b);
     }
