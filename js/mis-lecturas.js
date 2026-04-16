@@ -91,6 +91,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   paginaActual = parseInt(params.get("pagina")) || 1;
   mostrarTodoActivo = params.get("mostrar") === "todo";
 
+  document.getElementById("btn-descargar-lecturas")
+  ?.addEventListener("click", descargarExcelLecturas);
+
   // ================================
   // 🔹 FILTROS UI
   // ================================
@@ -225,7 +228,9 @@ function renderizar() {
   });
 
   crearTarjetas(lista);
+
   aplicarFiltrosYMostrar();
+
 }
 
 // ================================
@@ -410,3 +415,50 @@ window.addEventListener("resize", () => {
     mostrarPagina();
   }
 });
+
+
+// ================================
+// ⬇️ DESCARGAR CSV (MIS LECTURAS)
+// ================================
+function descargarExcelLecturas() {
+
+  const hayFiltroActivo =
+    filtrosSeleccionados.estado ||
+    filtrosSeleccionados.estadoNovela;
+
+  let visibles = [];
+
+  if (hayFiltroActivo) {
+    visibles = listaFiltrada;
+  } else {
+    visibles = Array.from(document.querySelectorAll(".card"));
+  }
+
+  let contenido = "Novela,Estado\n";
+
+  visibles.forEach(card => {
+    const titulo = card.querySelector("h3")?.textContent || "";
+    const estado = card.dataset.estado || "";
+
+    const limpioTitulo = titulo.replace(/"/g, '""');
+    const limpioEstado = estado.replace(/"/g, '""');
+
+    contenido += `"${limpioTitulo}","${limpioEstado}"\n`;
+  });
+
+  const blob = new Blob(
+    ["\uFEFF" + contenido],
+    { type: "text/csv;charset=utf-8;" }
+  );
+
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "mis_lecturas.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  URL.revokeObjectURL(url);
+}
