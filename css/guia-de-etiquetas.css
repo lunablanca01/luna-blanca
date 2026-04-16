@@ -80,6 +80,9 @@ h3 {
   font-size: 18px;
   margin-bottom: 8px; /* separación entre etiquetas */
   transition: 0.2s;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .tag a {
