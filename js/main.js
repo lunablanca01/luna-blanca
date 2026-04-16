@@ -455,8 +455,6 @@ window.addEventListener("load", function() {
   if (paginaURL && paginaURL > 0) paginaActual = paginaURL;
 
   cargandoDesdeURL = false;
-  if (paginaURL && paginaURL > 0) paginaActual = paginaURL;
-
   bloqueandoURL = false;
   mostrarPagina();
 
