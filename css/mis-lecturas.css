@@ -520,3 +520,99 @@ h1{
   text-decoration: none;
   z-index:999;
 }
+
+
+/* DESCARGA */               /* 👈 */
+#btn-descargar{
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+#btn-descargar img{
+  width: 100%;
+  height: 30px;
+  object-fit: contain;
+  transition: 0.2s;
+}
+
+#btn-descargar:hover img{
+  transform: scale(1.15);
+}
+
+/* ⭐ MODAL OVERLAY */
+.modal-overlay{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+/* ⭐ CAJA CENTRAL */
+.modal-box{
+  width:280px;
+  background:#fff4ec;
+  border:3px solid #ffe4d2;
+  border-radius:14px;
+  padding:20px;
+  position:relative;
+  text-align:left;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* ⭐ BOTÓN X */
+.modal-close{
+  position:absolute;
+  top:8px;
+  right:10px;
+  border:none;
+  background:none;
+  font-size:22px;
+  cursor:pointer;
+  color:#ff8b8b;
+}
+
+/* ⭐ OPCIONES */
+.modal-contenido{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:10px;
+}
+
+.opcion{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  font-size:15px;
+  color:black;
+}
+
+.opcion input{
+  accent-color:#ff8b8b;
+}
+
+/* ⭐ BOTÓN DESCARGAR */
+.btn-descargar-modal{
+  width:100%;
+  margin-top:15px;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background:#ff8b8b;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.2s;
+}
+
+.btn-descargar-modal:hover{
+  background:#ff5c5c;
+}
