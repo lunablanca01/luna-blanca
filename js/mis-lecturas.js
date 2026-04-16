@@ -41,6 +41,32 @@ let tarjetasPorPagina = calcularTarjetasPorPagina();
 let mostrarTodoActivo = false;
 let listaFiltrada = [];
 
+// ================================
+// 🔗 URL
+// ================================
+function actualizarURL() {
+  const params = new URLSearchParams();
+
+  if (filtrosSeleccionados.estado) {
+    params.set("estado", filtrosSeleccionados.estado);
+  }
+
+  if (filtrosSeleccionados.estadoNovela) {
+    params.set("estadoNovela", filtrosSeleccionados.estadoNovela);
+  }
+
+  if (paginaActual > 1) {
+    params.set("pagina", paginaActual);
+  }
+
+  if (mostrarTodoActivo) {
+    params.set("mostrar", "todo");
+  }
+
+  const nuevaURL = window.location.pathname + "?" + params.toString();
+  window.history.replaceState({}, "", nuevaURL);
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
   if (!contenedor) return;
@@ -48,30 +74,43 @@ document.addEventListener("DOMContentLoaded", async () => {
   contenedor.innerHTML = `<div class="sin-lecturas">Cargando lecturas...</div>`;
 
   // ================================
+  // 🔹 LEER URL
+  // ================================
+  const params = new URLSearchParams(window.location.search);
+
+  filtrosSeleccionados.estado = params.get("estado");
+  filtrosSeleccionados.estadoNovela = params.get("estadoNovela");
+
+  paginaActual = parseInt(params.get("pagina")) || 1;
+  mostrarTodoActivo = params.get("mostrar") === "todo";
+
+  // ================================
   // 🔹 FILTROS
   // ================================
-// ================================
-// 🔹 FILTROS
-// ================================
-document.querySelectorAll(".filtro-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const grupo = btn.dataset.grupo;
-    const valor = btn.dataset.valor;
+  document.querySelectorAll(".filtro-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const grupo = btn.dataset.grupo;
+      const valor = btn.dataset.valor;
 
-    document.querySelectorAll(`.filtro-btn[data-grupo="${grupo}"]`)
-      .forEach(b => b.classList.remove("activo"));
+      document.querySelectorAll(`.filtro-btn[data-grupo="${grupo}"]`)
+        .forEach(b => b.classList.remove("activo"));
 
-    btn.classList.add("activo");
-    filtrosSeleccionados[grupo] = valor;
+      btn.classList.add("activo");
+      filtrosSeleccionados[grupo] = valor;
+    });
+
+    // 🔥 ACTIVAR DESDE URL
+    if (btn.dataset.valor === filtrosSeleccionados[btn.dataset.grupo]) {
+      btn.classList.add("activo");
+    }
   });
-});
 
-// 🔥 ESTE BLOQUE FALTABA
-document.querySelectorAll(".filtro-header").forEach(header => {
-  header.addEventListener("click", () => {
-    header.parentElement.classList.toggle("activo");
+  // 🔥 ABRIR/CERRAR FILTROS
+  document.querySelectorAll(".filtro-header").forEach(header => {
+    header.addEventListener("click", () => {
+      header.parentElement.classList.toggle("activo");
+    });
   });
-});
 
   document.getElementById("btn-aplicar")?.addEventListener("click", aplicarFiltros);
 
@@ -81,6 +120,8 @@ document.querySelectorAll(".filtro-header").forEach(header => {
     document.querySelectorAll(".filtro-btn")
       .forEach(b => b.classList.remove("activo"));
 
+    paginaActual = 1;
+    actualizarURL();
     aplicarFiltros();
   });
 
@@ -103,7 +144,7 @@ document.querySelectorAll(".filtro-header").forEach(header => {
   });
 
   // ================================
-  // 🔹 BOTÓN MOSTRAR TODO
+  // 🔹 MOSTRAR TODO
   // ================================
   document.getElementById("mostrar-todo-lecturas")?.addEventListener("click", () => {
     mostrarTodoActivo = !mostrarTodoActivo;
@@ -111,6 +152,7 @@ document.querySelectorAll(".filtro-header").forEach(header => {
     document.getElementById("mostrar-todo-lecturas").textContent =
       mostrarTodoActivo ? "Paginado" : "Mostrar todo";
 
+    actualizarURL();
     mostrarPaginaLecturas();
   });
 
@@ -242,7 +284,12 @@ function aplicarFiltros() {
     return cumpleLectura && cumpleNovela;
   });
 
+  if (!filtrosSeleccionados.estado && !filtrosSeleccionados.estadoNovela) {
+    listaFiltrada = cards;
+  }
+
   paginaActual = 1;
+  actualizarURL();
   mostrarPaginaLecturas();
 }
 
@@ -251,9 +298,15 @@ function aplicarFiltros() {
 // ================================
 function mostrarPaginaLecturas() {
   const todas = Array.from(document.querySelectorAll("#contenedor-mis-lecturas .card"));
-  const visibles = listaFiltrada.length ? listaFiltrada : todas;
+  const visibles = listaFiltrada;
 
   todas.forEach(card => card.style.display = "none");
+
+  if (!visibles.length) {
+    document.getElementById("contenedor-mis-lecturas").innerHTML =
+      `<div class="sin-lecturas">No hay resultados ✨</div>`;
+    return;
+  }
 
   if (mostrarTodoActivo) {
     visibles.forEach(card => card.style.display = "block");
@@ -295,6 +348,7 @@ function generarPaginacionLecturas(total) {
 
     btn.addEventListener("click", () => {
       paginaActual = i;
+      actualizarURL();
       mostrarPaginaLecturas();
     });
 
@@ -302,8 +356,10 @@ function generarPaginacionLecturas(total) {
   }
 }
 
+// ================================
+// 📱 RESPONSIVE
+// ================================
 window.addEventListener("resize", function () {
-
   const nuevas = calcularTarjetasPorPagina();
 
   if (nuevas !== tarjetasPorPagina) {
@@ -311,5 +367,4 @@ window.addEventListener("resize", function () {
     paginaActual = 1;
     mostrarPaginaLecturas();
   }
-
 });
