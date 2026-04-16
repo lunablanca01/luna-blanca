@@ -11,6 +11,18 @@ function normalizarTexto(texto) {
     .trim();
 }
 
+function calcularTarjetasPorPagina() {
+  const ancho = window.innerWidth;
+
+  if (ancho > 1300) return 21;
+  if (ancho > 1243) return 24;
+  if (ancho > 1092) return 20;
+  if (ancho > 789) return 24;
+  if (ancho > 649) return 20;
+  if (ancho > 500) return 15;
+  return 12;
+}
+
 // 🔥 FILTROS
 let filtrosSeleccionados = {
   estado: null,
@@ -25,7 +37,7 @@ let lecturasGlobal = [];
 
 // 🔥 PAGINACIÓN
 let paginaActual = 1;
-let tarjetasPorPagina = 12;
+let tarjetasPorPagina = calcularTarjetasPorPagina();
 let mostrarTodoActivo = false;
 let listaFiltrada = [];
 
@@ -279,3 +291,15 @@ function generarPaginacionLecturas(total) {
     contenedor.appendChild(btn);
   }
 }
+
+window.addEventListener("resize", function () {
+
+  const nuevas = calcularTarjetasPorPagina();
+
+  if (nuevas !== tarjetasPorPagina) {
+    tarjetasPorPagina = nuevas;
+    paginaActual = 1;
+    mostrarPaginaLecturas();
+  }
+
+});
