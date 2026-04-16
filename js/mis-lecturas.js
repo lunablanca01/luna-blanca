@@ -196,12 +196,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     contenedor.innerHTML = `<div class="sin-lecturas">Error general</div>`;
   }
 
-  // ================================
-  // ⬇️ BOTÓN DESCARGAR
-  // ================================
-  document.getElementById("btn-descargar-lecturas")
-  ?.addEventListener("click", descargarListas);
-});
 
 // ================================
 // 🔥 RENDER
