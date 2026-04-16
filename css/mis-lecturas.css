@@ -76,7 +76,7 @@ h1{
   border:2px solid #ffe4d2;
   border-radius:10px;
   overflow:hidden;
-  z-index:999;
+  z-index:99;
   min-width:180px;
 }
 
@@ -512,4 +512,18 @@ h1{
 /* CUANDO ESTA ABIERTO */
 .filtro-dropdown.activo .panel-filtros{
   display:block;
+}
+
+/* ⭐ SCROLL */               /* 👈 */
+
+#scrollTop{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#fff;
+  padding:8px;
+  border-radius:50%;
+  display:none;
+  text-decoration: none;
+  z-index:999;
 }
