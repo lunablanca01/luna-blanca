@@ -197,7 +197,7 @@ function generarPaginacion(total) {
    🔗 7. URL PAGINACIÓN
 ================================ */
 function guardarPaginaURL() {
-  if (bloqueandoURL || cargandoDesdeURL) return;
+  if (bloqueandoURL || cargandoDesdeURL || mostrarTodoActivo) return;
 
   const params = new URLSearchParams(window.location.search);
   params.set("pagina", paginaActual);
@@ -208,6 +208,24 @@ function guardarPaginaURL() {
   window.history.pushState({}, "", nuevaURL);
 }
 
+function actualizarURLMostrarTodo() {
+  if (bloqueandoURL || cargandoDesdeURL) return;
+
+  const params = new URLSearchParams(window.location.search);
+
+  if (mostrarTodoActivo) {
+    params.set("mostrar", "todo");
+    params.delete("pagina");
+  } else {
+    params.delete("mostrar");
+    params.set("pagina", paginaActual || 1);
+  }
+
+  const query = params.toString();
+  const nuevaURL = query ? "?" + query : window.location.pathname;
+
+  window.history.pushState({}, "", nuevaURL);
+}
 
 /* ================================
    🔎 8. APLICAR FILTROS
@@ -357,7 +375,12 @@ const btnMostrarTodo = document.getElementById("mostrar-todo");
 if (btnMostrarTodo) {
   btnMostrarTodo.addEventListener("click", () => {
     mostrarTodoActivo = !mostrarTodoActivo;
-    btnMostrarTodo.textContent = mostrarTodoActivo ? "Paginado" : "Mostrar todo";
+
+    btnMostrarTodo.textContent = mostrarTodoActivo
+      ? "Paginado"
+      : "Mostrar todo";
+
+    actualizarURLMostrarTodo();
     mostrarPagina();
   });
 }
@@ -414,6 +437,17 @@ window.addEventListener("load", function() {
 
   ordenarTarjetas();
   aplicarFiltrosDesdeURL();
+
+   const params = new URLSearchParams(window.location.search);
+
+   if (params.get("mostrar") === "todo") {
+     mostrarTodoActivo = true;
+
+     const btnMostrarTodo = document.getElementById("mostrar-todo");
+     if (btnMostrarTodo) {
+       btnMostrarTodo.textContent = "Paginado";
+     }
+   }
 
   cargandoDesdeURL = false;
 
