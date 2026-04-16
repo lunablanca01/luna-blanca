@@ -199,7 +199,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ================================
   // ⬇️ BOTÓN DESCARGAR
   // ================================
-  document.getElementById("btn-descargar-lecturas")?.addEventListener("click", descargarExcelLecturas);
+  document.getElementById("btn-descargar-lecturas")
+  ?.addEventListener("click", descargarListas);
 });
 
 // ================================
@@ -406,22 +407,30 @@ window.addEventListener("resize", () => {
 // ================================
 function descargarListas() {
 
-  const cards = listaFiltrada?.length
+  const cards = listaFiltrada.length
     ? listaFiltrada
     : Array.from(document.querySelectorAll(".card"));
 
-  let contenido = "Titulo;Descripcion;Estado\n";
+  let contenido = "Titulo;Titulo Ingles;Estado\n";
 
   cards.forEach(card => {
 
     const titulo = card.querySelector("h3")?.textContent || "";
 
-    const data = listas.find(l => l.titulo === titulo);
+    // 🔥 buscar en lecturas
+    const lectura = lecturasGlobal.find(l =>
+      normalizarTexto(l.novela) === normalizarTexto(titulo)
+    );
 
-    const descripcion = data?.descripcion || "";
-    const estado = data?.estado || "";
+    // 🔥 buscar info completa
+    const novela = novelas.find(n =>
+      normalizarTexto(n.titulo) === normalizarTexto(titulo)
+    );
 
-    contenido += `"${titulo}";"${descripcion}";"${estado}"\n`;
+    const ingles = novela?.ingles || "";
+    const estado = lectura?.estado || "";
+
+    contenido += `"${titulo}";"${ingles}";"${estado}"\n`;
   });
 
   const blob = new Blob(["\uFEFF" + contenido], {
@@ -432,11 +441,12 @@ function descargarListas() {
   const a = document.createElement("a");
 
   a.href = url;
-  a.download = "listas.csv";
+  a.download = "mis_lecturas.csv";
   a.click();
 
   URL.revokeObjectURL(url);
 }
+
 
 /* ================================
    ⬇️ 25. POP UP DESCARGA
@@ -477,7 +487,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const checks = document.querySelectorAll("#modal-descarga input:checked");
     const campos = Array.from(checks).map(c => c.value);
 
-    descargarExcel(campos);
+    descargarListas();
 
     modal.style.display = "none";
   });
