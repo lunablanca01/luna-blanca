@@ -18,10 +18,16 @@ let filtrosSeleccionados = {
 };
 
 // 🔥 ORDEN
-let ordenActual = "az"; // "az" | "update"
+let ordenActual = "az";
 
-// 🔥 GUARDAR LECTURAS
+// 🔥 DATA
 let lecturasGlobal = [];
+
+// 🔥 PAGINACIÓN
+let paginaActual = 1;
+let tarjetasPorPagina = 12;
+let mostrarTodoActivo = false;
+let listaFiltrada = [];
 
 document.addEventListener("DOMContentLoaded", async () => {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
@@ -45,19 +51,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 
-  document.querySelectorAll(".filtro-header").forEach(header => {
-    header.addEventListener("click", () => {
-      header.parentElement.classList.toggle("activo");
-    });
-  });
-
   document.getElementById("btn-aplicar")?.addEventListener("click", aplicarFiltros);
 
   document.getElementById("btn-limpiar")?.addEventListener("click", () => {
-    filtrosSeleccionados = {
-      estado: null,
-      estadoNovela: null
-    };
+    filtrosSeleccionados = { estado: null, estadoNovela: null };
 
     document.querySelectorAll(".filtro-btn")
       .forEach(b => b.classList.remove("activo"));
@@ -84,13 +81,25 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // ================================
+  // 🔹 BOTÓN MOSTRAR TODO
+  // ================================
+  document.getElementById("mostrar-todo-lecturas")?.addEventListener("click", () => {
+    mostrarTodoActivo = !mostrarTodoActivo;
+
+    document.getElementById("mostrar-todo-lecturas").textContent =
+      mostrarTodoActivo ? "Paginado" : "Mostrar todo";
+
+    mostrarPaginaLecturas();
+  });
+
+  // ================================
   // 🔹 CARGAR DATOS
   // ================================
   try {
     const { data, error: userError } = await supabase.auth.getUser();
 
     if (userError) {
-      contenedor.innerHTML = `<div class="sin-lecturas">Error al obtener el usuario</div>`;
+      contenedor.innerHTML = `<div class="sin-lecturas">Error usuario</div>`;
       return;
     }
 
@@ -120,21 +129,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 // ================================
-// 🔥 RENDER GENERAL
+// 🔥 RENDER
 // ================================
 function renderizar() {
   let lista = [...lecturasGlobal];
 
-  // 🔹 ORDENAR
   if (ordenActual === "az") {
     lista.sort((a, b) =>
       normalizarTexto(a.novela).localeCompare(normalizarTexto(b.novela))
-    );
-  }
-
-  if (ordenActual === "update") {
-    lista.sort((a, b) =>
-      new Date(b.updated_at) - new Date(a.updated_at)
     );
   }
 
@@ -142,7 +144,7 @@ function renderizar() {
 }
 
 // ================================
-// 🔹 MOSTRAR TARJETAS
+// 🔹 CREAR TARJETAS
 // ================================
 function mostrarLecturas(lecturas) {
   const contenedor = document.getElementById("contenedor-mis-lecturas");
@@ -181,11 +183,9 @@ function mostrarLecturas(lecturas) {
 
       divCard.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
-
         <a href="../novelas/${novelaCompleta.slug}.html">
           <img src="../imagenes/${novelaCompleta.imagen}">
         </a>
-
         <h3>${novelaCompleta.titulo}</h3>
       `;
     } else {
@@ -199,18 +199,16 @@ function mostrarLecturas(lecturas) {
     contenedor.appendChild(divCard);
   });
 
-  window.aplicarEstadoNovela?.();
-
   aplicarFiltros();
 }
 
 // ================================
-// 🔥 FILTRAR (SIN ROMPER ORDEN)
+// 🔥 FILTRAR + PAGINAR
 // ================================
 function aplicarFiltros() {
-  const cards = document.querySelectorAll("#contenedor-mis-lecturas .card");
+  const cards = Array.from(document.querySelectorAll("#contenedor-mis-lecturas .card"));
 
-  cards.forEach(card => {
+  listaFiltrada = cards.filter(card => {
     const cumpleLectura =
       !filtrosSeleccionados.estado ||
       card.dataset.estado === filtrosSeleccionados.estado;
@@ -219,6 +217,65 @@ function aplicarFiltros() {
       !filtrosSeleccionados.estadoNovela ||
       card.dataset.estadoNovela === filtrosSeleccionados.estadoNovela;
 
-    card.style.display = (cumpleLectura && cumpleNovela) ? "block" : "none";
+    return cumpleLectura && cumpleNovela;
   });
+
+  paginaActual = 1;
+  mostrarPaginaLecturas();
+}
+
+// ================================
+// 📄 PAGINACIÓN
+// ================================
+function mostrarPaginaLecturas() {
+  const todas = Array.from(document.querySelectorAll("#contenedor-mis-lecturas .card"));
+  const visibles = listaFiltrada.length ? listaFiltrada : todas;
+
+  todas.forEach(card => card.style.display = "none");
+
+  if (mostrarTodoActivo) {
+    visibles.forEach(card => card.style.display = "block");
+    generarPaginacionLecturas(visibles.length);
+    return;
+  }
+
+  const inicio = (paginaActual - 1) * tarjetasPorPagina;
+  const fin = inicio + tarjetasPorPagina;
+
+  visibles.forEach((card, index) => {
+    if (index >= inicio && index < fin) {
+      card.style.display = "block";
+    }
+  });
+
+  generarPaginacionLecturas(visibles.length);
+}
+
+// ================================
+// 🔢 BOTONES PAGINACIÓN
+// ================================
+function generarPaginacionLecturas(total) {
+  const contenedor = document.getElementById("paginacion-lecturas");
+  if (!contenedor) return;
+
+  contenedor.innerHTML = "";
+
+  if (mostrarTodoActivo) return;
+
+  const totalPaginas = Math.ceil(total / tarjetasPorPagina);
+  if (totalPaginas <= 1) return;
+
+  for (let i = 1; i <= totalPaginas; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+
+    if (i === paginaActual) btn.classList.add("activo");
+
+    btn.addEventListener("click", () => {
+      paginaActual = i;
+      mostrarPaginaLecturas();
+    });
+
+    contenedor.appendChild(btn);
+  }
 }
