@@ -267,7 +267,7 @@ h1{
 }
 
 /* BOTÓN IZQUIERDA */
-#mostrar-todo{
+#mostrar-todo-lecturas{
   position:static;
   background:#ffe4d2;
   border:none;
@@ -277,14 +277,14 @@ h1{
 }
 
 /* PAGINACIÓN CENTRADA */               /* 👈 */
-#paginacion{
+#paginacion-lecturas{
   display:flex;
   gap:6px;
   flex-wrap:wrap;
   margin: 0 auto;
 }
 
-#paginacion span {
+#paginacion-lecturas span {
   padding: 0 8px;
   color: black;
   font-weight: bold;
@@ -292,7 +292,7 @@ h1{
 }
 
 /* BOTONES PAGINA */               /* 👈 */
-#paginacion button{
+#paginacion-lecturas button{
   border:none;
   padding:6px 10px;
   border-radius:8px;
@@ -300,12 +300,12 @@ h1{
   cursor:pointer;
 }
 
-#paginacion button:hover{
+#paginacion-lecturas button:hover{
   background:#ffd2b8;
 }
 
 /* ACTIVO */
-#paginacion button.activo{
+#paginacion-lecturas button.activo{
   background:#ff8b8b;
   color:white;
 }
