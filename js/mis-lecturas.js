@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch {
     contenedor.innerHTML = `<div class="sin-lecturas">Error general</div>`;
   }
-
+});
 
 // ================================
 // 🔥 RENDER
