@@ -133,15 +133,14 @@ h1{
     line-height:1.4;
   }
 
-  /* TITULO */
-  h1{
-    font-size:36px;
-    margin:25px 0 20px 0;
+  .contenido{
+    padding:12px;
   }
 
-  /* LOGO */
-  .logo a{
-    font-size:22px;
+  h1{
+    font-size:42px;
+    margin-bottom:0px;
+    margin-top: 30px;
   }
 
 }
