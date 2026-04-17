@@ -1,28 +1,6 @@
 /* ===== PAGINA ===== */
-body {
-  font-family: 'Molengo', Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  color: black;
-  background-color: #ffffff;
-}
-
-/* Fondo degradado igual a la página principal */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(
-    to bottom,
-    #dff4ff 0%,
-    #eaf8ff 6%,
-    #ffffff 12%,
-    #ffffff 100%
-  );
-}
-
 .contenedor {
+  padding: 20px;
   text-align: left;
   max-width: 900px;
   margin: auto;
@@ -142,7 +120,22 @@ h3 {
 
 /* ===== CELULAR ===== */
 @media (max-width: 500px) {
-  h1 { font-size: 42px; }
-  h2 { font-size: 22px; }
-  .tag { font-size: 14px; padding: 7px 12px; }
+    .contenido{
+    padding:12px;
+  }
+
+  h1{
+    font-size:42px;
+    margin-bottom:0px;
+    margin-top: 30px;
+  }
+  
+  h2 {
+    font-size: 22px;
+  }
+  
+  .tag {
+    font-size: 14px;
+    padding: 7px 12px;
+  }
 }
