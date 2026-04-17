@@ -1,29 +1,10 @@
 /* ⭐ PAGINA */
 
-body{
-  font-family:'Molengo', Arial, sans-serif;
-  margin:0;
+.contenido{
   padding:20px;
+  margin:0 auto;
   color:black;
-  background-color:#ffffff;
 }
-
-/* fondo degradado igual a la página principal */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-
-  background: linear-gradient(
-    to bottom,
-    #dff4ff 0%,
-    #eaf8ff 6%,
-    #ffffff 12%,
-    #ffffff 100%
-  );
-}
-
 
 /* ⭐ TITULO */
 
@@ -129,8 +110,14 @@ h2{
 
 @media (max-width:500px){
 
+  .contenido{
+    padding:12px;
+  }
+
   h1{
     font-size:42px;
+    margin-bottom:0px;
+    margin-top: 30px;
   }
 
   h2{
