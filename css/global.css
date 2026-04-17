@@ -185,3 +185,9 @@ body::before{
 .logo-global a:hover{
   opacity:0.7;
 }
+
+@media (max-width:500px){
+.logo-global a{
+  font-size:18px;
+}
+}
