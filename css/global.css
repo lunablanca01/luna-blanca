@@ -170,7 +170,7 @@ body::before{
 
 .logo-global{
   position:absolute;
-  top:10px;
+  top:8px;
   left:20px;
   z-index:9999;
 }
