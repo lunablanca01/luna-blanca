@@ -399,32 +399,43 @@ window.addEventListener("resize", () => {
 // ================================
 // ⬇️ DESCARGAR CSV
 // ================================
-function descargarListas() {
+function descargarListas(campos = []) {
 
   const cards = listaFiltrada.length
     ? listaFiltrada
     : Array.from(document.querySelectorAll(".card"));
 
-  let contenido = "Titulo;Titulo Ingles;Estado\n";
+  let encabezados = [];
+
+  if (campos.includes("titulo")) encabezados.push("Titulo");
+  if (campos.includes("ingles")) encabezados.push("Titulo Ingles");
+  if (campos.includes("capitulos")) encabezados.push("Capitulos");
+  if (campos.includes("autor")) encabezados.push("Autor");
+  if (campos.includes("estado")) encabezados.push("Estado");
+
+  let contenido = encabezados.join(";") + "\n";
 
   cards.forEach(card => {
 
     const titulo = card.querySelector("h3")?.textContent || "";
 
-    // 🔥 buscar en lecturas
     const lectura = lecturasGlobal.find(l =>
       normalizarTexto(l.novela) === normalizarTexto(titulo)
     );
 
-    // 🔥 buscar info completa
     const novela = novelas.find(n =>
       normalizarTexto(n.titulo) === normalizarTexto(titulo)
     );
 
-    const ingles = novela?.ingles || "";
-    const estado = lectura?.estado || "";
+    let fila = [];
 
-    contenido += `"${titulo}";"${ingles}";"${estado}"\n`;
+    if (campos.includes("titulo")) fila.push(titulo);
+    if (campos.includes("ingles")) fila.push(novela?.ingles || "");
+    if (campos.includes("capitulos")) fila.push(novela?.capitulos || "");
+    if (campos.includes("autor")) fila.push(novela?.autor || "");
+    if (campos.includes("estado")) fila.push(lectura?.estado || "");
+
+    contenido += fila.map(v => `"${v}"`).join(";") + "\n";
   });
 
   const blob = new Blob(["\uFEFF" + contenido], {
@@ -481,7 +492,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const checks = document.querySelectorAll("#modal-descarga input:checked");
     const campos = Array.from(checks).map(c => c.value);
 
-    descargarListas();
+    descargarListas(campos);
 
     modal.style.display = "none";
   });
