@@ -36,3 +36,8 @@ contenedor.innerHTML = autoresOrdenados.map(([autor,cantidad]) => `
     - ${cantidad} ${cantidad === 1 ? "Novela" : "Novelas"}
   </div>
 `).join("");
+
+window.addEventListener("scroll", function() {
+  const scrollTopBtn = document.getElementById("scrollTop");
+  scrollTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
+});
