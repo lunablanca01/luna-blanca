@@ -168,28 +168,9 @@ body::before{
   text-decoration: none;
 }
 
-.logo{
-  top: 0px;
-  text-align: left;
-
-  z-index: 9999;
-}
-
-.logo a{
-  font-family: 'Pacifico', cursive;
-  font-size: 28px;
-  text-decoration: none;
-  font-weight: 200;
-  color: #ff8b8b;
-}
-
-.logo a:hover{
-  opacity: 0.7;
-}
-
 .logo-global{
-  position:fixed;
-  top:15px;
+  position:absolute;
+  top:10px;
   left:20px;
   z-index:9999;
 }
