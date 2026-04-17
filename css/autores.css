@@ -1,28 +1,9 @@
 /* ===== ESTILO GENERAL ===== */
 
-body{
-  font-family: 'Molengo', sans-serif;
-  background:#f9f9fb;
-  margin:0;
-  padding:0;
+.contenido {
   color:#333;
   font-size:20px;
-  padding-bottom:50px;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-
-  background: linear-gradient(
-    to bottom,
-    #dff4ff 0%,
-    #eaf8ff 6%,
-    #ffffff 12%,
-    #ffffff 100%
-  );
+  padding:20px;
 }
 
 /* TITULO */
