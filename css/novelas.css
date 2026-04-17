@@ -367,7 +367,7 @@ h1{
 
   /* Texto general más grande */
   .contenedor {
-    padding:10px;
+    padding:12px;
   }
 
   p{
@@ -377,7 +377,9 @@ h1{
 
   /* Título más grande en móvil */
   h1{
-    font-size:32px;
+    font-size:42px;
+    margin-bottom:0px;
+    margin-top: 30px;
   }
 
   /* Si tienes subtítulos */
