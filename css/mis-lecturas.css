@@ -559,7 +559,7 @@ h1{
 
 /* ⭐ CAJA CENTRAL */
 .modal-box{
-  width:280px;
+  width:180px;
   background:#fff4ec;
   border:3px solid #ffe4d2;
   border-radius:14px;
@@ -579,6 +579,11 @@ h1{
   font-size:22px;
   cursor:pointer;
   color:#ff8b8b;
+}
+
+.modal-close:hover{
+  color:#ff5c5c;
+  transform:scale(1.2);
 }
 
 /* ⭐ OPCIONES */
@@ -603,8 +608,9 @@ h1{
 
 /* ⭐ BOTÓN DESCARGAR */
 .btn-descargar-modal{
-  width:100%;
-  margin-top:15px;
+  width:70%;
+  margin:15px auto 0 auto;
+  display:block;
   padding:10px;
   border:none;
   border-radius:10px;
