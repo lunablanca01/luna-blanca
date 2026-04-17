@@ -4,7 +4,7 @@ function cargarLogo() {
 
   contenedor.innerHTML = `
     <div class="logo-global">
-      <a href="/luna-blanca.html">Luna Blanca</a>
+      <a href="/luna-blanca/luna-blanca.html">Luna Blanca</a>
     </div>
   `;
 }
