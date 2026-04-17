@@ -186,3 +186,21 @@ body::before{
 .logo a:hover{
   opacity: 0.7;
 }
+
+.logo-global{
+  position:fixed;
+  top:15px;
+  left:20px;
+  z-index:9999;
+}
+
+.logo-global a{
+  font-family:'Pacifico', cursive;
+  font-size:26px;
+  color:#ff8b8b;
+  text-decoration:none;
+}
+
+.logo-global a:hover{
+  opacity:0.7;
+}
