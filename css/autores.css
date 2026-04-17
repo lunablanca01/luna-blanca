@@ -75,7 +75,11 @@ h1{
 /* ===== CELULAR ===== */
 
 @media (max-width:600px){
+.contenido {
+  padding:12px;
 
+}
+  
   .autor-nombre{
     font-size:18px;
   }
