@@ -28,7 +28,7 @@ import { supabase } from "./supabase.js";
 
   // ❌ logueado pero NO admin → home
   if (!perfil || perfil.rol !== "admin") {
-    window.location.href = "/luna-blanca.html";
+    window.location.href = "/luna-blanca/luna-blanca.html";
     return;
   }
 
