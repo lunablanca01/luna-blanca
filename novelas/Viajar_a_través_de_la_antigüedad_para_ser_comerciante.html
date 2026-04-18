@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viajar a través de la antigüedad para ser comerciante</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<main class="contenedor">
+
+<h1>Viajar a través de la antigüedad para ser comerciante</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>穿越古代做货郎</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Wei Cheng obtuvo la identidad del segundo hijo de la familia Wei, alguien con una personalidad aburrida y tranquila. </p>
+  <p>La familia del propietario original vivía fuera del condado, mientras que el propietario original vivía solo en el campo y ayudaba a la granja familiar. Su familia come comida picante, mientras él come arroz con salvado. </p>
+  <p>El dueño original tenía veinte años y todavía no estaba casado. Su hermano mayor ya se casó con una esposa que le dio un hijo. </p>
+  <p>Era difícil para la familia recordar su matrimonio, pero después de que el propietario original se casara, le resultaría difícil seguir viviendo en el condado, lo que provocaría chismes y luego su familia simplemente lo separó. </p>
+  <p>Estarán completamente separados después de que él se case con una esposa. </p>
+  <p>Cuando le organizaron una cita a ciegas, conoció a una mujer que lo odiaba y sentía mucha aversión por el dueño original. </p>
+  <p>Al dueño original también le gustaba una chica del pueblo, pero le tenían disgusto y abusaron de él de la misma manera, y a su familia tampoco le gustaba su ropa pobre y andrajosa. </p>
+  <p>Después de la separación, también le regalaron una casa en ruinas en la que nadie vive desde hace unos años, y el dueño original se suicidó después de pensar en su vida. </p>
+  <p>Wei Cheng viajó a la antigüedad después de sufrir un accidente automovilístico y comenzó su nueva vida, casándose con un ger, haciendo negocios y, desde ser despreciado por sus familiares, hasta hacerse rico más tarde, paso a paso fue construyendo una familia rica. </p>
+  <p>Wei Cheng viajó a un país próspero y poderoso. Estaba en una casa en ruinas en las afueras de los suburbios del condado de Nanshan. Después de la separación, pasó de hacer negocios a ser vendedor ambulante y mayorista. </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</main>
+
+
+<!-- UI GLOBAL -->
+
+<div id="logo-container"></div>
+
+<div id="usuario-container"></div>  
+  
+<div id="banner-container"></div>
+
+<a href="#" id="scrollTop" title="Volver arriba">🌸</a>
+
+<div id="toast" class="toast">Guardado</div>
+<div id="tooltip-tag"></div>
+
+
+<script>
+  window.baseRuta = "../";
+</script>
+
+<script src="../js/logo.js"></script>  
+<script src="../js/banner.js"></script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+<script type="module" src="../js/usuario.js"></script>
+  
+</body>
+</html>
