@@ -79,7 +79,7 @@ h1 a{
 
 .panel-filtros.activo{
   display:block;
-  margin-top:-8px;
+  margin-top:-14px;
 }
 
 .fila-filtros{
@@ -685,6 +685,7 @@ h1 a{
 
   .panel-filtros.activo{
     display:block;
+    margin-top:-8px;
   }
 
   /* ⭐ FILTROS EN COLUMNA */
@@ -693,6 +694,7 @@ h1 a{
     grid-template-columns:1fr;
     gap:8px;
   }
+  
 
   /* ⭐ DROPDOWN ARREGLADO */
   .dropdown{
