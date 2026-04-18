@@ -2,12 +2,10 @@ import { supabase } from "./supabase.js";
 
 (async () => {
 
-  // 🔒 ocultar todo mientras valida
   document.body.style.display = "none";
 
-  // 1. verificar sesión
+  // 1. sesión
   const { data: sessionData } = await supabase.auth.getSession();
-
   const session = sessionData.session;
 
   if (!session) {
@@ -15,23 +13,28 @@ import { supabase } from "./supabase.js";
     return;
   }
 
-  // 2. obtener usuario
+  // 2. usuario
   const { data: { user } } = await supabase.auth.getUser();
 
-  // 3. verificar rol en base de datos
-  const { data: perfil } = await supabase
+  if (!user) {
+    window.location.href = "/luna-blanca/luna-blanca.html";
+    return;
+  }
+
+  // 3. rol
+  const { data: perfil, error } = await supabase
     .from("perfiles")
     .select("rol")
     .eq("id", user.id)
     .single();
 
-  // 4. si no es admin → fuera
-  if (!perfil || perfil.rol !== "admin") {
+  // ❗ AQUÍ ES LO IMPORTANTE
+  if (error || !perfil || perfil.rol !== "admin") {
     window.location.href = "/luna-blanca/index.html";
     return;
   }
 
-  // 5. si es admin → mostrar página
+  // 4. SOLO ADMIN LLEGA AQUÍ
   document.body.style.display = "block";
 
   cargarUsuarios();
