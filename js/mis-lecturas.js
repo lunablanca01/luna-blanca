@@ -342,6 +342,18 @@ function generarPaginacion(total) {
   const totalPaginas = Math.ceil(total / tarjetasPorPagina);
   if (totalPaginas <= 1) return;
 
+  // 🔹 BOTÓN ANTERIOR
+  if (paginaActual > 1) {
+    const btnPrev = document.createElement("button");
+    btnPrev.textContent = "«";
+    btnPrev.onclick = () => {
+      paginaActual--;
+      actualizarURL();
+      mostrarPagina();
+    };
+    contenedor.appendChild(btnPrev);
+  }
+
   const crearBtn = (num) => {
     const btn = document.createElement("button");
     btn.textContent = num;
@@ -366,21 +378,32 @@ function generarPaginacion(total) {
 
   if (totalPaginas <= 7) {
     for (let i = 1; i <= totalPaginas; i++) crearBtn(i);
-    return;
+  } else {
+    crearBtn(1);
+
+    if (paginaActual > 3) crearDots();
+
+    let inicio = Math.max(2, paginaActual - 1);
+    let fin = Math.min(totalPaginas - 1, paginaActual + 1);
+
+    for (let i = inicio; i <= fin; i++) crearBtn(i);
+
+    if (paginaActual < totalPaginas - 2) crearDots();
+
+    crearBtn(totalPaginas);
   }
 
-  crearBtn(1);
-
-  if (paginaActual > 3) crearDots();
-
-  let inicio = Math.max(2, paginaActual - 1);
-  let fin = Math.min(totalPaginas - 1, paginaActual + 1);
-
-  for (let i = inicio; i <= fin; i++) crearBtn(i);
-
-  if (paginaActual < totalPaginas - 2) crearDots();
-
-  crearBtn(totalPaginas);
+  // 🔹 BOTÓN SIGUIENTE
+  if (paginaActual < totalPaginas) {
+    const btnNext = document.createElement("button");
+    btnNext.textContent = "»";
+    btnNext.onclick = () => {
+      paginaActual++;
+      actualizarURL();
+      mostrarPagina();
+    };
+    contenedor.appendChild(btnNext);
+  }
 }
 
 // ================================
