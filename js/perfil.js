@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     user = data.user;
 
     if (!user) {
-      window.location.href = BASE + "/luna-blanca/index.html";
+      window.location.href = BASE + "/index.html";
       return;
     }
 
