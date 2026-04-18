@@ -8,7 +8,7 @@ titulo: 'Regas',
 ingles: 'Regas',
 slug: "Regas",
 imagen: "Regas.jpg",
-tags: "danmei pendiente europa-antigua comedia drama lucha-de-poder r18 realeza transmigracion",
+tags: "danmei korea pendiente europa-antigua comedia drama lucha-de-poder r18 realeza transmigracion",
 autor: "nj",
 link: "https://www.novelupdates.com/series/regas/",
 capitulos: '8 volúmenes'
