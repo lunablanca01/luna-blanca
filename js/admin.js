@@ -37,3 +37,42 @@ const verificarAdmin = async () => {
 };
 
 verificarAdmin();
+
+
+const cargarUsuarios = async () => {
+
+  const { data } = await supabase
+    .from("perfiles")
+    .select("*")
+    .eq("aprobado", false);
+
+  const contenedor = document.getElementById("listaUsuarios");
+  contenedor.innerHTML = "";
+
+  data.forEach(user => {
+    contenedor.innerHTML += `
+      <div>
+        <p>${user.email}</p>
+        <button onclick="aprobarUsuario('${user.id}', '${user.email}')">
+          Aprobar
+        </button>
+      </div>
+    `;
+  });
+};
+
+
+window.aprobarUsuario = async (id, email) => {
+
+  await supabase
+    .from("perfiles")
+    .update({ aprobado: true })
+    .eq("id", id);
+
+  await fetch('/functions/v1/send-approval-email', {
+    method: 'POST',
+    body: JSON.stringify({ email })
+  });
+
+  alert("Usuario aprobado");
+};
