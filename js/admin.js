@@ -60,8 +60,7 @@ const cargarPendientes = async () => {
     .select("*")
     .or("aprobado.eq.false,aprobado.is.null");
 
-  console.log("PENDIENTES:", data);
-  console.log("ERROR:", error);
+  console.log("TODOS:", data);
 
   if (error) return;
 
