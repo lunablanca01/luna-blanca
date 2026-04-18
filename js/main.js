@@ -21,7 +21,7 @@ function limpiarTextoOrden(texto) {
    🔎 3. VARIABLES GLOBALES
 ================================ */
 const buscador = document.getElementById("buscador");
-const filtros = ['tipo','estado','ambientado','categoria','inicial','autor'];
+const filtros = ['tipo','origen','estado','ambientado','categoria','inicial','autor'];
 
 let paginaActual = 1;
 let tarjetasPorPagina = calcularTarjetasPorPagina();
