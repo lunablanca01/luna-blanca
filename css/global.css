@@ -192,3 +192,17 @@ body::before{
   font-size:18px;
 }
 }
+
+/* ⭐ SCROLL */               /* 👈 */
+
+#scrollTop{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#fff;
+  padding:8px;
+  border-radius:50%;
+  display:none;
+  text-decoration: none;
+  z-index:999;
+}
