@@ -128,14 +128,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const tagsEncontrados = tarjetaCoincidente.dataset.tags;
   if(tagsEncontrados){
     const tagsArray = tagsEncontrados.toLowerCase().split(" ");
-    const tipo = tagsArray[0] || "";
-    const estado = tagsArray[1] || "";
-    const ambientado = tagsArray[2] || "";
-    const categorias = tagsArray.slice(3);
+    let tipo = "";
+    let origen = "";
+    let estado = "";
+    let ambientado = "";
+    let categorias = [];
+
+    tagsArray.forEach(tag => {
+      if (tags.tipo[tag]) tipo = tag;
+      else if (tags.origen[tag]) origen = tag;
+      else if (tags.estado[tag]) estado = tag;
+      else if (tags.ambientado[tag]) ambientado = tag;
+      else if (tags.categoria[tag]) categorias.push(tag);
+    });
+
     const contenedor = document.querySelector(".etiquetas");
+     
     if(contenedor){
       contenedor.innerHTML = `
         <span>Tipo de relación: <a href="../luna-blanca.html?tipo=${tipo}">${obtenerNombreTag(tipo)}</a></span>
+        <span>País de origen: <a href="../luna-blanca.html?origen=${origen}">${obtenerNombreTag(origen)}</a></span>
         <span>Estado: <a href="../luna-blanca.html?estado=${estado}">${obtenerNombreTag(estado)}</a></span>
         <span>Ambientado: <a href="../luna-blanca.html?ambientado=${ambientado}">${obtenerNombreTag(ambientado)}</a></span>
         <br>
