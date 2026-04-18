@@ -90,3 +90,19 @@
   border-radius:10px;
   margin-bottom:10px;
 }
+
+.btn-approve{
+  background:#a8e6a3;
+  border:none;
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.btn-reject{
+  background:#ff8b8b;
+  border:none;
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
