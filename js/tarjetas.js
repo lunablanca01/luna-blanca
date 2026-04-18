@@ -4,6 +4,17 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+titulo: 'Regas',
+ingles: 'Regas',
+slug: "Regas",
+imagen: "Regas.jpg",
+tags: "danmei pendiente europa-antigua comedia drama lucha-de-poder r18 realeza transmigracion",
+autor: "nj",
+link: "https://www.novelupdates.com/series/regas/",
+capitulos: '8 volúmenes'
+},
+
+{
 titulo: 'Condenada a ser carne de cañón',
 ingles: 'Doomed to be Cannon Fodder',
 slug: "Condenada_a_ser_carne_de_cañón",
@@ -13,7 +24,6 @@ autor: "jia-mian-de-sheng-yan",
 link: "https://drive.google.com/drive/u/1/folders/1OITynlBwVKjpknkXZPMGMyZrQ4JuweU7",
 capitulos: '295'
 },
-
 
 {
 titulo: 'Contraataque de la concubina carne de cañón',
