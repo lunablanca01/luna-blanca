@@ -6,7 +6,7 @@ let user = null;
 /* 🔹 INICIO */
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const supa = await import(BASE + "js/supabase.js");
+    const supa = await import("./supabase.js");
     supabase = supa.supabase;
 
     const { data } = await supabase.auth.getUser();
