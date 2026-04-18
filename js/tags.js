@@ -2,7 +2,7 @@ const tags = {
 
   tipo: {
   "bg": "BG",
-  "danmei": "Danmei",
+  "bl": "BL",
   },
 
   origen: {
