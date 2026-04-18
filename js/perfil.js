@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await cargarDatosUsuario();
 
+    document.body.style.display = "block";
+
     document.getElementById("btn-logout")
       .addEventListener("click", cerrarSesion);
 
