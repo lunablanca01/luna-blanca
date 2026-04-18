@@ -6,14 +6,14 @@ let user = null;
 /* 🔹 INICIO */
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const supa = await import("./supabase.js");
+    const supa = await import(BASE + "js/supabase.js");
     supabase = supa.supabase;
 
     const { data } = await supabase.auth.getUser();
     user = data.user;
 
     if (!user) {
-      window.location.href = BASE + "/index.html";
+      window.location.href = BASE + "pages/login.html";
       return;
     }
 
