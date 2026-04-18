@@ -9,14 +9,14 @@ import { supabase } from "./supabase.js";
 
   // ❌ no logueado → login
   if (!session) {
-    window.location.href = "/index.html";
+    window.location.href = "/luna-blanca/index.html";
     return;
   }
 
   const { data: { user } } = await supabase.auth.getUser();
 
   if (!user) {
-    window.location.href = "/index.html";
+    window.location.href = "/luna-blanca/index.html";
     return;
   }
 
