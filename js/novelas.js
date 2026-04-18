@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const contenedor = document.querySelector(".etiquetas");
     if(contenedor){
       contenedor.innerHTML = `
-        <span>Tipo: <a href="../luna-blanca.html?tipo=${tipo}">${obtenerNombreTag(tipo)}</a></span>
+        <span>Tipo de relación: <a href="../luna-blanca.html?tipo=${tipo}">${obtenerNombreTag(tipo)}</a></span>
         <span>Estado: <a href="../luna-blanca.html?estado=${estado}">${obtenerNombreTag(estado)}</a></span>
         <span>Ambientado: <a href="../luna-blanca.html?ambientado=${ambientado}">${obtenerNombreTag(ambientado)}</a></span>
         <br>
