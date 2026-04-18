@@ -5,6 +5,12 @@ const tags = {
   "danmei": "Danmei",
   },
 
+  origen: {
+  "china": "China",
+  "japon": "Japón",
+  "korea": "Korea",
+  },
+
   estado: {
   "finalizado": "Finalizado",
   "en-proceso": "En proceso",
