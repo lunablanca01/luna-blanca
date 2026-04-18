@@ -168,3 +168,8 @@ function mostrarToast(mensaje){
     toast.classList.remove("show");
   }, 2500);
 }
+
+/* 🔹 IR A MIS LECTURAS */
+window.irLecturas = function(){
+  window.location.href = BASE + "pages/mis-lecturas.html";
+};
