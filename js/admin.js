@@ -151,3 +151,14 @@ window.cambiarRolDirecto = async (id, email) => {
   cargarAdmins();
 };
 
+
+window.mostrarPanel = (panel) => {
+
+  document.querySelectorAll(".panel")
+    .forEach(p => p.classList.remove("activa"));
+
+  document.getElementById(`panel-${panel}`)
+    .classList.add("activa");
+
+};
+
