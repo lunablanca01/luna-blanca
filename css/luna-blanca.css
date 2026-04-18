@@ -112,7 +112,7 @@ h1 a{
 
 .dropdownContenido{
   display:none;
-  position:static;
+  position:absolute;
   width:100%;
   box-sizing:border-box;
   border-radius:8px;
