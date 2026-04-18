@@ -1427,7 +1427,7 @@ capitulos: '181'
   ingles: 'I am a Slime',
   slug: 'Soy_un_limo',
   imagen: 'Soy_un_limo.jpg',
-  tags: 'danmei chino pendiente fantasia bestias no-humano oneshot novela-erotica',
+  tags: 'danmei japon pendiente fantasia bestias no-humano oneshot novela-erotica',
   autor: 'momose-wasabi',
   link: 'https://www.novelupdates.com/series/i-am-a-slime/',
   capitulos: '1'
@@ -1460,7 +1460,7 @@ capitulos: '181'
   ingles: 'Nurturing the Hero to Avoid Death',
   slug: 'Nutrir_al_héroe_para_evitar_la_muerte',
   imagen: 'Nutrir_al_héroe_para_evitar_la_muerte.jpg',
-  tags: 'danmei chino pendiente europa-antigua aristocracia comedia punto-de-vista-multiple vida-diaria novela-erotica transportado-a-otro-mundo',
+  tags: 'danmei japon pendiente europa-antigua aristocracia comedia punto-de-vista-multiple vida-diaria novela-erotica transportado-a-otro-mundo',
   autor: 'yomogino',
   link: 'https://www.novelupdates.com/series/nurturing-the-hero-to-avoid-death/',
   capitulos: '45 + extras'
@@ -1482,7 +1482,7 @@ capitulos: '181'
   ingles: 'I Reincarnated as the Villain in an Eroge, But Before I Realized, I Became a Capture Target',
   slug: 'Me_reencarné_como_el_villano_de_un_eroge,_pero_antes_de_darme_cuenta,_me_convertí_en_un_objetivo_de_captura',
   imagen: 'Me_reencarné_como_el_villano_de_un_eroge,_pero_antes_de_darme_cuenta,_me_convertí_en_un_objetivo_de_captura.jpg',
-  tags: 'danmei chino pendiente fantasia comedia reencarnacion novela-erotica yandere',
+  tags: 'danmei japon pendiente fantasia comedia reencarnacion novela-erotica yandere',
   autor: 'yuzuki-haruka',
   link: 'https://www.novelupdates.com/series/i-reincarnated-as-the-villain-in-an-eroge-but-before-i-realized-i-became-a-capture-target/',
   capitulos: '126'
@@ -1548,7 +1548,7 @@ capitulos: '181'
   ingles: 'The Devil’s Origin',
   slug: 'El_origen_del_diablo',
   imagen: 'El_origen_del_diablo.jpg',
-  tags: 'danmei chino pendiente fantasia abuso bestia-humanizada bestias harem ninos no-humano shota sistema novela-erotica transmigracion',
+  tags: 'danmei japon pendiente fantasia abuso bestia-humanizada bestias harem ninos no-humano shota sistema novela-erotica transmigracion',
   autor: 'misheng',
   link: 'https://www.novelupdates.com/series/the-devils-origin/',
   capitulos: '110 (Abandonado)'
@@ -1570,7 +1570,7 @@ capitulos: '181'
   ingles: 'Know on the Third Morning',
   slug: 'Saber_en_la_tercera_mañana',
   imagen: 'Saber_en_la_tercera_mañana.jpg',
-  tags: 'danmei chino pendiente europa-antigua novela-erotica',
+  tags: 'danmei japon pendiente europa-antigua novela-erotica',
   autor: 'shiina',
   link: 'https://www.novelupdates.com/series/know-on-the-third-morning/',
   capitulos: '3'
@@ -1581,7 +1581,7 @@ capitulos: '181'
   ingles: 'I Want To Enjoy A Country Life!',
   slug: 'Quiero_disfrutar_de_la_vida_en_el_campo',
   imagen: 'Quiero_disfrutar_de_la_vida_en_el_campo.jpg',
-  tags: 'danmei chino pendiente europa-antigua agricultura harem incesto realeza reencarnacion novela-erotica yandere',
+  tags: 'danmei japon pendiente europa-antigua agricultura harem incesto realeza reencarnacion novela-erotica yandere',
   autor: 'botamochi',
   link: 'https://www.novelupdates.com/series/i-want-to-enjoy-a-country-life/',
   capitulos: '23 + 2 extras'
