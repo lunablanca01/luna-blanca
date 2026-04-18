@@ -202,19 +202,32 @@ cargarAutor();
 ================================ */
 function activarTooltips() {
   // No mostrar en pantallas pequeñas (<500px)
-  if(window.innerWidth < 500) return;
+  if (window.innerWidth < 500) return;
 
   const tooltipDiv = document.getElementById("tooltip-tag");
-  if(!tooltipDiv) return;
+  if (!tooltipDiv) return;
 
-  const etiquetas = document.querySelectorAll(".etiquetas a");
+  // 👉 ahora incluye categorías + ambientado (y escalable a futuro)
+  const etiquetas = document.querySelectorAll(".etiquetas a, .lista-secundaria a");
 
   etiquetas.forEach(a => {
-    const categoriaKey = a.getAttribute("href")?.split("categoria=")[1];
-    if(!categoriaKey) return;
+    let key = "";
+    let tipo = "";
 
-    const tooltipTexto = tagInfo.categoria[categoriaKey];
-    if(!tooltipTexto) return;
+    // 🔹 Detectar tipo de tag según la URL
+    if (a.href.includes("categoria=")) {
+      key = a.getAttribute("href")?.split("categoria=")[1];
+      tipo = "categoria";
+    } 
+    else if (a.href.includes("ambientado=")) {
+      key = a.getAttribute("href")?.split("ambientado=")[1];
+      tipo = "ambientado";
+    }
+
+    if (!key || !tipo) return;
+
+    const tooltipTexto = tagInfo[tipo]?.[key];
+    if (!tooltipTexto) return;
 
     a.addEventListener("mouseenter", () => {
       tooltipDiv.textContent = tooltipTexto;
@@ -225,12 +238,13 @@ function activarTooltips() {
       const tooltipWidth = tooltipDiv.offsetWidth;
 
       let left;
-      // Si el tooltip es más pequeño que 400px, lo dejamos más a la izquierda
-      if(tooltipWidth < 400){
-        left = Math.max(rect.left, 10); // mínimo 10px desde el borde izquierdo
+
+      // Ajuste de posición para que no se salga de pantalla
+      if (tooltipWidth < 400) {
+        left = Math.max(rect.left, 10);
       } else {
         left = rect.left;
-        if(left + tooltipWidth > window.innerWidth - 10){
+        if (left + tooltipWidth > window.innerWidth - 10) {
           left = window.innerWidth - tooltipWidth - 10;
         }
       }
