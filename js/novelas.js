@@ -146,13 +146,18 @@ document.addEventListener("DOMContentLoaded", function () {
      
     if(contenedor){
       contenedor.innerHTML = `
-        <span>Tipo de relación: <a href="../luna-blanca.html?tipo=${tipo}">${obtenerNombreTag(tipo)}</a></span>
-        <span>País de origen: <a href="../luna-blanca.html?origen=${origen}">${obtenerNombreTag(origen)}</a></span>
-        <span>Estado: <a href="../luna-blanca.html?estado=${estado}">${obtenerNombreTag(estado)}</a></span>
-        <span>Ambientado: <a href="../luna-blanca.html?ambientado=${ambientado}">${obtenerNombreTag(ambientado)}</a></span>
+        <div class="lista-principal">
+          <span>Tipo de relación: <a href="../luna-blanca.html?tipo=${tipo}">${obtenerNombreTag(tipo)}</a></span>
+          <span>País de origen: <a href="../luna-blanca.html?origen=${origen}">${obtenerNombreTag(origen)}</a></span>
+          <span>Estado: <a href="../luna-blanca.html?estado=${estado}">${obtenerNombreTag(estado)}</a></span>
+        </div>
+        <br>
+        <div class="lista-secundaria">
+        Ambientado: <a href="../luna-blanca.html?ambientado=${ambientado}">${obtenerNombreTag(ambientado)}</a>
+        </div>
         <br>
         <div class="lista-etiquetas">
-          Etiqueta: ${categorias.map(cat => `<a href="../luna-blanca.html?categoria=${cat}">${obtenerNombreTag(cat)}</a>`).join("")}
+          Etiquetas: ${categorias.map(cat => `<a href="../luna-blanca.html?categoria=${cat}">${obtenerNombreTag(cat)}</a>`).join("")}
         </div>
       `;
     }
