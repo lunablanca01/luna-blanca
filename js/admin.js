@@ -96,7 +96,7 @@ window.aprobar = async (id, email) => {
 
   if (error) return;
 
-  await fetch("https://abcd1234.supabase.co/functions/v1/send-approved-email", {
+  await fetch("https://qaophiaogsvhkgmbfcuf.supabase.co/functions/v1/send-approved-email", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
