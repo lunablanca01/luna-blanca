@@ -85,7 +85,7 @@ const cargarPendientes = async () => {
 
 
 // =======================
-// ✔ APROBAR USUARIO
+// ✔ APROBAR USUARIO (SIN CORREO)
 // =======================
 window.aprobar = async (id, email) => {
 
@@ -94,16 +94,10 @@ window.aprobar = async (id, email) => {
     .update({ aprobado: true })
     .eq("id", id);
 
-  if (error) return;
-
-  await fetch("https://qaophiaogsvhkgmbfcuf.supabase.co/functions/v1/send-approved-email", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${await supabase.auth.getSession().then(r => r.data.session.access_token)}`
-    },
-    body: JSON.stringify({ email })
-  });
+  if (error) {
+    console.error(error);
+    return;
+  }
 
   cargarPendientes();
 };
@@ -119,7 +113,10 @@ window.rechazar = async (id) => {
     .delete()
     .eq("id", id);
 
-  if (error) return;
+  if (error) {
+    console.error(error);
+    return;
+  }
 
   cargarPendientes();
 };
@@ -205,5 +202,4 @@ window.mostrarPanel = (panel) => {
 
   document.getElementById(`panel-${panel}`)
     .classList.add("activa");
-
 };
