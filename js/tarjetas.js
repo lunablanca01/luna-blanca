@@ -2406,7 +2406,7 @@ capitulos: '181'
   ingles: 'Seven Days as a Villain',
   slug: 'Siete_días_como_villano',
   imagen: 'Siete_días_como_villano.jpg',
-  tags: 'danmei chino finalizado europa-antigua aristocracia r18 reencarnacion',
+  tags: 'danmei japon finalizado europa-antigua aristocracia r18 reencarnacion',
   autor: 'rirakkusu@piro',
   link: 'https://drive.google.com/drive/u/4/folders/1JiwsoPUOamXVMn7drL8T_ph-gfFIpM-1',
   capitulos: '7 + exta'
