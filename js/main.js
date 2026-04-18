@@ -451,6 +451,7 @@ window.addEventListener("load", function() {
   generarDropdown("categoria", tags.categoria);
   generarDropdown("ambientado", tags.ambientado);
   generarDropdown("tipo", tags.tipo);
+  generarDropdown("origen", tags.origen);
   generarDropdown("estado", tags.estado);
 
   document.querySelectorAll(".card").forEach(card => card.dataset.visible = "1");
