@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transmigrar a la amada esposa fugitiva del Príncipe Regente</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<main class="contenedor">
+
+<h1>Transmigrar a la amada esposa fugitiva del Príncipe Regente</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>穿成摄政王的侍爱逃妻</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>El Príncipe Regente de la Dinastía Zong, Lin Bozhou, parecía noble y benevolente por fuera pero asquerosamente sucio por dentro. </p>
+  <p>Este ministro traidor, a quien todos habían condenado. </p>
+  <p>Un día, Meng Huan, que acababa de transmigrar a un libro, llegó al dormitorio en una silla de manos después de haber sido vendido a la fuerza como concubina masculina al Príncipe Regente. </p>
+  <p>¿Cómo mantenerse a salvo frente a este ministro traicionero? Meng Huan estaba preparado para actuar como el anfitrión original, es decir, ser un hombre distante y frío que preferiría morir antes que obedecer al Príncipe Regente. Despreciaba a este hombre, mientras mostraba su inteligencia y sabiduría y, ocasionalmente, participaba en un juego de ingenio con el Príncipe Regente. </p>
+  <p>Sólo así el Príncipe Regente lo amaría y respetaría. </p>
+  <p>También podría ser como el anfitrión original, ganándose el favor del hombre pero eligiendo ignorarlo, escapando con estilo y obligando al tranquilo Príncipe Regente a brillar con ira roja. </p>
+  <p>— </p>
+  <p>Sin embargo, cuando intentó recordar el papel entrante para interpretar como anfitrión original, Meng Huan de repente se congeló. </p>
+  <p>Meng—CI bajo— Huan: ¿Cuáles fueron los astutos complots y maquinaciones? </p>
+  <p>Meng—CI bajo—Huan: ¿Cuáles fueron las palabras que usó el anfitrión original para regañar al hombre? </p>
+  <p>Meng—Coeficiente intelectual bajo—Huan: Oh, no, ya estoy acabado, estoy acabado. Estoy tostado QAQ </p>
+  <p>— </p>
+  <p>Se decía que el concubino masculino que compró poseía un carácter decidido y que muy probablemente se suicidaría mordiéndose la lengua o gritándole brutalmente malas palabras. </p>
+  <p>Siempre tranquilo y sereno, Lin Bozhou, que no era alguien que obligara a otro ni fuera testigo del derramamiento de sangre, estaba listo para liberar a este hombre. </p>
+  <p>Sin embargo, cuando entró por la puerta, vio una belleza aturdida, mirando perdida mientras decía en voz muy suave: "¿Marido-marido?" </p>
+  <p>La belleza parecía estar devanándose los sesos como si su vida dependiera de ello. </p>
+  <p>Luego, tras unos segundos de estupefacción, pareció darse por vencido. "Será mejor que te sirva en la cama". </p>
+  <p>Lin Bozhou: "...?" </p>
+  <p>El ministro absolutamente sabio y su tonta esposa : ) </p>
+  <p>Esta historia también se conoce como El desperdicio que transmigró a una ficción política. </p>
+  <p>*Un poderoso e inteligente ministro gong versus una tonta y delicada belleza shou. </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+</br></br>
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</br></br>
+
+</main>
+
+
+<!-- UI GLOBAL -->
+
+<div id="logo-container"></div>
+
+<div id="usuario-container"></div>  
+  
+<div id="banner-container"></div>
+
+<a href="#" id="scrollTop" title="Volver arriba">🌸</a>
+
+<div id="toast" class="toast">Guardado</div>
+<div id="tooltip-tag"></div>
+
+
+<script>
+  window.baseRuta = "../";
+</script>
+
+<script src="../js/logo.js"></script>  
+<script src="../js/banner.js"></script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+<script type="module" src="../js/usuario.js"></script>
+  
+</body>
+</html>
