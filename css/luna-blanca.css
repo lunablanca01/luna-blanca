@@ -156,7 +156,7 @@ h1 a{
 
 .panel-categorias.activo{
   display:block;
-  margin-top:-8px;
+  margin-top:-14px;
 }
 
 /* limitar altura categorías */
@@ -718,6 +718,10 @@ h1 a{
     background:#fff4ec;
     border:1px solid #ffd2b8;
     margin-top:0px;
+  }
+
+  .panel-categorias.activo{
+    margin-top:-8px;
   }
 
   /* ⭐ BOTONES */
