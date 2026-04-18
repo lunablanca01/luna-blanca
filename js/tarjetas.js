@@ -4,6 +4,17 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+titulo: 'Mi posesión se convirtió en una historia de fantasmas',
+ingles: 'My Possession Became a Ghost Story',
+slug: "Mi_posesión_se_convirtió_en_una_historia_de_fantasmas",
+imagen: "Mi_posesión_se_convirtió_en_una_historia_de_fantasmas.jpg",
+tags: "bg korea pendiente europa-antigua aristocracia comedia malentendidos multiples-protagonistas sobrenatural terror",
+autor: "sugar-huru",
+link: "https://drive.google.com/drive/u/1/folders/1XyXjsRhYTzgfu3VHB30-KznnjV8NCiLG",
+capitulos: '268'
+},
+
+{
 titulo: 'Regas',
 ingles: 'Regas',
 slug: "Regas",
