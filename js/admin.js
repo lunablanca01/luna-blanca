@@ -58,7 +58,7 @@ const cargarPendientes = async () => {
   const { data, error } = await supabase
     .from("perfiles")
     .select("*")
-    .eq("aprobado", false);
+    .or("aprobado.eq.false,aprobado.is.null")
 
   if (error) return;
 
