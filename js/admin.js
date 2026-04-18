@@ -40,65 +40,114 @@ import { supabase } from "./supabase.js";
 })();
 
 
+const cargarPendientes = async () => {
 
-
-
-window.cambiarRol = async (id, email, nuevoRol) => {
-
-  // 1. actualizar rol en Supabase
-  const { error } = await supabase
+  const { data } = await supabase
     .from("perfiles")
-    .update({ rol: nuevoRol })
+    .select("*")
+    .eq("aprobado", false);
+
+  const contenedor = document.getElementById("pendientes");
+  contenedor.innerHTML = "";
+
+  (data || []).forEach(user => {
+
+    contenedor.innerHTML += `
+      <div>
+        <span>${user.email}</span>
+
+        <button onclick="aprobar('${user.id}', '${user.email}')">✔</button>
+        <button onclick="rechazar('${user.id}')">✖</button>
+      </div>
+    `;
+  });
+};
+
+
+window.aprobar = async (id, email) => {
+
+  await supabase
+    .from("perfiles")
+    .update({ aprobado: true })
     .eq("id", id);
 
-  if (error) {
-    alert("Error al cambiar rol");
-    return;
-  }
-
-  // 2. enviar correo
-  await fetch('/functions/v1/send-role-email', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ email, rol: nuevoRol })
+  await fetch("/functions/v1/send-approved-email", {
+    method: "POST",
+    body: JSON.stringify({ email })
   });
 
-  alert("Rol actualizado y correo enviado");
+  cargarPendientes();
 };
 
 
 
 
-import { serve } from "https://deno.land/std/http/server.ts";
+window.rechazar = async (id) => {
 
-serve(async (req) => {
+  await supabase
+    .from("perfiles")
+    .delete()
+    .eq("id", id);
 
-  const { email, rol } = await req.json();
+  cargarPendientes();
+};
 
-  let mensaje = "";
 
-  if (rol === "admin") {
-    mensaje = "Ahora eres administrador 🎉";
-  } else {
-    mensaje = "Tu rol ha sido actualizado a usuario";
+const cambiarRol = async () => {
+
+  const email = document.getElementById("emailRol").value;
+
+  const { data: user } = await supabase
+    .from("perfiles")
+    .select("*")
+    .eq("email", email)
+    .single();
+
+  if (!user) {
+    alert("Correo no existe");
+    return;
   }
 
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer TU_RESEND_KEY`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      from: "tuapp@dominio.com",
-      to: email,
-      subject: "Cambio de rol",
-      html: `<h1>${mensaje}</h1>`
-    })
-  });
+  const nuevoRol = user.rol === "admin" ? "user" : "admin";
 
-  return new Response("ok");
-});
+  await supabase
+    .from("perfiles")
+    .update({ rol: nuevoRol })
+    .eq("id", user.id);
+
+  cargarAdmins();
+};
+
+
+const cargarAdmins = async () => {
+
+  const { data } = await supabase
+    .from("perfiles")
+    .select("*")
+    .eq("rol", "admin");
+
+  const contenedor = document.getElementById("admins");
+  contenedor.innerHTML = "";
+
+  (data || []).forEach(user => {
+
+    contenedor.innerHTML += `
+      <div>
+        <span>${user.email}</span>
+        <button onclick="cambiarRolDirecto('${user.id}', '${user.email}')">✖</button>
+      </div>
+    `;
+  });
+};
+
+
+window.cambiarRolDirecto = async (id, email) => {
+
+  await supabase
+    .from("perfiles")
+    .update({ rol: "user" })
+    .eq("id", id);
+
+  cargarAdmins();
+};
 
