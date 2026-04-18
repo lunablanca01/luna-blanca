@@ -1,78 +1,39 @@
 import { supabase } from "./supabase.js";
 
-// =======================
-// VERIFICAR SI ES ADMIN
-// =======================
-const verificarAdmin = async () => {
+(async () => {
 
-  const { data: userData } = await supabase.auth.getUser();
+  // 🔒 ocultar todo mientras valida
+  document.body.style.display = "none";
 
-  const user = userData?.user;
+  // 1. verificar sesión
+  const { data: sessionData } = await supabase.auth.getSession();
 
-  if (!user) {
-    window.location.href = "/login.html";
+  const session = sessionData.session;
+
+  if (!session) {
+    window.location.href = "/luna-blanca/index.html";
     return;
   }
 
-  const { data: perfil, error } = await supabase
+  // 2. obtener usuario
+  const { data: { user } } = await supabase.auth.getUser();
+
+  // 3. verificar rol en base de datos
+  const { data: perfil } = await supabase
     .from("perfiles")
     .select("rol")
     .eq("id", user.id)
     .single();
 
-  if (error || !perfil) {
-    window.location.href = "/";
+  // 4. si no es admin → fuera
+  if (!perfil || perfil.rol !== "admin") {
+    window.location.href = "/luna-blanca/index.html";
     return;
   }
 
-  if (perfil.rol !== "admin") {
-    window.location.href = "/";
-    return;
-  }
-
-  // Si es admin, mostrar contenido
-  document.getElementById("contenido").style.display = "block";
+  // 5. si es admin → mostrar página
+  document.body.style.display = "block";
 
   cargarUsuarios();
-};
 
-verificarAdmin();
-
-
-const cargarUsuarios = async () => {
-
-  const { data } = await supabase
-    .from("perfiles")
-    .select("*")
-    .eq("aprobado", false);
-
-  const contenedor = document.getElementById("listaUsuarios");
-  contenedor.innerHTML = "";
-
-  data.forEach(user => {
-    contenedor.innerHTML += `
-      <div>
-        <p>${user.email}</p>
-        <button onclick="aprobarUsuario('${user.id}', '${user.email}')">
-          Aprobar
-        </button>
-      </div>
-    `;
-  });
-};
-
-
-window.aprobarUsuario = async (id, email) => {
-
-  await supabase
-    .from("perfiles")
-    .update({ aprobado: true })
-    .eq("id", id);
-
-  await fetch('/functions/v1/send-approval-email', {
-    method: 'POST',
-    body: JSON.stringify({ email })
-  });
-
-  alert("Usuario aprobado");
-};
+})();
