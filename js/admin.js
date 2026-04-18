@@ -62,7 +62,10 @@ const cargarPendientes = async () => {
 
   console.log("TODOS:", data);
 
-  if (error) return;
+  if (error) {
+    console.error("ERROR SUPABASE:", error);
+    return;
+  }
 
   const contenedor = document.getElementById("pendientes");
   contenedor.innerHTML = "";
