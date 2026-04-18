@@ -308,7 +308,7 @@ function mostrarPagina() {
 
   if (!listaFiltrada.length) {
     document.getElementById("paginacion-lecturas").innerHTML = "";
-    contenedor.innerHTML = `<div class="sin-lecturas">No hay resultados ✨</div>`;
+    contenedor.innerHTML = `<div class="sin-lecturas">No hay novelas registradas ✨</div>`;
     return;
   }
 
