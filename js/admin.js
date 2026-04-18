@@ -96,10 +96,11 @@ window.aprobar = async (id, email) => {
 
   if (error) return;
 
-  await fetch("/functions/v1/send-approved-email", {
+  await fetch("https://qaophiaogsvhkgmbfcuf.supabase.co/functions/v1/send-approved-email", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
+      "Authorization": `Bearer ${await supabase.auth.getSession().then(r => r.data.session.access_token)}`
     },
     body: JSON.stringify({ email })
   });
