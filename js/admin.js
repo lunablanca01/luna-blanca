@@ -58,7 +58,10 @@ const cargarPendientes = async () => {
   const { data, error } = await supabase
     .from("perfiles")
     .select("*")
-    .or("aprobado.eq.false,aprobado.is.null")
+    .or("aprobado.eq.false,aprobado.is.null");
+
+  console.log("PENDIENTES:", data);
+  console.log("ERROR:", error);
 
   if (error) return;
 
@@ -76,14 +79,6 @@ const cargarPendientes = async () => {
       </div>
     `;
   });
-
-  const { data, error } = await supabase
-  .from("perfiles")
-  .select("*")
-  .or("aprobado.eq.false,aprobado.is.null");
-
-console.log("PENDIENTES:", data);
-console.log("ERROR:", error);
 };
 
 
