@@ -104,6 +104,10 @@ h1{
   content: " | ";
 }
 
+.lista-secundaria{
+  margin-right: 6px;
+}
+
 .lista-etiquetas{
   display: flex;
   justify-content: center;
