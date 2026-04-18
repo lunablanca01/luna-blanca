@@ -51,3 +51,42 @@
 #pendientes button:last-child{
   background:#ff8b8b; /* x */
 }
+
+/* 🔹 BOTÓN BASE ADMIN */
+.admin-btn{
+  width:100%;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  font-family:'Molengo', sans-serif;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+/* 🔹 VARIANTES */
+.admin-btn-blue{
+  background:#ffe4d2;
+}
+
+.admin-btn-blue:hover{
+  background:#ffd2b8;
+}
+
+.admin-btn-pink{
+  background:#ff8b8b;
+  color:white;
+}
+
+.admin-btn-pink:hover{
+  background:#ff5c5c;
+}
+
+.admin-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#ffe4d2;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:10px;
+}
