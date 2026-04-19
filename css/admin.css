@@ -82,12 +82,11 @@
 }
 
 .admin-btn-pink{
-  background:#ff8b8b;
-  color:white;
+  background:#ffe4d2;
 }
 
 .admin-btn-pink:hover{
-  background:#ff5c5c;
+  background:#ffd2b8;
 }
 
 .admin-item{
