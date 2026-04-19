@@ -213,7 +213,7 @@ const cargarAdmins = async () => {
     contenedor.innerHTML += `
       <div>
         <span>${user.email}</span>
-        <button onclick="cambiarRolDirecto('${user.id}')">✖</button>
+        <button class="btn-reject" onclick="cambiarRolDirecto('${user.id}')">✖</button>
       </div>
     `;
   });
