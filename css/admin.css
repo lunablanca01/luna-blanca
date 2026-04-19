@@ -114,3 +114,38 @@
   border-radius:8px;
   cursor:pointer;
 }
+
+.rol-box {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+  align-items: center;
+}
+
+.rol-box input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+  outline: none;
+}
+
+.rol-box input:focus {
+  border-color: #ff8b8b;
+}
+
+.rol-box button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #ff8b8b;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: inherit;
+}
+
+.rol-box button:hover {
+  background: #ff6f6f;
+}
