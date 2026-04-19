@@ -145,7 +145,7 @@ window.rechazar = async (id) => {
     });
 
     const data = await res.json();
-    console.log("Usuario eliminado:", data);
+    mostrarToast("Usuario eliminado correctamente ✅");
 
   } catch (err) {
     console.error("Error eliminando:", err);
@@ -170,7 +170,7 @@ window.cambiarRol = async () => {
     .single();
 
   if (error || !perfil) {
-    alert("Correo no existe");
+    mostrarToast("Correo no existe ❌", "error");
     return;
   }
 
@@ -240,3 +240,24 @@ window.mostrarPanel = (panel) => {
   document.getElementById(`panel-${panel}`)
     .classList.add("activa");
 };
+
+
+// =======================
+// 🔁 MOSTRAR TOAST
+// =======================
+function mostrarToast(mensaje, tipo = "success") {
+  const toast = document.createElement("div");
+  toast.className = `toast ${tipo}`;
+  toast.textContent = mensaje;
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add("show");
+  }, 10);
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
