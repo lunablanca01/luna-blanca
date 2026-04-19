@@ -192,3 +192,31 @@
 .sidebar button:hover{
   background:#ffd1b3;
 }
+
+.fila-user {
+  display: grid;
+  grid-template-columns: 1fr 120px 40px;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 8px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  gap: 10px;
+}
+
+/* email */
+.fila-user span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* rol */
+.fila-user span:nth-child(2) {
+  text-align: center;
+  font-size: 12px;
+  background: #eee;
+  padding: 3px 6px;
+  border-radius: 8px;
+}
