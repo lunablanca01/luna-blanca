@@ -5,7 +5,7 @@ import { supabase } from "./supabase.js";
   const { data: { session } } = await supabase.auth.getSession();
 
   if (!session) {
-    window.location.href = "/index.html";
+    window.location.href = "/luna-blanca/index.html";
     return;
   }
 
@@ -18,7 +18,7 @@ import { supabase } from "./supabase.js";
     .single();
 
   if (!perfil || !perfil.aprobado) {
-    window.location.href = "/pendiente.html";
+    window.location.href = /luna-blanca/"pages/pendiente.html";
     return;
   }
 
