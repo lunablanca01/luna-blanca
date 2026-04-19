@@ -44,10 +44,12 @@ import { supabase } from "./supabase.js";
   // =======================
   document.body.style.display = "block";
 
-  cargarPendientes();
-  cargarAdmins();
-  cargarUsuarios();
-  
+  await Promise.all([
+    cargarPendientes(),
+    cargarAdmins(),
+    cargarUsuarios()
+  ]);
+
 })();
 
 
@@ -60,8 +62,6 @@ const cargarPendientes = async () => {
     .from("perfiles")
     .select("*")
     .or("aprobado.eq.false,aprobado.is.null");
-
-  console.log("TODOS:", data);
 
   if (error) {
     console.error("ERROR SUPABASE:", error);
@@ -86,11 +86,10 @@ const cargarPendientes = async () => {
 
 
 // =======================
-// ✔ APROBAR USUARIO (CON CORREO)
+// ✔ APROBAR USUARIO
 // =======================
 window.aprobar = async (id, email) => {
 
-  // 1. Aprobar usuario
   const { error } = await supabase
     .from("perfiles")
     .update({ aprobado: true })
@@ -98,10 +97,10 @@ window.aprobar = async (id, email) => {
 
   if (error) {
     console.error("Error aprobando:", error);
+    mostrarToast("Error al aprobar ❌", "error");
     return;
   }
 
-  // 2. Enviar correo (CON fetch ✅)
   try {
     const res = await fetch("https://qaophiaogsvhkgmbfcuf.supabase.co/functions/v1/send-approved-email", {
       method: "POST",
@@ -120,7 +119,6 @@ window.aprobar = async (id, email) => {
     console.error("Error enviando correo:", err);
   }
 
-  // 3. Recargar lista
   cargarPendientes();
 };
 
@@ -131,7 +129,6 @@ window.aprobar = async (id, email) => {
 window.rechazar = async (id) => {
 
   const confirmar = confirm("¿Eliminar usuario definitivamente?");
-
   if (!confirmar) return;
 
   try {
@@ -146,18 +143,26 @@ window.rechazar = async (id) => {
     });
 
     const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Error eliminando usuario");
+    }
+
     mostrarToast("Usuario eliminado correctamente ✅");
 
   } catch (err) {
     console.error("Error eliminando:", err);
+    mostrarToast("Error al eliminar ❌", "error");
   }
 
   cargarPendientes();
+  cargarUsuarios();
+  cargarAdmins();
 };
 
 
 // =======================
-// 🔵 CAMBIAR ROL (INPUT)
+// 🔵 CAMBIAR ROL
 // =======================
 window.cambiarRol = async () => {
 
@@ -184,13 +189,12 @@ window.cambiarRol = async () => {
 
   cargarAdmins();
 
-  // ✅ LIMPIAR INPUT
   input.value = "";
 };
 
 
 // =======================
-// 👑 LISTA DE ADMINS
+// 👑 ADMINS
 // =======================
 const cargarAdmins = async () => {
 
@@ -231,41 +235,7 @@ window.cambiarRolDirecto = async (id) => {
 
 
 // =======================
-// 🔁 CAMBIAR PANELES UI
-// =======================
-window.mostrarPanel = (panel) => {
-
-  document.querySelectorAll(".panel")
-    .forEach(p => p.classList.remove("activa"));
-
-  document.getElementById(`panel-${panel}`)
-    .classList.add("activa");
-};
-
-
-// =======================
-// 🔁 MOSTRAR TOAST
-// =======================
-function mostrarToast(mensaje, tipo = "success") {
-  const toast = document.createElement("div");
-  toast.className = `toast ${tipo}`;
-  toast.textContent = mensaje;
-
-  document.body.appendChild(toast);
-
-  setTimeout(() => {
-    toast.classList.add("show");
-  }, 10);
-
-  setTimeout(() => {
-    toast.classList.remove("show");
-    setTimeout(() => toast.remove(), 300);
-  }, 3000);
-}
-
-
-// =======================
-// 👥 LISTA DE USUARIOS
+// 👥 USUARIOS
 // =======================
 const cargarUsuarios = async () => {
 
@@ -296,12 +266,11 @@ const cargarUsuarios = async () => {
 
 
 // =======================
-// ❌ ELIMINAR USUARIO COMPLETO
+// ❌ ELIMINAR USUARIO
 // =======================
 window.eliminarUsuario = async (id) => {
 
   const confirmar = confirm("¿Eliminar usuario completamente?");
-
   if (!confirmar) return;
 
   try {
@@ -323,10 +292,42 @@ window.eliminarUsuario = async (id) => {
 
     mostrarToast("Usuario eliminado correctamente ✅");
 
-    cargarUsuarios(); // refrescar lista
-
   } catch (err) {
-    console.error("Error eliminando:", err);
+    console.error(err);
     mostrarToast("Error al eliminar ❌", "error");
   }
+
+  cargarUsuarios();
+};
+
+
+// =======================
+// 🔁 TOAST
+// =======================
+function mostrarToast(mensaje, tipo = "success") {
+  const toast = document.createElement("div");
+  toast.className = `toast ${tipo}`;
+  toast.textContent = mensaje;
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.classList.add("show"), 10);
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+
+// =======================
+// 🔁 PANELES
+// =======================
+window.mostrarPanel = (panel) => {
+
+  document.querySelectorAll(".panel")
+    .forEach(p => p.classList.remove("activa"));
+
+  document.getElementById(`panel-${panel}`)
+    .classList.add("activa");
 };
