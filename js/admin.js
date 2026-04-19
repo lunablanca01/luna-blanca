@@ -119,12 +119,6 @@ window.aprobar = async (id, email) => {
     console.error("Error enviando correo:", err);
   }
 
-  if (fnError) {
-    console.error("Error enviando correo:", fnError);
-  } else {
-    console.log("Correo enviado:", data);
-  }
-
   // 3. Recargar lista
   cargarPendientes();
 };
