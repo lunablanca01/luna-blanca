@@ -77,8 +77,8 @@ const cargarPendientes = async () => {
       <div>
         <span>${user.email}</span>
 
-        <button onclick="aprobar('${user.id}', '${user.email}')">✔</button>
-        <button onclick="rechazar('${user.id}')">✖</button>
+        <button class="btn-approve" onclick="aprobar('${user.id}', '${user.email}')">✔</button>
+        <button class="btn-reject" onclick="rechazar('${user.id}')">✖</button>
       </div>
     `;
   });
