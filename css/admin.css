@@ -192,6 +192,7 @@
 
 .fila-user:hover {
   background: #ffe4d2;
+  border-radius:10px;
 }
 
 .btn-approve{
