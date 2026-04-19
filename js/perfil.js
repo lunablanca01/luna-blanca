@@ -58,7 +58,7 @@ async function cargarDatosUsuario(){
     // 🔐 Mostrar botón solo admin
     const btnAdmin = document.getElementById("btn-admin");
     if (btnAdmin && perfil?.rol === "admin") {
-      btnAdmin.classList.remove("hidden");
+      btnAdmin.style.display = "inline-block";
     }
 
   } catch (error) {
