@@ -213,3 +213,33 @@
 .fila-user:hover {
   background: rgba(255, 228, 210, 0.4);
 }
+
+.btn-approve{
+  background:#7bdc86;
+  color: white;
+  border:none;
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-approve:hover{
+  background:#5fcf74;
+}
+
+.btn-reject{
+  background:#ff8b8b;
+  color:white;
+  border:none;
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-reject:hover{
+  background:#ff6f6f;
+}
