@@ -191,9 +191,6 @@
   align-items: center;
   padding: 10px;
   margin-bottom: 8px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   gap: 10px;
 }
 
@@ -211,4 +208,8 @@
   background: #eee;
   padding: 3px 6px;
   border-radius: 8px;
+}
+
+.fila-user:hover {
+  background: rgba(255, 228, 210, 0.4);
 }
