@@ -293,3 +293,40 @@ const cargarUsuarios = async () => {
     `;
   });
 };
+
+
+// =======================
+// ❌ ELIMINAR USUARIO COMPLETO
+// =======================
+window.eliminarUsuario = async (id) => {
+
+  const confirmar = confirm("¿Eliminar usuario completamente?");
+
+  if (!confirmar) return;
+
+  try {
+    const res = await fetch("https://qaophiaogsvhkgmbfcuf.supabase.co/functions/v1/delete-user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN",
+        "Authorization": "Bearer sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
+      },
+      body: JSON.stringify({ user_id: id })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Error eliminando usuario");
+    }
+
+    mostrarToast("Usuario eliminado correctamente ✅");
+
+    cargarUsuarios(); // refrescar lista
+
+  } catch (err) {
+    console.error("Error eliminando:", err);
+    mostrarToast("Error al eliminar ❌", "error");
+  }
+};
