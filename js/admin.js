@@ -148,7 +148,8 @@ window.rechazar = async (id) => {
 // =======================
 window.cambiarRol = async () => {
 
-  const email = document.getElementById("emailRol").value;
+  const input = document.getElementById("emailRol");
+  const email = input.value;
 
   const { data: perfil, error } = await supabase
     .from("perfiles")
@@ -169,6 +170,9 @@ window.cambiarRol = async () => {
     .eq("id", perfil.id);
 
   cargarAdmins();
+
+  // ✅ LIMPIAR INPUT
+  input.value = "";
 };
 
 
