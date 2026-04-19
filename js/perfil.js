@@ -56,11 +56,9 @@ async function cargarDatosUsuario(){
     if (input) input.value = nombre;
 
     // 🔐 Mostrar botón solo admin
-    if (perfil?.rol === "admin") {
-      const btnAdmin = document.getElementById("btn-admin");
-      if (btnAdmin) {
-        btnAdmin.classList.remove("hidden");
-      }
+    const btnAdmin = document.getElementById("btn-admin");
+    if (btnAdmin && perfil?.rol === "admin") {
+      btnAdmin.classList.remove("hidden");
     }
 
   } catch (error) {
@@ -89,7 +87,6 @@ window.cambiarNombre = async function(){
 
   try {
 
-    // 🔥 actualizar tabla perfiles
     const { error } = await supabase
       .from("perfiles")
       .update({ nombre: nuevoNombre })
@@ -97,7 +94,6 @@ window.cambiarNombre = async function(){
 
     if (error) throw error;
 
-    // 🔥 actualizar metadata
     await supabase.auth.updateUser({
       data: { nombre: nuevoNombre }
     });
@@ -166,7 +162,6 @@ function mostrarToast(mensaje){
 
   toast.textContent = mensaje;
 
-  // 🔥 reset animación si se repite rápido
   toast.classList.remove("show");
   void toast.offsetWidth;
 
@@ -180,4 +175,9 @@ function mostrarToast(mensaje){
 /* 🔹 IR A MIS LECTURAS */
 window.irLecturas = function(){
   window.location.href = BASE + "pages/mis-lecturas.html";
+};
+
+/* 🔹 IR A ADMIN (🔥 ESTO FALTABA) */
+window.irAdmin = function(){
+  window.location.href = BASE + "pages/admin.html";
 };
