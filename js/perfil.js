@@ -37,7 +37,7 @@ async function cargarDatosUsuario(){
 
     const { data: perfil, error } = await supabase
       .from("perfiles")
-      .select("nombre")
+      .select("nombre, rol")
       .eq("id", user.id)
       .maybeSingle();
 
@@ -54,6 +54,14 @@ async function cargarDatosUsuario(){
     // llenar input
     const input = document.getElementById("nuevo-nombre");
     if (input) input.value = nombre;
+
+    // 🔐 Mostrar botón solo admin
+    if (perfil?.rol === "admin") {
+      const btnAdmin = document.getElementById("btn-admin");
+      if (btnAdmin) {
+        btnAdmin.classList.remove("hidden");
+      }
+    }
 
   } catch (error) {
     console.error("Error cargando datos:", error);
