@@ -258,7 +258,7 @@ const cargarUsuarios = async () => {
         <span>${user.email}</span>
         <span>(${user.rol})</span>
 
-        <button onclick="eliminarUsuario('${user.id}')">❌</button>
+        <button class="btn-reject" onclick="eliminarUsuario('${user.id}')">✖</button>
       </div>
     `;
   });
