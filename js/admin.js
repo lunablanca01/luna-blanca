@@ -85,20 +85,36 @@ const cargarPendientes = async () => {
 
 
 // =======================
-// ✔ APROBAR USUARIO (SIN CORREO)
+// ✔ APROBAR USUARIO (CON CORREO)
 // =======================
 window.aprobar = async (id, email) => {
 
+  // 1. Aprobar usuario
   const { error } = await supabase
     .from("perfiles")
     .update({ aprobado: true })
     .eq("id", id);
 
   if (error) {
-    console.error(error);
+    console.error("Error aprobando:", error);
     return;
   }
 
+  // 2. Enviar correo (SIN fetch ❗)
+  const { data, error: fnError } = await supabase.functions.invoke(
+    "send-approved-email",
+    {
+      body: { email }
+    }
+  );
+
+  if (fnError) {
+    console.error("Error enviando correo:", fnError);
+  } else {
+    console.log("Correo enviado:", data);
+  }
+
+  // 3. Recargar lista
   cargarPendientes();
 };
 
