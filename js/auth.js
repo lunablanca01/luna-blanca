@@ -1,14 +1,25 @@
 import { supabase } from "./supabase.js";
 
-// 🔒 SE EJECUTA AUTOMÁTICAMENTE
 (async () => {
-  document.body.style.display = "none";
 
-  const { data } = await supabase.auth.getSession();
+  const { data: { session } } = await supabase.auth.getSession();
 
-  if (!data.session) {
-    window.location.href = "/luna-blanca/index.html";
-  } else {
-    document.body.style.display = "block";
+  if (!session) {
+    window.location.href = "/index.html";
+    return;
   }
+
+  const { data: { user } } = await supabase.auth.getUser();
+
+  const { data: perfil } = await supabase
+    .from("perfiles")
+    .select("aprobado")
+    .eq("id", user.id)
+    .single();
+
+  if (!perfil || !perfil.aprobado) {
+    window.location.href = "/pendiente.html";
+    return;
+  }
+
 })();
