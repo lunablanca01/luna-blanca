@@ -224,3 +224,12 @@
 .btn-reject:hover{
   background:#ff6f6f;
 }
+
+.fila-user button{
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
