@@ -100,13 +100,24 @@ window.aprobar = async (id, email) => {
     return;
   }
 
-  // 2. Enviar correo (SIN fetch ❗)
-  const { data, error: fnError } = await supabase.functions.invoke(
-    "send-approved-email",
-    {
-      body: { email }
-    }
-  );
+  // 2. Enviar correo (CON fetch ✅)
+  try {
+    const res = await fetch("https://qaophiaogsvhkgmbfcuf.supabase.co/functions/v1/send-approved-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN",
+        "Authorization": "Bearer sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
+      },
+      body: JSON.stringify({ email })
+    });
+
+    const data = await res.json();
+    console.log("Correo enviado:", data);
+
+  } catch (err) {
+    console.error("Error enviando correo:", err);
+  }
 
   if (fnError) {
     console.error("Error enviando correo:", fnError);
