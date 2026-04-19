@@ -89,6 +89,14 @@
   background:#ffd2b8;
 }
 
+.admin-btn-red{
+  background:#ffe4d2;
+}
+
+.admin-btn-red:hover{
+  background:#ffd2b8;
+}
+
 .admin-item{
   display:flex;
   justify-content:space-between;
@@ -157,4 +165,30 @@
   align-items:center;
   padding:8px;
   border-bottom:1px solid #eee;
+}
+
+/* 🔹 SIDEBAR (panel izquierdo) */
+.sidebar{
+  background:#fff4ec;
+  padding:15px;
+  border-radius:16px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  border:2px solid #ffe4d2;
+}
+
+/* botones sidebar */
+.sidebar button{
+  background:#ffe4d2;
+  border:none;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  text-align:left;
+  font-family: 'Molengo', sans-serif;
+}
+
+.sidebar button:hover{
+  background:#ffd1b3;
 }
