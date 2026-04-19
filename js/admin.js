@@ -46,7 +46,8 @@ import { supabase } from "./supabase.js";
 
   cargarPendientes();
   cargarAdmins();
-
+  cargarUsuarios();
+  
 })();
 
 
@@ -261,3 +262,34 @@ function mostrarToast(mensaje, tipo = "success") {
     setTimeout(() => toast.remove(), 300);
   }, 3000);
 }
+
+
+// =======================
+// 👥 LISTA DE USUARIOS
+// =======================
+const cargarUsuarios = async () => {
+
+  const { data, error } = await supabase
+    .from("perfiles")
+    .select("*");
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  const contenedor = document.getElementById("listaUsuarios");
+  contenedor.innerHTML = "";
+
+  (data || []).forEach(user => {
+
+    contenedor.innerHTML += `
+      <div class="fila-user">
+        <span>${user.email}</span>
+        <span>(${user.rol})</span>
+
+        <button onclick="eliminarUsuario('${user.id}')">❌</button>
+      </div>
+    `;
+  });
+};
