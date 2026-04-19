@@ -170,11 +170,12 @@
 }
 
 .fila-user{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px;
-  gap:10px;
+  display: grid;
+  grid-template-columns: 1fr 120px auto;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 8px;
+  gap: 10px;
 }
 
 /* email */
