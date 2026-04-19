@@ -129,14 +129,26 @@ window.aprobar = async (id, email) => {
 // =======================
 window.rechazar = async (id) => {
 
-  const { error } = await supabase
-    .from("perfiles")
-    .delete()
-    .eq("id", id);
+  const confirmar = confirm("¿Eliminar usuario definitivamente?");
 
-  if (error) {
-    console.error(error);
-    return;
+  if (!confirmar) return;
+
+  try {
+    const res = await fetch("https://qaophiaogsvhkgmbfcuf.supabase.co/functions/v1/delete-user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": "sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN",
+        "Authorization": "Bearer sb_publishable_CAkCS2tdVxztSVlOt7tVNg_x2zuUTDN"
+      },
+      body: JSON.stringify({ user_id: id })
+    });
+
+    const data = await res.json();
+    console.log("Usuario eliminado:", data);
+
+  } catch (err) {
+    console.error("Error eliminando:", err);
   }
 
   cargarPendientes();
