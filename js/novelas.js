@@ -103,6 +103,12 @@ document.addEventListener("DOMContentLoaded", function () {
       subtitulo.textContent = novelaData.ingles;
     }
 
+    // TÍTULO ORIGINAL
+    const originalDiv = document.querySelector(".original");
+    if(originalDiv){
+      originalDiv.textContent = novelaData.original;
+    }    
+
     // CAPÍTULOS
     const capDiv = document.querySelector(".capitulos");
     if(capDiv){
