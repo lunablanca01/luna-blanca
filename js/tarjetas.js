@@ -69,7 +69,7 @@ const novelas = [
   original: '炮灰倒进我怀里后[快穿]',
   slug: 'Después_de_que_el_papel_secundario_masculino_cayera_en_mis_brazos',
   imagen: 'Después_de_que_el_papel_secundario_masculino_cayera_en_mis_brazos.jpg',
-  tags: 'bl china chino pendiente multiples-mundos amnesia cultivo industria-del-entretenimiento omegaverse realeza sistema transmigracion',
+  tags: 'bl china pendiente multiples-mundos amnesia cultivo industria-del-entretenimiento omegaverse realeza sistema transmigracion',
   autor: 'cheng-ling',
   link: 'https://www.novelupdates.com/series/after-the-male-supporting-role-fell-into-my-arms/',
   capitulos: '180'
