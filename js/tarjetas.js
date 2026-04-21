@@ -45,7 +45,7 @@ const novelas = [
   original: '炮灰通房要逆袭',
   slug: 'Contraataque_de_la_concubina_carne_de_cañón',
   imagen: 'Contraataque_de_la_concubina_carne_de_cañón.jpg',
-  tags: 'bg china finalizado china-antigua abuso drama ninos realeza renacimiento',
+  tags: 'bg china finalizado china-antigua abuso drama ninos realeza renacimiento sobrenatural',
   autor: 'jia-mian-de-sheng-yan',
   link: 'https://drive.google.com/drive/u/1/folders/1aUb8HJ_sxYbFXZAmetAo3fVD0YMLeFnt',
   capitulos: '177 + 12 extras'
