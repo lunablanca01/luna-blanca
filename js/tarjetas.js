@@ -4,63 +4,69 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
-titulo: 'Mi posesión se convirtió en una historia de fantasmas',
-ingles: 'My Possession Became a Ghost Story',
-slug: "Mi_posesión_se_convirtió_en_una_historia_de_fantasmas",
-imagen: "Mi_posesión_se_convirtió_en_una_historia_de_fantasmas.jpg",
-tags: "bg korea en-proceso europa-antigua aristocracia comedia malentendidos multiples-protagonistas sobrenatural terror",
-autor: "sugar-huru",
-link: "https://drive.google.com/drive/u/1/folders/1XyXjsRhYTzgfu3VHB30-KznnjV8NCiLG",
-capitulos: '268'
+  titulo: 'Mi posesión se convirtió en una historia de fantasmas',
+  ingles: 'My Possession Became a Ghost Story',
+  original: '빙의했더니 괴담이 돼 버렸다',
+  slug: 'Mi_posesión_se_convirtió_en_una_historia_de_fantasmas',
+  imagen: 'Mi_posesión_se_convirtió_en_una_historia_de_fantasmas.jpg',
+  tags: 'bg korea en-proceso europa-antigua aristocracia comedia malentendidos multiples-protagonistas sobrenatural terror',
+  autor: 'sugar-huru',
+  link: 'https://drive.google.com/drive/u/1/folders/1XyXjsRhYTzgfu3VHB30-KznnjV8NCiLG',
+  capitulos: '268'
 },
 
 {
-titulo: 'Regas',
-ingles: 'Regas',
-slug: "Regas",
-imagen: "Regas.jpg",
-tags: "bl korea pendiente europa-antigua comedia drama lucha-de-poder r18 realeza transmigracion",
-autor: "nj",
-link: "https://www.novelupdates.com/series/regas/",
-capitulos: '8 volúmenes'
+  titulo: 'Regas',
+  ingles: 'Regas',
+  original: '레가스',
+  slug: 'Regas',
+  imagen: 'Regas.jpg',
+  tags: 'bl korea pendiente europa-antigua comedia drama lucha-de-poder r18 realeza transmigracion',
+  autor: 'nj',
+  link: 'https://www.novelupdates.com/series/regas/',
+  capitulos: '8 volúmenes'
 },
 
 {
-titulo: 'Condenada a ser carne de cañón',
-ingles: 'Doomed to be Cannon Fodder',
-slug: "Condenada_a_ser_carne_de_cañón",
-imagen: "Condenada_a_ser_carne_de_cañón.jpg",
-tags: "bg china finalizado china-antigua aristocracia drama matrimonio transmigracion",
-autor: "jia-mian-de-sheng-yan",
-link: "https://drive.google.com/drive/u/1/folders/1OITynlBwVKjpknkXZPMGMyZrQ4JuweU7",
-capitulos: '295'
+  titulo: 'Condenada a ser carne de cañón',
+  ingles: 'Doomed to be Cannon Fodder',
+  original: '炮灰女配：纨绔厉王妃',
+  slug: 'Condenada_a_ser_carne_de_cañón',
+  imagen: 'Condenada_a_ser_carne_de_cañón.jpg',
+  tags: 'bg china finalizado china-antigua aristocracia drama matrimonio transmigracion',
+  autor: 'jia-mian-de-sheng-yan',
+  link: 'https://drive.google.com/drive/u/1/folders/1OITynlBwVKjpknkXZPMGMyZrQ4JuweU7',
+  capitulos: '295'
 },
 
 {
-titulo: 'Contraataque de la concubina carne de cañón',
-ingles: 'Counterattack of the Cannon Fodder Chambermaid',
-slug: "Contraataque_de_la_concubina_carne_de_cañón",
-imagen: "Contraataque_de_la_concubina_carne_de_cañón.jpg",
-tags: "bg china finalizado china-antigua abuso drama ninos realeza renacimiento",
-autor: "jia-mian-de-sheng-yan",
-link: "https://drive.google.com/drive/u/1/folders/1aUb8HJ_sxYbFXZAmetAo3fVD0YMLeFnt",
-capitulos: '177 + 12 extras'
+  titulo: 'Contraataque de la concubina carne de cañón',
+  ingles: 'Counterattack of the Cannon Fodder Chambermaid',
+  original: '炮灰通房要逆袭',
+  slug: 'Contraataque_de_la_concubina_carne_de_cañón',
+  imagen: 'Contraataque_de_la_concubina_carne_de_cañón.jpg',
+  tags: 'bg china finalizado china-antigua abuso drama ninos realeza renacimiento',
+  autor: 'jia-mian-de-sheng-yan',
+  link: 'https://drive.google.com/drive/u/1/folders/1aUb8HJ_sxYbFXZAmetAo3fVD0YMLeFnt',
+  capitulos: '177 + 12 extras'
 },
 
 {
-titulo: 'La altiva y feroz consorte',
-ingles: 'The Lofty Fierce Consort',
-slug: "La_altiva_y_feroz_consorte",
-imagen: "La_altiva_y_feroz_consorte.jpg",
-tags: "bg china finalizado china-antigua aristocracia drama lucha-de-poder matrimonio ninos punto-de-vista-multiple realeza reencarnacion vida-diaria",
-autor: "jia-mian-de-sheng-yan",
-link: "https://drive.google.com/drive/u/1/folders/1V5jJvVUS8i1ZGYQCfgzMFt_6YRNPg1fM",
-capitulos: '181'
+  titulo: 'La altiva y feroz consorte',
+  ingles: 'The Lofty Fierce Consort',
+  original: '悍妃在上',
+  slug: 'La_altiva_y_feroz_consorte',
+  imagen: 'La_altiva_y_feroz_consorte.jpg',
+  tags: 'bg china finalizado china-antigua aristocracia drama lucha-de-poder matrimonio ninos punto-de-vista-multiple realeza reencarnacion vida-diaria',
+  autor: 'jia-mian-de-sheng-yan',
+  link: 'https://drive.google.com/drive/u/1/folders/1V5jJvVUS8i1ZGYQCfgzMFt_6YRNPg1fM',
+  capitulos: '181'
 },
 
 {
   titulo: 'Después de que el papel secundario masculino cayera en mis brazos',
   ingles: 'After the Male Supporting Role Fell Into My Arms',
+  original: '炮灰倒进我怀里后[快穿]',
   slug: 'Después_de_que_el_papel_secundario_masculino_cayera_en_mis_brazos',
   imagen: 'Después_de_que_el_papel_secundario_masculino_cayera_en_mis_brazos.jpg',
   tags: 'bl china chino pendiente multiples-mundos amnesia cultivo industria-del-entretenimiento omegaverse realeza sistema transmigracion',
@@ -72,6 +78,7 @@ capitulos: '181'
 {
   titulo: 'Después de ser obligado a casarse con un marido feo',
   ingles: 'After Being Forced to Marry an Ugly Husband',
+  original: '被迫嫁给丑夫后',
   slug: 'Después_de_ser_obligado_a_casarse_con_un_marido_feo',
   imagen: 'Después_de_ser_obligado_a_casarse_con_un_marido_feo.jpg',
   tags: 'bl china pendiente china-antigua amnesia ger mpreg ninos transmigracion',
@@ -83,6 +90,7 @@ capitulos: '181'
 {
   titulo: 'El granjero Ger en el apocalipsis',
   ingles: 'The Farmer Ger in the Apocalypse',
+  original: '乡村小哥儿，异世穿梭',
   slug: 'El_granjero_Ger_en_el_apocalipsis',
   imagen: 'El_granjero_Ger_en_el_apocalipsis.jpg',
   tags: 'bl china pendiente china-antigua agricultura ger mpreg vida-diaria sobrenatural transportado-a-otro-mundo zombies',
@@ -94,6 +102,7 @@ capitulos: '181'
 {
   titulo: 'El pequeño esposo de Lie Jiu',
   ingles: 'Lie Jiu’s Little Husband',
+  original: '恶霸家的小相公',
   slug: 'El_pequeño_esposo_de_Lie_Jiu',
   imagen: 'El_pequeño_esposo_de_Lie_Jiu.jpg',
   tags: 'bl china pendiente china-antigua agricultura comedia matrimonio mpreg ninos transmigracion',
@@ -105,6 +114,7 @@ capitulos: '181'
 {
   titulo: 'El renacimiento del Ger loco',
   ingles: 'The Rebirth of Crazy Ger',
+  original: '重生之疯哥儿',
   slug: 'El_renacimiento_del_Ger_loco',
   imagen: 'El_renacimiento_del_Ger_loco.jpg',
   tags: 'bl china pendiente tribal amnesia ger hombre-bestia matrimonio-arreglado mpreg transmigracion',
@@ -116,6 +126,7 @@ capitulos: '181'
 {
   titulo: '¿Expulsaste hoy al discípulo del Loto Negro de la secta?',
   ingles: 'Did You Kick the Black Lotus Disciple Out of Sect Today?',
+  original: '今天把黑莲花徒弟踢出师门了吗',
   slug: 'Expulsaste_hoy_al_discípulo_del_Loto_Negro_de_la_secta',
   imagen: 'Expulsaste_hoy_al_discípulo_del_Loto_Negro_de_la_secta.jpg',
   tags: 'bl china pendiente cultivacion cultivo drama maestro-discipulo transmigracion xianxia',
@@ -127,6 +138,7 @@ capitulos: '181'
 {
   titulo: 'Flores en flor, tristeza silenciosa',
   ingles: 'Blooming Flowers, Silent Sorrow',
+  original: '花开有时,颓靡无声',
   slug: 'Flores_en_flor,_tristeza_silenciosa',
   imagen: 'Flores_en_flor,_tristeza_silenciosa.jpg',
   tags: 'bl china pendiente china-antigua comedia malentendidos novela-erotica yandere',
@@ -138,6 +150,7 @@ capitulos: '181'
 {
   titulo: 'Hay una belleza [Vestimenta antigua moderna]',
   ingles: 'There’s a Beauty [Ancient Wear Modern]',
+  original: '有位佳人[古穿今]',
   slug: 'Hay_una_belleza_[Vestimenta_antigua_moderna]',
   imagen: 'Hay_una_belleza_[Vestimenta_antigua_moderna].jpg',
   tags: 'bl china pendiente moderno comedia malentendidos matrimonio-arreglado vida-diaria transmigracion',
@@ -149,6 +162,7 @@ capitulos: '181'
 {
   titulo: 'Hay que gastar el dinero del villano antes de que se declare en bancarrota',
   ingles: 'Must Spend the Villain’s Money Before He Goes Bankrupt',
+  original: '必须在反派破产前花光他的钱[穿书]',
   slug: 'Hay_que_gastar_el_dinero_del_villano_antes_de_que_se_declare_en_bancarrota',
   imagen: 'Hay_que_gastar_el_dinero_del_villano_antes_de_que_se_declare_en_bancarrota.jpg',
   tags: 'bl china pendiente moderno comedia industria-del-entretenimiento malentendidos transmigracion',
@@ -160,6 +174,7 @@ capitulos: '181'
 {
   titulo: 'La sirenita embarazada del Mariscal',
   ingles: 'Marshal’s Pregnant Little Mermaid',
+  original: '元帅的怀崽崽小人鱼',
   slug: 'La_sirenita_embarazada_del_Mariscal',
   imagen: 'La_sirenita_embarazada_del_Mariscal.jpg',
   tags: 'bl china pendiente futurista mpreg no-humano sirena transmigracion',
@@ -171,6 +186,7 @@ capitulos: '181'
 {
   titulo: 'Soy un pez salado en tiempos antiguos',
   ingles: 'I Am a Salted Fish in Ancient Times',
+  original: '我在古代当咸鱼',
   slug: 'Soy_un_pez_salado_en_tiempos_antiguos',
   imagen: 'Soy_un_pez_salado_en_tiempos_antiguos.jpg',
   tags: 'bl china pendiente china-antigua comedia ger mpreg protagonista-gong realeza transmigracion',
@@ -182,6 +198,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrado a un gong despreciable que mima a su marido (Agricultura)',
   ingles: 'Transmigrated Into a Scummy Gong Who Pampers His Husband (Farming)',
+  original: '穿成渣攻宠夫郎[种田]',
   slug: 'Transmigrado_a_un_gong_despreciable_que_mima_a_su_marido_(Agricultura)',
   imagen: 'Transmigrado_a_un_gong_despreciable_que_mima_a_su_marido_(Agricultura).jpg',
   tags: 'bl china pendiente china-antigua mpreg ninos protagonista-gong vida-diaria transmigracion',
@@ -193,6 +210,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrar al desierto primitivo como un Gran Dios',
   ingles: 'Transmigrated into the Primitive Wilderness as a Great God',
+  original: '穿到蛮荒扮大神',
   slug: 'Transmigrar_al_desierto_primitivo_como_un_Gran_Dios',
   imagen: 'Transmigrar_al_desierto_primitivo_como_un_Gran_Dios.jpg',
   tags: 'bl china pendiente tribal comedia matrimonio-arreglado vida-diaria transmigracion',
@@ -204,6 +222,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrar para convertirse en esposo koi',
   ingles: 'Transmigrated to become a Koi Husband',
+  original: '穿成锦鲤小夫郎',
   slug: 'Transmigrar_para_convertirse_en_esposo_koi',
   imagen: 'Transmigrar_para_convertirse_en_esposo_koi.jpg',
   tags: 'bl china pendiente china-antigua agricultura amnesia bestia-humanizada mpreg no-humano vida-diaria transmigracion',
@@ -215,6 +234,7 @@ capitulos: '181'
 {
   titulo: 'Registros del despertar de los Zerg canalla',
   ingles: 'Scumbag Zerg Awakening Records',
+  original: '虫族之渣虫觉醒笔记',
   slug: 'Registros_del_despertar_de_los_Zerg_canalla',
   imagen: 'Registros_del_despertar_de_los_Zerg_canalla.jpg',
   tags: 'bl china pendiente futurista protagonista-gong reencarnacion vida-diaria transmigracion',
@@ -226,6 +246,7 @@ capitulos: '181'
 {
   titulo: 'Ger, tan orgulloso',
   ingles: 'Ger, So Proud',
+  original: '哥儿如此多骄',
   slug: 'Ger,_tan_orgulloso',
   imagen: 'Ger,_tan_orgulloso.jpg',
   tags: 'bl china pendiente china-antigua agricultura mpreg protagonista-gong vida-diaria transmigracion',
@@ -237,6 +258,7 @@ capitulos: '181'
 {
   titulo: 'Es difícil que un personaje villano no colapse',
   ingles: 'It’s Hard for a Villain Character Not to Collapse',
+  original: '反派人設很難不崩啊',
   slug: 'Es_difícil_que_un_personaje_villano_no_colapse',
   imagen: 'Es_difícil_que_un_personaje_villano_no_colapse.jpg',
   tags: 'bl china pendiente cultivacion cultivo hibrido malentendidos sistema transmigracion xuanhuan',
@@ -248,6 +270,7 @@ capitulos: '181'
 {
   titulo: 'Mi novio tartamudo',
   ingles: 'My Stuttering Boyfriend',
+  original: '大结巴',
   slug: 'Mi_novio_tartamudo',
   imagen: 'Mi_novio_tartamudo.jpg',
   tags: 'bl china pendiente moderno drama vida-diaria novela-erotica',
@@ -259,6 +282,7 @@ capitulos: '181'
 {
   titulo: 'Estrategia del villano',
   ingles: 'Villain’s Strategy',
+  original: '反派攻略',
   slug: 'Estrategia_del_villano',
   imagen: 'Estrategia_del_villano.jpg',
   tags: 'bl china finalizado moderno comedia malentendidos vida-escolar sistema transmigracion',
@@ -270,6 +294,7 @@ capitulos: '181'
 {
   titulo: 'El rectificador profesional de tres perspectivas [Transmigración]',
   ingles: 'The Professional Three Views Rectifier [Book Transmigration]',
+  original: '专业三观矫正员[穿书]',
   slug: 'El_rectificador_profesional_de_tres_perspectivas_[Transmigración]',
   imagen: 'El_rectificador_profesional_de_tres_perspectivas_[Transmigración].jpg',
   tags: 'bl china pendiente moderno drama sistema transmigracion',
@@ -281,6 +306,7 @@ capitulos: '181'
 {
   titulo: 'Toma su mano',
   ingles: 'Hold His Hand',
+  original: '快穿之执手',
   slug: 'Toma_su_mano',
   imagen: 'Toma_su_mano.jpg',
   tags: 'bl china pendiente multiples-mundos cultivo protagonista-gong transmigracion zombies',
@@ -292,6 +318,7 @@ capitulos: '181'
 {
   titulo: 'Tengo un Halo de "Sistema"',
   ingles: 'I Have a "System" Halo',
+  original: '我有一枚“系统”光环[快穿]',
   slug: 'Tengo_un_Halo_de_Sistema',
   imagen: 'Tengo_un_Halo_de_Sistema.jpg',
   tags: 'bl china pendiente multiples-mundos amnesia comedia sistema transmigracion',
@@ -303,6 +330,7 @@ capitulos: '181'
 {
   titulo: 'Una ola de ex vino a buscarme. ¡¿Qué hacer?!',
   ingles: 'A Wave of Exes Came Looking for Me. What to Do?!',
+  original: '前男友組團來襲怎麼破！',
   slug: 'Una_ola_de_ex_vino_a_buscarme._Qué_hacer',
   imagen: 'Una_ola_de_ex_vino_a_buscarme._Qué_hacer.jpg',
   tags: 'bl china pendiente multiples-mundos comedia sistema novela-erotica transmigracion yandere',
@@ -314,6 +342,7 @@ capitulos: '181'
 {
   titulo: 'Ser un rompecorazones en una película de terror',
   ingles: 'To Be a Heartthrob in a Horror Movie',
+  original: '在恐怖片里当万人迷[快穿]',
   slug: 'Ser_un_rompecorazones_en_una_película_de_terror',
   imagen: 'Ser_un_rompecorazones_en_una_película_de_terror.jpg',
   tags: 'bl china pendiente multiples-mundos amnesia sobrenatural terror',
@@ -325,6 +354,7 @@ capitulos: '181'
 {
   titulo: '¿Planeas matarme con Meng?',
   ingles: 'You Plan To Kill Me With Meng?',
+  original: '你打算萌死我吗[快穿]',
   slug: 'Planeas_matarme_con_Meng',
   imagen: 'Planeas_matarme_con_Meng.jpg',
   tags: 'bl china en-proceso multiples-mundos animales no-humano transmigracion',
@@ -336,6 +366,7 @@ capitulos: '181'
 {
   titulo: 'Paquete adorable',
   ingles: 'Lovable Package',
+  original: '娇气包[快穿]',
   slug: 'Paquete_adorable',
   imagen: 'Paquete_adorable.jpg',
   tags: 'bl china pendiente multiples-mundos amnesia cultivo sistema transmigracion',
@@ -347,6 +378,7 @@ capitulos: '181'
 {
   titulo: 'Nunca imaginé que Long Aotian se convertiría en mi esposa [Transmigración rápida]',
   ingles: 'I Never Imagined Long Aotian Would Become My Wife [Quick Transmigration]',
+  original: '我真没想让龙傲天当我老婆[快穿]',
   slug: 'Nunca_imaginé_que_Long_Aotian_se_convertiría_en_mi_esposa_[Transmigración_rápida]',
   imagen: 'Nunca_imaginé_que_Long_Aotian_se_convertiría_en_mi_esposa_[Transmigración_rápida].jpg',
   tags: 'bl china finalizado multiples-mundos amnesia cultivo no-humano omegaverse protagonista-gong sistema transmigracion zombies',
@@ -358,6 +390,7 @@ capitulos: '181'
 {
   titulo: 'No recojas novios del basurero',
   ingles: 'Don’t Pick Up Boyfriends From the Trash Bin',
+  original: '不要在垃圾桶里捡男朋友[快穿]',
   slug: 'No_recojas_novios_del_basurero',
   imagen: 'No_recojas_novios_del_basurero.jpg',
   tags: 'bl china pendiente multiples-mundos sistema tragedia transmigracion',
@@ -369,6 +402,7 @@ capitulos: '181'
 {
   titulo: 'No esperes a tu novio en el crematorio',
   ingles: 'Don’t Wait for Your Boyfriend in the Crematorium',
+  original: '不要在火葬场里等男朋友',
   slug: 'No_esperes_a_tu_novio_en_el_crematorio',
   imagen: 'No_esperes_a_tu_novio_en_el_crematorio.jpg',
   tags: 'bl china pendiente multiples-mundos amnesia comedia omegaverse protagonista-gong sistema transmigracion',
@@ -380,6 +414,7 @@ capitulos: '181'
 {
   titulo: 'Mis pacientes se enamoran de mí',
   ingles: 'My Patients Fall in Love with Me',
+  original: '我的病人都爱上我',
   slug: 'Mis_pacientes_se_enamoran_de_mí',
   imagen: 'Mis_pacientes_se_enamoran_de_mí.jpg',
   tags: 'bl china pendiente multiples-mundos sistema novela-erotica transmigracion yandere',
@@ -391,6 +426,7 @@ capitulos: '181'
 {
   titulo: 'Me hice fanboy del villano',
   ingles: 'I Became a Fanboy of the Villain',
+  original: '我成了反派脑残粉[快穿]',
   slug: 'Me_hice_fanboy_del_villano',
   imagen: 'Me_hice_fanboy_del_villano.jpg',
   tags: 'bl china pendiente multiples-mundos comedia cultivo malentendidos sistema transmigracion',
@@ -402,6 +438,7 @@ capitulos: '181'
 {
   titulo: 'Los Mariscales quieren divorciarse',
   ingles: 'The Marshals Want to Get Divorced',
+  original: '元帅们同时闹离婚',
   slug: 'Los_Mariscales_quieren_divorciarse',
   imagen: 'Los_Mariscales_quieren_divorciarse.jpg',
   tags: 'bl china pendiente multiples-mundos comedia cultivo sobrenatural transmigracion yandere',
@@ -413,6 +450,7 @@ capitulos: '181'
 {
   titulo: 'La estrategia de lavar y limpiar una escoria Shou',
   ingles: 'The Strategy of Washing Clean a Slag Shou',
+  original: '渣受洗白攻略',
   slug: 'La_estrategia_de_lavar_y_limpiar_una_escoria_Shou',
   imagen: 'La_estrategia_de_lavar_y_limpiar_una_escoria_Shou.jpg',
   tags: 'bl china pendiente multiples-mundos amnesia sistema transmigracion zombies',
@@ -424,6 +462,7 @@ capitulos: '181'
 {
   titulo: 'La carne de cañón es el rey [Transmigración rápida]',
   ingles: 'Cannon Fodder Is King [Quick Transmigration]',
+  original: '炮灰为王[快穿]',
   slug: 'La_carne_de_cañón_es_el_rey_[Transmigración_rápida]',
   imagen: 'La_carne_de_cañón_es_el_rey_[Transmigración_rápida].jpg',
   tags: 'bl china en-proceso multiples-mundos protagonista-gong protagonista-op sistema transmigracion venganza',
@@ -435,6 +474,7 @@ capitulos: '181'
 {
   titulo: 'Yo cubro las espaldas de esta carne de cañón',
   ingles: 'I’ve Got this Cannon Fodder’s Back',
+  original: '这个炮灰我罩了！[快穿]',
   slug: 'Yo_cubro_las_espaldas_de_esta_carne_de_cañón',
   imagen: 'Yo_cubro_las_espaldas_de_esta_carne_de_cañón.jpg',
   tags: 'bl china pendiente multiples-mundos comedia sistema vida-diaria transmigracion',
@@ -446,6 +486,7 @@ capitulos: '181'
 {
   titulo: 'Experimentar un final feliz con la escoria Shou',
   ingles: 'Experiencing a Happy Ending With a Scum Shou',
+  original: '和渣受HE是什么体验',
   slug: 'Experimentar_un_final_feliz_con_la_escoria_Shou',
   imagen: 'Experimentar_un_final_feliz_con_la_escoria_Shou.jpg',
   tags: 'bl china pendiente multiples-mundos protagonista-gong novela-erotica transmigracion yandere',
@@ -457,6 +498,7 @@ capitulos: '181'
 {
   titulo: 'Estrategia para capturar esa escoria Gong',
   ingles: 'Strategy to Capture that Scum Gong',
+  original: '攻略那个渣攻[快穿]',
   slug: 'Estrategia_para_capturar_esa_escoria_Gong',
   imagen: 'Estrategia_para_capturar_esa_escoria_Gong.jpg',
   tags: 'bl china pendiente multiples-mundos malentendidos sistema tragedia venganza yandere',
@@ -468,6 +510,7 @@ capitulos: '181'
 {
   titulo: 'Esta experiencia de transmigración rápida es un poco dulce',
   ingles: 'This Quick Transmigration Experience Is a Bit Sweet',
+  original: '这个快穿有点甜',
   slug: 'Esta_experiencia_de_transmigración_rápida_es_un_poco_dulce',
   imagen: 'Esta_experiencia_de_transmigración_rápida_es_un_poco_dulce.jpg',
   tags: 'bl china pendiente multiples-mundos amnesia comedia no-humano sistema transmigracion yandere',
@@ -479,6 +522,7 @@ capitulos: '181'
 {
   titulo: 'Enciende el sistema del amor',
   ingles: 'Turn on the Love System',
+  original: '开挂恋爱系统（快穿）',
   slug: 'Enciende_el_sistema_del_amor',
   imagen: 'Enciende_el_sistema_del_amor.jpg',
   tags: 'bl china pendiente multiples-mundos drama mpreg sistema transmigracion',
@@ -490,6 +534,7 @@ capitulos: '181'
 {
   titulo: 'En realidad, no es fácil ser un protagonista masculino secundario',
   ingles: 'It’s Actually Not Easy Wanting to be a Supporting Male Lead',
+  original: '想做男配其实也不容易',
   slug: 'En_realidad,_no_es_fácil_ser_un_protagonista_masculino_secundario',
   imagen: 'En_realidad,_no_es_fácil_ser_un_protagonista_masculino_secundario.jpg',
   tags: 'bl china pendiente multiples-mundos cultivo malentendidos no-humano realeza novela-erotica tragedia transmigracion zombies',
@@ -501,6 +546,7 @@ capitulos: '181'
 {
   titulo: 'El villano cargó mi sistema',
   ingles: 'The Villain Loaded My System',
+  original: '反派加载了我的系统[快穿]',
   slug: 'El_villano_cargó_mi_sistema',
   imagen: 'El_villano_cargó_mi_sistema.jpg',
   tags: 'bl china finalizado multiples-mundos amnesia comedia sistema transmigracion venganza yandere',
@@ -512,6 +558,7 @@ capitulos: '181'
 {
   titulo: '¡El té verde siempre apunta a la persona equivocada!',
   ingles: 'The Green Tea is Always Targeting the Wrong Person!',
+  original: '绿茶的对象总是不对啊[快穿]',
   slug: 'El_té_verde_siempre_apunta_a_la_persona_equivocada',
   imagen: 'El_té_verde_siempre_apunta_a_la_persona_equivocada.jpg',
   tags: 'bl china pendiente multiples-mundos no-humano omegaverse sistema transmigracion venganza zombies',
@@ -523,6 +570,7 @@ capitulos: '181'
 {
   titulo: 'El protagonista sólo piensa en enamorarse',
   ingles: 'The Protagonist Only Thinks About Falling In Love',
+  original: '主角只想谈恋爱',
   slug: 'El_protagonista_sólo_piensa_en_enamorarse',
   imagen: 'El_protagonista_sólo_piensa_en_enamorarse.jpg',
   tags: 'bl china pendiente multiples-mundos cultivo multiples-protagonistas no-humano protagonista-gong sistema sobrenatural zombies',
@@ -534,6 +582,7 @@ capitulos: '181'
 {
   titulo: 'El plan de contraataque de un villano con diez mil fans',
   ingles: 'The Counterattack Plan of A Villain With Ten Thousand Fans',
+  original: '万人迷反派逆袭计划',
   slug: 'El_plan_de_contraataque_de_un_villano_con_diez_mil_fans',
   imagen: 'El_plan_de_contraataque_de_un_villano_con_diez_mil_fans.jpg',
   tags: 'bl china pendiente multiples-mundos canibalismo comedia cultivo omegaverse sistema yandere zombies',
@@ -545,6 +594,7 @@ capitulos: '181'
 {
   titulo: '¡El objetivo siempre piensa que me gusta!',
   ingles: 'The Target Always Thinks That I Like Him!',
+  original: '目标总以为我喜欢他[快穿]',
   slug: 'El_objetivo_siempre_piensa_que_me_gusta',
   imagen: 'El_objetivo_siempre_piensa_que_me_gusta.jpg',
   tags: 'bl china pendiente multiples-mundos comedia cultivo malentendidos sistema zombies',
@@ -556,6 +606,7 @@ capitulos: '181'
 {
   titulo: 'El destino perfecto',
   ingles: 'The Perfect Destiny',
+  original: '快穿之完美命运',
   slug: 'El_destino_perfecto',
   imagen: 'El_destino_perfecto.jpg',
   tags: 'bl china pendiente multiples-mundos comedia omegaverse sistema novela-erotica tragedia transmigracion yandere zombies',
@@ -567,6 +618,7 @@ capitulos: '181'
 {
   titulo: 'Cómo morir tan pesado como el monte Tai',
   ingles: 'How To Die As Heavy As Mount Tai',
+  original: '如何死得重于泰山[快穿]',
   slug: 'Cómo_morir_tan_pesado_como_el_monte_Tai',
   imagen: 'Cómo_morir_tan_pesado_como_el_monte_Tai.jpg',
   tags: 'bl china pendiente multiples-mundos amnesia cultivo omegaverse sistema sobrenatural tragedia transmigracion zombies',
@@ -578,6 +630,7 @@ capitulos: '181'
 {
   titulo: 'Cómo enamorarse del villano',
   ingles: 'How to Fall in Love with the Villain',
+  original: '如何与反派谈恋爱',
   slug: 'Cómo_enamorarse_del_villano',
   imagen: 'Cómo_enamorarse_del_villano.jpg',
   tags: 'bl china pendiente multiples-mundos hombre-bestia mpreg multiples-protagonistas transmigracion',
@@ -589,6 +642,7 @@ capitulos: '181'
 {
   titulo: 'Como el personaje rival gay en las novelas BG',
   ingles: 'As the Minor Gay Rival in Het Novels',
+  original: 'BG文里的基佬男配[快穿]',
   slug: 'Como_el_personaje_rival_gay_en_las_novelas_BG',
   imagen: 'Como_el_personaje_rival_gay_en_las_novelas_BG.jpg',
   tags: 'bl china pendiente multiples-mundos amnesia cultivo drama omegaverse sistema transmigracion yandere zombies',
@@ -600,6 +654,7 @@ capitulos: '181'
 {
   titulo: 'BOSS transmigra como una pequeña monada',
   ingles: 'BOSS Transmigrates as a Little Cutie',
+  original: 'BOSS穿成小可爱[快穿]',
   slug: 'BOSS_transmigra_como_una_pequeña_monada',
   imagen: 'BOSS_transmigra_como_una_pequeña_monada.jpg',
   tags: 'bl china pendiente multiples-mundos cultivo drama omegaverse protagonista-op transmigracion venganza',
@@ -611,6 +666,7 @@ capitulos: '181'
 {
   titulo: 'Aquellos años en que matamos al loto blanco',
   ingles: 'Those Years When We Killed the White Lotus',
+  original: '那些年我们弄死的白莲花',
   slug: 'Aquellos_años_en_que_matamos_al_loto_blanco',
   imagen: 'Aquellos_años_en_que_matamos_al_loto_blanco.jpg',
   tags: 'bl china pendiente multiples-mundos cultivo inteligencia-artificial omegaverse sistema transmigracion yandere zombies',
@@ -622,6 +678,7 @@ capitulos: '181'
 {
   titulo: 'Accidentalmente ataqué a un gran demonio',
   ingles: 'Accidentally Attacked a Great Demon King',
+  original: '一不小心攻了个大魔王[快穿]',
   slug: 'Accidentalmente_ataqué_a_un_gran_demonio',
   imagen: 'Accidentalmente_ataqué_a_un_gran_demonio.jpg',
   tags: 'bl china pendiente multiples-mundos cultivo drama protagonista-gong sobrenatural',
@@ -633,6 +690,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrar en el amigo de la infancia carne de cañón del rompecorazones',
   ingles: 'Transmigrating Into The Heartthrob’s Cannon Fodder Childhood Friend',
+  original: '穿成万人迷的炮灰竹马',
   slug: 'Transmigrar_en_el_amigo_de_la_infancia_carne_de_cañón_del_rompecorazones',
   imagen: 'Transmigrar_en_el_amigo_de_la_infancia_carne_de_cañón_del_rompecorazones.jpg',
   tags: 'bl china pendiente moderno comedia vida-escolar sistema transmigracion',
@@ -644,6 +702,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrar al exnovio del protagonista masculino renacido',
   ingles: 'Transmigrating into the Reborn Male Lead’s Ex-Boyfriend',
+  original: '穿成重生男主前男友',
   slug: 'Transmigrar_al_exnovio_del_protagonista_masculino_renacido',
   imagen: 'Transmigrar_al_exnovio_del_protagonista_masculino_renacido.jpg',
   tags: 'bl china pendiente moderno drama malentendidos renacimiento sistema transmigracion',
@@ -655,6 +714,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrado en carne de cañón de un pez gordo, la pequeña esposa mimada',
   ingles: 'Transmigrated into A Big Shot’s Cannon Fodder Little Pampered Wife',
+  original: '穿成大佬的炮灰联姻小娇妻',
   slug: 'Transmigrado_en_carne_de_cañón_de_un_pez_gordo,_la_pequeña_esposa_mimada',
   imagen: 'Transmigrado_en_carne_de_cañón_de_un_pez_gordo,_la_pequeña_esposa_mimada.jpg',
   tags: 'bl china pendiente moderno ger matrimonio mpreg sistema transmigracion',
@@ -666,6 +726,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrado como el ex del villano ciego',
   ingles: 'Transmigrated As the Ex of the Blind Villain',
+  original: '穿成盲人反派的前任',
   slug: 'Transmigrado_como_el_ex_del_villano_ciego',
   imagen: 'Transmigrado_como_el_ex_del_villano_ciego.jpg',
   tags: 'bl china pendiente moderno discapacidad matrimonio-arreglado vida-diaria transmigracion',
@@ -677,6 +738,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrado al prometido del emperador del cine que busca la muerte',
   ingles: 'Transmigrated into the Film Emperor’s Death-Seeking Fiance',
+  original: '穿成影帝作死未婚夫[穿书]',
   slug: 'Transmigrado_al_prometido_del_emperador_del_cine_que_busca_la_muerte',
   imagen: 'Transmigrado_al_prometido_del_emperador_del_cine_que_busca_la_muerte.jpg',
   tags: 'bl china pendiente moderno industria-del-entretenimiento matrimonio-arreglado mpreg ninos vida-diaria transmigracion',
@@ -688,6 +750,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrado a un ídolo escolar y obligado a hacer negocios',
   ingles: 'Transmigrated into a School Idol and Forced to Do Business',
+  original: '穿成校草被迫营业',
   slug: 'Transmigrado_a_un_ídolo_escolar_y_obligado_a_hacer_negocios',
   imagen: 'Transmigrado_a_un_ídolo_escolar_y_obligado_a_hacer_negocios.jpg',
   tags: 'bl china pendiente moderno comedia malentendidos vida-escolar sistema transmigracion venganza',
@@ -699,6 +762,7 @@ capitulos: '181'
 {
   titulo: 'Señor Dior',
   ingles: 'Mr. Dior',
+  original: '迪奥先生',
   slug: 'Señor_Dior',
   imagen: 'Señor_Dior.jpg',
   tags: 'bl china pendiente moderno amnesia comedia matrimonio',
@@ -710,6 +774,7 @@ capitulos: '181'
 {
   titulo: 'Segundo amor',
   ingles: 'Second Love',
+  original: '二次热恋',
   slug: 'Segundo_amor',
   imagen: 'Segundo_amor.jpg',
   tags: 'bl china pendiente moderno discapacidad matrimonio vida-diaria novela-erotica',
@@ -721,6 +786,7 @@ capitulos: '181'
 {
   titulo: 'Se casó con el hermano villano de la escoria Gong',
   ingles: 'Married the Scum Gong’s Villain Brother',
+  original: '嫁给渣攻的反派哥哥',
   slug: 'Se_casó_con_el_hermano_villano_de_la_escoria_Gong',
   imagen: 'Se_casó_con_el_hermano_villano_de_la_escoria_Gong.jpg',
   tags: 'bl china pendiente moderno matrimonio-arreglado vida-diaria transmigracion',
@@ -732,6 +798,7 @@ capitulos: '181'
 {
   titulo: 'Romance floreciente',
   ingles: 'Blooming Romance',
+  original: '桃花汛',
   slug: 'Romance_floreciente',
   imagen: 'Romance_floreciente.jpg',
   tags: 'bl china pendiente moderno malentendidos mpreg vida-diaria',
@@ -743,6 +810,7 @@ capitulos: '181'
 {
   titulo: 'Rey de la música clásica',
   ingles: 'King of Classical Music',
+  original: '古典音乐之王[重生]',
   slug: 'Rey_de_la_música_clásica',
   imagen: 'Rey_de_la_música_clásica.jpg',
   tags: 'bl china pendiente moderno r18 vida-diaria transmigracion venganza',
@@ -754,6 +822,7 @@ capitulos: '181'
 {
   titulo: 'Renacimiento: Un camino diferente',
   ingles: 'Rebirth: Different Way',
+  original: '(重生) 殊途',
   slug: 'Renacimiento_Un_camino_diferente',
   imagen: 'Renacimiento_Un_camino_diferente.jpg',
   tags: 'bl china pendiente moderno drama renacimiento novela-erotica venganza',
@@ -765,6 +834,7 @@ capitulos: '181'
 {
   titulo: 'Renacimiento y redención',
   ingles: 'Rebirth and Redemption',
+  original: '重生自赎[主攻]',
   slug: 'Renacimiento_y_redención',
   imagen: 'Renacimiento_y_redención.jpg',
   tags: 'bl china pendiente moderno protagonista-gong renacimiento vida-escolar',
@@ -776,6 +846,7 @@ capitulos: '181'
 {
   titulo: 'Renacimiento para convertirse en la esposa Omega del presidente',
   ingles: 'Rebirth to Become the President’s Omega Wife',
+  original: '重生豪门总裁的O妻',
   slug: 'Renacimiento_para_convertirse_en_la_esposa_Omega_del_presidente',
   imagen: 'Renacimiento_para_convertirse_en_la_esposa_Omega_del_presidente.jpg',
   tags: 'bl china pendiente moderno matrimonio mpreg omegaverse transmigracion',
@@ -787,6 +858,7 @@ capitulos: '181'
 {
   titulo: 'Renacido como el gato y el perro del presidente villano',
   ingles: 'Reborn as the Villain President’s Cat & Dog',
+  original: '重生成反派总裁的猫狗[娱乐圈]',
   slug: 'Renacido_como_el_gato_y_el_perro_del_presidente_villano',
   imagen: 'Renacido_como_el_gato_y_el_perro_del_presidente_villano.jpg',
   tags: 'bl china pendiente moderno industria-del-entretenimiento mascotas matrimonio renacimiento transformacion-animal',
@@ -798,6 +870,7 @@ capitulos: '181'
 {
   titulo: 'Renacer sólo para amarte de nuevo',
   ingles: 'Reborn Only to Love You Again',
+  original: '重生只为再爱你一次',
   slug: 'Renacer_sólo_para_amarte_de_nuevo',
   imagen: 'Renacer_sólo_para_amarte_de_nuevo.jpg',
   tags: 'bl china pendiente moderno drama matrimonio renacimiento',
@@ -809,6 +882,7 @@ capitulos: '181'
 {
   titulo: 'Renacer con un viejo enemigo el día de nuestro matrimonio',
   ingles: 'Reborn with an Old Enemy on the Day of our Marriage',
+  original: '和宿敌结婚当天一起重生了',
   slug: 'Renacer_con_un_viejo_enemigo_el_día_de_nuestro_matrimonio',
   imagen: 'Renacer_con_un_viejo_enemigo_el_día_de_nuestro_matrimonio.jpg',
   tags: 'bl china pendiente moderno comedia matrimonio renacimiento vida-escolar',
@@ -820,6 +894,7 @@ capitulos: '181'
 {
   titulo: 'Protagonista masculino 2 y Protagonista masculino 3 ¡Final feliz!',
   ingles: 'Male Lead 2 and Male Lead 3 Happy Ending!',
+  original: '男二和男三HE了！',
   slug: 'Protagonista_masculino_2_y_Protagonista_masculino_3_Final_feliz',
   imagen: 'Protagonista_masculino_2_y_Protagonista_masculino_3_Final_feliz.jpg',
   tags: 'bl china pendiente moderno malentendidos matrimonio vida-diaria transmigracion',
@@ -831,6 +906,7 @@ capitulos: '181'
 {
   titulo: 'Préstame atención',
   ingles: 'Pay Attention to Me',
+  original: '理我一下',
   slug: 'Préstame_atención',
   imagen: 'Préstame_atención.jpg',
   tags: 'bl china pendiente moderno comedia matrimonio omegaverse protagonista-gong vida-escolar novela-erotica',
@@ -842,6 +918,7 @@ capitulos: '181'
 {
   titulo: '¡No quiero que seas responsable!',
   ingles: 'I Don’t Want You To Be Responsible!',
+  original: '老子不要你负责!',
   slug: 'No_quiero_que_seas_responsable',
   imagen: 'No_quiero_que_seas_responsable.jpg',
   tags: 'bl china pendiente moderno comedia matrimonio mpreg renacimiento vida-diaria',
@@ -853,6 +930,7 @@ capitulos: '181'
 {
   titulo: 'No es fácil ser el hermano mayor de tu rival en el amor',
   ingles: 'It’s Not Easy Being Your Love Rival’s Big Brother',
+  original: '情敌他哥不好当',
   slug: 'No_es_fácil_ser_el_hermano_mayor_de_tu_rival_en_el_amor',
   imagen: 'No_es_fácil_ser_el_hermano_mayor_de_tu_rival_en_el_amor.jpg',
   tags: 'bl china pendiente moderno comedia matrimonio renacimiento novela-erotica',
@@ -864,6 +942,7 @@ capitulos: '181'
 {
   titulo: 'Mis cinco elementos te faltan',
   ingles: 'My Five Elements Lack You',
+  original: '我五行缺你',
   slug: 'Mis_cinco_elementos_te_faltan',
   imagen: 'Mis_cinco_elementos_te_faltan.jpg',
   tags: 'bl china pendiente moderno discapacidad matrimonio sobrenatural terror transmigracion',
@@ -875,6 +954,7 @@ capitulos: '181'
 {
   titulo: 'Mi viejo gong tiene amnesia',
   ingles: 'My Old Gong Has Amnesia',
+  original: '我家老宫失忆了[娱乐圈]',
   slug: 'Mi_viejo_gong_tiene_amnesia',
   imagen: 'Mi_viejo_gong_tiene_amnesia.jpg',
   tags: 'bl china pendiente moderno amnesia comedia industria-del-entretenimiento matrimonio no-humano vida-diaria',
@@ -886,6 +966,7 @@ capitulos: '181'
 {
   titulo: 'Mi expresión exterior es diferente de mi expresión interior',
   ingles: 'My Outside Expression Is Different From My Inner Expression',
+  original: '我表里不一在线翻车[穿书]',
   slug: 'Mi_expresión_exterior_es_diferente_de_mi_expresión_interior',
   imagen: 'Mi_expresión_exterior_es_diferente_de_mi_expresión_interior.jpg',
   tags: 'bl china finalizado moderno comedia discapacidad matrimonio sistema transmigracion',
@@ -897,6 +978,7 @@ capitulos: '181'
 {
   titulo: 'Mi esposo sufre de una enfermedad terminal',
   ingles: 'My Husband is Suffering from a Terminal Illness',
+  original: '老攻身患绝症[穿书]',
   slug: 'Mi_esposo_sufre_de_una_enfermedad_terminal',
   imagen: 'Mi_esposo_sufre_de_una_enfermedad_terminal.jpg',
   tags: 'bl china pendiente moderno discapacidad industria-del-entretenimiento matrimonio matrimonio-arreglado sistema transmigracion',
@@ -908,6 +990,7 @@ capitulos: '181'
 {
   titulo: 'Mi esposa es heterosexual',
   ingles: 'My Wife is Straight',
+  original: '我的老婆是直男',
   slug: 'Mi_esposa_es_heterosexual',
   imagen: 'Mi_esposa_es_heterosexual.jpg',
   tags: 'bl china pendiente moderno comedia matrimonio oneshot protagonista-gong',
@@ -919,6 +1002,7 @@ capitulos: '181'
 {
   titulo: 'Mi amigo de la infancia sigue intentando convertirme en gay',
   ingles: 'My Childhood Buddy Keeps Trying To Turn Me Gay',
+  original: '发小总想掰弯我',
   slug: 'Mi_amigo_de_la_infancia_sigue_intentando_convertirme_en_gay',
   imagen: 'Mi_amigo_de_la_infancia_sigue_intentando_convertirme_en_gay.jpg',
   tags: 'bl china pendiente moderno matrimonio vida-diaria',
@@ -930,6 +1014,7 @@ capitulos: '181'
 {
   titulo: 'Me mordieron después de transmigrar a una pseudo-beta',
   ingles: 'I Got Bitten After Transmigrating into a Pseudo-Beta',
+  original: '穿成伪beta后被咬了［穿书］',
   slug: 'Me_mordieron_después_de_transmigrar_a_una_pseudo-beta',
   imagen: 'Me_mordieron_después_de_transmigrar_a_una_pseudo-beta.jpg',
   tags: 'bl china pendiente moderno matrimonio matrimonio-arreglado mpreg omegaverse transmigracion',
@@ -941,6 +1026,7 @@ capitulos: '181'
 {
   titulo: 'Me escapé después de que ese viejo rico quedara embarazado de mi hijo',
   ingles: 'I Ran Away after that Rich Old Man was Pregnant with My Child',
+  original: '豪门老男人怀了我的孩子后我跑了',
   slug: 'Me_escapé_después_de_que_ese_viejo_rico_quedara_embarazado_de_mi_hijo',
   imagen: 'Me_escapé_después_de_que_ese_viejo_rico_quedara_embarazado_de_mi_hijo.jpg',
   tags: 'bl china pendiente moderno comedia mpreg protagonista-gong vida-diaria transmigracion',
@@ -952,6 +1038,7 @@ capitulos: '181'
 {
   titulo: 'Los grandes jefes no son lo que esperaba después de transmigrar a un libro',
   ingles: 'The Big Bosses Are Not What I Expected After I Transmigrated Into A Book',
+  original: '穿书后大佬们倒戈了',
   slug: 'Los_grandes_jefes_no_son_lo_que_esperaba_después_de_transmigrar_a_un_libro',
   imagen: 'Los_grandes_jefes_no_son_lo_que_esperaba_después_de_transmigrar_a_un_libro.jpg',
   tags: 'bl china pendiente moderno comedia drama malentendidos transmigracion',
@@ -963,6 +1050,7 @@ capitulos: '181'
 {
   titulo: 'Juego de seducción',
   ingles: 'Seduction Game',
+  original: '试图勾引',
   slug: 'Juego_de_seducción',
   imagen: 'Juego_de_seducción.jpg',
   tags: 'bl china finalizado moderno malentendidos novela-erotica',
@@ -974,6 +1062,7 @@ capitulos: '181'
 {
   titulo: 'Hielo de frijol rojo',
   ingles: 'Red Bean Ice',
+  original: '红豆牛奶冰',
   slug: 'Hielo_de_frijol_rojo',
   imagen: 'Hielo_de_frijol_rojo.jpg',
   tags: 'bl china pendiente moderno comedia industria-del-entretenimiento matrimonio vida-diaria novela-erotica',
@@ -985,6 +1074,7 @@ capitulos: '181'
 {
   titulo: 'Estaba embarazado después del divorcio',
   ingles: 'I Was Pregnant After Divorce',
+  original: '离婚后我怀孕了',
   slug: 'Estaba_embarazado_después_del_divorcio',
   imagen: 'Estaba_embarazado_después_del_divorcio.jpg',
   tags: 'bl china pendiente moderno drama malentendidos matrimonio-arreglado mpreg ninos omegaverse transmigracion',
@@ -996,6 +1086,7 @@ capitulos: '181'
 {
   titulo: 'Esposa masculina fuertemente mimada',
   ingles: 'Strongly Pampered Male Wife',
+  original: '强宠男妻',
   slug: 'Esposa_masculina_fuertemente_mimada',
   imagen: 'Esposa_masculina_fuertemente_mimada.jpg',
   tags: 'bl china pendiente moderno drama matrimonio-arreglado mpreg vida-diaria',
@@ -1007,6 +1098,7 @@ capitulos: '181'
 {
   titulo: 'Epifanías del renacimiento',
   ingles: 'Epiphanies of Rebirth',
+  original: '重生之豁然',
   slug: 'Epifanías_del_renacimiento',
   imagen: 'Epifanías_del_renacimiento.jpg',
   tags: 'bl china pendiente moderno comedia malentendidos matrimonio renacimiento vida-diaria',
@@ -1018,6 +1110,7 @@ capitulos: '181'
 {
   titulo: 'El emperador del cine pide el divorcio todos los días',
   ingles: 'The Film Emperor Asks for Divorce Every Day',
+  original: '影帝每天都想离婚[穿书]',
   slug: 'El_emperador_del_cine_pide_el_divorcio_todos_los_días',
   imagen: 'El_emperador_del_cine_pide_el_divorcio_todos_los_días.jpg',
   tags: 'bl china pendiente moderno comedia industria-del-entretenimiento mpreg transmigracion',
@@ -1029,6 +1122,7 @@ capitulos: '181'
 {
   titulo: 'Días en que salvé mi vida al lado del Husky',
   ingles: 'Life-Saving Days by the Husky’s Side',
+  original: '在二哈身边保命的日子',
   slug: 'Días_en_que_salvé_mi_vida_al_lado_del_Husky',
   imagen: 'Días_en_que_salvé_mi_vida_al_lado_del_Husky.jpg',
   tags: 'bl china pendiente moderno comedia mascotas vida-escolar sobrenatural transmigracion yandere',
@@ -1040,6 +1134,7 @@ capitulos: '181'
 {
   titulo: 'Después de un matrimonio repentino con el tirano discapacitado',
   ingles: 'After a Flash Marriage With the Disabled Tyrant',
+  original: '和残疾巨佬闪婚后',
   slug: 'Después_de_un_matrimonio_repentino_con_el_tirano_discapacitado',
   imagen: 'Después_de_un_matrimonio_repentino_con_el_tirano_discapacitado.jpg',
   tags: 'bl china pendiente moderno discapacidad matrimonio-arreglado renacimiento venganza',
@@ -1051,6 +1146,7 @@ capitulos: '181'
 {
   titulo: 'Después de transmigrar hice llorar al antagonista',
   ingles: 'After Transmigrating I Made The Antagonist Cry',
+  original: '穿书后我把反派弄哭了［娱乐圈］',
   slug: 'Después_de_transmigrar_hice_llorar_al_antagonista',
   imagen: 'Después_de_transmigrar_hice_llorar_al_antagonista.jpg',
   tags: 'bl china pendiente moderno comedia industria-del-entretenimiento protagonista-gong vida-diaria transmigracion',
@@ -1062,6 +1158,7 @@ capitulos: '181'
 {
   titulo: 'Después de ser transportado a un libro, adopté al villano',
   ingles: 'After Being Transported into a Book, I Adopted the Villain',
+  original: '穿书后我收养了幼年期的反派',
   slug: 'Después_de_ser_transportado_a_un_libro,_adopté_al_villano',
   imagen: 'Después_de_ser_transportado_a_un_libro,_adopté_al_villano.jpg',
   tags: 'bl china pendiente moderno discapacidad vida-diaria transmigracion yandere',
@@ -1073,6 +1170,7 @@ capitulos: '181'
 {
   titulo: 'Después de que regresó la luz de la luna blanca, el sustituto cayó en una crisis de desempleo',
   ingles: 'After the White Moonlight Came Back, the Stand-in Fell Into Unemployment Crisis',
+  original: '白月光回来后，替身陷入失业危机',
   slug: 'Después_de_que_regresó_la_luz_de_la_luna_blanca,_el_sustituto_cayó_en_una_crisis_de_desempleo',
   imagen: 'Después_de_que_regresó_la_luz_de_la_luna_blanca,_el_sustituto_cayó_en_una_crisis_de_desempleo.jpg',
   tags: 'bl china pendiente moderno comedia malentendidos',
@@ -1084,6 +1182,7 @@ capitulos: '181'
 {
   titulo: 'Después de poseer al pequeño genio del césped de la escuela',
   ingles: 'After I Possessed the Tmall Genie of the School Adonis',
+  original: '穿进校草的天猫精灵后',
   slug: 'Después_de_poseer_al_pequeño_genio_del_césped_de_la_escuela',
   imagen: 'Después_de_poseer_al_pequeño_genio_del_césped_de_la_escuela.jpg',
   tags: 'bl china pendiente moderno comedia vida-escolar sobrenatural',
@@ -1095,6 +1194,7 @@ capitulos: '181'
 {
   titulo: 'Después de convertirme en llanta de repuesto, el villano y el protagonista masculino me atacaron al mismo tiempo',
   ingles: 'After Becoming a Spare Tire, I Was Targeted by the Villain and the Male Lead at the Same Time',
+  original: '成为备胎之后我被反派和男主同时盯上了',
   slug: 'Después_de_convertirme_en_llanta_de_repuesto,_el_villano_y_el_protagonista_masculino_me_atacaron_al_mismo_tiempo',
   imagen: 'Después_de_convertirme_en_llanta_de_repuesto,_el_villano_y_el_protagonista_masculino_me_atacaron_al_mismo_tiempo.jpg',
   tags: 'bl china pendiente moderno comedia compromiso-roto enemigos-a-amantes sistema vida-diaria transmigracion yandere',
@@ -1106,6 +1206,7 @@ capitulos: '181'
 {
   titulo: 'Cada día después del matrimonio es realmente fragante',
   ingles: 'Every Day After Marriage Is Really Fragrant',
+  original: '婚后每天都真香[穿书]',
   slug: 'Cada_día_después_del_matrimonio_es_realmente_fragante',
   imagen: 'Cada_día_después_del_matrimonio_es_realmente_fragante.jpg',
   tags: 'bl china pendiente moderno comedia matrimonio-arreglado mpreg transmigracion',
@@ -1117,6 +1218,7 @@ capitulos: '181'
 {
   titulo: 'Barra de progreso de la muerte',
   ingles: 'Death Progress Bar',
+  original: '生存进度条[穿书]',
   slug: 'Barra_de_progreso_de_la_muerte',
   imagen: 'Barra_de_progreso_de_la_muerte.jpg',
   tags: 'bl china pendiente moderno comedia discapacidad malentendidos sistema sobrenatural transmigracion',
@@ -1128,6 +1230,7 @@ capitulos: '181'
 {
   titulo: 'Aspiraciones de superestrella',
   ingles: 'Superstar Aspirations',
+  original: '巨星问鼎[重生]',
   slug: 'Aspiraciones_de_superestrella',
   imagen: 'Aspiraciones_de_superestrella.jpg',
   tags: 'bl china pendiente moderno industria-del-entretenimiento r18 vida-diaria transmigracion',
@@ -1139,6 +1242,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrado a una tribu de bestias',
   ingles: 'Transmigrated into a Beast Tribe',
+  original: '穿越之游兽部落',
   slug: 'Transmigrado_a_una_tribu_de_bestias',
   imagen: 'Transmigrado_a_una_tribu_de_bestias.jpg',
   tags: 'bl china pendiente tribal hombre-bestia mpreg ninos vida-diaria transportado-a-otro-mundo',
@@ -1150,6 +1254,7 @@ capitulos: '181'
 {
   titulo: 'Renacimiento con la bestia',
   ingles: 'Rebirth With The Beast',
+  original: '重生之与兽为伍',
   slug: 'Renacimiento_con_la_bestia',
   imagen: 'Renacimiento_con_la_bestia.jpg',
   tags: 'bl china pendiente tribal hombre-bestia mpreg ninos transmigracion',
@@ -1161,6 +1266,7 @@ capitulos: '181'
 {
   titulo: 'La primavera del tonto Gong',
   ingles: 'Silly Spring Attack',
+  original: '憨攻的春天',
   slug: 'La_primavera_del_tonto_Gong',
   imagen: 'La_primavera_del_tonto_Gong.jpg',
   tags: 'bl china pendiente tribal hombre-bestia mpreg ninos protagonista-gong vida-diaria transportado-a-otro-mundo',
@@ -1172,6 +1278,7 @@ capitulos: '181'
 {
   titulo: 'Cruzando a lo Primitivo',
   ingles: 'Crossing to the Primitive',
+  original: '带着游戏面板穿越原始',
   slug: 'Cruzando_a_lo_Primitivo',
   imagen: 'Cruzando_a_lo_Primitivo.jpg',
   tags: 'bl china pendiente tribal comedia hombre-bestia sistema transportado-a-otro-mundo',
@@ -1183,6 +1290,7 @@ capitulos: '181'
 {
   titulo: 'Tienda Bestia Linda No. 138',
   ingles: 'Cute Beast Store No. 138',
+  original: '138号异兽萌宠店',
   slug: 'Tienda_Bestia_Linda_No._138',
   imagen: 'Tienda_Bestia_Linda_No._138.jpg',
   tags: 'bl china pendiente futurista bestia-humanizada comedia no-humano transmigracion',
@@ -1194,6 +1302,7 @@ capitulos: '181'
 {
   titulo: 'Superestrella favorita interestelar',
   ingles: 'Interstellar Favorite Superstar',
+  original: '星际宠婚巨星',
   slug: 'Superestrella_favorita_interestelar',
   imagen: 'Superestrella_favorita_interestelar.jpg',
   tags: 'bl china pendiente futurista comedia realeza transmigracion',
@@ -1205,6 +1314,7 @@ capitulos: '181'
 {
   titulo: '¿Quieres tocar mi cola de pez?',
   ingles: 'Do You Want to Touch My Fish Tail?',
+  original: '你想摸一下我的鱼尾巴吗',
   slug: 'Quieres_tocar_mi_cola_de_pez',
   imagen: 'Quieres_tocar_mi_cola_de_pez.jpg',
   tags: 'bl china pendiente futurista malentendidos matrimonio-arreglado no-humano sirena',
@@ -1216,6 +1326,7 @@ capitulos: '181'
 {
   titulo: 'Pareja de poder interestelar',
   ingles: 'Interstellar Power Couple',
+  original: '星际强力联姻',
   slug: 'Pareja_de_poder_interestelar',
   imagen: 'Pareja_de_poder_interestelar.jpg',
   tags: 'bl china pendiente futurista comedia matrimonio-arreglado mpreg ninos transmigracion',
@@ -1227,6 +1338,7 @@ capitulos: '181'
 {
   titulo: 'Ofrecido en matrimonio',
   ingles: 'Offered Into Marriage',
+  original: '奉崽成婚[星际]',
   slug: 'Ofrecido_en_matrimonio',
   imagen: 'Ofrecido_en_matrimonio.jpg',
   tags: 'bl china pendiente futurista comedia hombre-bestia inteligencia-artificial mpreg ninos transmigracion',
@@ -1238,6 +1350,7 @@ capitulos: '181'
 {
   titulo: 'O pretende ser B para el almirante violento',
   ingles: 'O Pretends to be B For The Violent Admiral',
+  original: 'O装B给暴躁上将当男秘',
   slug: 'O_pretende_ser_B_para_el_almirante_violento',
   imagen: 'O_pretende_ser_B_para_el_almirante_violento.jpg',
   tags: 'bl china pendiente futurista comedia lucha-de-poder malentendidos mpreg omegaverse realeza',
@@ -1249,6 +1362,7 @@ capitulos: '181'
 {
   titulo: 'Mi compañero de cuarto probablemente no sea un omega',
   ingles: 'My Roommate Probably Is Not an Omega',
+  original: '我的室友可能不是omega',
   slug: 'Mi_compañero_de_cuarto_probablemente_no_sea_un_omega',
   imagen: 'Mi_compañero_de_cuarto_probablemente_no_sea_un_omega.jpg',
   tags: 'bl china pendiente futurista comedia malentendidos omegaverse novela-erotica',
@@ -1260,6 +1374,7 @@ capitulos: '181'
 {
   titulo: 'Me criaron después de ser una sirena',
   ingles: 'I Was Raised After Being a Mermaid',
+  original: '变成人鱼被养了',
   slug: 'Me_criaron_después_de_ser_una_sirena',
   imagen: 'Me_criaron_después_de_ser_una_sirena.jpg',
   tags: 'bl china pendiente futurista malentendidos mpreg no-humano realeza sirena transmigracion',
@@ -1271,6 +1386,7 @@ capitulos: '181'
 {
   titulo: 'Levantar un bollo con un sistema de vida diaria',
   ingles: 'Raising a Bun with a Daily Life System',
+  original: '带着生活系统养包子',
   slug: 'Levantar_un_bollo_con_un_sistema_de_vida_diaria',
   imagen: 'Levantar_un_bollo_con_un_sistema_de_vida_diaria.jpg',
   tags: 'bl china pendiente futurista comedia malentendidos mpreg ninos r18 sistema vida-diaria transmigracion',
@@ -1282,6 +1398,7 @@ capitulos: '181'
 {
   titulo: 'Lecciones sobre cómo criar una pareja',
   ingles: 'Lessons on Raising a Partner',
+  original: '教你种植一个对象',
   slug: 'Lecciones_sobre_cómo_criar_una_pareja',
   imagen: 'Lecciones_sobre_cómo_criar_una_pareja.jpg',
   tags: 'bl china pendiente futurista comedia no-humano r18 transmigracion',
@@ -1293,6 +1410,7 @@ capitulos: '181'
 {
   titulo: 'Heredé el imperio con un embarazo falso',
   ingles: 'I Inherited Empire with Fake Pregnancy',
+  original: '假孕后我继承了帝国',
   slug: 'Heredé_el_imperio_con_un_embarazo_falso',
   imagen: 'Heredé_el_imperio_con_un_embarazo_falso.jpg',
   tags: 'bl china pendiente futurista bestia-humanizada cultivo malentendidos mpreg no-humano transportado-a-otro-mundo',
@@ -1304,6 +1422,7 @@ capitulos: '181'
 {
   titulo: 'Guía de matrimonio imperial',
   ingles: 'Imperial Marriage Guide',
+  original: '帝国指婚指南',
   slug: 'Guía_de_matrimonio_imperial',
   imagen: 'Guía_de_matrimonio_imperial.jpg',
   tags: 'bl china pendiente futurista mpreg omegaverse novela-erotica',
@@ -1315,6 +1434,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrado a la sirenita del jefe violento',
   ingles: 'Transmigrated Into the Violent Boss’ Little Mermaid',
+  original: '穿成暴戾大佬的小人鱼',
   slug: 'Transmigrado_a_la_sirenita_del_jefe_violento',
   imagen: 'Transmigrado_a_la_sirenita_del_jefe_violento.jpg',
   tags: 'bl china pendiente futurista lucha-de-poder matrimonio no-humano sirena sistema vida-diaria transmigracion',
@@ -1326,6 +1446,7 @@ capitulos: '181'
 {
   titulo: 'Este insecto macho se vio obligado a mantener a su familia',
   ingles: 'This Male Was Forced To Support His Family',
+  original: '这只雄虫被迫养家[虫族]',
   slug: 'Este_insecto_macho_se_vio_obligado_a_mantener_a_su_familia',
   imagen: 'Este_insecto_macho_se_vio_obligado_a_mantener_a_su_familia.jpg',
   tags: 'bl china pendiente futurista discapacidad drama matrimonio no-humano protagonista-gong zerg',
@@ -1337,6 +1458,7 @@ capitulos: '181'
 {
   titulo: 'El último creador',
   ingles: 'The Last Creator',
+  original: '最后一个造物主',
   slug: 'El_último_creador',
   imagen: 'El_último_creador.jpg',
   tags: 'bl china pendiente futurista inteligencia-artificial no-humano vida-diaria',
@@ -1348,6 +1470,7 @@ capitulos: '181'
 {
   titulo: 'El trabajo del héroe Zerg',
   ingles: 'Insectoids: The Job of the Males',
+  original: '虫族之雄子的工作',
   slug: 'El_trabajo_del_héroe_Zerg',
   imagen: 'El_trabajo_del_héroe_Zerg.jpg',
   tags: 'bl china pendiente futurista comedia no-humano transmigracion zerg',
@@ -1359,6 +1482,7 @@ capitulos: '181'
 {
   titulo: 'El general ama coleccionar pequeñas flores rojas',
   ingles: 'The General Loves to Collect Little Red Flowers',
+  original: '将军爱集小红花',
   slug: 'El_general_ama_coleccionar_pequeñas_flores_rojas',
   imagen: 'El_general_ama_coleccionar_pequeñas_flores_rojas.jpg',
   tags: 'bl china pendiente futurista comedia matrimonio-arreglado mpreg omegaverse vida-diaria transmigracion',
@@ -1370,6 +1494,7 @@ capitulos: '181'
 {
   titulo: 'Después de transmigrar en un Omega, fui marcado por el enemigo',
   ingles: 'After Transmigrating Into an Omega, I Was Marked by the Enemy',
+  original: '标记选我我超甜',
   slug: 'Después_de_transmigrar_en_un_Omega,_fui_marcado_por_el_enemigo',
   imagen: 'Después_de_transmigrar_en_un_Omega,_fui_marcado_por_el_enemigo.jpg',
   tags: 'bl china pendiente futurista comedia enemigos-a-amantes matrimonio-arreglado mpreg omegaverse transmigracion yandere',
@@ -1381,6 +1506,7 @@ capitulos: '181'
 {
   titulo: 'Después de transmigrar a un villano carne de cañon Zerg masculino',
   ingles: 'After Transmigrating Into a Villain Cannon Fodder Male Zerg',
+  original: '穿成反派炮灰雄虫后[虫族]',
   slug: 'Después_de_transmigrar_a_un_villano_carne_de_cañon_Zerg_masculino',
   imagen: 'Después_de_transmigrar_a_un_villano_carne_de_cañon_Zerg_masculino.jpg',
   tags: 'bl china pendiente futurista comedia malentendidos matrimonio mpreg no-humano protagonista-gong sistema transmigracion yandere zerg',
@@ -1392,6 +1518,7 @@ capitulos: '181'
 {
   titulo: 'Después de convertirme en el protagonista alfa, arrebaté el Omega carne de cañón',
   ingles: 'After Becoming the Alpha Protagonist, I Snatched the Cannon Fodder Omega',
+  original: '穿成主角A后把炮灰O扛跑了',
   slug: 'Después_de_convertirme_en_el_protagonista_alfa,_arrebaté_el_Omega_carne_de_cañón',
   imagen: 'Después_de_convertirme_en_el_protagonista_alfa,_arrebaté_el_Omega_carne_de_cañón.jpg',
   tags: 'bl china pendiente futurista matrimonio-arreglado omegaverse protagonista-gong transmigracion',
@@ -1403,6 +1530,7 @@ capitulos: '181'
 {
   titulo: 'Después de casarme, renacieron los que me traicionaron',
   ingles: 'After I Got Married, Those Who Betrayed Me Were Reborn',
+  original: '结婚后，渣过我的人都重生了',
   slug: 'Después_de_casarme,_renacieron_los_que_me_traicionaron',
   imagen: 'Después_de_casarme,_renacieron_los_que_me_traicionaron.jpg',
   tags: 'bl china pendiente futurista aristocracia discapacidad lucha-de-poder malentendidos matrimonio-arreglado omegaverse realeza renacimiento',
@@ -1414,6 +1542,7 @@ capitulos: '181'
 {
   titulo: 'De vuelta a la cima',
   ingles: 'Back to the Peak',
+  original: '重临巅峰',
   slug: 'De_vuelta_a_la_cima',
   imagen: 'De_vuelta_a_la_cima.jpg',
   tags: 'bl china pendiente futurista cultivo protagonista-gong vida-diaria',
@@ -1425,6 +1554,7 @@ capitulos: '181'
 {
   titulo: 'Contrato de matrimonio de GunGun ojos Yin Yang',
   ingles: 'Yin Yang Eye GunGun’s Marriage Contract',
+  original: '阴阳眼滚滚婚约[星际]',
   slug: 'Contrato_de_matrimonio_de_GunGun_ojos_Yin_Yang',
   imagen: 'Contrato_de_matrimonio_de_GunGun_ojos_Yin_Yang.jpg',
   tags: 'bl china pendiente futurista bestia-humanizada comedia cultivo no-humano vida-diaria terror transmigracion',
@@ -1436,6 +1566,7 @@ capitulos: '181'
 {
   titulo: 'Soy un limo',
   ingles: 'I am a Slime',
+  original: 'ぼくはスライム',
   slug: 'Soy_un_limo',
   imagen: 'Soy_un_limo.jpg',
   tags: 'bl japon pendiente fantasia bestias no-humano oneshot novela-erotica',
@@ -1447,6 +1578,7 @@ capitulos: '181'
 {
   titulo: 'Renacer en un juego de Slash',
   ingles: 'Reborn into A Slash Game',
+  original: '重生到搅基游戏',
   slug: 'Renacer_en_un_juego_de_Slash',
   imagen: 'Renacer_en_un_juego_de_Slash.jpg',
   tags: 'bl china pendiente fantasia bestias comedia no-humano novela-erotica transmigracion',
@@ -1458,6 +1590,7 @@ capitulos: '181'
 {
   titulo: 'Período de cortejo',
   ingles: 'Courtship Period',
+  original: '求偶期',
   slug: 'Período_de_cortejo',
   imagen: 'Período_de_cortejo.jpg',
   tags: 'bl china pendiente fantasia agricultura bestias malentendidos matrimonio mpreg no-humano protagonista-gong',
@@ -1469,6 +1602,7 @@ capitulos: '181'
 {
   titulo: 'Nutrir al héroe para evitar la muerte',
   ingles: 'Nurturing the Hero to Avoid Death',
+  original: '死にたくないので英雄様を育てる事にします',
   slug: 'Nutrir_al_héroe_para_evitar_la_muerte',
   imagen: 'Nutrir_al_héroe_para_evitar_la_muerte.jpg',
   tags: 'bl japon pendiente europa-antigua aristocracia comedia punto-de-vista-multiple vida-diaria novela-erotica transportado-a-otro-mundo',
@@ -1480,6 +1614,7 @@ capitulos: '181'
 {
   titulo: '¡Nunca pensé que serías este tipo de héroe!',
   ingles: 'Never Thought You’d Be This Kind of Hero!',
+  original: '没想到你是这样的勇者！',
   slug: 'Nunca_pensé_que_serías_este_tipo_de_héroe',
   imagen: 'Nunca_pensé_que_serías_este_tipo_de_héroe.jpg',
   tags: 'bl china pendiente fantasia comedia transportado-a-otro-mundo',
@@ -1491,6 +1626,7 @@ capitulos: '181'
 {
   titulo: 'Me reencarné como el villano de un eroge, pero antes de darme cuenta, me convertí en un objetivo de captura',
   ingles: 'I Reincarnated as the Villain in an Eroge, But Before I Realized, I Became a Capture Target',
+  original: 'エロゲーの悪役に転生したはずなのに気付けば攻略対象者になっていた',
   slug: 'Me_reencarné_como_el_villano_de_un_eroge,_pero_antes_de_darme_cuenta,_me_convertí_en_un_objetivo_de_captura',
   imagen: 'Me_reencarné_como_el_villano_de_un_eroge,_pero_antes_de_darme_cuenta,_me_convertí_en_un_objetivo_de_captura.jpg',
   tags: 'bl japon pendiente fantasia comedia reencarnacion novela-erotica yandere',
@@ -1502,6 +1638,7 @@ capitulos: '181'
 {
   titulo: 'Hacerlo con el creador en un juego de supervivencia',
   ingles: 'Doing It With the Creator in a Survival Game',
+  original: '一不小心就在逃生游戏里被主神上了',
   slug: 'Hacerlo_con_el_creador_en_un_juego_de_supervivencia',
   imagen: 'Hacerlo_con_el_creador_en_un_juego_de_supervivencia.jpg',
   tags: 'bl china pendiente fantasia no-humano reencarnacion novela-erotica sobrenatural terror yandere',
@@ -1513,6 +1650,7 @@ capitulos: '181'
 {
   titulo: 'Esta maldita sed de supervivencia',
   ingles: 'This Damned Thirst for Survival',
+  original: '这该死的求生欲[穿书]',
   slug: 'Esta_maldita_sed_de_supervivencia',
   imagen: 'Esta_maldita_sed_de_supervivencia.jpg',
   tags: 'bl china pendiente fantasia enemigos-a-amantes no-humano sobrenatural terror transmigracion yandere',
@@ -1524,6 +1662,7 @@ capitulos: '181'
 {
   titulo: '¡Esta forma de transmigración es definitivamente incorrecta!',
   ingles: 'This Way of Transmigration Is Definitely Wrong!',
+  original: '这穿越方式绝逼不对！',
   slug: 'Esta_forma_de_transmigración_es_definitivamente_incorrecta',
   imagen: 'Esta_forma_de_transmigración_es_definitivamente_incorrecta.jpg',
   tags: 'bl china pendiente fantasia comedia transmigracion yandere',
@@ -1535,6 +1674,7 @@ capitulos: '181'
 {
   titulo: 'El príncipe desvergonzado',
   ingles: 'The Shameless Prince',
+  original: '不知羞恥的王子',
   slug: 'El_príncipe_desvergonzado',
   imagen: 'El_príncipe_desvergonzado.jpg',
   tags: 'bl china pendiente fantasia comedia oneshot protagonista-gong',
@@ -1546,6 +1686,7 @@ capitulos: '181'
 {
   titulo: 'El personaje virtual que crié personalmente quiere casarse conmigo',
   ingles: 'The Virtual Character I Personally Raised Wants to Marry Me',
+  original: '穿进全息游戏搞基建',
   slug: 'El_personaje_virtual_que_crié_personalmente_quiere_casarse_conmigo',
   imagen: 'El_personaje_virtual_que_crié_personalmente_quiere_casarse_conmigo.jpg',
   tags: 'bl china pendiente fantasia inteligencia-artificial malentendidos realeza sistema transmigracion yandere',
@@ -1557,6 +1698,7 @@ capitulos: '181'
 {
   titulo: 'El origen del diablo',
   ingles: 'The Devil’s Origin',
+  original: '魔王のはじめてのモンスターメーカー',
   slug: 'El_origen_del_diablo',
   imagen: 'El_origen_del_diablo.jpg',
   tags: 'bl japon pendiente fantasia abuso bestia-humanizada bestias harem ninos no-humano shota sistema novela-erotica transmigracion',
@@ -1568,6 +1710,7 @@ capitulos: '181'
 {
   titulo: 'Diario de criar una sirena',
   ingles: 'Diary of Raising a Mermaid',
+  original: '人鱼饲养日记',
   slug: 'Diario_de_criar_una_sirena',
   imagen: 'Diario_de_criar_una_sirena.jpg',
   tags: 'bl china pendiente fantasia no-humano sirena transmigracion',
@@ -1579,9 +1722,10 @@ capitulos: '181'
 {
   titulo: 'Saber en la tercera mañana',
   ingles: 'Know on the Third Morning',
+  original: '三度目の朝に知る',
   slug: 'Saber_en_la_tercera_mañana',
   imagen: 'Saber_en_la_tercera_mañana.jpg',
-  tags: 'bl japon pendiente europa-antigua novela-erotica',
+  tags: 'bl japon pendiente europa-antigua novela-erotica reencarnacion',
   autor: 'shiina',
   link: 'https://www.novelupdates.com/series/know-on-the-third-morning/',
   capitulos: '3'
@@ -1590,6 +1734,7 @@ capitulos: '181'
 {
   titulo: '¡Quiero disfrutar de la vida en el campo!',
   ingles: 'I Want To Enjoy A Country Life!',
+  original: '田舎ライフを楽しみたいんだ！',
   slug: 'Quiero_disfrutar_de_la_vida_en_el_campo',
   imagen: 'Quiero_disfrutar_de_la_vida_en_el_campo.jpg',
   tags: 'bl japon pendiente europa-antigua agricultura harem incesto realeza reencarnacion novela-erotica yandere',
@@ -1601,6 +1746,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrar en un personaje de carne de cañón para rehabilitar el plan de villano',
   ingles: 'Transmigrating into a Mob Character to Rehabilitate the Villain Plan',
+  original: '穿成炮灰之反派养成计划',
   slug: 'Transmigrar_en_un_personaje_de_carne_de_cañón_para_rehabilitar_el_plan_de_villano',
   imagen: 'Transmigrar_en_un_personaje_de_carne_de_cañón_para_rehabilitar_el_plan_de_villano.jpg',
   tags: 'bl china finalizado cultivacion amnesia cultivo drama r18 transmigracion xianxia yandere',
@@ -1612,6 +1758,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrado al mundo del "Señor Demonio Wu Zun"',
   ingles: 'Transmigrated into the World of “Demon Lord Wu Zun”',
+  original: '穿越魔皇武尊',
   slug: 'Transmigrado_al_mundo_del_Señor_Demonio_Wu_Zun',
   imagen: 'Transmigrado_al_mundo_del_Señor_Demonio_Wu_Zun.jpg',
   tags: 'bl china pendiente cultivacion canibalismo bestias cultivo r18 transmigracion yandere',
@@ -1623,6 +1770,7 @@ capitulos: '181'
 {
   titulo: 'Todos los días el protagonista quiere capturarme',
   ingles: 'Every Day the Protagonist Wants to Capture Me',
+  original: '主角每天都想攻略我',
   slug: 'Todos_los_días_el_protagonista_quiere_capturarme',
   imagen: 'Todos_los_días_el_protagonista_quiere_capturarme.jpg',
   tags: 'bl china pendiente cultivacion comedia cultivo sistema transmigracion xianxia yandere',
@@ -1634,6 +1782,7 @@ capitulos: '181'
 {
   titulo: 'Salvar al villano por error',
   ingles: 'Mistakenly Saving the Villain',
+  original: '论救错反派的下场',
   slug: 'Salvar_al_villano_por_error',
   imagen: 'Salvar_al_villano_por_error.jpg',
   tags: 'bl china pendiente cultivacion amnesia cultivo maestro-discipulo malentendidos sistema tragedia transmigracion xianxia yandere',
@@ -1645,6 +1794,7 @@ capitulos: '181'
 {
   titulo: 'Renacimiento del Ser Celestial Supremo',
   ingles: 'Rebirth of the Supreme Celestial Being',
+  original: '重生之至尊仙侣',
   slug: 'Renacimiento_del_Ser_Celestial_Supremo',
   imagen: 'Renacimiento_del_Ser_Celestial_Supremo.jpg',
   tags: 'bl china pendiente cultivacion cultivo mpreg protagonista-gong renacimiento xianxia',
@@ -1656,6 +1806,7 @@ capitulos: '181'
 {
   titulo: 'No es fácil ser un maestro',
   ingles: 'It’s Not Easy Being a Master',
+  original: '师尊难为',
   slug: 'No_es_fácil_ser_un_maestro',
   imagen: 'No_es_fácil_ser_un_maestro.jpg',
   tags: 'bl china pendiente cultivacion cultivo maestro-discipulo renacimiento transmigracion xianxia yandere',
@@ -1667,6 +1818,7 @@ capitulos: '181'
 {
   titulo: 'Mi shidi todavía no me ha matado',
   ingles: 'My Junior Still Hasn’t Killed Me',
+  original: '师弟还不杀我灭口',
   slug: 'Mi_shidi_todavía_no_me_ha_matado',
   imagen: 'Mi_shidi_todavía_no_me_ha_matado.jpg',
   tags: 'bl china pendiente cultivacion comedia cultivo transmigracion xianxia yandere',
@@ -1678,6 +1830,7 @@ capitulos: '181'
 {
   titulo: 'Me convertí en una esposa virtuosa y una madre amorosa en otro mundo de cultivación',
   ingles: 'I Became A Virtuous Wife and Loving Mother in another Cultivation World',
+  original: '贤妻良母',
   slug: 'Me_convertí_en_una_esposa_virtuosa_y_una_madre_amorosa_en_otro_mundo_de_cultivación',
   imagen: 'Me_convertí_en_una_esposa_virtuosa_y_una_madre_amorosa_en_otro_mundo_de_cultivación.jpg',
   tags: 'bl china pendiente cultivacion cultivo matrimonio-arreglado mpreg ninos transmigracion xuanhuan',
@@ -1689,6 +1842,7 @@ capitulos: '181'
 {
   titulo: 'La tarea diaria de evitar que mi discípulo se pase al lado oscuro',
   ingles: 'The Daily Task of Preventing My Disciple from Turning to the Dark Side',
+  original: '每天都要防止徒弟上天',
   slug: 'La_tarea_diaria_de_evitar_que_mi_discípulo_se_pase_al_lado_oscuro',
   imagen: 'La_tarea_diaria_de_evitar_que_mi_discípulo_se_pase_al_lado_oscuro.jpg',
   tags: 'bl china pendiente cultivacion comedia cultivo maestro-discipulo renacimiento xianxia yandere',
@@ -1700,6 +1854,7 @@ capitulos: '181'
 {
   titulo: 'He llevado al villano por mal camino, ¿cómo lo soluciono?',
   ingles: 'I’ve Led the Villain Astray, How Do I Fix It?',
+  original: '把反派养歪了肿么破',
   slug: 'He_llevado_al_villano_por_mal_camino,_cómo_lo_soluciono',
   imagen: 'He_llevado_al_villano_por_mal_camino,_cómo_lo_soluciono.jpg',
   tags: 'bl china pendiente cultivacion comedia cultivo xianxia yandere',
@@ -1711,6 +1866,7 @@ capitulos: '181'
 {
   titulo: 'Encubierto del culto del mal sale a la luz todos los días',
   ingles: 'Evil Cult Undercover Gets Exposed Everyday',
+  original: '魔教卧底每天都在露馅',
   slug: 'Encubierto_del_culto_del_mal_sale_a_la_luz_todos_los_días',
   imagen: 'Encubierto_del_culto_del_mal_sale_a_la_luz_todos_los_días.jpg',
   tags: 'bl china pendiente cultivacion comedia cultivo enemigos-a-amantes malentendidos transmigracion',
@@ -1722,6 +1878,7 @@ capitulos: '181'
 {
   titulo: 'El sistema de autosalvación del villano escoria',
   ingles: 'The Scum Villain’s Self-Saving System',
+  original: '人渣反派自救系统',
   slug: 'El_sistema_de_autosalvación_del_villano_escoria',
   imagen: 'El_sistema_de_autosalvación_del_villano_escoria.jpg',
   tags: 'bl china pendiente cultivacion comedia cultivo maestro-discipulo r18 sistema transmigracion xianxia yandere',
@@ -1733,6 +1890,7 @@ capitulos: '181'
 {
   titulo: 'El Rey Demonio siempre piensa que estoy secretamente enamorado de él',
   ingles: 'The Demon King Always Thinks I’m Secretly In Love With Him',
+  original: '魔君总以为我暗恋他[穿书]',
   slug: 'El_Rey_Demonio_siempre_piensa_que_estoy_secretamente_enamorado_de_él',
   imagen: 'El_Rey_Demonio_siempre_piensa_que_estoy_secretamente_enamorado_de_él.jpg',
   tags: 'bl china pendiente cultivacion comedia cultivo malentendidos sistema transmigracion xianxia',
@@ -1744,6 +1902,7 @@ capitulos: '181'
 {
   titulo: 'El regreso de la esposa abandonada',
   ingles: 'Comeback of the Abandoned Wife',
+  original: '废妻重生',
   slug: 'El_regreso_de_la_esposa_abandonada',
   imagen: 'El_regreso_de_la_esposa_abandonada.jpg',
   tags: 'bl china pendiente cultivacion cultivo matrimonio-arreglado renacimiento venganza xianxia',
@@ -1755,6 +1914,7 @@ capitulos: '181'
 {
   titulo: 'El pequeño demonio zorro de dos colas y su sacerdote taoísta Gong',
   ingles: 'The Two-Tailed Little Fox Demon and His Taoist Priest Gong',
+  original: '兩條尾巴的小狐妖和他家道長攻',
   slug: 'El_pequeño_demonio_zorro_de_dos_colas_y_su_sacerdote_taoísta_Gong',
   imagen: 'El_pequeño_demonio_zorro_de_dos_colas_y_su_sacerdote_taoísta_Gong.jpg',
   tags: 'bl china pendiente cultivacion bestia-humanizada cultivo no-humano novela-erotica xianxia',
@@ -1766,6 +1926,7 @@ capitulos: '181'
 {
   titulo: 'El mundo entero es mi crematorio',
   ingles: 'The Whole World Is My Crematorium',
+  original: '全天下为我火葬场',
   slug: 'El_mundo_entero_es_mi_crematorio',
   imagen: 'El_mundo_entero_es_mi_crematorio.jpg',
   tags: 'bl china pendiente cultivacion amnesia cultivo malentendidos sistema tragedia transmigracion xianxia',
@@ -1777,6 +1938,7 @@ capitulos: '181'
 {
   titulo: 'El gran maestro de la cultivación demoníaca',
   ingles: 'The Founder of Diabolism',
+  original: '魔道祖师',
   slug: 'El_gran_maestro_de_la_cultivación_demoníaca',
   imagen: 'El_gran_maestro_de_la_cultivación_demoníaca.jpg',
   tags: 'bl china pendiente cultivacion cultivo drama r18 reencarnacion sobrenatural xianxia',
@@ -1788,6 +1950,7 @@ capitulos: '181'
 {
   titulo: 'El desperdicio del renacimiento contraataca',
   ingles: 'The Rebirth Waste Strikes Back',
+  original: '重生之废材来袭',
   slug: 'El_desperdicio_del_renacimiento_contraataca',
   imagen: 'El_desperdicio_del_renacimiento_contraataca.jpg',
   tags: 'bl china pendiente cultivacion comedia compromiso-roto cultivo malentendidos reencarnacion xuanhuan',
@@ -1799,6 +1962,7 @@ capitulos: '181'
 {
   titulo: 'Volver a cero',
   ingles: 'Back to Zero',
+  original: '重生之归零',
   slug: 'Volver_a_cero',
   imagen: 'Volver_a_cero.jpg',
   tags: 'bl china pendiente china-antigua matrimonio-arreglado mpreg protagonista-gong realeza renacimiento',
@@ -1810,6 +1974,7 @@ capitulos: '181'
 {
   titulo: 'Viajar a través de la antigüedad para ser comerciante',
   ingles: 'Traveling Through Ancient Times To Be a Shopkeeper',
+  original: '穿越古代做货郎',
   slug: 'Viajar_a_través_de_la_antigüedad_para_ser_comerciante',
   imagen: 'Viajar_a_través_de_la_antigüedad_para_ser_comerciante.jpg',
   tags: 'bl china finalizado china-antigua ger matrimonio mpreg protagonista-gong vida-diaria transmigracion',
@@ -1821,6 +1986,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrar a la antigüedad con la conveniencia de Lu',
   ingles: 'Transmigrating to the Ancient Times with Lu’s Convenience',
+  original: '带着小卖部到古代',
   slug: 'Transmigrar_a_la_antigüedad_con_la_conveniencia_de_Lu',
   imagen: 'Transmigrar_a_la_antigüedad_con_la_conveniencia_de_Lu.jpg',
   tags: 'bl china pendiente china-antigua agricultura ger matrimonio-arreglado mpreg protagonista-gong vida-diaria transmigracion',
@@ -1832,6 +1998,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrar a la amada esposa fugitiva del Príncipe Regente',
   ingles: 'Transmigrating into the Prince Regent’s Beloved Runaway Wife',
+  original: '穿成摄政王的侍爱逃妻',
   slug: 'Transmigrar_a_la_amada_esposa_fugitiva_del_Príncipe_Regente',
   imagen: 'Transmigrar_a_la_amada_esposa_fugitiva_del_Príncipe_Regente.jpg',
   tags: 'bl china pendiente china-antigua aristocracia malentendidos matrimonio-arreglado transmigracion',
@@ -1843,6 +2010,7 @@ capitulos: '181'
 {
   titulo: 'Transmigración: la vida agrícola de un "tonto"',
   ingles: 'Transmigration: The Farm Life of a "Fool"',
+  original: '穿越之农家如画',
   slug: 'Transmigración_la_vida_agrícola_de_un_tonto',
   imagen: 'Transmigración_la_vida_agrícola_de_un_tonto.jpg',
   tags: 'bl china pendiente china-antigua agricultura ger mpreg ninos protagonista-gong vida-diaria transmigracion',
@@ -1854,6 +2022,7 @@ capitulos: '181'
 {
   titulo: 'Tienes un correo: un cuento con moraleja',
   ingles: 'You’ve Got Mail: A Cautionary Tale',
+  original: '飛鴿交友須謹慎',
   slug: 'Tienes_un_correo_un_cuento_con_moraleja',
   imagen: 'Tienes_un_correo_un_cuento_con_moraleja.jpg',
   tags: 'bl china pendiente china-antigua comedia vida-diaria novela-erotica',
@@ -1865,6 +2034,7 @@ capitulos: '181'
 {
   titulo: 'Soy la cruel carne de cañón del libro',
   ingles: 'I’m The Vicious Cannon Fodder In The Book',
+  original: '我是穿书文里的恶毒炮灰',
   slug: 'Soy_la_cruel_carne_de_cañón_del_libro',
   imagen: 'Soy_la_cruel_carne_de_cañón_del_libro.jpg',
   tags: 'bl china pendiente china-antigua lucha-de-poder matrimonio-arreglado mpreg realeza transmigracion venganza',
@@ -1876,6 +2046,7 @@ capitulos: '181'
 {
   titulo: '¡Te ruego que rompas este compromiso!',
   ingles: 'Begging You to Break Off This Engagement!',
+  original: '求求你退婚吧',
   slug: 'Te_ruego_que_rompas_este_compromiso',
   imagen: 'Te_ruego_que_rompas_este_compromiso.jpg',
   tags: 'bl china pendiente china-antigua agricultura comedia ger matrimonio-arreglado mpreg transmigracion',
@@ -1887,6 +2058,7 @@ capitulos: '181'
 {
   titulo: 'Renacimiento como gobernante fatuo y autoindulgente',
   ingles: 'Rebirth As a Fatuous and Self-indulgent Ruler',
+  original: '重生成昏君',
   slug: 'Renacimiento_como_gobernante_fatuo_y_autoindulgente',
   imagen: 'Renacimiento_como_gobernante_fatuo_y_autoindulgente.jpg',
   tags: 'bl china pendiente china-antigua protagonista-gong realeza transmigracion yandere',
@@ -1898,6 +2070,7 @@ capitulos: '181'
 {
   titulo: 'Primavera una vez más',
   ingles: 'Spring Once More',
+  original: '又一春',
   slug: 'Primavera_una_vez_más',
   imagen: 'Primavera_una_vez_más.jpg',
   tags: 'bl china pendiente china-antigua comedia harem protagonista-gong realeza transmigracion',
@@ -1909,6 +2082,7 @@ capitulos: '181'
 {
   titulo: 'Por los campos de cultivo llenos de primavera',
   ingles: 'Through the Farming Fields Full of Spring',
+  original: '穿越种田之满堂春',
   slug: 'Por_los_campos_de_cultivo_llenos_de_primavera',
   imagen: 'Por_los_campos_de_cultivo_llenos_de_primavera.jpg',
   tags: 'bl china pendiente china-antigua agricultura ger mpreg ninos transmigracion',
@@ -1920,6 +2094,7 @@ capitulos: '181'
 {
   titulo: 'Pequeño Ger, vida lenta en otro mundo',
   ingles: 'Little Ger, Slow Life in Another World',
+  original: '小哥儿异世慢生活',
   slug: 'Pequeño_Ger,_vida_lenta_en_otro_mundo',
   imagen: 'Pequeño_Ger,_vida_lenta_en_otro_mundo.jpg',
   tags: 'bl china pendiente china-antigua agricultura ger mpreg vida-diaria transmigracion',
@@ -1931,6 +2106,7 @@ capitulos: '181'
 {
   titulo: 'Novia falsa',
   ingles: 'Counterfeit Bride',
+  original: '冒牌新娘',
   slug: 'Novia_falsa',
   imagen: 'Novia_falsa.jpg',
   tags: 'bl china finalizado china-antigua gender-bender novela-erotica',
@@ -1942,6 +2118,7 @@ capitulos: '181'
 {
   titulo: 'No te amé lo suficiente',
   ingles: 'Didn’t Love You Enough',
+  original: '重生之宠你不够',
   slug: 'No_te_amé_lo_suficiente',
   imagen: 'No_te_amé_lo_suficiente.jpg',
   tags: 'bl china en-proceso china-antigua drama ger matrimonio mpreg realeza renacimiento',
@@ -1953,6 +2130,7 @@ capitulos: '181'
 {
   titulo: '¡No puedes ser feroz conmigo!',
   ingles: 'You Can’t Be Fierce Towards Me!',
+  original: '你不许凶我！QAQ【重生】',
   slug: 'No_puedes_ser_feroz_conmigo',
   imagen: 'No_puedes_ser_feroz_conmigo.jpg',
   tags: 'bl china pendiente china-antigua comedia renacimiento vida-diaria venganza',
@@ -1964,6 +2142,7 @@ capitulos: '181'
 {
   titulo: 'Mi marido duro',
   ingles: 'My Tough Husband',
+  original: '家有悍夫郎',
   slug: 'Mi_marido_duro',
   imagen: 'Mi_marido_duro.jpg',
   tags: 'bl china pendiente china-antigua comedia cultivo ger mpreg protagonista-gong realeza transmigracion',
@@ -1975,6 +2154,7 @@ capitulos: '181'
 {
   titulo: 'Mi guardia de la sombra me marcó después de fingir ser un alfa',
   ingles: 'I Got Marked By My Shadow Guard After Pretending To Be An Alpha',
+  original: '装A后被影卫标记了',
   slug: 'Mi_guardia_de_la_sombra_me_marcó_después_de_fingir_ser_un_alfa',
   imagen: 'Mi_guardia_de_la_sombra_me_marcó_después_de_fingir_ser_un_alfa.jpg',
   tags: 'bl china pendiente china-antigua mpreg omegaverse realeza',
@@ -1986,6 +2166,7 @@ capitulos: '181'
 {
   titulo: 'La vida agrícola diaria de Li Jin transmigrado',
   ingles: 'The Transmigrated Li Jin’s Daily Farming Life',
+  original: '穿越之黎锦的农家日常',
   slug: 'La_vida_agrícola_diaria_de_Li_Jin_transmigrado',
   imagen: 'La_vida_agrícola_diaria_de_Li_Jin_transmigrado.jpg',
   tags: 'bl china pendiente china-antigua agricultura ger mpreg ninos protagonista-gong transmigracion',
@@ -1997,6 +2178,7 @@ capitulos: '181'
 {
   titulo: 'La transmigración del maestro de la planta espiritual',
   ingles: 'The Spiritual Plant Master Transmigration',
+  original: '穿越之灵植师',
   slug: 'La_transmigración_del_maestro_de_la_planta_espiritual',
   imagen: 'La_transmigración_del_maestro_de_la_planta_espiritual.jpg',
   tags: 'bl china pendiente china-antigua agricultura cultivo mpreg ninos protagonista-gong vida-diaria transmigracion',
@@ -2008,6 +2190,7 @@ capitulos: '181'
 {
   titulo: 'La transmigración de Mian [a regañadientes] se convierte en su hombre [esposa]',
   ingles: 'Transmigration of Mian [Reluctantly] Becomes His Man [Wife]',
+  original: '穿越之勉为其男',
   slug: 'La_transmigración_de_Mian_[a_regañadientes]_se_convierte_en_su_hombre_[esposa]',
   imagen: 'La_transmigración_de_Mian_[a_regañadientes]_se_convierte_en_su_hombre_[esposa].jpg',
   tags: 'bl china pendiente china-antigua agricultura cultivo mpreg ninos vida-diaria transmigracion',
@@ -2019,6 +2202,7 @@ capitulos: '181'
 {
   titulo: 'Hoy el Primer Ministro también quiere golpearse la cabeza contra el pilar',
   ingles: 'Today Prime Minister Also Wants to Bang His Head on the Pillar',
+  original: '丞相今天也想撞柱子',
   slug: 'Hoy_el_Primer_Ministro_también_quiere_golpearse_la_cabeza_contra_el_pilar',
   imagen: 'Hoy_el_Primer_Ministro_también_quiere_golpearse_la_cabeza_contra_el_pilar.jpg',
   tags: 'bl china pendiente china-antigua comedia matrimonio punto-de-vista-multiple realeza novela-erotica',
@@ -2030,6 +2214,7 @@ capitulos: '181'
 {
   titulo: 'Ganarse la vida, realizar exámenes y apoyar a la familia a través del sistema de exámenes imperial rural',
   ingles: 'Earning a Living, Taking Examinations, and Supporting the Family Through the Rural Imperial Examinations System',
+  original: '农门科举之赚钱，考试，养家',
   slug: 'Ganarse_la_vida,_realizar_exámenes_y_apoyar_a_la_familia_a_través_del_sistema_de_exámenes_imperial_rural',
   imagen: 'Ganarse_la_vida,_realizar_exámenes_y_apoyar_a_la_familia_a_través_del_sistema_de_exámenes_imperial_rural.jpg',
   tags: 'bl china pendiente china-antigua agricultura comedia ger mpreg vida-diaria transmigracion',
@@ -2041,6 +2226,7 @@ capitulos: '181'
 {
   titulo: 'El tirano cruel',
   ingles: 'The Cruel Tyrant',
+  original: '暴君',
   slug: 'El_tirano_cruel',
   imagen: 'El_tirano_cruel.jpg',
   tags: 'bl china pendiente china-antigua enemigos-a-amantes harem realeza novela-erotica transmigracion',
@@ -2052,6 +2238,7 @@ capitulos: '181'
 {
   titulo: 'El sustituto de la belleza enfermiza abandono el trabajo',
   ingles: 'The Sickly Beauty Substitute Called It Quits',
+  original: '病美人替身不干了',
   slug: 'El_sustituto_de_la_belleza_enfermiza_abandono_el_trabajo',
   imagen: 'El_sustituto_de_la_belleza_enfermiza_abandono_el_trabajo.jpg',
   tags: 'bl china pendiente china-antigua lucha-de-poder matrimonio-arreglado renacimiento',
@@ -2063,6 +2250,7 @@ capitulos: '181'
 {
   titulo: 'El renacimiento del general que siempre se ve a sí mismo como un sustituto',
   ingles: 'The Rebirth Of The General Who Always Sees Himself As A Replacement',
+  original: '重生之将军总把自己当替身',
   slug: 'El_renacimiento_del_general_que_siempre_se_ve_a_sí_mismo_como_un_sustituto',
   imagen: 'El_renacimiento_del_general_que_siempre_se_ve_a_sí_mismo_como_un_sustituto.jpg',
   tags: 'bl china pendiente china-antigua comedia lucha-de-poder malentendidos matrimonio realeza renacimiento venganza',
@@ -2074,6 +2262,7 @@ capitulos: '181'
 {
   titulo: 'El pequeño y dulce Fulang',
   ingles: 'The Sweet Little Fulang',
+  original: '乖乖小夫郎',
   slug: 'El_pequeño_y_dulce_Fulang',
   imagen: 'El_pequeño_y_dulce_Fulang.jpg',
   tags: 'bl china pendiente china-antigua agricultura ger matrimonio-arreglado mpreg vida-diaria',
@@ -2085,6 +2274,7 @@ capitulos: '181'
 {
   titulo: 'El pájaro Nie Bufan',
   ingles: 'Bird Dude Nie Bufan',
+  original: '禽货聂不凡',
   slug: 'El_pájaro_Nie_Bufan',
   imagen: 'El_pájaro_Nie_Bufan.jpg',
   tags: 'bl china pendiente china-antigua harem mpreg novela-erotica sobrenatural transmigracion',
@@ -2096,6 +2286,7 @@ capitulos: '181'
 {
   titulo: 'El magnate culinario',
   ingles: 'The Culinary Tycoon',
+  original: '种田之美食大亨',
   slug: 'El_magnate_culinario',
   imagen: 'El_magnate_culinario.jpg',
   tags: 'bl china pendiente china-antigua agricultura mpreg protagonista-gong vida-diaria transmigracion',
@@ -2107,6 +2298,7 @@ capitulos: '181'
 {
   titulo: 'El gran propietario',
   ingles: 'The Big Landlord',
+  original: '大地主',
   slug: 'El_gran_propietario',
   imagen: 'El_gran_propietario.jpg',
   tags: 'bl china pendiente china-antigua aristocracia matrimonio-arreglado r18 realeza transmigracion',
@@ -2118,6 +2310,7 @@ capitulos: '181'
 {
   titulo: 'El emperador sumiso',
   ingles: 'The Submissive Emperor',
+  original: '君为下',
   slug: 'El_emperador_sumiso',
   imagen: 'El_emperador_sumiso.jpg',
   tags: 'bl china pendiente china-antigua comedia matrimonio-arreglado protagonista-gong realeza',
@@ -2129,6 +2322,7 @@ capitulos: '181'
 {
   titulo: 'El camino del contraataque de carne de cañón',
   ingles: 'The Path of the Cannon Fodder’s Counterattack',
+  original: '炮灰逆袭之路',
   slug: 'El_camino_del_contraataque_de_carne_de_cañón',
   imagen: 'El_camino_del_contraataque_de_carne_de_cañón.jpg',
   tags: 'bl china pendiente china-antigua realeza renacimiento transportado-a-otro-mundo',
@@ -2140,6 +2334,7 @@ capitulos: '181'
 {
   titulo: 'Diario de la esposa mimada del tirano',
   ingles: 'Tyrant Pampering Wife Diary',
+  original: '暴君宠婚日常',
   slug: 'Diario_de_la_esposa_mimada_del_tirano',
   imagen: 'Diario_de_la_esposa_mimada_del_tirano.jpg',
   tags: 'bl china pendiente china-antigua comedia matrimonio mpreg realeza renacimiento venganza yandere',
@@ -2151,6 +2346,7 @@ capitulos: '181'
 {
   titulo: 'Después de que el Gong carne de cañon comenzara a cultivar, tuvo HE con el protagonista masculino frío',
   ingles: 'After Cannon Fodder Gong Started Farming, He Had HE With the Cold Male Protagonist',
+  original: '炮灰攻种田后和高冷男主HE了（穿书）',
   slug: 'Después_de_que_el_Gong_carne_de_cañon_comenzara_a_cultivar,_tuvo_HE_con_el_protagonista_masculino_frío',
   imagen: 'Después_de_que_el_Gong_carne_de_cañon_comenzara_a_cultivar,_tuvo_HE_con_el_protagonista_masculino_frío.jpg',
   tags: 'bl china pendiente china-antigua discapacidad mpreg protagonista-gong vida-diaria transmigracion',
@@ -2162,6 +2358,7 @@ capitulos: '181'
 {
   titulo: 'Cariño especial',
   ingles: 'Special Fondness',
+  original: '独钟',
   slug: 'Cariño_especial',
   imagen: 'Cariño_especial.jpg',
   tags: 'bl china pendiente china-antigua matrimonio-arreglado novela-erotica',
@@ -2173,6 +2370,7 @@ capitulos: '181'
 {
   titulo: 'Mi cereza explotará en el Apocalipsis',
   ingles: 'My Cherry Will Explode in the Apocalypse',
+  original: '末世之我的樱桃会爆炸',
   slug: 'Mi_cereza_explotará_en_el_Apocalipsis',
   imagen: 'Mi_cereza_explotará_en_el_Apocalipsis.jpg',
   tags: 'bl china pendiente apocalipsis renacimiento vida-diaria zombies',
@@ -2184,6 +2382,7 @@ capitulos: '181'
 {
   titulo: 'Esposa zombi número uno',
   ingles: 'Number One Zombie Wife',
+  original: '第一尸妻',
   slug: 'Esposa_zombi_número_uno',
   imagen: 'Esposa_zombi_número_uno.jpg',
   tags: 'bl china pendiente apocalipsis amnesia comedia enemigos-a-amantes mpreg no-humano renacimiento sobrenatural transmigracion zombies',
@@ -2195,6 +2394,7 @@ capitulos: '181'
 {
   titulo: 'El renacimiento de los últimos días y el regreso de [Fang] Hao',
   ingles: 'The Rebirth of the Last Days and Return to [Fang] Hao',
+  original: '末世重生之重归于郝',
   slug: 'El_renacimiento_de_los_últimos_días_y_el_regreso_de_[Fang]_Hao',
   imagen: 'El_renacimiento_de_los_últimos_días_y_el_regreso_de_[Fang]_Hao.jpg',
   tags: 'bl china pendiente apocalipsis protagonista-gong renacimiento vida-diaria zombies',
@@ -2206,6 +2406,7 @@ capitulos: '181'
 {
   titulo: 'Después de cepillar la cara al jefe del Apocalipsis durante 363 días',
   ingles: 'After Brushing Face At The Apocalypse’s Boss For 363 Days',
+  original: '在末世BOSS面前刷脸卡363天之后',
   slug: 'Después_de_cepillar_la_cara_al_jefe_del_Apocalipsis_durante_363_días',
   imagen: 'Después_de_cepillar_la_cara_al_jefe_del_Apocalipsis_durante_363_días.jpg',
   tags: 'bl china pendiente apocalipsis comedia inteligencia-artificial malentendidos no-humano transportado-a-otro-mundo zombies',
@@ -2217,6 +2418,7 @@ capitulos: '181'
 {
   titulo: 'De vuelta al Apocalipsis: El renacimiento de Bai Jing',
   ingles: 'Back to the Apocalypse: The Rebirth of Bai Jing',
+  original: '末世重生之少爺',
   slug: 'De_vuelta_al_Apocalipsis_El_renacimiento_de_Bai_Jing',
   imagen: 'De_vuelta_al_Apocalipsis_El_renacimiento_de_Bai_Jing.jpg',
   tags: 'bl china pendiente apocalipsis protagonista-op r18 renacimiento vida-diaria yandere zombies',
@@ -2228,6 +2430,7 @@ capitulos: '181'
 {
   titulo: 'Contraataque de un Loto Blanco que renació en un Apocalipsis',
   ingles: 'Counterattack of a White Lotus that was Reborn into an Apocalypse',
+  original: '末世重生之白莲花的逆袭',
   slug: 'Contraataque_de_un_Loto_Blanco_que_renació_en_un_Apocalipsis',
   imagen: 'Contraataque_de_un_Loto_Blanco_que_renació_en_un_Apocalipsis.jpg',
   tags: 'bl china pendiente apocalipsis comedia cultivo malentendidos protagonista-gong sobrenatural transmigracion zombies',
@@ -2239,6 +2442,7 @@ capitulos: '181'
 {
   titulo: 'De vuelta al campo',
   ingles: 'Back to the Countryside',
+  original: '归隐乡野',
   slug: 'De_vuelta_al_campo',
   imagen: 'De_vuelta_al_campo.jpg',
   tags: 'bl china finalizado china-antigua agricultura ger matrimonio mpreg protagonista-gong vida-diaria',
@@ -2250,6 +2454,7 @@ capitulos: '181'
 {
   titulo: 'El segundo protagonista masculino enamorado no existe [Transmigración al libro]',
   ingles: 'The Infatuated Second Male Lead Doesn’t Exist [Transmigration into Book]',
+  original: '痴情男二不存在的[穿书]',
   slug: 'El_segundo_protagonista_masculino_enamorado_no_existe_[Transmigración_al_libro]',
   imagen: 'El_segundo_protagonista_masculino_enamorado_no_existe_[Transmigración_al_libro].jpg',
   tags: 'bl china finalizado moderno discapacidad drama industria-del-entretenimiento protagonista-gong transmigracion',
@@ -2261,6 +2466,7 @@ capitulos: '181'
 {
   titulo: 'Cómo decir "Te amo"',
   ingles: 'How To Say I Love You',
+  original: '爱你怎么说',
   slug: 'Cómo_decir_Te_amo',
   imagen: 'Cómo_decir_Te_amo.jpg',
   tags: 'bl china finalizado moderno drama industria-del-entretenimiento r18',
@@ -2272,6 +2478,7 @@ capitulos: '181'
 {
   titulo: 'El PNJ de la novela abusiva se está relajando [Transmigración rápida]',
   ingles: 'The NPC in the Abusive Novel is Slacking Off [Quick Transmigration]',
+  original: '虐主文的NPC消极怠工了 [快穿]',
   slug: 'El_PNJ_de_la_novela_abusiva_se_está_relajando_[Transmigración_rápida]',
   imagen: 'El_PNJ_de_la_novela_abusiva_se_está_relajando_[Transmigración_rápida].jpg',
   tags: 'bl china en-proceso multiples-mundos inteligencia-artificial matrimonio multiples-protagonistas no-humano omegaverse protagonista-gong realeza sistema transmigracion zerg',
@@ -2283,6 +2490,7 @@ capitulos: '181'
 {
   titulo: 'Después de que los maridos gemelos intercambiaron sus vidas',
   ingles: 'After the Twin Husbands Swapped Lives',
+  original: '双生夫郎互换人生后',
   slug: 'Después_de_que_los_maridos_gemelos_intercambiaron_sus_vidas',
   imagen: 'Después_de_que_los_maridos_gemelos_intercambiaron_sus_vidas.jpg',
   tags: 'bl china en-proceso china-antigua agricultura ger matrimonio-arreglado mpreg vida-diaria',
@@ -2294,6 +2502,7 @@ capitulos: '181'
 {
   titulo: 'Sobre las mil posturas reconstruidas por los canallas',
   ingles: 'On the Thousand Postures Reconstructed by the Scumbags',
+  original: '论渣男改造的一千种姿势',
   slug: 'Sobre_las_mil_posturas_reconstruidas_por_los_canallas',
   imagen: 'Sobre_las_mil_posturas_reconstruidas_por_los_canallas.jpg',
   tags: 'bl china mtl multiples-mundos comedia no-humano protagonista-gong sistema transmigracion',
@@ -2305,6 +2514,7 @@ capitulos: '181'
 {
   titulo: 'El rescate del trágico villano está en progreso',
   ingles: 'The Rescue Of The Tragic Villain Is In Progress',
+  original: '拯救悲情反派进行时！',
   slug: 'El_rescate_del_trágico_villano_está_en_progreso',
   imagen: 'El_rescate_del_trágico_villano_está_en_progreso.jpg',
   tags: 'bl china en-proceso multiples-mundos comedia discapacidad ger inteligencia-artificial lucha-de-poder multiples-protagonistas no-humano sistema transmigracion zerg',
@@ -2316,6 +2526,7 @@ capitulos: '181'
 {
   titulo: 'En el futuro, todo mi cuerpo es un tesoro',
   ingles: 'In the Future, My Whole Body is a Treasure',
+  original: '未来之全身是宝',
   slug: 'En_el_futuro,_todo_mi_cuerpo_es_un_tesoro',
   imagen: 'En_el_futuro,_todo_mi_cuerpo_es_un_tesoro.jpg',
   tags: 'bl china finalizado futurista bestia-humanizada comedia cultivo matrimonio-arreglado mpreg ninos no-humano shota transportado-a-otro-mundo',
@@ -2327,6 +2538,7 @@ capitulos: '181'
 {
   titulo: 'Un nido de serpientes dentro de una tumba antigua',
   ingles: 'A Nest of Snakes Inside an Old Tomb',
+  original: '天敌饲养指南',
   slug: 'Un_nido_de_serpientes_dentro_de_una_tumba_antigua',
   imagen: 'Un_nido_de_serpientes_dentro_de_una_tumba_antigua.jpg',
   tags: 'bl china finalizado fantasia animales comedia mpreg no-humano reencarnacion',
@@ -2338,6 +2550,7 @@ capitulos: '181'
 {
   titulo: 'Xiao Jiu',
   ingles: 'Xiao Jiu',
+  original: '小九',
   slug: 'Xiao_Jiu',
   imagen: 'Xiao_Jiu.jpg',
   tags: 'bl china finalizado china-antigua malentendidos matrimonio realeza novela-erotica',
@@ -2349,6 +2562,7 @@ capitulos: '181'
 {
   titulo: 'Vengo de lejos entre los Zerg',
   ingles: 'I Come from Afar Within the Zerg',
+  original: '虫族之我来自远方',
   slug: 'Vengo_de_lejos_entre_los_Zerg',
   imagen: 'Vengo_de_lejos_entre_los_Zerg.jpg',
   tags: 'bl china finalizado futurista aristocracia multiples-protagonistas protagonista-gong realeza transportado-a-otro-mundo zerg',
@@ -2360,6 +2574,7 @@ capitulos: '181'
 {
   titulo: 'Usa rápidamente la cara del diablo',
   ingles: 'Quickly Wear the Face of the Devil',
+  original: '快穿之打脸狂魔',
   slug: 'Usa_rápidamente_la_cara_del_diablo',
   imagen: 'Usa_rápidamente_la_cara_del_diablo.jpg',
   tags: 'bl china finalizado multiples-mundos drama protagonista-op novela-erotica transmigracion venganza yandere',
@@ -2371,6 +2586,7 @@ capitulos: '181'
 {
   titulo: 'Una guía para criar a tu enemigo natural',
   ingles: 'A Guide to Raising Your Natural Enemy',
+  original: '天敌饲养指南',
   slug: 'Una_guía_para_criar_a_tu_enemigo_natural',
   imagen: 'Una_guía_para_criar_a_tu_enemigo_natural.jpg',
   tags: 'bl china finalizado futurista bestia-humanizada comedia cultivo hombre-bestia maestro-discipulo matrimonio mpreg ninos transportado-a-otro-mundo',
@@ -2382,6 +2598,7 @@ capitulos: '181'
 {
   titulo: 'Transmigrado en el esposo de un herrero',
   ingles: 'Transmigrated into a Blacksmith’s Husband',
+  original: '穿成铁匠夫郎',
   slug: 'Transmigrado_en_el_esposo_de_un_herrero',
   imagen: 'Transmigrado_en_el_esposo_de_un_herrero.jpg',
   tags: 'bl china finalizado china-antigua agricultura ger matrimonio-arreglado mpreg vida-diaria transmigracion',
@@ -2393,6 +2610,7 @@ capitulos: '181'
 {
   titulo: 'Todo el mundo sabe que soy una buena persona',
   ingles: 'Everyone Knows I’m a Good Person',
+  original: '全世界都知道我是好人[快穿]',
   slug: 'Todo_el_mundo_sabe_que_soy_una_buena_persona',
   imagen: 'Todo_el_mundo_sabe_que_soy_una_buena_persona.jpg',
   tags: 'bl china finalizado multiples-mundos amnesia comedia inteligencia-artificial no-humano protagonista-op sistema transmigracion',
@@ -2404,6 +2622,7 @@ capitulos: '181'
 {
   titulo: 'Te veo',
   ingles: 'I See You',
+  original: '看见你了',
   slug: 'Te_veo',
   imagen: 'Te_veo.jpg',
   tags: 'bl china finalizado china-antigua discapacidad malentendidos matrimonio-arreglado',
@@ -2415,6 +2634,7 @@ capitulos: '181'
 {
   titulo: 'Siete días como villano',
   ingles: 'Seven Days as a Villain',
+  original: '悪役令息の7日間',
   slug: 'Siete_días_como_villano',
   imagen: 'Siete_días_como_villano.jpg',
   tags: 'bl japon finalizado europa-antigua aristocracia r18 reencarnacion',
@@ -2426,6 +2646,7 @@ capitulos: '181'
 {
   titulo: 'Renacimiento del pequeño lobo Shou de pantalones de seda',
   ingles: 'Rebirth of the Wolfish Silkpants Bottom',
+  original: '重生之纨袴小狼受',
   slug: 'Renacimiento_del_pequeño_lobo_Shou_de_pantalones_de_seda',
   imagen: 'Renacimiento_del_pequeño_lobo_Shou_de_pantalones_de_seda.jpg',
   tags: 'bl china finalizado moderno drama r18 renacimiento shota vida-diaria venganza',
@@ -2437,6 +2658,7 @@ capitulos: '181'
 {
   titulo: 'Renacimiento de una estrella de cine',
   ingles: 'Rebirth of a Movie Star',
+  original: '重生之朗朗星空',
   slug: 'Renacimiento_de_una_estrella_de_cine',
   imagen: 'Renacimiento_de_una_estrella_de_cine.jpg',
   tags: 'bl china finalizado moderno drama industria-del-entretenimiento ninos renacimiento vida-diaria',
@@ -2448,9 +2670,10 @@ capitulos: '181'
 {
   titulo: 'Renacer como un sistema',
   ingles: 'Reborn As a System',
+  original: '重生成系统',
   slug: 'Renacer_como_un_sistema',
   imagen: 'Renacer_como_un_sistema.jpg',
-  tags: 'bl china finalizado multiples-mundos no-humano renacimiento sistema novela-erotica transmigracion yandere',
+  tags: 'bl china finalizado multiples-mundos no-humano r18 renacimiento sistema novela-erotica transmigracion yandere',
   autor: 'your-glory',
   link: 'https://drive.google.com/drive/u/4/folders/1omYjIaudPKQucuihTgjFGvt9L96a_PZT',
   capitulos: '103 + 2 extras'
@@ -2459,6 +2682,7 @@ capitulos: '181'
 {
   titulo: '¡Realmente soy un Shou escoria!',
   ingles: 'I Really Am a Slag Shou!',
+  original: '我真的是渣受',
   slug: 'Realmente_soy_un_Shou_escoria',
   imagen: 'Realmente_soy_un_Shou_escoria.jpg',
   tags: 'bl china finalizado multiples-mundos comedia sistema transmigracion yandere',
@@ -2470,6 +2694,7 @@ capitulos: '181'
 {
   titulo: 'Querido esposo',
   ingles: 'Beloved Husband',
+  original: '宠夫（快穿）',
   slug: 'Querido_esposo',
   imagen: 'Querido_esposo.jpg',
   tags: 'bl china finalizado multiples-mundos amnesia comedia protagonista-gong protagonista-op vida-diaria',
@@ -2481,6 +2706,7 @@ capitulos: '181'
 {
   titulo: '¿Por qué los protagonistas Gong y Shou pelean por mí?',
   ingles: 'Why are the Protagonist Gong and Shou Fighting Because of Me?',
+  original: '主角攻受怎么为我打起来了',
   slug: 'Por_qué_los_protagonistas_Gong_y_Shou_pelean_por_mí',
   imagen: 'Por_qué_los_protagonistas_Gong_y_Shou_pelean_por_mí.jpg',
   tags: 'bl china finalizado futurista comedia ger malentendidos omegaverse',
@@ -2492,6 +2718,7 @@ capitulos: '181'
 {
   titulo: 'Por el bien de su pareja, incluso este villano puede cambiar de rol',
   ingles: 'For the Sake of His Partner, Even This Villain Can Change Roles',
+  original: '为了伴侣，这个反派也可以不当',
   slug: 'Por_el_bien_de_su_pareja,_incluso_este_villano_puede_cambiar_de_rol',
   imagen: 'Por_el_bien_de_su_pareja,_incluso_este_villano_puede_cambiar_de_rol.jpg',
   tags: 'bl china finalizado multiples-mundos multiples-protagonistas no-humano sobrenatural transmigracion',
@@ -2503,6 +2730,7 @@ capitulos: '181'
 {
   titulo: 'Pequeño tonto',
   ingles: 'Little Fool',
+  original: '小呆子(H)',
   slug: 'Pequeño_tonto',
   imagen: 'Pequeño_tonto.jpg',
   tags: 'bl china finalizado china-antigua discapacidad ger matrimonio novela-erotica',
@@ -2514,6 +2742,7 @@ capitulos: '181'
 {
   titulo: 'Omega tonto atado al sistema de rebobinado',
   ingles: 'Foolish Omega Bound to the Rewind System',
+  original: '笨蛋omega綁定回檔係統',
   slug: 'Omega_tonto_atado_al_sistema_de_rebobinado',
   imagen: 'Omega_tonto_atado_al_sistema_de_rebobinado.jpg',
   tags: 'bl china finalizado moderno comedia omegaverse sistema vida-diaria transmigracion',
@@ -2525,6 +2754,7 @@ capitulos: '181'
 {
   titulo: 'Obligado a casarse con una placa conmemorativa',
   ingles: 'Forced to Marry a Memorial Tablet',
+  original: '被迫嫁給牌位後',
   slug: 'Obligado_a_casarse_con_una_placa_conmemorativa',
   imagen: 'Obligado_a_casarse_con_una_placa_conmemorativa.jpg',
   tags: 'bl china finalizado china-antigua agricultura malentendidos matrimonio-arreglado mpreg ninos sobrenatural wuxia',
@@ -2536,6 +2766,7 @@ capitulos: '181'
 {
   titulo: '¿No te gusto?',
   ingles: 'Don’t You Like Me',
+  original: '你是不是喜欢我',
   slug: 'No_te_gusto',
   imagen: 'No_te_gusto.jpg',
   tags: 'bl china finalizado moderno comedia malentendidos vida-escolar sobrenatural',
@@ -2547,6 +2778,7 @@ capitulos: '181'
 {
   titulo: 'No soy humano',
   ingles: 'I’m Not Human',
+  original: '我不做人了',
   slug: 'No_soy_humano',
   imagen: 'No_soy_humano.jpg',
   tags: 'bl china finalizado futurista comedia no-humano protagonista-op reencarnacion vida-diaria zerg',
@@ -2558,6 +2790,7 @@ capitulos: '181'
 {
   titulo: 'No seas un hombre mantenido',
   ingles: 'Don’t Be a Kept Man',
+  original: '不做软饭男',
   slug: 'No_seas_un_hombre_mantenido',
   imagen: 'No_seas_un_hombre_mantenido.jpg',
   tags: 'bl china finalizado multiples-mundos multiples-protagonistas protagonista-gong renacimiento sistema transmigracion',
@@ -2569,6 +2802,7 @@ capitulos: '181'
 {
   titulo: 'Mi marido varonil favorito',
   ingles: 'My Favorite Manly Husband',
+  original: '恶霸的娇夫郎',
   slug: 'Mi_marido_varonil_favorito',
   imagen: 'Mi_marido_varonil_favorito.jpg',
   tags: 'bl china finalizado china-antigua agricultura amnesia aristocracia ger matrimonio mpreg transmigracion',
@@ -2580,6 +2814,7 @@ capitulos: '181'
 {
   titulo: 'Mi marido lobo',
   ingles: 'My Wolf Husband',
+  original: '狼相公',
   slug: 'Mi_marido_lobo',
   imagen: 'Mi_marido_lobo.jpg',
   tags: 'bl china finalizado china-antigua bestia-humanizada ger mpreg no-humano transmigracion',
@@ -2591,6 +2826,7 @@ capitulos: '181'
 {
   titulo: 'Marido, déjame tocar tus abdominales',
   ingles: 'Husband, Let Me Touch Your Abs',
+  original: '夫君，給我摸摸腹肌',
   slug: 'Marido,_déjame_tocar_tus_abdominales',
   imagen: 'Marido,_déjame_tocar_tus_abdominales.jpg',
   tags: 'bl china finalizado china-antigua agricultura ger mpreg ninos r18 vida-diaria transmigracion',
@@ -2602,6 +2838,7 @@ capitulos: '181'
 {
   titulo: 'Marca accidental',
   ingles: 'Accidental Mark',
+  original: '意外标记',
   slug: 'Marca_accidental',
   imagen: 'Marca_accidental.jpg',
   tags: 'bl china finalizado moderno comedia industria-del-entretenimiento omegaverse protagonista-gong sistema vida-diaria transmigracion',
@@ -2613,6 +2850,7 @@ capitulos: '181'
 {
   titulo: 'La esposa es primero',
   ingles: 'The Wife is First',
+  original: '妻为上',
   slug: 'La_esposa_es_primero',
   imagen: 'La_esposa_es_primero.jpg',
   tags: 'bl china finalizado china-antigua matrimonio-arreglado protagonista-gong realeza renacimiento novela-erotica venganza',
@@ -2624,6 +2862,7 @@ capitulos: '181'
 {
   titulo: 'La esposa del Legendario Maestro',
   ingles: 'The Legendary Master’s Wife',
+  original: '傳說之主的夫人',
   slug: 'La_esposa_del_Legendario_Maestro',
   imagen: 'La_esposa_del_Legendario_Maestro.jpg',
   tags: 'bl china finalizado cultivacion bestia-humanizada cultivo no-humano transmigracion xuanhuan',
@@ -2635,9 +2874,10 @@ capitulos: '181'
 {
   titulo: 'La breve historia de ShaoWang',
   ingles: 'The Short Story of ShaoWang',
+  original: '少汪几句',
   slug: 'La_breve_historia_de_ShaoWang',
   imagen: 'La_breve_historia_de_ShaoWang.jpg',
-  tags: 'bl china finalizado moderno comedia mpreg omegaverse novela-erotica',
+  tags: 'bl china finalizado moderno comedia mpreg omegaverse r18',
   autor: 'bing-kuai-er',
   link: 'https://drive.google.com/drive/u/4/folders/1GBeSSCyUz9PNrvV4xOAE9LeVpJ-VwJni',
   capitulos: '58 + 12 extras'
@@ -2646,6 +2886,7 @@ capitulos: '181'
 {
   titulo: 'La belleza enferma se casa con un ciudadano que transmigró en un libro',
   ingles: 'The Sick Beauty Marries a Fellow Townsman Who Transmigrated into a Book',
+  original: '病美人嫁给穿书同乡后',
   slug: 'La_belleza_enferma_se_casa_con_un_ciudadano_que_transmigró_en_un_libro',
   imagen: 'La_belleza_enferma_se_casa_con_un_ciudadano_que_transmigró_en_un_libro.jpg',
   tags: 'bl china finalizado china-antigua comedia lucha-de-poder malentendidos matrimonio-arreglado punto-de-vista-multiple realeza vida-diaria transmigracion venganza',
@@ -2657,9 +2898,10 @@ capitulos: '181'
 {
   titulo: 'La amada emperatriz del tirano',
   ingles: 'The Tyrant’s Beloved Empress',
+  original: '暴君的宠后[重生]',
   slug: 'La_amada_emperatriz_del_tirano',
   imagen: 'La_amada_emperatriz_del_tirano.jpg',
-  tags: 'bl china finalizado china-antigua lucha-de-poder matrimonio-arreglado mpreg renacimiento',
+  tags: 'bl china finalizado china-antigua lucha-de-poder matrimonio-arreglado mpreg r18 renacimiento',
   autor: 'xiu-sheng',
   link: 'https://drive.google.com/drive/u/4/folders/10H0m0hO_22ah9NK-n26xUw0rjqBvP6Bm',
   capitulos: '135 + 3 extras'
@@ -2668,6 +2910,7 @@ capitulos: '181'
 {
   titulo: 'Juego Cargando',
   ingles: 'Game Loading',
+  original: '游戏加载中',
   slug: 'Juego_Cargando',
   imagen: 'Juego_Cargando.jpg',
   tags: 'bl china finalizado multiples-mundos comedia transmigracion yandere',
@@ -2679,9 +2922,10 @@ capitulos: '181'
 {
   titulo: 'Hogar de los zerg',
   ingles: 'Home of the Zerg',
+  original: '蟲族之歸家',
   slug: 'Hogar_de_los_zerg',
   imagen: 'Hogar_de_los_zerg.jpg',
-  tags: 'bl china finalizado futurista matrimonio mpreg ninos no-humano protagonista-gong vida-diaria transmigracion zerg',
+  tags: 'bl china finalizado futurista matrimonio mpreg ninos no-humano novela-erotica protagonista-gong vida-diaria transmigracion zerg',
   autor: 'heng-heng',
   link: 'https://drive.google.com/drive/u/4/folders/1Np_fp34kMWUeoIblm0rmvWmFV6GC6KcX',
   capitulos: '45 + 12 extras'
@@ -2690,6 +2934,7 @@ capitulos: '181'
 {
   titulo: 'Gallo x gallo',
   ingles: 'Rooster X Rooster',
+  original: '鸡夫夫 (ABO)',
   slug: 'Gallo_x_gallo',
   imagen: 'Gallo_x_gallo.jpg',
   tags: 'bl china finalizado china-antigua animales comedia mpreg no-humano omegaverse novela-erotica',
@@ -2701,6 +2946,7 @@ capitulos: '181'
 {
   titulo: 'Especies raras interestelares',
   ingles: 'Interstellar Rare Species',
+  original: '星际稀有物种',
   slug: 'Especies_raras_interestelares',
   imagen: 'Especies_raras_interestelares.jpg',
   tags: 'bl china finalizado futurista discapacidad hombre-bestia matrimonio mpreg transportado-a-otro-mundo',
@@ -2712,6 +2958,7 @@ capitulos: '181'
 {
   titulo: 'Enamorado',
   ingles: 'In Love',
+  original: '钟情 (快穿)',
   slug: 'Enamorado',
   imagen: 'Enamorado.jpg',
   tags: 'bl china finalizado multiples-mundos amnesia comedia hombre-bestia industria-del-entretenimiento omegaverse protagonista-gong',
@@ -2723,6 +2970,7 @@ capitulos: '181'
 {
   titulo: 'El único marido feo favorito',
   ingles: 'The Only Favourite Ugly Husband',
+  original: '独宠丑夫',
   slug: 'El_único_marido_feo_favorito',
   imagen: 'El_único_marido_feo_favorito.jpg',
   tags: 'bl china finalizado china-antigua agricultura ger matrimonio ninos protagonista-gong vida-diaria',
@@ -2734,6 +2982,7 @@ capitulos: '181'
 {
   titulo: 'El tonto gong renació',
   ingles: 'The Foolish Gong was Reborn',
+  original: '沙雕攻他重生了',
   slug: 'El_tonto_gong_renació',
   imagen: 'El_tonto_gong_renació.jpg',
   tags: 'bl china finalizado moderno comedia matrimonio protagonista-gong renacimiento vida-escolar',
@@ -2745,6 +2994,7 @@ capitulos: '181'
 {
   titulo: 'El rico y honorable ChangAn',
   ingles: 'The Rich And Honorable ChangAn',
+  original: '富贵长安',
   slug: 'El_rico_y_honorable_ChangAn',
   imagen: 'El_rico_y_honorable_ChangAn.jpg',
   tags: 'bl china finalizado china-antigua drama lucha-de-poder matrimonio-arreglado mpreg realeza',
@@ -2756,6 +3006,7 @@ capitulos: '181'
 {
   titulo: 'El rascador divino del gato blanco',
   ingles: 'The White Cat’s Divine Scratching Post',
+  original: '神木挠不尽',
   slug: 'El_rascador_divino_del_gato_blanco',
   imagen: 'El_rascador_divino_del_gato_blanco.jpg',
   tags: 'bl china finalizado cultivacion bestia-humanizada comedia cultivo maestro-discipulo mascotas no-humano protagonista-gong r18 transmigracion xianxia yandere',
@@ -2767,6 +3018,7 @@ capitulos: '181'
 {
   titulo: 'El pez palmera mascota del tirano discapacitado [Transmigración]',
   ingles: 'The Disabled Tyrant’s Pet Palm Fish [Transmigration]',
+  original: '残疾暴君的掌心鱼宠[穿书]',
   slug: 'El_pez_palmera_mascota_del_tirano_discapacitado_[Transmigración]',
   imagen: 'El_pez_palmera_mascota_del_tirano_discapacitado_[Transmigración].jpg',
   tags: 'bl china finalizado china-antigua bestia-humanizada comedia discapacidad lucha-de-poder mascotas matrimonio mpreg ninos no-humano realeza sistema transformacion-animal transmigracion',
@@ -2778,6 +3030,7 @@ capitulos: '181'
 {
   titulo: 'El pervertido y el yandere',
   ingles: 'The Pervert and the Yandere',
+  original: '变态与病娇 (主攻)',
   slug: 'El_pervertido_y_el_yandere',
   imagen: 'El_pervertido_y_el_yandere.jpg',
   tags: 'bl china finalizado moderno protagonista-gong novela-erotica transportado-a-otro-mundo yandere',
@@ -2789,6 +3042,7 @@ capitulos: '181'
 {
   titulo: 'El mayordomo demonio sigue motivado hoy',
   ingles: 'The Demon Butler Is Still Motivated Today',
+  original: '恶魔管家今天依旧励志',
   slug: 'El_mayordomo_demonio_sigue_motivado_hoy',
   imagen: 'El_mayordomo_demonio_sigue_motivado_hoy.jpg',
   tags: 'bl china finalizado futurista no-humano sistema transportado-a-otro-mundo',
@@ -2800,6 +3054,7 @@ capitulos: '181'
 {
   titulo: 'El lector y el protagonista definitivamente tienen que estar en un amor verdadero',
   ingles: 'The Reader and Protagonist Definitely Have to Be in True Love',
+  original: '读者和主角绝逼是真爱',
   slug: 'El_lector_y_el_protagonista_definitivamente_tienen_que_estar_en_un_amor_verdadero',
   imagen: 'El_lector_y_el_protagonista_definitivamente_tienen_que_estar_en_un_amor_verdadero.jpg',
   tags: 'bl china finalizado fantasia comedia discapacidad hibrido novela-erotica transportado-a-otro-mundo yandere',
@@ -2811,6 +3066,7 @@ capitulos: '181'
 {
   titulo: 'El héroe helado anhela el amor',
   ingles: 'The Icy Hero is Yearning for Love',
+  original: '氷の勇者は恋に泣く',
   slug: 'El_héroe_helado_anhela_el_amor',
   imagen: 'El_héroe_helado_anhela_el_amor.jpg',
   tags: 'bl china finalizado europa-antigua drama punto-de-vista-multiple reencarnacion novela-erotica yandere',
@@ -2822,6 +3078,7 @@ capitulos: '181'
 {
   titulo: '¡El guion no es así!',
   ingles: 'The Script is Not Like This!',
+  original: '剧本不是这样的',
   slug: 'El_guion_no_es_así',
   imagen: 'El_guion_no_es_así.jpg',
   tags: 'bl china finalizado multiples-mundos comedia protagonista-gong novela-erotica transmigracion',
@@ -2833,6 +3090,7 @@ capitulos: '181'
 {
   titulo: 'El gato domesticado del emperador zombi',
   ingles: 'The Zombie Emperor’s Domesticated Cat',
+  original: '丧尸皇的家养猫',
   slug: 'El_gato_domesticado_del_emperador_zombi',
   imagen: 'El_gato_domesticado_del_emperador_zombi.jpg',
   tags: 'bl china finalizado apocalipsis bestia-humanizada cultivo mascotas no-humano reencarnacion sobrenatural transformacion-animal zombies',
@@ -2844,6 +3102,7 @@ capitulos: '181'
 {
   titulo: 'El Dragón y la "Princesa"',
   ingles: 'The Dragon and the "Princess"',
+  original: '龙与"公主"',
   slug: 'El_Dragón_y_la_Princesa',
   imagen: 'El_Dragón_y_la_Princesa.jpg',
   tags: 'bl china finalizado europa-antigua bestia-humanizada gender-bender mpreg no-humano novela-erotica realeza',
@@ -2855,6 +3114,7 @@ capitulos: '181'
 {
   titulo: 'El código de práctica del Otaku Renacido para el Apocalipsis',
   ingles: 'The Reborn Otaku’s Code of Practice for the Apocalypse',
+  original: '重生宅男的末世守則',
   slug: 'El_código_de_práctica_del_Otaku_Renacido_para_el_Apocalipsis',
   imagen: 'El_código_de_práctica_del_Otaku_Renacido_para_el_Apocalipsis.jpg',
   tags: 'bl china finalizado apocalipsis agricultura comedia renacimiento vida-diaria zombies',
@@ -2866,6 +3126,7 @@ capitulos: '181'
 {
   titulo: 'El amante leal del príncipe',
   ingles: 'The Prince’s Loyal Lover',
+  original: '王爷的忠犬攻',
   slug: 'El_amante_leal_del_príncipe',
   imagen: 'El_amante_leal_del_príncipe.jpg',
   tags: 'bl china finalizado china-antigua comedia realeza transmigracion',
@@ -2877,6 +3138,7 @@ capitulos: '181'
 {
   titulo: 'Diario de crianza del esposo de la Edad de Piedra',
   ingles: 'Stone Age Husband Raising Journal',
+  original: '史前养夫记',
   slug: 'Diario_de_crianza_del_esposo_de_la_Edad_de_Piedra',
   imagen: 'Diario_de_crianza_del_esposo_de_la_Edad_de_Piedra.jpg',
   tags: 'bl china finalizado tribal agricultura comedia compromiso-roto cultivo hombre-bestia protagonista-gong vida-diaria transmigracion',
@@ -2888,6 +3150,7 @@ capitulos: '181'
 {
   titulo: 'Desterrado a otro mundo',
   ingles: 'Banished to Another World',
+  original: '异世流放',
   slug: 'Desterrado_a_otro_mundo',
   imagen: 'Desterrado_a_otro_mundo.jpg',
   tags: 'bl china finalizado tribal agricultura enemigos-a-amantes mpreg ninos sistema transmigracion',
@@ -2899,6 +3162,7 @@ capitulos: '181'
 {
   titulo: 'Después de ser obligado a casarse con el malvado general',
   ingles: 'After Being Forced to Marry the Evil Star General',
+  original: '被迫嫁给煞星将军后',
   slug: 'Después_de_ser_obligado_a_casarse_con_el_malvado_general',
   imagen: 'Después_de_ser_obligado_a_casarse_con_el_malvado_general.jpg',
   tags: 'bl china finalizado china-antigua comedia drama lucha-de-poder matrimonio-arreglado',
@@ -2910,6 +3174,7 @@ capitulos: '181'
 {
   titulo: 'Después de que el dios discapacitado de la guerra se convirtió en mi concubina',
   ingles: 'After the Disabled God of War Became My Concubine',
+  original: '残疾战神嫁我为妾后',
   slug: 'Después_de_que_el_dios_discapacitado_de_la_guerra_se_convirtió_en_mi_concubina',
   imagen: 'Después_de_que_el_dios_discapacitado_de_la_guerra_se_convirtió_en_mi_concubina.jpg',
   tags: 'bl china finalizado china-antigua discapacidad drama lucha-de-poder malentendidos matrimonio-arreglado realeza transmigracion',
@@ -2921,6 +3186,7 @@ capitulos: '181'
 {
   titulo: 'Después de engañar a Shizun para que practicara el cultivo dual, me escapé con su bollo',
   ingles: 'After Deceiving Shizun into Dual Cultivating, I Ran Away With His Bun',
+  original: '欺骗师尊后带球跑了',
   slug: 'Después_de_engañar_a_Shizun_para_que_practicara_el_cultivo_dual,_me_escapé_con_su_bollo',
   imagen: 'Después_de_engañar_a_Shizun_para_que_practicara_el_cultivo_dual,_me_escapé_con_su_bollo.jpg',
   tags: 'bl china finalizado cultivacion comedia cultivo mpreg ninos sistema transmigracion xianxia',
@@ -2932,6 +3198,7 @@ capitulos: '181'
 {
   titulo: '¡¡¡Yo, vuestro Emperador, he sido agraviado!!!',
   ingles: 'I, Your Emperor, Have Been Wronged!!!!!!',
+  original: '朕委屈！！！！！！！',
   slug: 'Yo,_vuestro_Emperador,_he_sido_agraviado',
   imagen: 'Yo,_vuestro_Emperador,_he_sido_agraviado.jpg',
   tags: 'bl china finalizado china-antigua comedia realeza reencarnacion sistema transmigracion',
@@ -2943,6 +3210,7 @@ capitulos: '181'
 {
   titulo: 'Asociación de crianza de cachorros',
   ingles: 'Cub Raising Association',
+  original: '幼崽护养协会',
   slug: 'Asociación_de_crianza_de_cachorros',
   imagen: 'Asociación_de_crianza_de_cachorros.jpg',
   tags: 'bl china finalizado futurista ninos no-humano transportado-a-otro-mundo',
@@ -2954,6 +3222,7 @@ capitulos: '181'
 {
   titulo: 'Amante del papel',
   ingles: 'Paper Lover',
+  original: '纸片恋人',
   slug: 'Amante_del_papel',
   imagen: 'Amante_del_papel.jpg',
   tags: 'bl china finalizado moderno amnesia comedia inteligencia-artificial protagonista-gong vida-diaria',
@@ -2965,6 +3234,7 @@ capitulos: '181'
 {
   titulo: 'Después de convertirse en el demonio interior del protagonista',
   ingles: 'After Becoming the Protagonist’s Inner Demon',
+  original: '穿成主角的心魔之后',
   slug: 'Después_de_convertirse_en_el_demonio_interior_del_protagonista',
   imagen: 'Después_de_convertirse_en_el_demonio_interior_del_protagonista.jpg',
   tags: 'bl china finalizado cultivacion cultivo enemigos-a-amantes sistema transmigracion venganza xianxia yandere',
@@ -2976,6 +3246,7 @@ capitulos: '181'
 {
   titulo: 'Aferrándome a mi hombre',
   ingles: 'Holding Onto My Man',
+  original: '抱住我的男人[快穿]',
   slug: 'Aferrándome_a_mi_hombre',
   imagen: 'Aferrándome_a_mi_hombre.jpg',
   tags: 'bl china finalizado multiples-mundos amnesia cultivo no-humano drama yandere',
@@ -2987,6 +3258,7 @@ capitulos: '181'
 {
   titulo: 'Acompañado por un tonto que se dedica a la agricultura',
   ingles: 'Accompanied by a Fool To Do Farming',
+  original: '种田之傻傻相陪',
   slug: 'Acompañado_por_un_tonto_que_se_dedica_a_la_agricultura',
   imagen: 'Acompañado_por_un_tonto_que_se_dedica_a_la_agricultura.jpg',
   tags: 'bl china finalizado china-antigua agricultura comedia ger matrimonio-arreglado mpreg transmigracion',
