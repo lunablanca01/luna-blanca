@@ -1943,7 +1943,7 @@ const novelas = [
   imagen: 'El_gran_maestro_de_la_cultivación_demoníaca.jpg',
   tags: 'bl china pendiente cultivacion cultivo drama r18 reencarnacion sobrenatural xianxia',
   autor: 'mo-xiang-tongxiu',
-  link: 'https://www.novelupdates.com/series/the-founder-of-diabolism/',
+  link: 'https://drive.google.com/drive/u/1/folders/1p6o5MU_o0mYl4j2ksBaZEYzVzrj5fchi',
   capitulos: '113 + 14 extras'
 },
 
