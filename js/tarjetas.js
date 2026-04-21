@@ -1941,7 +1941,7 @@ const novelas = [
   original: '魔道祖师',
   slug: 'El_gran_maestro_de_la_cultivación_demoníaca',
   imagen: 'El_gran_maestro_de_la_cultivación_demoníaca.jpg',
-  tags: 'bl china pendiente cultivacion cultivo drama r18 reencarnacion sobrenatural xianxia',
+  tags: 'bl china finalizado cultivacion cultivo drama r18 reencarnacion sobrenatural xianxia',
   autor: 'mo-xiang-tongxiu',
   link: 'https://drive.google.com/drive/u/1/folders/1p6o5MU_o0mYl4j2ksBaZEYzVzrj5fchi',
   capitulos: '113 + 14 extras'
