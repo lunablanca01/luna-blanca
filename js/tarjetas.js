@@ -1180,7 +1180,7 @@ const novelas = [
 },
 
 {
-  titulo: 'Después de poseer al pequeño genio del césped de la escuela',
+  titulo: 'Después de poseer al asistente inteligente del chico popular de la escuela',
   ingles: 'After I Possessed the Tmall Genie of the School Adonis',
   original: '穿进校草的天猫精灵后',
   slug: 'Después_de_poseer_al_pequeño_genio_del_césped_de_la_escuela',
