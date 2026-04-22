@@ -1187,7 +1187,7 @@ const novelas = [
   imagen: 'Después_de_poseer_al_asistente_inteligente_del_chico_popular_de_la_escuela.jpg',
   tags: 'bl china pendiente moderno comedia vida-escolar sobrenatural',
   autor: 'lin-ang-si',
-  link: 'https://www.novelupdates.com/series/after-i-possessed-the-tmall-genie-of-the-school-adonis/',
+  link: 'https://drive.google.com/drive/u/1/folders/1PkjPRT9tfA9fdTk58f34LECXQdepVEwF',
   capitulos: '80 + 4 extras'
 },
 
