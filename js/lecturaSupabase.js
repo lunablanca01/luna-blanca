@@ -103,12 +103,15 @@ async function initLectura() {
 
       const valor = parseInt(inputProgreso.value) || 0;
 
+      const novelaData = novelas.find(n => n.novela_id == novelaId);
+
       const { error } = await supabase
         .from("lecturas")
         .upsert(
           {
             usuario_id: user.id,
             novela_id: novelaId,
+            titulo: novelaData?.titulo,
             estado: selectEstado.value,
             progreso: valor
           },
