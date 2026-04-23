@@ -1,7 +1,7 @@
 const baseRuta = window.baseRuta || "";
 
 
-export const novelas = [
+const novelas = [
 
 {
   novela_id: 272,
