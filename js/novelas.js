@@ -86,13 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
      🆕 DATOS DE LA NOVELA
   ================================= */
 
-  // IMAGEN
-  const img = tarjetaCoincidente.querySelector("img")?.getAttribute("src");
-  const portada = document.querySelector(".portada");
-  if(img && portada){
-    portada.src = img;
-  }
-
   // DATOS DESDE ARRAY
   const novelaData = novelas.find(n => n.titulo === tituloActual);
 
@@ -101,6 +94,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const main = document.querySelector(".contenedor");
     if (main) {
        main.dataset.novelaId = novelaData.novela_id;
+    }
+
+    // IMAGEN
+    const portada = document.querySelector(".portada");
+
+    if (portada && novelaData) {
+      portada.src = `${baseRuta}imagenes/${novelaData.slug}.jpg`;
     }
      
     // TÍTULO EN INGLÉS
