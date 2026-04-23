@@ -3489,11 +3489,11 @@ const novelas = [
 
 {
   novela_id: 4,
-  titulo: 'Amante del papel',
+  titulo: 'Amante de papel',
   ingles: 'Paper Lover',
   original: '纸片恋人',
-  slug: 'Amante_del_papel',
-  imagen: 'Amante_del_papel.jpg',
+  slug: 'Amante_de_papel',
+  imagen: 'Amante_de_papel.jpg',
   tags: 'bl china finalizado moderno amnesia comedia inteligencia-artificial protagonista-gong vida-diaria',
   autor: 'chu-hanyi-qing',
   link: 'https://drive.google.com/drive/u/4/folders/1I4vkkGOZnE46V5141G7rpUIkXFlgjlcr',
