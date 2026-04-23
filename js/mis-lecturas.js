@@ -204,8 +204,12 @@ function renderizar() {
   let lista = [...lecturasGlobal];
 
   lista.sort((a, b) => {
-    const A = normalizarTexto(a.novela);
-    const B = normalizarTexto(b.novela);
+
+    const novelaA = novelas.find(n => n.novela_id == a.novela_id);
+    const novelaB = novelas.find(n => n.novela_id == b.novela_id);
+
+    const A = normalizarTexto(novelaA?.titulo);
+    const B = normalizarTexto(novelaB?.titulo);
 
     if (ordenActual === "az") return A.localeCompare(B);
     if (ordenActual === "za") return B.localeCompare(A);
