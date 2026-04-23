@@ -3272,6 +3272,7 @@ const novelas = [
 
 window.tarjetasHTML = novelas.map(novela => `
 <div class="card"
+  data-novela-id="${novela.novela_id}"
   data-tags="${novela.tags}"
   data-autor="${novela.autor}">
 
