@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Traemos todas las lecturas del usuario de una vez
   const { data: lecturas, error } = await supabase
     .from("lecturas")
-    .select("novela, estado")
+    .select("novela_id, estado")
     .eq("usuario_id", user.id);
 
   if (error) {
