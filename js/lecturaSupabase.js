@@ -3,17 +3,32 @@
 
 import { supabase } from './supabase.js';
 
-async function initLectura(tituloActual) {
-  if (!tituloActual || location.protocol === "file:") {
-    console.log("Modo local: Supabase desactivado o título no encontrado");
+async function initLectura() {
+
+  if (location.protocol === "file:") {
+    console.log("Modo local: Supabase desactivado");
     return;
   }
 
-  // 🔐 Obtener usuario
+  // ================================
+  // 📌 OBTENER novela_id DESDE DOM
+  // ================================
+  const novelaId = document.querySelector(".contenedor")?.dataset.novelaId;
+
+  if (!novelaId) {
+    console.log("novela_id no encontrado en el DOM");
+    return;
+  }
+
+  // ================================
+  // 🔐 USUARIO
+  // ================================
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
 
-  // 🔐 Obtener rol
+  // ================================
+  // 🔐 ROL
+  // ================================
   const { data: perfil, error: errorPerfil } = await supabase
     .from("perfiles")
     .select("rol")
@@ -24,14 +39,16 @@ async function initLectura(tituloActual) {
     console.error("Error obteniendo rol:", errorPerfil);
   }
 
-  // 🎯 SOLO ADMIN → mostrar epub
+  // ================================
+  // 🎯 SOLO ADMIN → EPUB
+  // ================================
   if (perfil?.rol === "admin") {
     const epubContainer = document.getElementById("epub-container");
 
     if (epubContainer) {
       epubContainer.style.display = "block";
 
-      const novelaData = novelas.find(n => n.titulo === tituloActual);
+      const novelaData = novelas.find(n => n.novela_id === novelaId);
       const linkEpub = novelaData?.link;
 
       if (linkEpub) {
@@ -42,10 +59,10 @@ async function initLectura(tituloActual) {
         `;
       }
     }
-  } // ✅ CIERRE CORRECTO DEL IF ADMIN
+  }
 
   // ================================
-  // 📌 ELEMENTOS DE LA PÁGINA
+  // 📌 ELEMENTOS
   // ================================
   const selectEstado = document.getElementById("estado-lectura");
   const inputProgreso = document.getElementById("progreso-capitulo");
@@ -54,15 +71,18 @@ async function initLectura(tituloActual) {
 
   if (!selectEstado || !inputProgreso) return;
 
-  // Valores por defecto
+  // reset visual
   selectEstado.value = "";
   inputProgreso.value = 0;
 
-  // 🔍 Cargar desde Supabase
-  const { data } = await supabase.from("lecturas")
+  // ================================
+  // 🔍 CARGAR DESDE SUPABASE
+  // ================================
+  const { data } = await supabase
+    .from("lecturas")
     .select("*")
     .eq("usuario_id", user.id)
-    .eq("novela", tituloActual)
+    .eq("novela_id", novelaId)
     .maybeSingle();
 
   if (data) {
@@ -70,7 +90,9 @@ async function initLectura(tituloActual) {
     inputProgreso.value = data.progreso ?? 0;
   }
 
-  // 💾 Guardar
+  // ================================
+  // 💾 GUARDAR
+  // ================================
   if (btnGuardar) {
     btnGuardar.addEventListener("click", async () => {
 
@@ -81,15 +103,17 @@ async function initLectura(tituloActual) {
 
       const valor = parseInt(inputProgreso.value) || 0;
 
-      const { error } = await supabase.from("lecturas").upsert(
-        {
-          usuario_id: user.id,
-          novela: tituloActual,
-          estado: selectEstado.value,
-          progreso: valor
-        },
-        { onConflict: ["usuario_id", "novela"] }
-      );
+      const { error } = await supabase
+        .from("lecturas")
+        .upsert(
+          {
+            usuario_id: user.id,
+            novela_id: novelaId,
+            estado: selectEstado.value,
+            progreso: valor
+          },
+          { onConflict: ["usuario_id", "novela_id"] }
+        );
 
       if (error) {
         console.error("Error Supabase:", error);
@@ -100,17 +124,20 @@ async function initLectura(tituloActual) {
     });
   }
 
-  // 🗑️ Eliminar
+  // ================================
+  // 🗑️ ELIMINAR
+  // ================================
   if (btnEliminar) {
     btnEliminar.addEventListener("click", async () => {
 
       const confirmar = confirm("¿Eliminar esta novela de tu lista?");
       if (!confirmar) return;
 
-      const { error } = await supabase.from("lecturas")
+      const { error } = await supabase
+        .from("lecturas")
         .delete()
         .eq("usuario_id", user.id)
-        .eq("novela", tituloActual);
+        .eq("novela_id", novelaId);
 
       if (error) {
         console.error("Error al eliminar:", error);
@@ -124,7 +151,9 @@ async function initLectura(tituloActual) {
   }
 }
 
-// 🔔 Toast
+// ================================
+// 🔔 TOAST
+// ================================
 function mostrarToast(mensaje, tipo = "ok") {
   const toast = document.getElementById("toast");
   if (!toast) return;
@@ -135,8 +164,9 @@ function mostrarToast(mensaje, tipo = "ok") {
   setTimeout(() => toast.classList.remove("show"), 2000);
 }
 
-// 🚀 Auto iniciar
+// ================================
+// 🚀 AUTO INICIO
+// ================================
 document.addEventListener("DOMContentLoaded", () => {
-  const tituloActual = document.querySelector("h1")?.textContent.trim();
-  initLectura(tituloActual);
+  initLectura();
 });
