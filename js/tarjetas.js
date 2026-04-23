@@ -3548,7 +3548,7 @@ window.tarjetasHTML = novelas.map(novela => `
   data-autor="${novela.autor}">
 
   <a href="${baseRuta}novelas/${novela.slug}.html">
-    <img src="${baseRuta}imagenes/${novela.imagen}"
+    <img src="${baseRuta}imagenes/${novela.slug}.jpg"
          alt="${novela.titulo}">
   </a>
 
