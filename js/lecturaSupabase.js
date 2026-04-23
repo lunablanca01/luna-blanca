@@ -1,13 +1,25 @@
-// lecturaSupabase.js
 // 🔌 Módulo para manejo de lectura con Supabase (auto-ejecutable)
 
 import { supabase } from './supabase.js';
+import { novelas } from './tarjetas.js'; // 👈 IMPORTANTE
 
 async function initLectura(tituloActual) {
   if (!tituloActual || location.protocol === "file:") {
     console.log("Modo local: Supabase desactivado o título no encontrado");
     return;
   }
+
+  // 🔍 Buscar novela actual
+  const novelaData = novelas.find(
+    n => n.titulo.trim().toLowerCase() === tituloActual.trim().toLowerCase()
+  );
+
+  if (!novelaData) {
+    console.warn("❌ No se encontró la novela:", tituloActual);
+    return;
+  }
+
+  const novelaId = novelaData.novela_id; // 👈 CLAVE
 
   // 🔐 Obtener usuario
   const { data: { user } } = await supabase.auth.getUser();
@@ -31,7 +43,6 @@ async function initLectura(tituloActual) {
     if (epubContainer) {
       epubContainer.style.display = "block";
 
-      const novelaData = novelas.find(n => n.titulo === tituloActual);
       const linkEpub = novelaData?.link;
 
       if (linkEpub) {
@@ -42,7 +53,7 @@ async function initLectura(tituloActual) {
         `;
       }
     }
-  } // ✅ CIERRE CORRECTO DEL IF ADMIN
+  }
 
   // ================================
   // 📌 ELEMENTOS DE LA PÁGINA
@@ -62,7 +73,7 @@ async function initLectura(tituloActual) {
   const { data } = await supabase.from("lecturas")
     .select("*")
     .eq("usuario_id", user.id)
-    .eq("novela", tituloActual)
+    .eq("novela_id", novelaId) // ✅ CAMBIO
     .maybeSingle();
 
   if (data) {
@@ -84,11 +95,11 @@ async function initLectura(tituloActual) {
       const { error } = await supabase.from("lecturas").upsert(
         {
           usuario_id: user.id,
-          novela: tituloActual,
+          novela_id: novelaId, // ✅ CAMBIO
           estado: selectEstado.value,
           progreso: valor
         },
-        { onConflict: ["usuario_id", "novela"] }
+        { onConflict: ["usuario_id", "novela_id"] } // ✅ CAMBIO
       );
 
       if (error) {
@@ -110,7 +121,7 @@ async function initLectura(tituloActual) {
       const { error } = await supabase.from("lecturas")
         .delete()
         .eq("usuario_id", user.id)
-        .eq("novela", tituloActual);
+        .eq("novela_id", novelaId); // ✅ CAMBIO
 
       if (error) {
         console.error("Error al eliminar:", error);
