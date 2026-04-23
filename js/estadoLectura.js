@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Creamos un mapa de novela -> estado
   const mapaLecturas = {};
   lecturas?.forEach(l => {
-    mapaLecturas[l.novela_id] = l.estado;
+    mapaLecturas[l.titulo] = l.estado;
   });
 
   const emojiMap = {
