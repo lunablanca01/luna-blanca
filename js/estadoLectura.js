@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Creamos un mapa de novela -> estado
   const mapaLecturas = {};
   lecturas?.forEach(l => {
-    mapaLecturas[l.titulo] = l.estado;
+    mapaLecturas[l.novela_id] = l.estado;
   });
 
   const emojiMap = {
@@ -38,11 +38,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Recorremos cada tarjeta
   cards.forEach(card => {
-    const tituloCard = card.querySelector("h3")?.textContent.trim();
-    if (!tituloCard) return;
 
-    const estadoLectura = mapaLecturas[tituloCard]?.toLowerCase(); // normalizamos
-    const emoji = emojiMap[estadoLectura]; // si no hay estado, será undefined
+    const novelaId = card.dataset.novelaId;
+
+    const estadoLectura = mapaLecturas[novelaId]?.toLowerCase();
+    const emoji = emojiMap[estadoLectura];
 
     if (emoji) {
       const divEstado = document.createElement("div");
@@ -50,6 +50,5 @@ document.addEventListener("DOMContentLoaded", async () => {
       divEstado.textContent = emoji;
       card.insertAdjacentElement("afterbegin", divEstado);
     }
-    // Si no hay estado guardado, no se muestra nada
   });
 });
