@@ -48,7 +48,7 @@ async function initLectura() {
     if (epubContainer) {
       epubContainer.style.display = "block";
 
-      const novelaData = novelas.find(n => n.novela_id === novelaId);
+      const novelaData = novelas.find(n => n.novela_id == novelaId);
       const linkEpub = novelaData?.link;
 
       if (linkEpub) {
