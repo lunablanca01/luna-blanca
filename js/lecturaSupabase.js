@@ -1,78 +1,63 @@
 // 🔌 Módulo para manejo de lectura con Supabase (auto-ejecutable)
 
 import { supabase } from './supabase.js';
+import { novelas } from './tarjetas.js'; // 👈 IMPORTANTE
 
-// 🔧 Normalizar slug
-function normalizarSlug(texto) {
-  return texto
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/\s+/g, "_");
-}
-
-async function initLectura() {
-
-  if (location.protocol === "file:") {
-    console.log("Modo local: Supabase desactivado");
+async function initLectura(tituloActual) {
+  if (!tituloActual || location.protocol === "file:") {
+    console.log("Modo local: Supabase desactivado o título no encontrado");
     return;
   }
 
-  // 🔥 IMPORTANTE: obtener novelas desde window
-  const novelas = window.novelas || [];
-
-  if (!novelas.length) {
-    console.warn("❌ novelas no está cargado");
-    return;
-  }
-
-  // 🔥 Obtener slug desde la URL
-  const slugURL = window.location.pathname
-    .split("/")
-    .pop()
-    .replace(".html", "");
-
-  // 🔍 Buscar novela
-  const novelaData = novelas.find(n =>
-    normalizarSlug(n.slug) === normalizarSlug(slugURL)
+  // 🔍 Buscar novela actual
+  const novelaData = novelas.find(
+    n => n.titulo.trim().toLowerCase() === tituloActual.trim().toLowerCase()
   );
 
   if (!novelaData) {
-    console.warn("❌ No se encontró la novela:", slugURL);
+    console.warn("❌ No se encontró la novela:", tituloActual);
     return;
   }
 
-  const novelaId = novelaData.novela_id;
+  const novelaId = novelaData.novela_id; // 👈 CLAVE
 
-  // 🔐 Usuario
+  // 🔐 Obtener usuario
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
 
-  // 🔐 Rol
-  const { data: perfil } = await supabase
+  // 🔐 Obtener rol
+  const { data: perfil, error: errorPerfil } = await supabase
     .from("perfiles")
     .select("rol")
     .eq("id", user.id)
     .maybeSingle();
 
-  // 🎯 Admin → epub
+  if (errorPerfil) {
+    console.error("Error obteniendo rol:", errorPerfil);
+  }
+
+  // 🎯 SOLO ADMIN → mostrar epub
   if (perfil?.rol === "admin") {
     const epubContainer = document.getElementById("epub-container");
 
     if (epubContainer) {
       epubContainer.style.display = "block";
 
-      if (novelaData.link) {
+      const linkEpub = novelaData?.link;
+
+      if (linkEpub) {
         epubContainer.innerHTML = `
           <div class="epub">
-            Leer en: <a href="${novelaData.link}" target="_blank">ePub</a>
+            Leer en: <a href="${linkEpub}" target="_blank">ePub</a>
           </div>
         `;
       }
     }
   }
 
-  // 📌 Elementos
+  // ================================
+  // 📌 ELEMENTOS DE LA PÁGINA
+  // ================================
   const selectEstado = document.getElementById("estado-lectura");
   const inputProgreso = document.getElementById("progreso-capitulo");
   const btnGuardar = document.getElementById("guardar-lectura");
@@ -80,15 +65,15 @@ async function initLectura() {
 
   if (!selectEstado || !inputProgreso) return;
 
+  // Valores por defecto
   selectEstado.value = "";
   inputProgreso.value = 0;
 
-  // 🔍 Cargar datos
-  const { data } = await supabase
-    .from("lecturas")
+  // 🔍 Cargar desde Supabase
+  const { data } = await supabase.from("lecturas")
     .select("*")
     .eq("usuario_id", user.id)
-    .eq("novela_id", novelaId)
+    .eq("novela_id", novelaId) // ✅ CAMBIO
     .maybeSingle();
 
   if (data) {
@@ -110,15 +95,15 @@ async function initLectura() {
       const { error } = await supabase.from("lecturas").upsert(
         {
           usuario_id: user.id,
-          novela_id: novelaId,
+          novela_id: novelaId, // ✅ CAMBIO
           estado: selectEstado.value,
           progreso: valor
         },
-        { onConflict: ["usuario_id", "novela_id"] }
+        { onConflict: ["usuario_id", "novela_id"] } // ✅ CAMBIO
       );
 
       if (error) {
-        console.error(error);
+        console.error("Error Supabase:", error);
         mostrarToast("Error al guardar", "error");
       } else {
         mostrarToast("Guardado", "ok");
@@ -130,15 +115,16 @@ async function initLectura() {
   if (btnEliminar) {
     btnEliminar.addEventListener("click", async () => {
 
-      if (!confirm("¿Eliminar esta novela?")) return;
+      const confirmar = confirm("¿Eliminar esta novela de tu lista?");
+      if (!confirmar) return;
 
       const { error } = await supabase.from("lecturas")
         .delete()
         .eq("usuario_id", user.id)
-        .eq("novela_id", novelaId);
+        .eq("novela_id", novelaId); // ✅ CAMBIO
 
       if (error) {
-        console.error(error);
+        console.error("Error al eliminar:", error);
         mostrarToast("Error al eliminar", "error");
       } else {
         selectEstado.value = "";
@@ -160,5 +146,8 @@ function mostrarToast(mensaje, tipo = "ok") {
   setTimeout(() => toast.classList.remove("show"), 2000);
 }
 
-// 🚀 INIT
-document.addEventListener("DOMContentLoaded", initLectura);
+// 🚀 Auto iniciar
+document.addEventListener("DOMContentLoaded", () => {
+  const tituloActual = document.querySelector("h1")?.textContent.trim();
+  initLectura(tituloActual);
+});
