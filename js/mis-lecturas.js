@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const { data: lecturas, error } = await supabase
       .from("lecturas")
-      .select("novela, estado")
+      .select("novela_id, estado")
       .eq("usuario_id", data.user.id);
 
     if (error) {
@@ -234,7 +234,7 @@ function crearTarjetas(lista) {
     const estado = normalizarTexto(l.estado);
 
     const novelaCompleta = novelas.find(n =>
-      normalizarTexto(n.titulo) === normalizarTexto(l.novela)
+      n.novela_id == l.novela_id
     );
 
     const card = document.createElement("div");
@@ -254,7 +254,7 @@ function crearTarjetas(lista) {
       card.innerHTML = `
         <div class="estado-lectura">${emojiMap[estado] || "📘"}</div>
         <a href="../novelas/${novelaCompleta.slug}.html">
-          <img src="../imagenes/${novelaCompleta.imagen}">
+          <img src="../imagenes/${novelaCompleta.slug}.jpg">
         </a>
         <h3>${novelaCompleta.titulo}</h3>
       `;
