@@ -1,9 +1,8 @@
 // 🔌 Módulo para manejo de lectura con Supabase (auto-ejecutable)
 
 import { supabase } from './supabase.js';
-import { novelas } from './tarjetas.js';
 
-// 🔧 Normalizar slug (quita tildes, mayúsculas, etc.)
+// 🔧 Normalizar slug
 function normalizarSlug(texto) {
   return texto
     .toLowerCase()
@@ -19,61 +18,61 @@ async function initLectura() {
     return;
   }
 
+  // 🔥 IMPORTANTE: obtener novelas desde window
+  const novelas = window.novelas || [];
+
+  if (!novelas.length) {
+    console.warn("❌ novelas no está cargado");
+    return;
+  }
+
   // 🔥 Obtener slug desde la URL
   const slugURL = window.location.pathname
     .split("/")
     .pop()
     .replace(".html", "");
 
-  // 🔍 Buscar novela por slug
+  // 🔍 Buscar novela
   const novelaData = novelas.find(n =>
     normalizarSlug(n.slug) === normalizarSlug(slugURL)
   );
 
   if (!novelaData) {
-    console.warn("❌ No se encontró la novela con slug:", slugURL);
+    console.warn("❌ No se encontró la novela:", slugURL);
     return;
   }
 
-  const novelaId = novelaData.novela_id; // ✅ CLAVE
+  const novelaId = novelaData.novela_id;
 
-  // 🔐 Obtener usuario
+  // 🔐 Usuario
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return;
 
-  // 🔐 Obtener rol
-  const { data: perfil, error: errorPerfil } = await supabase
+  // 🔐 Rol
+  const { data: perfil } = await supabase
     .from("perfiles")
     .select("rol")
     .eq("id", user.id)
     .maybeSingle();
 
-  if (errorPerfil) {
-    console.error("Error obteniendo rol:", errorPerfil);
-  }
-
-  // 🎯 SOLO ADMIN → mostrar epub
+  // 🎯 Admin → epub
   if (perfil?.rol === "admin") {
     const epubContainer = document.getElementById("epub-container");
 
     if (epubContainer) {
       epubContainer.style.display = "block";
 
-      const linkEpub = novelaData?.link;
-
-      if (linkEpub) {
+      if (novelaData.link) {
         epubContainer.innerHTML = `
           <div class="epub">
-            Leer en: <a href="${linkEpub}" target="_blank">ePub</a>
+            Leer en: <a href="${novelaData.link}" target="_blank">ePub</a>
           </div>
         `;
       }
     }
   }
 
-  // ================================
-  // 📌 ELEMENTOS DE LA PÁGINA
-  // ================================
+  // 📌 Elementos
   const selectEstado = document.getElementById("estado-lectura");
   const inputProgreso = document.getElementById("progreso-capitulo");
   const btnGuardar = document.getElementById("guardar-lectura");
@@ -81,12 +80,12 @@ async function initLectura() {
 
   if (!selectEstado || !inputProgreso) return;
 
-  // Valores por defecto
   selectEstado.value = "";
   inputProgreso.value = 0;
 
-  // 🔍 Cargar desde Supabase
-  const { data } = await supabase.from("lecturas")
+  // 🔍 Cargar datos
+  const { data } = await supabase
+    .from("lecturas")
     .select("*")
     .eq("usuario_id", user.id)
     .eq("novela_id", novelaId)
@@ -119,7 +118,7 @@ async function initLectura() {
       );
 
       if (error) {
-        console.error("Error Supabase:", error);
+        console.error(error);
         mostrarToast("Error al guardar", "error");
       } else {
         mostrarToast("Guardado", "ok");
@@ -131,8 +130,7 @@ async function initLectura() {
   if (btnEliminar) {
     btnEliminar.addEventListener("click", async () => {
 
-      const confirmar = confirm("¿Eliminar esta novela de tu lista?");
-      if (!confirmar) return;
+      if (!confirm("¿Eliminar esta novela?")) return;
 
       const { error } = await supabase.from("lecturas")
         .delete()
@@ -140,7 +138,7 @@ async function initLectura() {
         .eq("novela_id", novelaId);
 
       if (error) {
-        console.error("Error al eliminar:", error);
+        console.error(error);
         mostrarToast("Error al eliminar", "error");
       } else {
         selectEstado.value = "";
@@ -162,7 +160,5 @@ function mostrarToast(mensaje, tipo = "ok") {
   setTimeout(() => toast.classList.remove("show"), 2000);
 }
 
-// 🚀 Auto iniciar
-document.addEventListener("DOMContentLoaded", () => {
-  initLectura(); // 🔥 YA NO USA <h1>
-});
+// 🚀 INIT
+document.addEventListener("DOMContentLoaded", initLectura);
