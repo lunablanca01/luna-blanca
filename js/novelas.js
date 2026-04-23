@@ -97,6 +97,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const novelaData = novelas.find(n => n.titulo === tituloActual);
 
   if(novelaData){
+    // 🔥 INYECTAR ID GLOBAL EN EL DOM
+    const main = document.querySelector(".contenedor");
+    if (main) {
+       main.dataset.novelaId = novelaData.novela_id;
+    }
+     
     // TÍTULO EN INGLÉS
     const subtitulo = document.querySelector(".subtitulo");
     if(subtitulo){
