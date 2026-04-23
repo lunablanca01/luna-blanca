@@ -87,10 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
   ================================= */
 
   // IMAGEN
-  const img = tarjetaCoincidente.querySelector("img")?.getAttribute("src");
   const portada = document.querySelector(".portada");
-  if(img && portada){
-    portada.src = img;
+
+  if (portada && novelaData) {
+    portada.src = `${baseRuta}imagenes/${novelaData.slug}.jpg`;
   }
 
   // DATOS DESDE ARRAY
