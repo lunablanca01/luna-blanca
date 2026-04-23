@@ -1,25 +1,41 @@
 // 🔌 Módulo para manejo de lectura con Supabase (auto-ejecutable)
 
 import { supabase } from './supabase.js';
-import { novelas } from './tarjetas.js'; // 👈 IMPORTANTE
+import { novelas } from './tarjetas.js';
 
-async function initLectura(tituloActual) {
-  if (!tituloActual || location.protocol === "file:") {
-    console.log("Modo local: Supabase desactivado o título no encontrado");
+// 🔧 Normalizar slug (quita tildes, mayúsculas, etc.)
+function normalizarSlug(texto) {
+  return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "_");
+}
+
+async function initLectura() {
+
+  if (location.protocol === "file:") {
+    console.log("Modo local: Supabase desactivado");
     return;
   }
 
-  // 🔍 Buscar novela actual
-  const novelaData = novelas.find(
-    n => n.titulo.trim().toLowerCase() === tituloActual.trim().toLowerCase()
+  // 🔥 Obtener slug desde la URL
+  const slugURL = window.location.pathname
+    .split("/")
+    .pop()
+    .replace(".html", "");
+
+  // 🔍 Buscar novela por slug
+  const novelaData = novelas.find(n =>
+    normalizarSlug(n.slug) === normalizarSlug(slugURL)
   );
 
   if (!novelaData) {
-    console.warn("❌ No se encontró la novela:", tituloActual);
+    console.warn("❌ No se encontró la novela con slug:", slugURL);
     return;
   }
 
-  const novelaId = novelaData.novela_id; // 👈 CLAVE
+  const novelaId = novelaData.novela_id; // ✅ CLAVE
 
   // 🔐 Obtener usuario
   const { data: { user } } = await supabase.auth.getUser();
@@ -73,7 +89,7 @@ async function initLectura(tituloActual) {
   const { data } = await supabase.from("lecturas")
     .select("*")
     .eq("usuario_id", user.id)
-    .eq("novela_id", novelaId) // ✅ CAMBIO
+    .eq("novela_id", novelaId)
     .maybeSingle();
 
   if (data) {
@@ -95,11 +111,11 @@ async function initLectura(tituloActual) {
       const { error } = await supabase.from("lecturas").upsert(
         {
           usuario_id: user.id,
-          novela_id: novelaId, // ✅ CAMBIO
+          novela_id: novelaId,
           estado: selectEstado.value,
           progreso: valor
         },
-        { onConflict: ["usuario_id", "novela_id"] } // ✅ CAMBIO
+        { onConflict: ["usuario_id", "novela_id"] }
       );
 
       if (error) {
@@ -121,7 +137,7 @@ async function initLectura(tituloActual) {
       const { error } = await supabase.from("lecturas")
         .delete()
         .eq("usuario_id", user.id)
-        .eq("novela_id", novelaId); // ✅ CAMBIO
+        .eq("novela_id", novelaId);
 
       if (error) {
         console.error("Error al eliminar:", error);
@@ -148,6 +164,5 @@ function mostrarToast(mensaje, tipo = "ok") {
 
 // 🚀 Auto iniciar
 document.addEventListener("DOMContentLoaded", () => {
-  const tituloActual = document.querySelector("h1")?.textContent.trim();
-  initLectura(tituloActual);
+  initLectura(); // 🔥 YA NO USA <h1>
 });
