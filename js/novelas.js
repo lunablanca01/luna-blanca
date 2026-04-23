@@ -98,8 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // IMAGEN
     const portada = document.querySelector(".portada");
-
-    if (portada && novelaData) {
+    if (portada) {
       portada.src = `${baseRuta}imagenes/${novelaData.slug}.jpg`;
     }
      
