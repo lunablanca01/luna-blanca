@@ -1065,9 +1065,9 @@ const novelas = [
   ingles: 'Red Bean Ice',
   original: '红豆牛奶冰',
   slug: 'Hielo_de_frijol_rojo',
-  tags: 'bl china pendiente moderno comedia industria-del-entretenimiento matrimonio vida-diaria novela-erotica',
+  tags: 'bl china finalizado moderno comedia industria-del-entretenimiento matrimonio vida-diaria novela-erotica',
   autor: 'yige-mi-bing',
-  link: 'https://www.novelupdates.com/series/red-bean-ice/',
+  link: 'https://drive.google.com/drive/u/1/folders/1fMRNXev_8pvOHuoUXau5slvAs24CtzsI',
   capitulos: '20 + 2 extras'
 },
 
