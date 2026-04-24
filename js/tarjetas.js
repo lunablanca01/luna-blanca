@@ -993,9 +993,9 @@ const novelas = [
   ingles: 'My Wife is Straight',
   original: '我的老婆是直男',
   slug: 'Mi_esposa_es_heterosexual',
-  tags: 'bl china pendiente moderno comedia matrimonio oneshot protagonista-gong',
+  tags: 'bl china finalizado moderno comedia matrimonio oneshot protagonista-gong',
   autor: 'dongfeng-jixu',
-  link: 'https://www.novelupdates.com/series/my-wife-is-straight/',
+  link: 'https://drive.google.com/drive/u/1/folders/1mNxnAKR9x8GkA1aVH88uWwvWPxEohgCN',
   capitulos: '2'
 },
 
