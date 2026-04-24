@@ -1509,9 +1509,9 @@ const novelas = [
   ingles: 'After Transmigrating Into a Villain Cannon Fodder Male Zerg',
   original: '穿成反派炮灰雄虫后[虫族]',
   slug: 'Después_de_transmigrar_a_un_villano_carne_de_cañon_Zerg_masculino',
-  tags: 'bl china pendiente futurista comedia malentendidos matrimonio mpreg no-humano protagonista-gong sistema transmigracion yandere zerg',
+  tags: 'bl china finalizado futurista comedia malentendidos matrimonio mpreg no-humano protagonista-gong sistema transmigracion yandere zerg',
   autor: 'mu-liang-ren',
-  link: 'https://www.novelupdates.com/series/after-transmigrating-into-a-villain-cannon-fodder-male-zerg/',
+  link: 'https://drive.google.com/drive/u/1/folders/16zx9i_uRJTwzk9sOp3vU74uWycnB8wdK',
   capitulos: '71 + 21 extras'
 },
 
