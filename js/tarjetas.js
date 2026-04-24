@@ -192,7 +192,7 @@ const novelas = [
   tags: 'bl china pendiente china-antigua comedia ger mpreg protagonista-gong realeza transmigracion',
   autor: 'shi-budai-wo',
   link: 'https://www.novelupdates.com/series/i-am-a-salted-fish-in-ancient-times/',
-  capitulos: '97'
+  capitulos: '94 + 3 extras'
 },
 
 {
