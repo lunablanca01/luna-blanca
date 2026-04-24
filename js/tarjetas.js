@@ -777,9 +777,9 @@ const novelas = [
   ingles: 'Second Love',
   original: '二次热恋',
   slug: 'Segundo_amor',
-  tags: 'bl china pendiente moderno discapacidad matrimonio vida-diaria novela-erotica',
+  tags: 'bl china finalizado moderno discapacidad matrimonio vida-diaria novela-erotica',
   autor: 'zhi-zhi',
-  link: 'https://www.novelupdates.com/series/second-love/',
+  link: 'https://drive.google.com/drive/u/1/folders/1epX0Mgq777gFnNeiesZk-MlQrZ3Pd1mw',
   capitulos: '11 + 5 extras'
 },
 
