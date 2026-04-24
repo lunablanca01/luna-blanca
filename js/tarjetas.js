@@ -189,9 +189,9 @@ const novelas = [
   ingles: 'I Am a Salted Fish in Ancient Times',
   original: '我在古代当咸鱼',
   slug: 'Soy_un_pez_salado_en_tiempos_antiguos',
-  tags: 'bl china pendiente china-antigua comedia ger mpreg protagonista-gong realeza transmigracion',
+  tags: 'bl china finalizado china-antigua comedia ger mpreg protagonista-gong realeza transmigracion',
   autor: 'shi-budai-wo',
-  link: 'https://www.novelupdates.com/series/i-am-a-salted-fish-in-ancient-times/',
+  link: 'https://drive.google.com/drive/u/1/folders/1Nanw-mKcLakbyE5UGnUfXs6JVD4KIdXA',
   capitulos: '94 + 3 extras'
 },
 
