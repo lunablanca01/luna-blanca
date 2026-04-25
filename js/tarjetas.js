@@ -1845,9 +1845,9 @@ const novelas = [
   ingles: 'The Daily Task of Preventing My Disciple from Turning to the Dark Side',
   original: '每天都要防止徒弟上天',
   slug: 'La_tarea_diaria_de_evitar_que_mi_discípulo_se_pase_al_lado_oscuro',
-  tags: 'bl china pendiente cultivacion comedia cultivo maestro-discipulo renacimiento xianxia yandere',
+  tags: 'bl china finalizado cultivacion comedia cultivo maestro-discipulo renacimiento xianxia yandere',
   autor: 'hei-mao-ni-ni',
-  link: 'https://www.novelupdates.com/series/the-daily-task-of-preventing-my-disciple-from-turning-to-the-dark-side/',
+  link: 'https://drive.google.com/drive/u/1/folders/15TwAdA103lGt6xINTEfUrnkZ_u7kYivm',
   capitulos: '97'
 },
 
