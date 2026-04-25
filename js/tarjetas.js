@@ -2337,9 +2337,9 @@ const novelas = [
   ingles: 'Tyrant Pampering Wife Diary',
   original: '暴君宠婚日常',
   slug: 'Diario_de_la_esposa_mimada_del_tirano',
-  tags: 'bl china pendiente china-antigua comedia matrimonio mpreg realeza renacimiento venganza yandere',
+  tags: 'bl china finalizado china-antigua comedia matrimonio mpreg realeza renacimiento venganza yandere',
   autor: 'yi-ri-zhi-qian',
-  link: 'https://www.novelupdates.com/series/tyrant-pampering-wife-diary/',
+  link: 'https://drive.google.com/drive/u/1/folders/1RDKjTTb7WcCTFXLwlVvvZCCCLkt6GGQa',
   capitulos: '79 + 1 extra'
 },
 
