@@ -1725,9 +1725,9 @@ const novelas = [
   ingles: 'Know on the Third Morning',
   original: '三度目の朝に知る',
   slug: 'Saber_en_la_tercera_mañana',
-  tags: 'bl japon pendiente europa-antigua novela-erotica reencarnacion',
+  tags: 'bl japon finalizado europa-antigua novela-erotica reencarnacion',
   autor: 'shiina',
-  link: 'https://www.novelupdates.com/series/know-on-the-third-morning/',
+  link: 'https://drive.google.com/drive/u/1/folders/1JxrWMUKDWFM1YFav_LCCs4o5q7jVvF3N',
   capitulos: '3'
 },
 
