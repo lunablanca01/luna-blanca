@@ -1773,9 +1773,9 @@ const novelas = [
   ingles: 'Every Day the Protagonist Wants to Capture Me',
   original: '主角每天都想攻略我',
   slug: 'Todos_los_días_el_protagonista_quiere_capturarme',
-  tags: 'bl china pendiente cultivacion comedia cultivo sistema transmigracion xianxia yandere',
+  tags: 'bl china finalizado cultivacion comedia cultivo sistema transmigracion xianxia yandere',
   autor: 'qing-duan',
-  link: 'https://www.novelupdates.com/series/every-day-the-protagonist-wants-to-capture-me/',
+  link: 'https://drive.google.com/drive/u/1/folders/1ZfH2DBFAaCrUnbP835twYOrmo4tCSk1o',
   capitulos: '80 + 8 extras'
 },
 
