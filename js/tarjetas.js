@@ -1881,10 +1881,10 @@ const novelas = [
   ingles: 'The Scum Villain’s Self-Saving System',
   original: '人渣反派自救系统',
   slug: 'El_sistema_de_autosalvación_del_villano_escoria',
-  tags: 'bl china pendiente cultivacion comedia cultivo maestro-discipulo r18 sistema transmigracion xianxia yandere',
+  tags: 'bl china finalizado cultivacion comedia cultivo maestro-discipulo r18 sistema transmigracion xianxia yandere',
   autor: 'mo-xiang-tongxiu',
-  link: 'https://www.novelupdates.com/series/the-scum-villains-self-saving-system/',
-  capitulos: '81 + 19 extras'
+  link: 'https://drive.google.com/drive/u/1/folders/1AWWFOn44V5agDdTHgvjAisjf5kOC9nU6',
+  capitulos: '81 + 20 extras'
 },
 
 {
