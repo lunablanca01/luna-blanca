@@ -2897,10 +2897,10 @@ const novelas = [
 
 {
   novela_id: 31,
-  titulo: 'La amada emperatriz del tirano',
+  titulo: 'La emperatriz amada del tirano',
   ingles: 'The Tyrant’s Beloved Empress',
   original: '暴君的宠后[重生]',
-  slug: 'La_amada_emperatriz_del_tirano',
+  slug: 'La_emperatriz_amada_del_tirano',
   tags: 'bl china finalizado china-antigua lucha-de-poder matrimonio-arreglado mpreg r18 renacimiento',
   autor: 'xiu-sheng',
   link: 'https://drive.google.com/drive/u/4/folders/10H0m0hO_22ah9NK-n26xUw0rjqBvP6Bm',
