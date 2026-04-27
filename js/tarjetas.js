@@ -2304,7 +2304,7 @@ const novelas = [
   tags: 'bl china pendiente china-antigua aristocracia matrimonio-arreglado r18 realeza transmigracion',
   autor: 'yin-ya',
   link: 'https://www.novelupdates.com/series/the-big-landlord/',
-  capitulos: '103'
+  capitulos: '435 + 9 extras'
 },
 
 {
