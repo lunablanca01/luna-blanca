@@ -7,6 +7,7 @@ const novelas = [
   novela_id: 273,
   titulo: 'Por favor confiésame',
   ingles: 'My Possession Became a Ghost Story',
+  original: '请向我告白[重生]',
   slug: "Por_favor_confiésame",
   tags: "bg china finalizado moderno drama malentendidos renacimiento vida-diaria",
   autor: "grumpy-crab",
