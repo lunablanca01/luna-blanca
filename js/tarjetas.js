@@ -669,9 +669,9 @@ const novelas = [
   ingles: 'BOSS Transmigrates as a Little Cutie',
   original: 'BOSS穿成小可爱[快穿]',
   slug: 'BOSS_transmigra_como_una_pequeña_monada',
-  tags: 'bl china pendiente multiples-mundos cultivo drama omegaverse protagonista-op transmigracion venganza',
+  tags: 'bl china finalizado multiples-mundos cultivo drama omegaverse protagonista-op transmigracion venganza',
   autor: 'guangming-zai-an',
-  link: 'https://www.novelupdates.com/series/boss-transmigrates-as-a-little-cutie/',
+  link: 'https://drive.google.com/drive/u/1/folders/1CRNyLbc2pZUHG8Fj-hWszXmG_4nvXm6l',
   capitulos: '154 + 5 extras'
 },
 
