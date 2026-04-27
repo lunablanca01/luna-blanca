@@ -4,6 +4,17 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+  novela_id: 273,
+  titulo: 'Por favor confiésame',
+  ingles: 'My Possession Became a Ghost Story',
+  slug: "Por_favor_confiésame",
+  tags: "bg china finalizado moderno drama malentendidos renacimiento vida-diaria",
+  autor: "grumpy-crab",
+  link: 'https://drive.google.com/drive/u/1/folders/1ruwFGcN3BLjg8Ej4fuzuVqdn1ajnYVNO',
+  capitulos: '60'
+},
+
+{
   novela_id: 272,
   titulo: 'Mi posesión se convirtió en una historia de fantasmas',
   ingles: 'My Possession Became a Ghost Story',
