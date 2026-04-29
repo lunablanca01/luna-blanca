@@ -1547,7 +1547,7 @@ const novelas = [
   slug: 'Después_de_casarme,_renacieron_los_que_me_traicionaron',
   tags: 'bl china pendiente futurista aristocracia discapacidad lucha-de-poder malentendidos matrimonio-arreglado omegaverse realeza renacimiento',
   autor: 'yu-luo-qing-chen',
-  link: 'https://www.novelupdates.com/series/after-i-got-married-those-who-betrayed-me-were-reborn/',
+  link: 'https://drive.google.com/drive/u/1/folders/1eGaqCCLAp9uCKn8BK7pIX-7kxBip8RO8',
   capitulos: '112 + 13 extras'
 },
 
