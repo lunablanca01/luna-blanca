@@ -3165,7 +3165,7 @@ const novelas = [
   ingles: 'Banished to Another World',
   original: '异世流放',
   slug: 'Desterrado_a_otro_mundo',
-  tags: 'bl china finalizado tribal agricultura enemigos-a-amantes mpreg ninos sistema transmigracion',
+  tags: 'bl china finalizado tribal abuso agricultura enemigos-a-amantes mpreg ninos sistema transmigracion',
   autor: 'yi-ren-bei',
   link: 'https://drive.google.com/drive/u/4/folders/1rlQo7n5z-7U2iqRDwA3W9XTn44oqtx0m',
   capitulos: '649 + 10 extras'
