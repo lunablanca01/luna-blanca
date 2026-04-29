@@ -3029,12 +3029,12 @@ const novelas = [
 
 {
   novela_id: 21,
-  titulo: 'El pez palmera mascota del tirano discapacitado [Transmigración]',
-  ingles: 'The Disabled Tyrant’s Pet Palm Fish [Transmigration]',
+  titulo: 'El pez mascota predilecto del tirano discapacitado',
+  ingles: 'The Disabled Tyrant’s Beloved Pet Fish',
   original: '残疾暴君的掌心鱼宠[穿书]',
-  slug: 'El_pez_palmera_mascota_del_tirano_discapacitado_[Transmigración]',
+  slug: 'El_pez_mascota_predilecto_del_tirano_discapacitado',
   tags: 'bl china finalizado china-antigua bestia-humanizada comedia discapacidad lucha-de-poder mascotas matrimonio mpreg ninos no-humano realeza sistema transformacion-animal transmigracion',
-  autor: 'xueshan-fei-hu',
+  autor: 'xue-shan-fei-hu',
   link: 'https://drive.google.com/drive/u/4/folders/1nA6cgtLV78sHemShM8oLYfwRx9XGR0gZ',
   capitulos: '156'
 },
