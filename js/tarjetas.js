@@ -2433,7 +2433,7 @@ const novelas = [
   ingles: 'Back to the Apocalypse: The Rebirth of Bai Jing',
   original: '末世重生之少爺',
   slug: 'De_vuelta_al_Apocalipsis_El_renacimiento_de_Bai_Jing',
-  tags: 'bl china pendiente apocalipsis protagonista-op r18 renacimiento vida-diaria yandere zombies',
+  tags: 'bl china finalizado apocalipsis protagonista-op r18 renacimiento vida-diaria yandere zombies',
   autor: 'ye-yo',
   link: 'https://drive.google.com/drive/u/1/folders/1TAQuEWfzuHwfbjYIdjINbH8FoOrX348o',
   capitulos: '130 + 3 extras'
