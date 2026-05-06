@@ -1197,7 +1197,7 @@ const novelas = [
   ingles: 'After I Possessed the Tmall Genie of the School Adonis',
   original: '穿进校草的天猫精灵后',
   slug: 'Después_de_poseer_al_asistente_inteligente_del_chico_popular_de_la_escuela',
-  tags: 'bl china pendiente moderno comedia vida-escolar sobrenatural',
+  tags: 'bl china finalizado moderno comedia vida-escolar sobrenatural',
   autor: 'lin-ang-si',
   link: 'https://drive.google.com/drive/u/1/folders/1PkjPRT9tfA9fdTk58f34LECXQdepVEwF',
   capitulos: '80 + 4 extras'
