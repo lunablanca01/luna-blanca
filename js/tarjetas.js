@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:274,
+titulo: 'Cultivar la tierra y criar a un marido en el mundo de las bestias',
+ingles: 'Farming and Raising a Husband in the Beast World',
+original: '兽世养夫种田忙',
+slug: "Cultivar_la_tierra_y_criar_a_un_marido_en_el_mundo_de_las_bestias",
+tags: "bl china finalizado tribal agricultura hombre-bestia transmigracion",
+autor: "zhu-liuliu",
+link: "https://drive.google.com/drive/u/1/folders/1VotAbROFrXYA_iSTd95sQuNeDq6KXE-z",
+capitulos: '60'
+},
+
+{
   novela_id: 273,
   titulo: 'Por favor confiésame',
   ingles: 'My Possession Became a Ghost Story',
