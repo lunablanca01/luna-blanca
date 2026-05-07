@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cultivar la tierra y criar a un marido en el mundo de las bestias</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<main class="contenedor">
+
+<h1>Cultivar la tierra y criar a un marido en el mundo de las bestias</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div class="original"></div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Fan Zhou despertó y se convirtió en un hombre bestia rechazado de una pequeña tribu. </p>
+  <p>En este mundo gobernado por hombres bestia, los animales que desean convertirse en humanos deben consumir una flor llamada Flor del Espíritu de la Bestia. </p>
+  <p>Tras una lluvia amarilla hace muchos años, la Flor del Espíritu de la Bestia estuvo a punto de extinguirse, y cada vez había menos hombres bestia. </p>
+  <p>Pero Fan Zhou puede cultivar flores de espíritu de la bestia, porque posee la habilidad acuática del Manantial Espiritual. </p>
+  <p>– </p>
+  <p>Feng Xun es del Continente Central, y fue traicionado por sus parientes durante la lucha por el Emperador Bestia; no solo lo traicionaron, sino que también le hirieron la pierna. </p>
+  <p>Feng Xun abrió los ojos en una cueva y, aunque le sorprendió un poco haber sido rescatado, guardó silencio y esperó la muerte. Su herida en la pierna era muy grave, y sin la Flor del Espíritu de la Bestia como medicina principal, era imposible que se recuperara. ¿Cómo podría sobrevivir un hombre bestia con una pierna coja? </p>
+  <p>Los hombres bestia de la tribu se enteraron de que Fan Zhou había recogido a un hombre y había regresado, y amablemente lo persuadieron: "No puedes simplemente encontrar a un lisiado solo porque el leopardo te abandonó, eres tan débil que no puedes criarlo". </p>
+  <p>El ex prometido, un auténtico canalla, también frunció el ceño y le dio una lección: "Aunque no eres digno de mí, no deberías rebajarte por un lisiado". </p>
+  <p>Más tarde, Fan Zhou fue raptado por los hombres bestia de la tribu del Hacha porque sabía cómo hacer sal, y los hombres bestia de la tribu se apresuraron a rescatarlo, y en ese momento, una sombra blanca apareció repentinamente como el viento y se precipitó frente a todos los hombres bestia. </p>
+  <p>Los hombres bestia de la tribu quedaron atónitos. </p>
+  <p>¿Acaso ese lobo no era un lisiado? </p>
+  <p>Antes de que Fan Zhou pudiera seguir a los hombres bestia de la Tribu del Hacha fuera de su territorio, una deslumbrante sombra blanca cayó del cielo, lanzando por los aires a todos los hombres bestia de la Tribu del Hacha. </p>
+  <p>Fan Zhou parecía confundido; la flor del espíritu de la bestia que había plantado aún no estaba madura, las piernas de esta persona todavía estaban débiles, ¿por qué corría tan rápido? </p>
+  <p>Pasó mucho tiempo antes de que Fan Zhou comprendiera por qué aquel hombre era tan rápido. </p>
+  <p>Más tarde, Fan Zhou y Feng Xun fueron juntos al Continente Central, y la deliciosa comida, la exquisita cerámica y las hermosas vestimentas deslumbraron a los hombres bestia del Continente Central. </p>
+  <p>Lo que resulta aún más sorprendente es que Fan Zhou también posee un sinfín de flores de espíritu de la bestia. </p>
+  <p>Guía de lectura: Fan Zhou es un conejo de orejas caídas y Feng Xun es un gran lobo de nieve, pero este artículo está vacío, por lo que existe una diferencia entre el protagonista y los dos animales en la realidad. </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</main>
+
+
+<!-- UI GLOBAL -->
+
+<div id="logo-container"></div>
+
+<div id="usuario-container"></div>  
+  
+<div id="banner-container"></div>
+
+<a href="#" id="scrollTop" title="Volver arriba">🌸</a>
+
+<div id="toast" class="toast">Guardado</div>
+<div id="tooltip-tag"></div>
+
+
+<script>
+  window.baseRuta = "../";
+</script>
+
+<script src="../js/logo.js"></script>  
+<script src="../js/banner.js"></script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+<script type="module" src="../js/usuario.js"></script>
+  
+</body>
+</html>
