@@ -261,9 +261,9 @@ capitulos: '60'
   ingles: 'Scumbag Zerg Awakening Records',
   original: '虫族之渣虫觉醒笔记',
   slug: 'Registros_del_despertar_de_los_Zerg_canalla',
-  tags: 'bl china pendiente futurista protagonista-gong reencarnacion vida-diaria transmigracion',
+  tags: 'bl china finalizado futurista protagonista-gong reencarnacion vida-diaria transmigracion',
   autor: 'wo-suan-shenme-xiao-binggan',
-  link: 'https://www.novelupdates.com/series/scumbag-zerg-awakening-records/',
+  link: 'https://drive.google.com/drive/u/1/folders/1jWCv_3i2YnwBbadSN-p3v_3zxN5Lh467',
   capitulos: '127'
 },
 
