@@ -1065,9 +1065,9 @@ capitulos: '60'
   ingles: 'The Big Bosses Are Not What I Expected After I Transmigrated Into A Book',
   original: '穿书后大佬们倒戈了',
   slug: 'Los_grandes_jefes_no_son_lo_que_esperaba_después_de_transmigrar_a_un_libro',
-  tags: 'bl china pendiente moderno comedia drama malentendidos transmigracion',
+  tags: 'bl china finalizado moderno comedia drama malentendidos transmigracion',
   autor: 'zhu-tang',
-  link: 'https://www.novelupdates.com/series/the-big-bosses-are-not-what-i-expected-after-i-transmigrated-into-a-book/',
+  link: 'https://drive.google.com/drive/u/1/folders/1NrNnFiVySIBoTwTUlfQAhPF-FS1D0hj3',
   capitulos: '95 + 8 extras'
 },
 
