@@ -933,9 +933,9 @@ capitulos: '60'
   ingles: 'Pay Attention to Me',
   original: '理我一下',
   slug: 'Préstame_atención',
-  tags: 'bl china pendiente moderno comedia matrimonio omegaverse protagonista-gong vida-escolar r18',
+  tags: 'bl china finalizado moderno comedia matrimonio omegaverse protagonista-gong vida-escolar r18',
   autor: 'bing-kuai-er',
-  link: 'https://www.novelupdates.com/series/pay-attention-to-me/',
+  link: 'https://drive.google.com/drive/u/1/folders/11sAAE0CNWHF3x3j1drUjuPo9oMOTMKZM',
   capitulos: '113 + 4 extras'
 },
 
