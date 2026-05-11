@@ -1461,7 +1461,7 @@ capitulos: '60'
   ingles: 'Transmigrated Into the Violent Boss’ Little Mermaid',
   original: '穿成暴戾大佬的小人鱼',
   slug: 'Transmigrado_a_la_sirenita_del_jefe_violento',
-  tags: 'bl china pendiente futurista lucha-de-poder matrimonio no-humano sirena sistema vida-diaria transmigracion',
+  tags: 'bl china finalizado futurista lucha-de-poder matrimonio no-humano sirena sistema vida-diaria transmigracion',
   autor: 'xian-sanqian',
   link: 'https://drive.google.com/drive/u/4/folders/1QQANOW_YNXuM1rcKdQe10CJwSc8czXSX',
   capitulos: '106 + 10 extras'
