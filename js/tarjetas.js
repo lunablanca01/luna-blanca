@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:275,
+titulo: 'Es hora de la trama [Transmigración]',
+ingles: 'It is Time for Plot [Transmigration]',
+original: '剧情时间到[穿书]',
+slug: "Es_hora_de_la_trama_[Transmigración]",
+tags: "bl china finalizado moderno comedia transmigracion",
+autor: "changhua-yixiao",
+link: "https://drive.google.com/drive/u/1/folders/1Wg7s2u_Jv9tSnRTInM0_qVoI8RfvvQb7",
+capitulos: '99 + 4 extras'
+},
+  
+{
 novela_id:274,
 titulo: 'Cultivar la tierra y criar a un marido en el mundo de las bestias',
 ingles: 'Farming and Raising a Husband in the Beast World',
