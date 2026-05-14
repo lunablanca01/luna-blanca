@@ -1665,9 +1665,9 @@ capitulos: '60'
   ingles: 'I Reincarnated as the Villain in an Eroge, But Before I Realized, I Became a Capture Target',
   original: 'エロゲーの悪役に転生したはずなのに気付けば攻略対象者になっていた',
   slug: 'Me_reencarné_como_el_villano_de_un_eroge,_pero_antes_de_darme_cuenta,_me_convertí_en_un_objetivo_de_captura',
-  tags: 'bl japon pendiente fantasia comedia reencarnacion novela-erotica yandere',
+  tags: 'bl japon finalizado fantasia comedia reencarnacion novela-erotica yandere',
   autor: 'yuzuki-haruka',
-  link: 'https://www.novelupdates.com/series/i-reincarnated-as-the-villain-in-an-eroge-but-before-i-realized-i-became-a-capture-target/',
+  link: 'https://drive.google.com/drive/u/1/folders/1ZW5i4yPQv0Tux0Ft7VsjXxDAy5dhp7Sq',
   capitulos: '126'
 },
 
