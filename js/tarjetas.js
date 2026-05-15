@@ -2313,9 +2313,9 @@ capitulos: '60'
   ingles: 'Bird Dude Nie Bufan',
   original: '禽货聂不凡',
   slug: 'El_pájaro_Nie_Bufan',
-  tags: 'bl china pendiente china-antigua harem mpreg novela-erotica sobrenatural transmigracion',
+  tags: 'bl china finalizado china-antigua harem mpreg novela-erotica sobrenatural transmigracion',
   autor: 'xueyuan-youling',
-  link: 'https://www.novelupdates.com/series/bird-dude-nie-bufan/',
+  link: 'https://drive.google.com/drive/u/1/folders/1Jv130ETkHnx3xZ-yt8p9_7KRpazkF7YX',
   capitulos: '113'
 },
 
