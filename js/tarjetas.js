@@ -525,9 +525,9 @@ capitulos: '60'
   ingles: 'Experiencing a Happy Ending With a Scum Shou',
   original: '和渣受HE是什么体验',
   slug: 'Experimentar_un_final_feliz_con_la_escoria_Shou',
-  tags: 'bl china pendiente multiples-mundos protagonista-gong novela-erotica transmigracion yandere',
+  tags: 'bl china finalizado multiples-mundos protagonista-gong novela-erotica transmigracion yandere',
   autor: 'moru-gui',
-  link: 'https://www.novelupdates.com/series/experiencing-a-happy-ending-with-a-scum-shou/',
+  link: 'https://drive.google.com/drive/u/1/folders/1vWvNUBDrjDNRj52wj-TygjlAtqSQ16UX',
   capitulos: '114 + 1 extra'
 },
 
