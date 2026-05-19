@@ -597,9 +597,9 @@ capitulos: '60'
   ingles: 'The Green Tea is Always Targeting the Wrong Person!',
   original: '绿茶的对象总是不对啊[快穿]',
   slug: 'El_té_verde_siempre_apunta_a_la_persona_equivocada',
-  tags: 'bl china pendiente multiples-mundos no-humano omegaverse sistema transmigracion venganza zombies',
+  tags: 'bl china finalizado multiples-mundos no-humano omegaverse sistema transmigracion venganza zombies',
   autor: 'jieke-maomi',
-  link: 'https://www.novelupdates.com/series/the-green-tea-is-always-targeting-the-wrong-person/',
+  link: 'https://drive.google.com/drive/u/1/folders/14TAWY-fD5CEZ_iKvEx2Z_NzZqg3gSq50',
   capitulos: '91'
 },
 
