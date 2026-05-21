@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:276,
+titulo: 'Mi leyenda se extiende por todo el mundo animal',
+ingles: 'My Legend Spreads All Over The Animal World',
+original: '动物世界四处流传我的传说',
+slug: "Mi_leyenda_se_extiende_por_todo_el_mundo_animal",
+tags: "bl china MTL multiples-mundos animales comedia transmigracion vida-diaria",
+autor: "xi-chao-nan-ge",
+link: "https://drive.google.com/drive/u/1/folders/127RwSIudRf-jth2_uK_5HGbrIpnSa84g",
+capitulos: '109 + 3 extras'
+},
+
+{
 novela_id:275,
 titulo: 'Es hora de la trama [Transmigración]',
 ingles: 'It is Time for Plot [Transmigration]',
