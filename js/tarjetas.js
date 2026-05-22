@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:277,
+titulo: 'Un espíritu de foca, no una sirena',
+ingles: 'A Seal Spirit, Not a Mermaid',
+original: '是海豹精不是人鱼',
+slug: "Un_espíritu_de_foca,_no_una_sirena",
+tags: "bl china finalizado futurista bestia-humanizada comedia cultivo no-humano transmigracion vida-diaria",
+autor: "mofa-shaonu-tu-yingjun",
+link: "https://drive.google.com/drive/u/1/folders/1wiSTN1Fg7ZMYI38-08hhIZKoCTCQRNZn",
+capitulos: '106 + 7 extras'
+},
+
+{
 novela_id:276,
 titulo: 'Mi leyenda se extiende por todo el mundo animal',
 ingles: 'My Legend Spreads All Over The Animal World',
