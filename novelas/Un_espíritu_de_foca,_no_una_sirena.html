@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un espíritu de foca, no una sirena</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<main class="contenedor">
+
+<h1>Un espíritu de foca, no una sirena</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div class="original"></div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Liu Hai era una foca, del tipo que se había transformado en espíritu. </p>
+  <p>Debido a que se convirtió en espíritu demasiado pronto, quedó atrapado en la forma de una bola de arroz glutinoso durante trescientos años. Justo cuando finalmente se enfrentó a la tribulación del rayo para adoptar forma humana, fue alcanzado directamente por otro mundo. </p>
+  <p>Buenas noticias: aunque viajar a través de diferentes mundos dejó su cuerpo debilitado, sobrevivió a la tribulación. </p>
+  <p>Malas noticias: solo lo logró a medias. La parte inferior de su cuerpo seguía intacta. </p>
+  <p>Lo colocaron en el tanque ecológico del instituto de investigación, rodeado de un grupo de extraños humanos. Su líder era un hombre apuesto con bata de laboratorio y una presencia imponente. Aunque le tocó la cola a Liu Hai en cuanto se conocieron, si Liu Hai lo pedía, podía elegir cualquier pez fresco que quisiera, y le darían hermosas gemas como decoración para su pecera. </p>
+  <p>Teniendo en cuenta la comida y el refugio que le habían proporcionado, Liu Hai decidió perdonar a ese humano grosero, esperar el momento oportuno durante ese período de debilidad y luego escapar. </p>
+  <p>Hasta que un día descubrió una etiqueta en el acuario de 500 metros cuadrados en el que vivía. </p>
+  <p>Número 2231, Especie: Sirena. </p>
+  <p>Una foca aprovechadora y parásita: … ¡Oh no, esto es un gran malentendido! ¡Comeré mil millones de raciones más y luego me escaparé! </p>
+  <p>Tras una extinción masiva de especies, la civilización humana entró en la era interestelar y comenzó a intentar revivir a las criaturas de la Tierra primitiva. Bajo el liderazgo del genial biólogo Dr. Jiang Xun, el "Proyecto Sirena" logró su primer éxito: el espécimen de sirena n.° 2231, un logro revolucionario de la nueva era. </p>
+  <p>El espíritu de la foca que accidentalmente terminó en la televisión con el tipo de la bata de laboratorio: …Ayuda. </p>
+  <p>Periodista: Doctor Jiang, ¿tiene algo que decir? ¿Cómo está la sirenita? ¿Está como se esperaba? </p>
+  <p>Jiang Xun: Su estado físico no es bueno y su cola parece estar un poco hinchada. </p>
+  <p>Liu Hai miró su propia cola redonda y peluda. </p>
+  <p>Jiang Xun: No sé si se debe a la calidad del agua, pero está perdiendo algunas escamas. Incluso recoge escamas de otros peces e intenta pegárselas. Me temo que está un poco inseguro. </p>
+  <p>Liu Hai, quien una vez intentó pegarse unas escamas para parecer una sirena: … </p>
+  <p>Jiang Xun: Contrario a lo que dicen los registros, canta muy mal… </p>
+  <p>Liu Hai chocó furioso contra el gran tanque de agua. El siempre serio Dr. Jiang esbozó una leve sonrisa y lo tranquilizó suavemente a través del cristal: «Además, lo he malcriado y tiene mal genio. Así que será mejor que no digas nada malo de él». </p>
+  <p>– </p>
+  <p>El Dr. Jiang, que parece serio en la superficie pero en realidad está lleno de travesuras, y el Rey Foca, que puede comer sin parar y tiene una forma de pensar de lo más peculiar. </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</main>
+
+
+<!-- UI GLOBAL -->
+
+<div id="logo-container"></div>
+
+<div id="usuario-container"></div>  
+  
+<div id="banner-container"></div>
+
+<a href="#" id="scrollTop" title="Volver arriba">🌸</a>
+
+<div id="toast" class="toast">Guardado</div>
+<div id="tooltip-tag"></div>
+
+
+<script>
+  window.baseRuta = "../";
+</script>
+
+<script src="../js/logo.js"></script>  
+<script src="../js/banner.js"></script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+<script type="module" src="../js/usuario.js"></script>
+  
+</body>
+</html>
