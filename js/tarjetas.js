@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:278,
+titulo: 'Renacido para criar a mi esposo',
+ingles: 'Reborn to Raise My Husband',
+original: '重生养夫郎',
+slug: "Renacido_para_criar_a_mi_esposo",
+tags: "bl china finalizado china-antigua agricultura mpreg renacimiento vida-diaria",
+autor: "dao-li-tianxia",
+link: "https://drive.google.com/drive/u/1/folders/1PI7_J6QxE4pc8DBFSGkGVb9C_a8Hh5-5",
+capitulos: '118 + 17 extras'
+},
+
+{
 novela_id:277,
 titulo: 'Un espíritu de foca, no una sirena',
 ingles: 'A Seal Spirit, Not a Mermaid',
