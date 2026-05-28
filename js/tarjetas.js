@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:279,
+titulo: 'Posesión de la muñeca de algodón del maníaco obsesivo',
+ingles: 'Possessing The Obsessive Maniac’s Cotton Doll',
+original: '광공의 솜뭉치로 빙의함',
+slug: "Posesión_de_la_muñeca_de_algodón_del_maníaco_obsesivo",
+tags: "bl Korea finalizado europa-antigua aristocracia comedia r18 transportado-a-otro-mundo yandere",
+autor: "kim-deok-pal",
+link: "https://drive.google.com/drive/u/1/folders/1Vyx87kJGem2knf3cHyliR456IYzvcnhU",
+capitulos: '102 + 28 extras'
+},
+
+{
 novela_id:278,
 titulo: 'Renacido para criar a mi esposo',
 ingles: 'Reborn to Raise My Husband',
