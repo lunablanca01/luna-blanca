@@ -1281,9 +1281,9 @@ capitulos: '60'
   ingles: 'After Becoming a Spare Tire, I Was Targeted by the Villain and the Male Lead at the Same Time',
   original: '成为备胎之后我被反派和男主同时盯上了',
   slug: 'Después_de_convertirme_en_llanta_de_repuesto,_el_villano_y_el_protagonista_masculino_me_atacaron_al_mismo_tiempo',
-  tags: 'bl china pendiente moderno comedia compromiso-roto enemigos-a-amantes sistema vida-diaria transmigracion yandere',
+  tags: 'bl china finalizado moderno comedia compromiso-roto enemigos-a-amantes sistema vida-diaria transmigracion yandere',
   autor: 'yi-yezi',
-  link: 'https://www.novelupdates.com/series/after-becoming-a-spare-tire-i-was-targeted-by-the-villain-and-the-male-lead-at-the-same-time/',
+  link: 'https://drive.google.com/drive/u/1/folders/13EzRjmM0OqmJ5w0KAsRUushIAfN5IAP8',
   capitulos: '154'
 },
 
