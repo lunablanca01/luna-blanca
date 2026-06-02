@@ -1305,9 +1305,9 @@ capitulos: '60'
   ingles: 'Death Progress Bar',
   original: '生存进度条[穿书]',
   slug: 'Barra_de_progreso_de_la_muerte',
-  tags: 'bl china pendiente moderno comedia discapacidad malentendidos sistema sobrenatural transmigracion',
+  tags: 'bl china finalizado moderno comedia discapacidad malentendidos sistema sobrenatural transmigracion',
   autor: 'bu-hui-xia-qi',
-  link: 'https://www.novelupdates.com/series/death-progress-bar/',
+  link: 'https://drive.google.com/drive/u/1/folders/1o6JucvJdPL64sTGW8oYxa_fpnLEWT0Cy',
   capitulos: '167'
 },
 
