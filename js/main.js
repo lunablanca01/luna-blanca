@@ -261,11 +261,6 @@ function aplicarFiltros() {
         return seleccionados[filtro].includes(inicialTitulo);
       }
 
-      if (filtro === "autor") {
-  const autor = card.dataset.autor?.toLowerCase() || "";
-  return seleccionados[filtro].some(valor => autor === valor.toLowerCase());
-}
-
       if (filtro === "categoria") {
         return seleccionados[filtro].some(tag => tags.includes(tag));
       }
