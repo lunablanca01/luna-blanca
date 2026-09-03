@@ -30,11 +30,7 @@ async function cargarUsuario() {
       }
     }
 
-    // 👀 ocultar cosas de admin si no lo es
-    if (rol !== "admin") {
-      html = html.replace(/class="solo-admin"/g, 'style="display:none"');
-      html = html.replace(/id="epub-container"/g, 'id="epub-container" style="display:none"');
-    }
+
 
     contenedor.innerHTML = html;
 
