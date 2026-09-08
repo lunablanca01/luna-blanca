@@ -239,7 +239,7 @@ capitulos: '60'
   slug: 'Hay_una_belleza_[De_la_antigüedad_al_presente]',
   tags: 'bl china pendiente moderno comedia malentendidos matrimonio-arreglado vida-diaria transmigracion',
   autor: 'nian-luan',
-  link: 'https://www.novelupdates.com/series/theres-a-beauty-ancient-wear-modern/',
+  link: 'https://drive.google.com/drive/u/6/folders/1721hCyb9JIWkXISBFFyQ9kan3o4oYTXY',
   capitulos: '105 + 6 extras'
 },
 
