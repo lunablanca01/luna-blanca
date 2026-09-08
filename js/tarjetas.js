@@ -237,7 +237,7 @@ capitulos: '60'
   ingles: 'There’s a Beauty [Ancient Wear Modern]',
   original: '有位佳人[古穿今]',
   slug: 'Hay_una_belleza_[De_la_antigüedad_al_presente]',
-  tags: 'bl china pendiente moderno comedia malentendidos matrimonio-arreglado vida-diaria transmigracion',
+  tags: 'bl china finalizado moderno comedia malentendidos matrimonio-arreglado vida-diaria transmigracion',
   autor: 'nian-luan',
   link: 'https://drive.google.com/drive/u/6/folders/1721hCyb9JIWkXISBFFyQ9kan3o4oYTXY',
   capitulos: '105 + 6 extras'
