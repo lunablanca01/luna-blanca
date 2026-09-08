@@ -233,10 +233,10 @@ capitulos: '60'
 
 {
   novela_id: 260,
-  titulo: 'Hay una belleza [Vestimenta antigua moderna]',
+  titulo: 'Hay una belleza [De la antigüedad al presente]',
   ingles: 'There’s a Beauty [Ancient Wear Modern]',
   original: '有位佳人[古穿今]',
-  slug: 'Hay_una_belleza_[Vestimenta_antigua_moderna]',
+  slug: 'Hay_una_belleza_[De_la_antigüedad_al_presente]',
   tags: 'bl china pendiente moderno comedia malentendidos matrimonio-arreglado vida-diaria transmigracion',
   autor: 'nian-luan',
   link: 'https://www.novelupdates.com/series/theres-a-beauty-ancient-wear-modern/',
