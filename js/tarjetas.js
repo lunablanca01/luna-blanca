@@ -897,9 +897,9 @@ capitulos: '60'
   ingles: 'King of Classical Music',
   original: '古典音乐之王[重生]',
   slug: 'Rey_de_la_música_clásica',
-  tags: 'bl china pendiente moderno r18 vida-diaria transmigracion venganza',
+  tags: 'bl china en-proceso moderno r18 vida-diaria transmigracion venganza',
   autor: 'mo-chen-huan',
-  link: 'https://www.novelupdates.com/series/king-of-classical-music/',
+  link: 'https://drive.google.com/drive/u/6/folders/1gBhJ27RsKgr0ElWR1-sDhU2w8iH4II0T',
   capitulos: '290 + 22 extras'
 },
 
