@@ -11,7 +11,7 @@ original: '魔尊也想休假',
 slug: "El_Señor_Demonio_quiere_unas_vacaciones",
 tags: "bl china finalizado cultivacion comedia malentendidos protagonista-gong punto-de-vista-multiple sistema xianxia",
 autor: "qing-se-yu-yi",
-link: "El Señor Demonio quiere unas vacaciones",
+link: "https://drive.google.com/drive/u/6/folders/1BkhQYAvK6c47DJMDa-u2BbwyQF_ojzAe",
 capitulos: '69 + 2 extras'
 },
 
