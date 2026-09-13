@@ -4,12 +4,25 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:280,
+titulo: 'El Señor Demonio quiere unas vacaciones',
+ingles: 'The Demon Lord Wants a Vacation',
+original: '魔尊也想休假',
+slug: "El_Señor_Demonio_quiere_unas_vacaciones",
+tags: "bl china finalizado cultivacion comedia malentendidos protagonista-gong punto-de-vista-multiple sistema xianxia",
+autor: "qing-se-yu-yi",
+link: "El Señor Demonio quiere unas vacaciones",
+capitulos: '69 + 2 extras'
+},
+
+  
+{
 novela_id:279,
 titulo: 'Posesión de la muñeca de algodón del maníaco obsesivo',
 ingles: 'Possessing The Obsessive Maniac’s Cotton Doll',
 original: '광공의 솜뭉치로 빙의함',
 slug: "Posesión_de_la_muñeca_de_algodón_del_maníaco_obsesivo",
-tags: "bl Korea finalizado europa-antigua aristocracia comedia r18 transportado-a-otro-mundo yandere",
+tags: "bl korea finalizado europa-antigua aristocracia comedia r18 transportado-a-otro-mundo yandere",
 autor: "kim-deok-pal",
 link: "https://drive.google.com/drive/u/1/folders/1Vyx87kJGem2knf3cHyliR456IYzvcnhU",
 capitulos: '102 + 28 extras'
