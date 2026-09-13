@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Señor Demonio quiere unas vacaciones</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<main class="contenedor">
+
+<h1>El Señor Demonio quiere unas vacaciones</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>魔尊也想休假</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Duanmu Wuqiu, el Soberano Demoníaco sin igual en todo el mundo, ha sido vinculado al Sistema de Destrucción. </p>
+  <p>Sistema: ¡Ding! Gobernarás este mundo y purgarás su antiguo orden decadente. </p>
+  <p>Duanmu Wuqiu: Finalmente he alcanzado un nivel de cultivo en el que nadie se atreve a molestarme. Quiero un descanso. </p>
+  <p>Sistema: Para cumplir tu propósito de convertirte en el Soberano que Acaba con el Mundo, dirígete al Desfiladero de la Caída Celestial y usa los vientos celestiales para templar tu cuerpo, con el fin de cultivar un cuerpo dorado indestructible. </p>
+  <p>Duanmu Wuqiu: Ya lo intenté, es demasiado doloroso. No lo haré. </p>
+  <p>Sistema: ¡Por favor, dirígete a la Secta Beichen y asesina a Luo Xianyun, el líder de las sectas justas, para impedir que obstaculice tu gran misión de acabar con el mundo! </p>
+  <p>Duanmu Wuqiu: Me voy ahora mismo. </p>
+  <p>— </p>
+  <p>Duanmu Wuqiu le entrega una carta de presentación a Luo Xianyun y le dice: "Este Señor ha sufrido a causa de un demonio interior que lo incita día y noche a acabar con el mundo. ¿No deberían ustedes, sectas justas, investigar esto?". </p>
+  <p>Luo Xianyun (sentado cortésmente): Haré todo lo que pueda. </p>
+  <p>Duanmu Wuqiu: Bien, pues, acompaña a este Señor y ayúdame a librarme de este demonio interior. </p>
+  <p>Antes de que Luo Xianyun pudiera hablar, una voz sonó junto a su oído: El Sistema Salvador desea conectarse, por favor acepte o rechace. </p>
+  <p>Luo Xianyun: Acepta. </p>
+  <p>Sistema: Este sistema detecta que el Señor Demonio te tiene mucha simpatía y te recomienda la ruta romántica para salvar el mundo. ¡Acércate y abrázalo! ¡Bésalo en los labios! </p>
+  <p>Luo Xianyun: …¿Puedo retractarme ahora? </p>
+  <p>Duanmu Wuqiu: ¿Por qué me miras los labios así? ¿Mi sonrisa es espeluznante? </p>
+  <p>Luo Xianyun: En absoluto. Este también podría estar lidiando con un demonio interior. </p>
+  <p>Duanmu Wuqiu: ¡Tú me ayudas con lo mío, yo te ayudo con lo tuyo! </p>
+  <p>Sistema: ¿Ves? ¡Te dije que le gustabas! ¡Lánzate sobre él! </p>
+  <p>Luo Xianyun: Puede que no sea necesario. </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</main>
+
+
+<!-- UI GLOBAL -->
+
+<div id="logo-container"></div>
+
+<div id="usuario-container"></div>  
+  
+<div id="banner-container"></div>
+
+<a href="#" id="scrollTop" title="Volver arriba">🌸</a>
+
+<div id="toast" class="toast">Guardado</div>
+<div id="tooltip-tag"></div>
+
+
+<script>
+  window.baseRuta = "../";
+</script>
+
+<script src="../js/logo.js"></script>  
+<script src="../js/banner.js"></script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+<script type="module" src="../js/usuario.js"></script>
+  
+</body>
+</html>
