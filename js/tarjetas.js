@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:281,
+titulo: 'El manual imperial para el cultivo de setas',
+ingles: 'The Imperial Handbook to Raising Mushrooms',
+original: '帝王养蘑菇的注意事项',
+slug: "El_manual_imperial_para_el_cultivo_de_setas",
+tags: "bl China finalizado china-antigua cultivo no-humano realeza xuanhuan",
+autor: "danqing-luo",
+link: "https://drive.google.com/drive/u/6/folders/1iX_mB4G9gCQaVOby2m7saKco9_UqImI4",
+capitulos: '31'
+},
+
+{
 novela_id:280,
 titulo: 'El Señor Demonio quiere unas vacaciones',
 ingles: 'The Demon Lord Wants a Vacation',
@@ -15,7 +27,6 @@ link: "https://drive.google.com/drive/u/6/folders/1BkhQYAvK6c47DJMDa-u2BbwyQF_oj
 capitulos: '69 + 2 extras'
 },
 
-  
 {
 novela_id:279,
 titulo: 'Posesión de la muñeca de algodón del maníaco obsesivo',
