@@ -2205,9 +2205,9 @@ capitulos: '60'
   ingles: 'Little Ger, Slow Life in Another World',
   original: '小哥儿异世慢生活',
   slug: 'Pequeño_Ger,_vida_lenta_en_otro_mundo',
-  tags: 'bl china pendiente china-antigua agricultura ger mpreg vida-diaria transmigracion',
+  tags: 'bl china finalizado china-antigua agricultura ger mpreg vida-diaria transmigracion',
   autor: 'j112233',
-  link: 'https://www.novelupdates.com/series/little-ger-slow-life-in-another-world/',
+  link: 'https://drive.google.com/drive/u/6/folders/1u3zJ0fdlDLyXuXLvmNukv22XwD_He_mg',
   capitulos: '80 + 5 extras'
 },
 
