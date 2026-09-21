@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:282,
+titulo: 'El pequeño tiburón ya no quiere trabajar duro',
+ingles: 'Little Shark Doesn’t Want To Work Hard Anymore',
+original: '小鲨鱼不想努力了',
+slug: "El_pequeño_tiburón_ya_no_quiere_trabajar_duro",
+tags: "bl China finalizado futurista no-humano",
+autor: "zhi-zhe-yue",
+link: "https://drive.google.com/drive/u/6/folders/1QNSBvIWYiTX4bRsNlgN4j5NMmkjyII-j",
+capitulos: '89'
+},
+
+{
 novela_id:281,
 titulo: 'El manual imperial para el cultivo de setas',
 ingles: 'The Imperial Handbook to Raising Mushrooms',
