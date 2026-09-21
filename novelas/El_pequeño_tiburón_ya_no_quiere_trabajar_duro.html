@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El pequeño tiburón ya no quiere trabajar duro</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<main class="contenedor">
+
+<h1>El pequeño tiburón ya no quiere trabajar duro</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>小鲨鱼不想努力了</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Su Su era un tiburón joven que acababa de alcanzar la edad adulta y, debido a su gran apetito y a su poca habilidad para cazar, a menudo no tenía suficiente para comer. Al oír que los humanos podían criar sirenas, Su Su encontró una tribu de sirenas en el mar y buscó la manera de convertirse en una. </p>
+  <p>La sirenita más hermosa de la tribu de las sirenas escapó del matrimonio y originalmente estaba prometida al almirante imperial, pero él se enamoró de una orca en el mar. </p>
+  <p>El pequeño tiburón se convirtió en el doble de la sirenita y fue metido en un enorme barco pesquero. </p>
+  <p>El almirante imperial Qi Hanyi fue obligado por el imperio a casarse con una sirena, y cuando regresó del campo de batalla, se enteró de que la sirena había sido lavada y enviada a su casa. </p>
+  <p>"No, no lo voy a mencionar, deséchalo inmediatamente." </p>
+  <p>Qi Hanyi colgó el teléfono furioso y regresó corriendo a casa: "¿Dónde está la sirena?" </p>
+  <p>En el enorme estanque de peces, vacío y de color azul oscuro, un tiburón de dos metros de largo movió la cola y emergió de la superficie del agua. </p>
+  <p>Abrió la boca hacia Qi Hanyi, mostrando una hilera de dientes perfectamente puntiagudos, agitó sus aletas para saludarlo alegremente y señaló su boca. </p>
+  <p>Entonces Qi Hanyi oyó al tiburón que tenía delante tartamudear en un lenguaje humano poco hábil: "Cariño, tengo hambre, tengo hambre, comida". </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</main>
+
+
+<!-- UI GLOBAL -->
+
+<div id="logo-container"></div>
+
+<div id="usuario-container"></div>  
+  
+<div id="banner-container"></div>
+
+<a href="#" id="scrollTop" title="Volver arriba">🌸</a>
+
+<div id="toast" class="toast">Guardado</div>
+<div id="tooltip-tag"></div>
+
+
+<script>
+  window.baseRuta = "../";
+</script>
+
+<script src="../js/logo.js"></script>  
+<script src="../js/banner.js"></script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+<script type="module" src="../js/usuario.js"></script>
+  
+</body>
+</html>
