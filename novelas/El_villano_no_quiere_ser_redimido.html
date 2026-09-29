@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El villano no quiere ser redimido</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<main class="contenedor">
+
+<h1>El villano no quiere ser redimido</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>反派他不想被救贖</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>En las historias de redención, el villano obstinado, paranoico y extraordinariamente capaz siempre tenía un pasado trágico. </p>
+  <p>Y mientras el protagonista, universalmente adorado y con el guion en la mano, sonriera o pronunciara unas pocas palabras, podría redimir fácilmente al villano, ganarse su corazón y, a partir de entonces, el villano le sería completamente devoto, convirtiéndose voluntariamente en un pez más en su estanque. </p>
+  <p>…Hasta que un día, los villanos encontraron un libro misterioso. </p>
+  <p>La versión del libro dice: "Si sonríes, te daré mi vida". </p>
+  <p>Los villanos, con expresiones de dolor: "¿Así que esta es la desesperación de estar fuera de personaje?" </p>
+  <p>Mundo 1: </p>
+  <p>El joven discípulo perezoso y sin talento de la Secta Qingcheng vivía una vida apática, pero todas las grandes figuras de los Tres Reinos se inclinaban ante él, compitiendo ansiosamente por su amor. </p>
+  <p>Tras entrar solo en el Reino Demoníaco, contempló al malvado Señor Demonio con los ojos llenos de lágrimas, expresando que comprendía sus acciones y que estaba dispuesto a aceptar y asumir la fragilidad y la falta de amor de su pasado. </p>
+  <p>El Señor Demonio soltó una risita fría: </p>
+  <p>"Un mocoso como tú no debería tomar el camino equivocado. Llama a tu amo; tengo algunos asuntos pendientes que tratar con él." </p>
+  <p>Mundo 2: </p>
+  <p>El delicado y amado protagonista de Holy Son utilizó su sonrisa pura y bondadosa para abrir los corazones sellados de varios dioses y razas, haciendo que lo vieran como su única salvación. </p>
+  <p>Pero el pez más poderoso de su estanque, el Dios Oscuro, huyó. </p>
+  <p>El demonio de cabello negro y ojos rojos que se suponía que debía permanecer a su lado deslizó sus dedos por el rostro del joven obispo, que estaba contraído por el dolor y la contención. </p>
+  <p>"¿Así que fuiste tú quien me convocó? Querido obispo, hacer un pacto con un demonio tiene un precio." </p>
+  <p>Otros mundos: </p>
+  <p>En una antigua corte imperial, el traicionero primer ministro sonrió levemente mientras arrojaba al protagonista transmigrado que decía "Quiero ser tu única luz", junto con su sistema, al calabozo. </p>
+  <p>En el mundo de un juego en línea, el jefe final ya no caía en las trampas de los intentos casuales del protagonista por conquistarlo, sino que irrumpía a través del mundo del juego hacia la realidad, anhelando el amor barato del protagonista. </p>
+  <p>En un mundo de supervivencia infinito, el cerebro detrás de todo ya no se andaba con rodeos con el protagonista solo por su impresionante belleza… </p>
+  <p>A partir de entonces, todos los mundos volvieron a su orden original. </p>
+  <p>El protagonista, que una vez fue bendecido con el aura del Elegido Celestial, observó impotente cómo sus admiradores descubrían gradualmente su verdadera naturaleza. Se enfureció, pero no había nada que pudiera hacer. </p>
+  <p>Y todos los villanos se dieron cuenta de que, en lugar de ser redimidos, preferían el amor entre iguales, donde ambos dependieran el uno del otro. </p>
+  <p>Aquel que podía iluminarlos de verdad ya había aparecido a su lado. </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</main>
+
+
+<!-- UI GLOBAL -->
+
+<div id="logo-container"></div>
+
+<div id="usuario-container"></div>  
+  
+<div id="banner-container"></div>
+
+<a href="#" id="scrollTop" title="Volver arriba">🌸</a>
+
+<div id="toast" class="toast">Guardado</div>
+<div id="tooltip-tag"></div>
+
+
+<script>
+  window.baseRuta = "../";
+</script>
+
+<script src="../js/logo.js"></script>  
+<script src="../js/banner.js"></script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+<script type="module" src="../js/usuario.js"></script>
+  
+</body>
+</html>
