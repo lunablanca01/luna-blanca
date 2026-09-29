@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:283,
+titulo: 'El villano no quiere ser redimido',
+ingles: 'The Villain Doesn’t Want to Be Redeemed',
+original: '反派他不想被救贖',
+slug: "El_villano_no_quiere_ser_redimido",
+tags: "bl China finalizado multiples-mundos multiples-protagonistas protagonista-gong sistema",
+autor: "minami-shizuki",
+link: "https://drive.google.com/drive/u/6/folders/1LldHCfqxYBZZR-7CeWAQZB5wWicHWB_W",
+capitulos: '270 + 6 extras'
+},
+
+{
 novela_id:282,
 titulo: 'El pequeño tiburón ya no quiere trabajar duro',
 ingles: 'Little Shark Doesn’t Want To Work Hard Anymore',
