@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:284,
+titulo: 'Desperté embarazada en todos los mundos [Transmigración rápida]',
+ingles: 'Woke Up Pregnant in Every World [Quick Transmigration]',
+original: '开局肚中一个崽[快穿]',
+slug: "Desperté_embarazada_en_todos_los_mundos_[Transmigración_rápida]",
+tags: "bl China finalizado multiples-mundos mpreg sistema transmigracion",
+autor: "murasaki-jin",
+link: "https://drive.google.com/drive/u/6/folders/1oqX4idVmHRU6kJXKBBCitmoLC2vfd7Rq",
+capitulos: '114 + 3 extras'
+},
+
+{
 novela_id:283,
 titulo: 'El villano no quiere ser redimido',
 ingles: 'The Villain Doesn’t Want to Be Redeemed',
