@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desperté embarazada en todos los mundos [Transmigración rápida]</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<main class="contenedor">
+
+<h1>Desperté embarazada en todos los mundos [Transmigración rápida]</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>开局肚中一个崽[快穿]</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>Una noche, después del trabajo, Lu Jiu se topó con un compañero de universidad en un bar. Bajo los efectos del alcohol… las cosas, como era de esperar, se salieron un poco de control. </p>
+  <p>A la mañana siguiente, dolorido y adolorido por todo el cuerpo, iba camino a casa cuando un hombre ciego que estaba en la calle señaló repentinamente con entusiasmo su estómago y gritó: </p>
+  <p>"¡Está aquí! ¡Ya lo llevas contigo! ¡Esto es el destino, un vínculo inquebrantable a través de las vidas! ¡La cristalización del amor!" </p>
+  <p>Lu Jiu: "????" </p>
+  <p>Lu Jiu: "Tío, ¿quizás deberías llamar a la policía?" </p>
+  <p>Sin embargo, esa misma noche, de camino a un club con amigos, Lu Jiu sufrió un accidente de coche… </p>
+  <p>Creía que estaba muerto, pero en cambio despertó en una serie de mundos nuevos y extraños, y cada vez que entraba en uno, había un bebé en su vientre desde el principio. </p>
+  <p>¡El bebé del director ejecutivo, el bebé del príncipe heredero imperial, el bebé del duque vampiro e incluso, que Dios lo ayude, el huevo del hombre más fuerte de la Tierra! </p>
+  <p>Lo peor es que todos esos padres de sus hijos se parecían muchísimo a su compañero de último año de universidad. </p>
+  <p>Lu Jiu: "¡¿Qué demonios está pasando?! ¡Mayor, ¿qué me hiciste en todos estos mundos?!" </p>
+  <p>Estudiante de último año (con calma): "Simplemente las cosas que ambos sabemos que nos gusta hacer." </p>
+  <p>Historia de transmigración rápida con embarazo masculino, 1 contra 1, final feliz. En cada mundo, es la primera vez del otro. </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</main>
+
+
+<!-- UI GLOBAL -->
+
+<div id="logo-container"></div>
+
+<div id="usuario-container"></div>  
+  
+<div id="banner-container"></div>
+
+<a href="#" id="scrollTop" title="Volver arriba">🌸</a>
+
+<div id="toast" class="toast">Guardado</div>
+<div id="tooltip-tag"></div>
+
+
+<script>
+  window.baseRuta = "../";
+</script>
+
+<script src="../js/logo.js"></script>  
+<script src="../js/banner.js"></script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+<script type="module" src="../js/usuario.js"></script>
+  
+</body>
+</html>
