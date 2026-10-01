@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:285,
+titulo: 'Transmigración rápida: cómo seducir a hombres heterosexuales',
+ingles: 'Quick Transmigration: Seducing Straight Men',
+original: '快穿之引诱直男',
+slug: "Transmigración_rápida:_cómo_seducir_a_hombres_heterosexuales",
+tags: "bl China finalizado multiples-mundos mpreg no-humano novela-erotica r18 sistema transmigracion",
+autor: "youzi-jun",
+link: "https://drive.google.com/drive/u/6/folders/1y1yc89m_YWeTjy_R6If4uWrXaDpyZBoz",
+capitulos: '97'
+},
+
+{
 novela_id:284,
 titulo: 'Desperté embarazada en todos los mundos [Transmigración rápida]',
 ingles: 'Woke Up Pregnant in Every World [Quick Transmigration]',
