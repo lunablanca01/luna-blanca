@@ -585,9 +585,9 @@ capitulos: '60'
   ingles: 'I Became a Fanboy of the Villain',
   original: '我成了反派脑残粉[快穿]',
   slug: 'Me_hice_fanboy_del_villano',
-  tags: 'bl china pendiente multiples-mundos comedia cultivo malentendidos sistema transmigracion',
+  tags: 'bl china finalizado multiples-mundos comedia cultivo malentendidos sistema transmigracion',
   autor: 'buzhao-yi-zi',
-  link: 'https://www.novelupdates.com/series/i-became-a-fanboy-of-the-villain/',
+  link: 'https://drive.google.com/drive/u/6/folders/1ZRdlBparNkFD4Xn6AjxwKi1GcUYnHg0s',
   capitulos: '80'
 },
 
