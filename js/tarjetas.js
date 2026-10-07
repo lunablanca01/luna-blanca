@@ -2037,9 +2037,9 @@ capitulos: '60'
   ingles: 'Evil Cult Undercover Gets Exposed Everyday',
   original: '魔教卧底每天都在露馅',
   slug: 'Encubierto_del_culto_del_mal_sale_a_la_luz_todos_los_días',
-  tags: 'bl china pendiente cultivacion comedia cultivo enemigos-a-amantes malentendidos transmigracion',
+  tags: 'bl china finalizado cultivacion comedia cultivo enemigos-a-amantes malentendidos transmigracion',
   autor: 'lu-tianyi',
-  link: 'https://www.novelupdates.com/series/evil-cult-undercover-gets-exposed-everyday/',
+  link: 'https://drive.google.com/drive/u/6/folders/1fSBIHDqkUjHBaGA-ZYlok_PBGSqFS-bm',
   capitulos: '12'
 },
 
