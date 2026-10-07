@@ -1569,9 +1569,9 @@ capitulos: '60'
   ingles: 'Lessons on Raising a Partner',
   original: '教你种植一个对象',
   slug: 'Lecciones_sobre_cómo_criar_una_pareja',
-  tags: 'bl china pendiente futurista comedia no-humano r18 transmigracion',
+  tags: 'bl china finalizado futurista comedia no-humano r18 transmigracion',
   autor: 'aci-guniang',
-  link: 'https://www.novelupdates.com/series/lessons-on-raising-a-partner/',
+  link: 'https://drive.google.com/drive/u/6/folders/1YikEVgQNG6uhu9R1hMVtHZN9KUQWJHuu',
   capitulos: '126 + 11 extras'
 },
 
