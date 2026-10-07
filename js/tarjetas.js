@@ -1689,9 +1689,9 @@ capitulos: '60'
   ingles: 'After Becoming the Alpha Protagonist, I Snatched the Cannon Fodder Omega',
   original: '穿成主角A后把炮灰O扛跑了',
   slug: 'Después_de_convertirme_en_el_protagonista_alfa,_arrebaté_el_Omega_carne_de_cañón',
-  tags: 'bl china pendiente futurista matrimonio-arreglado omegaverse protagonista-gong transmigracion',
+  tags: 'bl china finalizado futurista matrimonio-arreglado omegaverse protagonista-gong transmigracion',
   autor: 'caomei-tuotuo',
-  link: 'https://www.novelupdates.com/series/after-becoming-the-alpha-protagonist-i-snatched-the-cannon-fodder-omega/',
+  link: 'https://drive.google.com/drive/u/6/folders/1I_W-eQE5pBnc6EonXjmbsG0pN5el53bj',
   capitulos: '96 + 4 extras'
 },
 
