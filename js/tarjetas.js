@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:286,
+titulo: 'Renace para criar a mi esposo',
+ingles: 'Reborn to Raise My Husband',
+original: '重生养夫郎',
+slug: "Renace_para_criar_a_mi_esposo",
+tags: "bl China finalizado china-antigua agricultura drama mpreg protagonista-gong renacimiento vida-diaria",
+autor: "dao-li-tianxia",
+link: "https://drive.google.com/drive/u/6/folders/1XYkLfgCH94336Es5YCCcbMy5TkTDOgnK",
+capitulos: '118 + 17 extras'
+},
+
+{
 novela_id:285,
 titulo: 'Transmigración rápida: cómo seducir a hombres heterosexuales',
 ingles: 'Quick Transmigration: Seducing Straight Men',
