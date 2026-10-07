@@ -2085,9 +2085,9 @@ capitulos: '60'
   ingles: 'The Two-Tailed Little Fox Demon and His Taoist Priest Gong',
   original: '兩條尾巴的小狐妖和他家道長攻',
   slug: 'El_pequeño_demonio_zorro_de_dos_colas_y_su_sacerdote_taoísta_Gong',
-  tags: 'bl china pendiente cultivacion bestia-humanizada cultivo no-humano novela-erotica xianxia',
+  tags: 'bl china finalizado cultivacion bestia-humanizada cultivo no-humano novela-erotica xianxia',
   autor: 'liulian-qiaokeli',
-  link: 'https://www.novelupdates.com/series/the-two-tailed-little-fox-demon-and-his-taoist-priest-gong/',
+  link: 'https://drive.google.com/drive/u/6/folders/11wsONK1arNB2WlYKfCnTV_ATxnmshnaQ',
   capitulos: '56 + 3 extras'
 },
 
