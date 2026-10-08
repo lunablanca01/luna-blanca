@@ -1401,7 +1401,7 @@ capitulos: '60'
   ingles: 'Superstar Aspirations',
   original: '巨星问鼎[重生]',
   slug: 'Aspiraciones_de_superestrella',
-  tags: 'bl china pendiente moderno industria-del-entretenimiento r18 vida-diaria transmigracion',
+  tags: 'bl china finalizado moderno industria-del-entretenimiento r18 vida-diaria transmigracion',
   autor: 'mo-chen-huan',
   link: 'https://drive.google.com/drive/u/1/folders/1a_54djnutD9dct7v64GDALz4PdKQ8QBl',
   capitulos: '165 + 12 extras'
