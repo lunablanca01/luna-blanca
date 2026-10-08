@@ -1929,7 +1929,7 @@ capitulos: '60'
   ingles: 'Transmigrated into the World of “Demon Lord Wu Zun”',
   original: '穿越魔皇武尊',
   slug: 'Transmigrado_al_mundo_del_Señor_Demonio_Wu_Zun',
-  tags: 'bl china en-proceso abuso cultivacion canibalismo bestias cultivo r18 transmigracion yandere',
+  tags: 'bl china finalizado abuso cultivacion canibalismo bestias cultivo r18 transmigracion yandere',
   autor: 'yi-luocheng-huo',
   link: 'https://drive.google.com/drive/u/1/folders/1O5W5nDyXhch4lGS-qijhq_7LS3ZXsyNA',
   capitulos: '133 + 19 extras'
