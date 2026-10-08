@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:287,
+titulo: 'Diario de observación del prometido de una auto-proclamada villana',
+ingles: 'Observation Record of a Self-proclaimed Villainess’ Fiance',
+original: '自称悪役令嬢な妻の観察記録。',
+slug: "Diario_de_observación_del_prometido_de_una_auto-proclamada_villana",
+tags: "bg Japón finalizado europa-antigua aristocracia comedia matrimonio-arreglado protagonista-op realeza reencarnacion vida-diaria",
+autor: "shiki",
+link: "https://drive.google.com/drive/u/6/folders/1CZ8fPndFQTwNaMyOZ4jPcwlyyI-K5L25",
+capitulos: '2 Volumenes'
+},
+
+{
 novela_id:286,
 titulo: 'Renace para criar a mi esposo',
 ingles: 'Reborn to Raise My Husband',
