@@ -1029,9 +1029,9 @@ capitulos: '60'
   ingles: 'Reborn as the Villain President’s Cat & Dog',
   original: '重生成反派总裁的猫狗[娱乐圈]',
   slug: 'Renacido_como_el_gato_y_el_perro_del_presidente_villano',
-  tags: 'bl china pendiente moderno industria-del-entretenimiento mascotas matrimonio renacimiento transformacion-animal',
+  tags: 'bl china finalizado moderno industria-del-entretenimiento mascotas matrimonio renacimiento transformacion-animal',
   autor: 'lin-ang-si',
-  link: 'https://www.novelupdates.com/series/reborn-as-the-villain-presidents-cat-dog/',
+  link: 'https://drive.google.com/drive/u/6/folders/1tPqDmvf1vCu-52QL3PLynNl5wKLIna8o',
   capitulos: '111 + 10 extras'
 },
 
