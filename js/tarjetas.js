@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:288,
+titulo: 'La boda de la Princesa Marietta',
+ingles: 'Marietta-hime no Konrei',
+original: 'マリエッタ姫の婚礼～旦那様、素敵すぎます！～',
+slug: "La_boda_de_la_Princesa_Marietta",
+tags: "bg Japón finalizado europa-antigua aristocracia comedia matrimonio-arreglado vida-diaria",
+autor: "hazuki-kuroru",
+link: "https://drive.google.com/drive/u/6/folders/12_Qo2C4UYQzI96wTMlq4U2QG6UviqKzO",
+capitulos: '33 + 7 extras'
+},
+
+{
 novela_id:287,
 titulo: 'Diario de observación del prometido de una auto-proclamada villana',
 ingles: 'Observation Record of a Self-proclaimed Villainess’ Fiance',
