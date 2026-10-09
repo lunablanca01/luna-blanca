@@ -1937,10 +1937,10 @@ capitulos: '60'
 
 {
   novela_id: 127,
-  titulo: 'Transmigrar en un personaje de carne de cañón para rehabilitar el plan de villano',
+  titulo: 'Transmigré en un personaje secundario para rehabilitar al villano',
   ingles: 'Transmigrating into a Mob Character to Rehabilitate the Villain Plan',
   original: '穿成炮灰之反派养成计划',
-  slug: 'Transmigrar_en_un_personaje_de_carne_de_cañón_para_rehabilitar_el_plan_de_villano',
+  slug: "Transmigré_en_un_personaje_secundario_para_rehabilitar_al_villano",
   tags: 'bl china finalizado cultivacion amnesia cultivo drama r18 transmigracion xianxia yandere',
   autor: 'sha-xiao-wan',
   link: 'https://drive.google.com/drive/u/1/folders/19V5GMFx1F66gdWFXPFl3_jAVmhXWtUrT',
