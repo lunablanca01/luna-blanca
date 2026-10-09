@@ -4,7 +4,7 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
-novela_id:288,
+novela_id:287,
 titulo: 'La boda de la Princesa Marietta',
 ingles: 'Marietta-hime no Konrei',
 original: 'マリエッタ姫の婚礼～旦那様、素敵すぎます！～',
@@ -16,7 +16,7 @@ capitulos: '33 + 7 extras'
 },
 
 {
-novela_id:287,
+novela_id:286,
 titulo: 'Diario de observación del prometido de una auto-proclamada villana',
 ingles: 'Observation Record of a Self-proclaimed Villainess’ Fiance',
 original: '自称悪役令嬢な妻の観察記録。',
@@ -25,18 +25,6 @@ tags: "bg japon finalizado europa-antigua aristocracia comedia matrimonio-arregl
 autor: "shiki",
 link: "https://drive.google.com/drive/u/6/folders/1CZ8fPndFQTwNaMyOZ4jPcwlyyI-K5L25",
 capitulos: '2 Volumenes'
-},
-
-{
-novela_id:286,
-titulo: 'Renace para criar a mi esposo',
-ingles: 'Reborn to Raise My Husband',
-original: '重生养夫郎',
-slug: "Renace_para_criar_a_mi_esposo",
-tags: "bl China finalizado china-antigua agricultura drama mpreg protagonista-gong renacimiento vida-diaria",
-autor: "dao-li-tianxia",
-link: "https://drive.google.com/drive/u/6/folders/1XYkLfgCH94336Es5YCCcbMy5TkTDOgnK",
-capitulos: '118 + 17 extras'
 },
 
 {
