@@ -2361,9 +2361,9 @@ capitulos: '60'
   ingles: 'The Spiritual Plant Master Transmigration',
   original: '穿越之灵植师',
   slug: 'La_transmigración_del_maestro_de_la_planta_espiritual',
-  tags: 'bl china pendiente china-antigua agricultura cultivo mpreg ninos protagonista-gong vida-diaria transmigracion',
+  tags: 'bl china finalizado china-antigua agricultura cultivo mpreg ninos protagonista-gong vida-diaria transmigracion',
   autor: 'ye-yiluo',
-  link: 'https://www.novelupdates.com/series/the-spiritual-plant-master-transmigration/',
+  link: 'https://drive.google.com/drive/u/6/folders/1Iv1B5QpAngyK-dN3AXFWwFOXx1zOZCGY',
   capitulos: '397'
 },
 
