@@ -873,9 +873,9 @@ capitulos: '60'
   ingles: 'Transmigrating Into The Heartthrob’s Cannon Fodder Childhood Friend',
   original: '穿成万人迷的炮灰竹马',
   slug: 'Transmigrar_en_el_amigo_de_la_infancia_carne_de_cañón_del_rompecorazones',
-  tags: 'bl china pendiente moderno comedia vida-escolar sistema transmigracion',
+  tags: 'bl china finalizado moderno comedia vida-escolar sistema transmigracion',
   autor: 'qie-zai-shan-yang',
-  link: 'https://www.novelupdates.com/series/transmigrating-into-the-heartthrobs-cannon-fodder-childhood-friend/',
+  link: 'https://drive.google.com/drive/u/6/folders/1rHrxRm3XcARIlqg3OA_3kJ-yQXfKlKdV',
   capitulos: '105 + 1 extra'
 },
 
