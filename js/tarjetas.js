@@ -1425,9 +1425,9 @@ capitulos: '60'
   ingles: 'Transmigrated into a Beast Tribe',
   original: '穿越之游兽部落',
   slug: 'Transmigrado_a_una_tribu_de_bestias',
-  tags: 'bl china pendiente tribal hombre-bestia mpreg ninos vida-diaria transportado-a-otro-mundo',
+  tags: 'bl china finalizado tribal hombre-bestia mpreg ninos vida-diaria transportado-a-otro-mundo',
   autor: 'zise-jingji',
-  link: 'https://www.novelupdates.com/series/transmigrated-into-a-beast-tribe/',
+  link: 'https://drive.google.com/drive/u/6/folders/1JEn5C5mvLZn25XelvnOzpZRjSWxepmQI',
   capitulos: '102'
 },
 
