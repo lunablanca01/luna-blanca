@@ -1917,7 +1917,7 @@ capitulos: '60'
   ingles: 'I Want To Enjoy A Country Life!',
   original: '田舎ライフを楽しみたいんだ！',
   slug: 'Quiero_disfrutar_de_la_vida_en_el_campo',
-  tags: 'bl japon pendiente europa-antigua agricultura harem incesto realeza reencarnacion novela-erotica yandere',
+  tags: 'bl japon finalizado europa-antigua agricultura harem incesto realeza reencarnacion novela-erotica yandere',
   autor: 'botamochi',
   link: 'https://drive.google.com/drive/u/6/folders/1gmgCrJIsSouHiWEh6qMJiNUnNBkDM6a3',
   capitulos: '23 + 2 extras'
