@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hola Maestro, La Sirenita te apoyará</title>
+<link href="https://fonts.googleapis.com/css2?family=Molengo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/novelas.css">
+
+</head>
+
+<body>
+
+<main class="contenedor">
+
+<h1>Hola Maestro, ¡La Sirenita te apoyará!</h1>
+
+<img class="portada" src="">
+
+<div class="subtitulo"></div>
+<div>嗨主人，小人鱼直播养你啊</div>
+<div class="autor"></div>
+<div class="capitulos"></div>
+
+<!-- ETIQUETAS -->
+<div class="etiquetas"></div>
+
+<div class="contenido">
+<h2>Descripción</h2>
+  <p>La sirena número 55 fue abandonada por su amo. </p>
+  <p>Antes de que se desmayara de hambre, un pescadero lo vendió finalmente a precio de ganga. </p>
+  <p>Según el pescadero, su segundo amo tenía un paisaje mental muy dañado y era un individuo pobre y desamparado que solo podía permitirse una sirena de segunda mano como la número 55, con escasas habilidades para calmar los ánimos. </p>
+  <p>Número 55: Oh no, voy a morirme de hambre otra vez, wū wū… </p>
+  <p>Sin embargo, este amo no solo le dio un nombre hermoso, "MuMu", sino que también lo alimentó con comida para peces de alta calidad y nutritiva en cada comida y le frotó la cola con una crema de marca para el cuidado de las sirenas. </p>
+  <p>MuMu fue criado para ser rubio y regordete, pero jamás vio a su nuevo amo disfrutar de ningún manjar. Para mantenerlo, su nuevo amo incluso trabajaba como un agente 007, día y noche… </p>
+  <p>MuMu decidió: ¡Usaré mis habilidades especiales y trabajaré duro para mantener a la familia! </p>
+  <p>*** </p>
+  <p>La incapacidad de humanos y sirenas para comunicarse es un problema desconcertante que aqueja a toda la raza humana interestelar. </p>
+  <p>Solo las sirenas pueden calmar el turbulento mundo interior de los humanos. Incluso si son arañados o mordidos inexplicablemente por sus propias sirenas, deben soportarlo. Después de todo, ¿quién puede entender de qué se quejan las sirenas? </p>
+  <p>Pero un día, apareció la primera transmisión en vivo interestelar de "Interpretación Simultánea de Sirenas"... </p>
+  <p>El streamer era un joven de tez clara, ojos penetrantes y una voz singular: "¡Por un pequeño obsequio, puedes conectarte y obtener interpretación simultánea, es muy barato!". </p>
+  <p>La avalancha de comentarios se burló: [¿De dónde salió este streamer estafador? ¡Qué truco tan bajo para conseguir regalos, solo un tonto lo intentaría!] </p>
+  <p>Después de que apareció el "tonto" del juicio, el streamer escuchó los chillidos de la sirena de su familia y tradujo con precisión: </p>
+  <p>Dice que le tiene miedo a las cucarachas y que cada vez que ve una, te araña dos veces por la frustración. Sugiere un tratamiento completo de control de plagas para tu casa. </p>
+  <p>[¡Santo cielo! ¡Después de exterminar los bichos de mi casa, mi sirena dejó de arañarme!] </p>
+  <p>[¡¿Qué?! ¡Te enviaré un crucero, un streamer, conéctate conmigo primero!] </p>
+  <p>¿Es un dios? ¡Por fin se salva todo el mundo interestelar! </p>
+  <p>… </p>
+  <p>MuMu cerró la transmisión en vivo, volvió a su forma de sirena, contó las ganancias en su cuenta de transmisión en vivo y agitó alegremente la punta de su cola: </p>
+  <p>¡Ahora puedo apoyar al Maestro! </p>
+  <p>*** </p>
+  <p>Tras fracasar en su intento de guiar el paisaje mental marino, cierto almirante, obligado a retirarse del campo de batalla, se reincorporó al mundo laboral y construyó por sí solo la mayor industria de la cadena de suministro de sirenas en el mundo interestelar. </p>
+  <p>No le importaba cuántos dígitos tuviera su cuenta, solo si a su obediente sirenita le gustaban los productos de la empresa. </p>
+  <p>Un día, una cuenta anónima le transfirió dinero repentinamente con el mensaje: ¡Que tengas una buena comida hoy! </p>
+  <p>El almirante extremadamente rico: ? </p>
+</div>
+
+<!-- Panel fuera del contenido, pegado a la izquierda -->
+<div class="mi-lectura-panel">
+  <div class="mi-lectura">
+    <b>Estado de lectura:</b>
+    <select id="estado-lectura">
+      <option value="" selected disabled hidden>No leído</option>
+      <option value="por_leer">Por leer</option>
+      <option value="leyendo">Leyendo</option>
+      <option value="leido">Leído</option>
+      <option value="leido_mtl">Leído MTL</option>
+    </select>
+  </div>
+
+  <div class="progreso-lectura">
+    <b>Progreso:</b>
+    <input type="number" id="progreso-capitulo" min="1">
+    <span>/ <span id="total-capitulos"></span> capítulos</span>
+  </div>
+  
+  <div class="acciones-lectura">
+    <button id="guardar-lectura">Guardar</button>
+
+    <button id="eliminar-lectura">
+      <img src="../assets/tacho.png" alt="Eliminar">
+    </button>
+  </div>
+</div>
+
+<div id="epub-container" class="solo-admin" style="display:none"></div>
+
+<div class="autor"></div>
+
+<div id="bloque-autor">
+  <h2>Más del mismo autor</h2>
+  <div id="relacionados" class="grid"></div>
+</div>
+
+</main>
+
+
+<!-- UI GLOBAL -->
+
+<div id="logo-container"></div>
+
+<div id="usuario-container"></div>  
+  
+<div id="banner-container"></div>
+
+<a href="#" id="scrollTop" title="Volver arriba">🌸</a>
+
+<div id="toast" class="toast">Guardado</div>
+<div id="tooltip-tag"></div>
+
+
+<script>
+  window.baseRuta = "../";
+</script>
+
+<script src="../js/logo.js"></script>  
+<script src="../js/banner.js"></script>
+<script type="module" src="../js/auth.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/tags.js"></script>
+<script src="../js/novelas.js"></script>
+<script type="module" src="../js/lecturaSupabase.js"></script>
+<script type="module" src="../js/usuario.js"></script>
+  
+</body>
+</html>
