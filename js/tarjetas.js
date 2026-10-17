@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:288,
+titulo: 'Hola Maestro, ¡La Sirenita te apoyará!',
+ingles: 'Hi Master, Little Mermaid Will Support You!',
+original: '嗨主人，小人鱼直播养你啊',
+slug: "Hola_Maestro,_La_Sirenita_te_apoyará",
+tags: "bl chino finalizado futurista comedia malentendidos no-humano sirena",
+autor: "shu-pian-er",
+link: "https://drive.google.com/drive/u/6/folders/1d2kVy7obinTCBptyprKfAi47oFe46bMD",
+capitulos: '79 + 3 extras'
+},
+
+{
 novela_id:287,
 titulo: 'La boda de la Princesa Marietta',
 ingles: 'Marietta-hime no Konrei',
