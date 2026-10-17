@@ -1389,9 +1389,9 @@ capitulos: '60'
   ingles: 'Every Day After Marriage Is Really Fragrant',
   original: '婚后每天都真香[穿书]',
   slug: 'Cada_día_después_del_matrimonio_es_realmente_fragante',
-  tags: 'bl china pendiente moderno comedia matrimonio-arreglado mpreg transmigracion',
+  tags: 'bl china finalizado moderno comedia matrimonio-arreglado mpreg transmigracion',
   autor: 'dongfeng-jixu',
-  link: 'https://www.novelupdates.com/series/every-day-after-marriage-is-really-fragrant/',
+  link: 'https://drive.google.com/drive/u/6/folders/18OW40IC-4aYJPr-bMrMFRRq-9l4DFI32',
   capitulos: '98 + 2 extras'
 },
 
