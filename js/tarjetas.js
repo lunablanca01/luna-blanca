@@ -2553,9 +2553,9 @@ capitulos: '60'
   ingles: 'Special Fondness',
   original: '独钟',
   slug: 'Cariño_especial',
-  tags: 'bl china pendiente china-antigua matrimonio-arreglado novela-erotica',
+  tags: 'bl china finalizado china-antigua matrimonio-arreglado r18',
   autor: 'du-mao-cai',
-  link: 'https://www.novelupdates.com/series/special-fondness/',
+  link: 'https://drive.google.com/drive/u/6/folders/1UDcnzofDxsxmSL1ha5b0gZGMPkGu3pEv',
   capitulos: '26 + 5 extras'
 },
 
