@@ -2385,9 +2385,9 @@ capitulos: '60'
   ingles: 'Transmigration of Mian [Reluctantly] Becomes His Man [Wife]',
   original: '穿越之勉为其男',
   slug: 'La_transmigración_de_Mian_[a_regañadientes]_se_convierte_en_su_hombre_[esposa]',
-  tags: 'bl china pendiente china-antigua agricultura cultivo mpreg ninos vida-diaria transmigracion',
+  tags: 'bl china finalizado china-antigua agricultura cultivo mpreg ninos vida-diaria transmigracion',
   autor: 'lianxi-ningmou',
-  link: 'https://www.novelupdates.com/series/transmigration-of-mian-reluctantly-becomes-his-man-wife/',
+  link: 'https://drive.google.com/drive/u/6/folders/1udXewUISYyRI1ZmdYdpWS8zPG7A2ZXf4',
   capitulos: '222'
 },
 
