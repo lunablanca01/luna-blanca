@@ -2013,9 +2013,9 @@ capitulos: '60'
   ingles: 'My Junior Still Hasn’t Killed Me',
   original: '师弟还不杀我灭口',
   slug: 'Mi_shidi_todavía_no_me_ha_matado',
-  tags: 'bl china pendiente cultivacion comedia cultivo transmigracion xianxia yandere',
+  tags: 'bl china finalizado cultivacion comedia cultivo transmigracion xianxia yandere',
   autor: 'zi-lu',
-  link: 'https://www.novelupdates.com/series/my-junior-still-hasnt-killed-me/',
+  link: 'https://drive.google.com/drive/u/6/folders/1Ig_M3xfd5bzrocOYwCpjkw2F1dQYOqx4',
   capitulos: '29 + 5 extras'
 },
 
