@@ -1605,9 +1605,9 @@ capitulos: '60'
   ingles: 'I Inherited Empire with Fake Pregnancy',
   original: '假孕后我继承了帝国',
   slug: 'Heredé_el_imperio_con_un_embarazo_falso',
-  tags: 'bl china pendiente futurista bestia-humanizada cultivo malentendidos mpreg no-humano transportado-a-otro-mundo',
+  tags: 'bl china en-proceso futurista bestia-humanizada cultivo malentendidos mpreg no-humano transportado-a-otro-mundo',
   autor: 'lian-yi',
-  link: 'https://www.novelupdates.com/series/i-inherited-empire-with-fake-pregnancy/',
+  link: 'https://drive.google.com/drive/u/6/folders/1AF5sHXd_v8sR0D6yKItebQU3xLU4Ct2H',
   capitulos: '115 + 10 extras'
 },
 
