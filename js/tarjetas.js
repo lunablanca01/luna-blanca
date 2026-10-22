@@ -321,9 +321,9 @@ capitulos: '60'
   ingles: 'Did You Kick the Black Lotus Disciple Out of Sect Today?',
   original: '今天把黑莲花徒弟踢出师门了吗',
   slug: 'Expulsaste_hoy_al_discípulo_del_Loto_Negro_de_la_secta',
-  tags: 'bl china pendiente cultivacion cultivo drama maestro-discipulo transmigracion xianxia',
+  tags: 'bl china MTL cultivacion cultivo drama maestro-discipulo transmigracion xianxia',
   autor: 'dongbei-da-hui-lang',
-  link: 'https://www.novelupdates.com/series/did-you-kick-the-black-lotus-disciple-out-of-sect-today/',
+  link: 'https://drive.google.com/drive/u/6/folders/178xcGic8bOwEVCZrgFAsly5_hckXsC2d',
   capitulos: '140 + 4 extras'
 },
 
