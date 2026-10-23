@@ -561,9 +561,9 @@ capitulos: '60'
   ingles: 'Lovable Package',
   original: '娇气包[快穿]',
   slug: 'Paquete_adorable',
-  tags: 'bl china pendiente multiples-mundos amnesia cultivo sistema transmigracion',
+  tags: 'bl china finalizado multiples-mundos amnesia cultivo sistema transmigracion',
   autor: 'qiu-shi-sha',
-  link: 'https://www.novelupdates.com/series/lovable-package/',
+  link: 'https://drive.google.com/drive/u/6/folders/1ODjDpNyF-U1YY2ujsNJ7jBPeV__VSfK9',
   capitulos: '123'
 },
 
