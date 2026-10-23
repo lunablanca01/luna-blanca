@@ -1341,9 +1341,9 @@ capitulos: '60'
   ingles: 'After Transmigrating I Made The Antagonist Cry',
   original: '穿书后我把反派弄哭了［娱乐圈］',
   slug: 'Después_de_transmigrar_hice_llorar_al_antagonista',
-  tags: 'bl china pendiente moderno comedia industria-del-entretenimiento protagonista-gong vida-diaria transmigracion',
+  tags: 'bl china finalizado moderno comedia industria-del-entretenimiento protagonista-gong vida-diaria transmigracion',
   autor: 'qiaomu-li',
-  link: 'https://www.novelupdates.com/series/after-transmigrating-i-made-the-antagonist-cry/',
+  link: 'https://drive.google.com/drive/u/6/folders/156fU6BT7jfP4_ToLmRv3EdAt85XoCxLM',
   capitulos: '75 + 3 extras'
 },
 
