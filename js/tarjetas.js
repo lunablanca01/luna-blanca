@@ -825,9 +825,9 @@ capitulos: '60'
   ingles: 'How to Fall in Love with the Villain',
   original: '如何与反派谈恋爱',
   slug: 'Cómo_enamorarse_del_villano',
-  tags: 'bl china pendiente multiples-mundos hombre-bestia mpreg multiples-protagonistas transmigracion',
+  tags: 'bl china en-proceso multiples-mundos hombre-bestia mpreg multiples-protagonistas transmigracion',
   autor: 'han-zhang-bu-luo',
-  link: 'https://www.novelupdates.com/series/how-to-fall-in-love-with-the-villain/',
+  link: 'https://drive.google.com/drive/u/6/folders/1UZ30TnLhqlFVN0ARrQM7FN_3BLVuz2Pm',
   capitulos: '84'
 },
 
