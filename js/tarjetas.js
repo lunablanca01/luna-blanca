@@ -2421,9 +2421,9 @@ capitulos: '60'
   ingles: 'The Cruel Tyrant',
   original: '暴君',
   slug: 'El_tirano_cruel',
-  tags: 'bl china pendiente china-antigua enemigos-a-amantes harem realeza novela-erotica transmigracion',
+  tags: 'bl china finalizado china-antigua enemigos-a-amantes harem realeza novela-erotica transmigracion',
   autor: 'rong-heng',
-  link: 'https://www.novelupdates.com/series/the-cruel-tyrant/comment-page-2/?pg=1',
+  link: 'https://drive.google.com/drive/u/6/folders/1qFjxGlU-Y4PJJtHrTTO3acM9zSa8pC1o',
   capitulos: '127 + 4 extras'
 },
 
