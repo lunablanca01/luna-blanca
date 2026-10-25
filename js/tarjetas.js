@@ -441,9 +441,9 @@ capitulos: '60'
   ingles: 'Ger, So Proud',
   original: '哥儿如此多骄',
   slug: 'Ger,_tan_orgulloso',
-  tags: 'bl china pendiente china-antigua agricultura mpreg protagonista-gong vida-diaria transmigracion',
+  tags: 'bl china finalizado china-antigua agricultura mpreg protagonista-gong vida-diaria transmigracion',
   autor: 'jin-futu',
-  link: 'https://www.novelupdates.com/series/ger-so-proud/',
+  link: 'https://drive.google.com/drive/u/6/folders/1UxIK5yOKU2LcbY-f_DqAdWpmDEQP7gjO',
   capitulos: '117 + 2 extras'
 },
 
