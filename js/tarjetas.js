@@ -2361,9 +2361,9 @@ capitulos: '60'
   ingles: 'The Transmigrated Li Jin’s Daily Farming Life',
   original: '穿越之黎锦的农家日常',
   slug: 'La_vida_agrícola_diaria_de_Li_Jin_transmigrado',
-  tags: 'bl china pendiente china-antigua agricultura ger mpreg ninos protagonista-gong transmigracion',
+  tags: 'bl china en-proceso china-antigua agricultura ger mpreg ninos protagonista-gong transmigracion',
   autor: 'hui-mou-yi-ban-xia',
-  link: 'https://www.novelupdates.com/series/the-transmigrated-li-jins-daily-farming-life/',
+  link: 'https://drive.google.com/drive/u/6/folders/17l8xGd6Z4MGf7RKeQdwwoNGie_hO-XOB',
   capitulos: '140 + 20 extras'
 },
 
