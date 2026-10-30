@@ -2241,9 +2241,9 @@ capitulos: '60'
   ingles: 'Begging You to Break Off This Engagement!',
   original: '求求你退婚吧',
   slug: 'Te_ruego_que_rompas_este_compromiso',
-  tags: 'bl china pendiente china-antigua agricultura comedia ger matrimonio-arreglado mpreg transmigracion',
+  tags: 'bl china en-proceso china-antigua agricultura comedia ger matrimonio-arreglado mpreg transmigracion',
   autor: 'kun-cheng-xiong-mao',
-  link: 'https://www.novelupdates.com/series/begging-you-to-break-off-this-engagement/',
+  link: 'https://drive.google.com/drive/u/6/folders/135YPOZBxf5ahUROgzB4_D7GN6lf0AYgr',
   capitulos: '97 + 12 extras'
 },
 
