@@ -2433,9 +2433,9 @@ capitulos: '60'
   ingles: 'The Sickly Beauty Substitute Called It Quits',
   original: '病美人替身不干了',
   slug: 'El_sustituto_de_la_belleza_enfermiza_abandono_el_trabajo',
-  tags: 'bl china pendiente china-antigua lucha-de-poder matrimonio-arreglado renacimiento',
+  tags: 'bl china en-proceso china-antigua lucha-de-poder matrimonio-arreglado renacimiento',
   autor: 'yun-chutang',
-  link: 'https://www.novelupdates.com/series/the-sickly-beauty-substitute-called-it-quits/',
+  link: 'https://drive.google.com/drive/u/6/folders/1Vhc9bR8ciKgiDIRDnGfu0lKaCeT3nj5w',
   capitulos: '248 + 43 extras'
 },
 
