@@ -1065,9 +1065,9 @@ capitulos: '60'
   ingles: 'Reborn Only to Love You Again',
   original: '重生只为再爱你一次',
   slug: 'Renacer_sólo_para_amarte_de_nuevo',
-  tags: 'bl china pendiente moderno drama matrimonio renacimiento',
+  tags: 'bl china en-proceso moderno drama matrimonio renacimiento',
   autor: 'yige-xiao-ping-gai',
-  link: 'https://www.novelupdates.com/series/reborn-only-to-love-you-again/',
+  link: 'https://drive.google.com/drive/u/6/folders/1zGiH_fHoXn4F2UMvHl_ci9_-BQfOF0-a',
   capitulos: '76'
 },
 
