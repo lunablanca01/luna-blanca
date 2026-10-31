@@ -1449,9 +1449,9 @@ capitulos: '60'
   ingles: 'Rebirth With The Beast',
   original: '重生之与兽为伍',
   slug: 'Renacimiento_con_la_bestia',
-  tags: 'bl china pendiente tribal hombre-bestia mpreg ninos transmigracion',
+  tags: 'bl china en-proceso tribal hombre-bestia mpreg ninos transmigracion',
   autor: 'ye-bu-siyu',
-  link: 'https://www.novelupdates.com/series/rebirth-with-the-beast/',
+  link: 'https://drive.google.com/drive/u/6/folders/1v40cJf8PPmtRH7rjpMekKaa6N0EN15BV',
   capitulos: '123 + 4 extras'
 },
 
