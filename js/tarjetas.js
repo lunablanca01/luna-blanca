@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:289,
+titulo: 'Cuando un hombre honesto interpreta a un gong escoria [Transmigración rápida]',
+ingles: 'When an Honest Guy Plays the Scum Gong [Quick Transmigration]',
+original: '当老实人扮演渣攻后[快穿]',
+slug: "Cuando_un_hombre_honesto_interpreta_a_un_gong_escoria_[Transmigración_rápida]",
+tags: "bl chino en-proceso multiples-mundos sistema transmigracion",
+autor: "tian-dao-mengya",
+link: "https://drive.google.com/drive/u/6/folders/1EC-wVDWURHbSE4AjI1VvX8uFFb10J78L",
+capitulos: '168 + 5 extras'
+},
+
+{
 novela_id:288,
 titulo: 'Hola Maestro, ¡La Sirenita te apoyará!',
 ingles: 'Hi Master, Little Mermaid Will Support You!',
