@@ -4,6 +4,18 @@ const baseRuta = window.baseRuta || "";
 const novelas = [
 
 {
+novela_id:290,
+titulo: 'Renacer para consentir a mi esposo',
+ingles: 'Rebirth: The Journey of a Wife Spoiling Her Husband',
+original: '重生之宠夫之路',
+slug: "Renacer_para_consentir_a_mi_esposo",
+tags: "bg chino finalizado china-antigua aristocracia malentendidos matrimonio mpreg redencion renacimiento",
+autor: "qi-rong",
+link: "https://drive.google.com/drive/u/6/folders/1SMFniQdV1kz0WrBobhHla6uJACY4gu7b",
+capitulos: '98'
+},
+
+{
 novela_id:289,
 titulo: 'Cuando un hombre honesto interpreta a un gong escoria [Transmigración rápida]',
 ingles: 'When an Honest Guy Plays the Scum Gong [Quick Transmigration]',
