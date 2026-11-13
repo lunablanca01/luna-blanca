@@ -1605,9 +1605,9 @@ capitulos: '60'
   ingles: 'Raising a Bun with a Daily Life System',
   original: '带着生活系统养包子',
   slug: 'Levantar_un_bollo_con_un_sistema_de_vida_diaria',
-  tags: 'bl china pendiente futurista comedia malentendidos mpreg ninos r18 sistema vida-diaria transmigracion',
+  tags: 'bl china finalizado futurista comedia malentendidos mpreg ninos r18 sistema vida-diaria transmigracion',
   autor: 'long-qi',
-  link: 'https://www.novelupdates.com/series/raising-a-bun-with-a-daily-life-system/',
+  link: 'https://drive.google.com/drive/u/6/folders/1pc27YcS2twzp46vUOkMD9TkqjVAOXnUI',
   capitulos: '158'
 },
 
